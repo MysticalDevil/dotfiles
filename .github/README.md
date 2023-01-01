@@ -109,10 +109,15 @@ tmux 的 &lt;Prefix&gt; 快捷键配置为了 Ctrl+a其中采用了 [`tpm`](http
 
 ### Alacritty
 
-使用 Rust 编写的跨平台终端模拟器
+使用 Rust 编写的 GPU 加速终端模拟器
 具体配置详见 [`alacritty.yml`](https://github.com/MysticalDevil/dotfiles/blob/master/.config/alacritty/alacritty.yml)
 
 ### WezTerm
 
-使用 Rust 编写的跨平台终端模拟器，相比 Alacritty 速度较慢，但是支持多标签页和分屏等
+使用 Rust 编写的 GPU 加速终端模拟器，相比 Alacritty 速度较慢，但是支持多标签页和分屏等
 具体配置详见 [`wezterm.lua`](https://github.com/MysticalDevil/dotfiles/blob/master/.config/wezterm/wezterm.lua)
+
+### Kitty
+
+使用 Python 编写的 GPU 加速终端模拟器，相比 Alacritty 更加友好，有一些内置语法
+具体配置详见 [`kitty.conf`](https://github.com/MysticalDevil/dotfiles/blob/master/.config/kitty/kitty.conf)
