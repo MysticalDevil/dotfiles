@@ -1,6 +1,6 @@
-# dotfiles
+# MysticalDevil's dotfiles
 
-目前在 arch linux 系统下的一些常用软件的配置，使用 [`chezmoi`](https://github.com/twpayne/chezmoi) 进行管理
+目前在 arch linux 系统下的一些常用软件的配置，使用 [`yadm`](https://github.com/TheLocehiliosan/yadm) 进行管理
 
 ## 主要软件列表如下
 
@@ -30,7 +30,7 @@
 
 ### ZSH
 
-具体配置详见　[zsh/.zshrc](private_dot_zshrc)
+具体配置详见　[.zshrc](.zshrc)
 
 采用　zimfw 框架引入插件，starship 来定义　shell 样式
 zimfw 开箱提供了 语法高亮`zsh-syntax-highlighting`、自动建议`zsh-autosuggestions`、命令记录搜索`zsh-history-substring-search` 等插件
@@ -88,7 +88,7 @@ zimfw 开箱提供了 语法高亮`zsh-syntax-highlighting`、自动建议`zsh-a
   forgit_fixup=gfu
   ```
 
-还有一些 zim 开箱提供的插件，具体详见 [.zimrc](private_dot_zimrc)
+还有一些 zim 开箱提供的插件，具体详见 [.zimrc](.zimrc)
 
 ### Tmux
 
@@ -104,14 +104,14 @@ zimfw 开箱提供了 语法高亮`zsh-syntax-highlighting`、自动建议`zsh-a
 - [`tmux-fzf`](https://github.com/sainnhe/tmux-fzf) 使用 fzf 来管理 tmux session
 - [`dracula/tmux`](https://github.com/dracula/tmux) tmux 的 dracula 主题
 
-具体配置详见 [.tmux.conf](dot_tmux.conf)
+具体配置详见 [.tmux.conf](.tmux.conf)
 
 ### Alacritty
 
 使用 Rust 编写的跨平台终端模拟器
-具体配置详见 [alacritty.yml](private_dot_config/alacritty/alacritty.yml)
+具体配置详见 [alacritty.yml](.config/alacritty/alacritty.yml)
 
 ### WezTerm
 
 使用 Rust 编写的跨平台终端模拟器，相比 Alacritty 速度较慢，但是支持多标签页和分屏等
-具体配置详见 [wezterm.lua](private_dot_config/wezterm/executable_wezterm.lua)
+具体配置详见 [wezterm.lua](.config/wezterm/executable_wezterm.lua)
