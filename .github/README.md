@@ -14,8 +14,6 @@
 
 - [`fish`](https://fishshell.com/) friendly interactive shell 很傻瓜式的 shell，自身就提供了自动补全、语法高亮等功能，但是语法相比 bash 有很大出入
 
-- [`mycli`](https://www.mycli.net/) 使用 python 编写的 mysql cli，提供了语法高亮和自动补全
-
 - [`alacritty`](https://alacritty.org/) 使用 Rust 编写的跨平台的终端模拟器, GPU terminal
 
 - [`kitty`](https://sw.kovidgoyal.net/kitty) 使用 python 和 C 编写的 GPU terminal
@@ -30,7 +28,7 @@
 
 ### ZSH
 
-具体配置详见　[.zshrc](.zshrc)
+具体配置详见　[`.zshrc`](~/.zshrc)
 
 采用　zimfw 框架引入插件，starship 来定义　shell 样式
 zimfw 开箱提供了 语法高亮`zsh-syntax-highlighting`、自动建议`zsh-autosuggestions`、命令记录搜索`zsh-history-substring-search` 等插件
@@ -88,7 +86,7 @@ zimfw 开箱提供了 语法高亮`zsh-syntax-highlighting`、自动建议`zsh-a
   forgit_fixup=gfu
   ```
 
-还有一些 zim 开箱提供的插件，具体详见 [.zimrc](.zimrc)
+还有一些 zim 开箱提供的插件，具体详见 [`.zimrc`](~/.zimrc)
 
 ### Tmux
 
@@ -104,14 +102,14 @@ zimfw 开箱提供了 语法高亮`zsh-syntax-highlighting`、自动建议`zsh-a
 - [`tmux-fzf`](https://github.com/sainnhe/tmux-fzf) 使用 fzf 来管理 tmux session
 - [`dracula/tmux`](https://github.com/dracula/tmux) tmux 的 dracula 主题
 
-具体配置详见 [.tmux.conf](.tmux.conf)
+具体配置详见 [`.tmux.conf`](~/.tmux.conf)
 
 ### Alacritty
 
 使用 Rust 编写的跨平台终端模拟器
-具体配置详见 [alacritty.yml](.config/alacritty/alacritty.yml)
+具体配置详见 [`alacritty.yml`](~/.config/alacritty/alacritty.yml)
 
 ### WezTerm
 
 使用 Rust 编写的跨平台终端模拟器，相比 Alacritty 速度较慢，但是支持多标签页和分屏等
-具体配置详见 [wezterm.lua](.config/wezterm/executable_wezterm.lua)
+具体配置详见 [`wezterm.lua`](~/.config/wezterm/executable_wezterm.lua)
