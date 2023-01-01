@@ -1,0 +1,318 @@
+
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Inserts a blank line between shell prompts
+add_newline = true
+
+continuation_prompt = "▶▶"
+
+# Configure the format of the prompt
+format = """$os\
+        $username \
+        $hostname\
+        $shlvl\
+        $kubernetes\
+        $directory\
+        $git_branch\
+        $git_commit\
+        $git_state\
+        $git_status\
+        $hg_branch\
+        $docker_context\
+        $package\
+        (↓ Toolchain version modules ↓)\
+        $c\
+        $cmake\
+        $dart\
+        $deno\
+        $dotnet\
+        $elixir\
+        $erlang\
+        $golang\
+        $java\
+        $kotlin\
+        $lua\
+        $nim\
+        $nodejs\
+        $ocaml\
+        $perl\
+        $php\
+        $python\
+        $ruby\
+        $rust\
+        $swift\
+        $zig\
+        (↑ Toolchain version modules ↑)\
+        $memory_usage\
+        $env_var\
+        $custom\
+        $cmd_duration\
+        (↑ above input line ↑)\
+        $line_break\
+        (↓ on input line ↓)\
+        $jobs\
+        $battery\
+        $time\
+        $status\
+        $character\
+    """
+
+# Replace the '❯' symbol in the prompt with '➜'
+[character]
+success_symbol = '[➜](bold green)'
+error_symbol = '[✗](bold red)'
+
+[battery]
+disabled = false
+full_symbol = ""
+charging_symbol = ""
+discharging_symbol = ""
+format = "[$symbol$percentage]($style) "
+[[battery.display]]
+threshold = 10
+style = "red bold"
+
+[cmd_duration]
+format = '\[[⏱ $duration]($style)\]'
+style = "bold cyan"
+min_time = 2_000
+show_milliseconds = false
+
+[directory]
+format = "[ $path]($style) [$read_only]($read_only_style) "
+truncation_length = 2
+style = "underline bold green"
+read_only = ""
+truncation_symbol = "../"
+
+[hostname]
+disabled = false
+ssh_only = true
+trim_at = "."
+format = "[$hostname]($style) in "
+style = "green dimmed bold"
+
+[jobs]
+disabled = false
+threshold = 1
+format = "[$symbol$number]($style) "
+symbol = "✦"
+style = "bold blue"
+
+[line_break]
+disabled = false
+
+[memory_usage]
+disabled = true
+threshold = 75
+format = '\[$symbol[$ram( | $swap)]($style)\] '
+style = "white bold dimmed"
+symbol = " "
+
+[os]
+format = "[$symbol]($style) "
+style = "bold blue"
+disabled = false
+
+[os.symbols]
+Windows = " "
+Arch = " "
+
+[package]
+format = '\[[$symbol$version]($style)\]'
+symbol = '📦 '
+style = 'bold 208'
+display_private = false
+
+[shlvl]
+disabled = true
+threshold = 2
+format = "[$symbol$shlvl]($style) "
+symbol = "↕"
+style = "bold yellow"
+
+[status]
+disabled = true
+format = "[$symbol$status]($style) "
+symbol = "✖"
+style = "bold red"
+
+[sudo]
+style = "bold green"
+symbol = "👩‍💻 "
+
+[username]
+style_user = "bold bright-white"
+style_root = "red bold"
+format = "[ $user]($style) in"
+disabled = false
+show_always = true
+
+# ----------------------------- Version control system about ----------------------------
+[git_status]
+format = '([\[$all_status$ahead_behind\]]($style) )'
+style = "red bold"
+stashed = '\$'
+ahead = "⇡"
+behind = "⇣"
+diverged = "⇕"
+conflicted = "="
+deleted = "✘"
+renamed = "»"
+modified = "!"
+staged = "+"
+untracked = "?"
+
+[git_branch]
+format = '\[[$symbol$branch]($style)\]'
+
+# Mercurial
+[hg_branch]
+disabled = false
+symbol = " "
+style = "bold purple"
+format = "on [$symbol$branch]($style) "
+# truncation_length = 8 # default = 2^63 - 1
+truncation_symbol = "…"
+
+# ------------------------------------- Docker about ------------------------------------
+[docker_context]
+format = '\[[$symbol$context]($style)\]'
+symbol = '🐳 '
+style = 'blue bold'
+
+[kubernetes]
+format = '\[[$symbol$context( \($namespace\))]($style)\]'
+symbol = "☸ "
+style = "cyan bold"
+
+# ------------------------------ Language or Runtime about ------------------------------
+[bun]
+format = '\[[$symbol($version)]($style)\]'
+symbol = '🍞 '
+style = 'bold red'
+
+[c]
+format = '\[[$symbol($version(-$name))]($style)\]'
+symbol = " "
+style = 'bold 149'
+
+[cmake]
+format = '\[[$symbol($version)]($style)\]'
+symbol = 'M '
+style = 'bold blue'
+
+[dart]
+format = '\[[$symbol($version)]($style)\]'
+symbol = " "
+style = "bold blue"
+
+[deno]
+format = '\[[$symbol($version)]($style)\]'
+symbol = '🦕 '
+style = 'green bold'
+
+[dotnet]
+format = '\[[$symbol($version)(🎯 $tfm)]($style)\]'
+symbol = "•NET "
+style = "blue bold"
+heuristic = true
+
+[elixir]
+format = '\[[$symbol($version \(OTP $otp_version\))]($style)\]'
+symbol = " "
+style = "bold purple"
+
+[erlang]
+format = '\[[$symbol($version)]($style)\]'
+symbol = " "
+style = "bold red"
+
+[golang]
+format = '\[[$symbol($version)]($style)\]'
+symbol = " "
+style = "bold cyan"
+
+[haskell]
+format = '\[[$symbol($version)]($style)\]'
+symbol = " "
+style = 'bold purple'
+
+[java]
+format = '\[[$symbol($version)]($style)\]'
+style = "red dimmed"
+symbol = " "
+
+[kotlin]
+format = '\[[$symbol($version)]($style)\]'
+symbol = ' '
+style = 'bold bright-blue'
+
+[lua]
+format = '\[[$symbol($version)]($style)\]'
+symbol = ' '
+style = 'bold blue'
+
+[meson]
+format = '\[[$symbol$project]($style)\]'
+symbol = '卑 '
+style = 'blue bold'
+
+[nim]
+format = '\[[$symbol($version)]($style)\]'
+symbol = " "
+style = "yellow bold"
+
+[nodejs]
+format = '\[[$symbol($version)]($style)\]'
+symbol = ' '
+style = "bold green"
+
+[ocaml]
+format = '\[[$symbol($version)(\($switch_indicator$switch_name\))]($style)\]'
+symbol = "🐫 "
+style = "bold yellow"
+
+[perl]
+format = '\[[$symbol($version)]($style)\]'
+symbol = " "
+style = "149 bold"
+
+[php]
+format = '\[[$symbol($version)]($style)\]'
+symbol = '🐘 '
+
+[python]
+format = '\[[${symbol}${pyenv_prefix}(${version})(\($virtualenv\))]($style)\]'
+style = "yellow bold"
+symbol = " "
+pyenv_version_name = false
+pyenv_prefix = "pyenv "
+python_binary = "python"
+
+[ruby]
+format = '\[[$symbol($version)]($style)\]'
+symbol = " "
+style = "bold red"
+
+[rust]
+format = '\[[$symbol($version)]($style)\]'
+symbol = '🦀 '
+style = "bold red"
+
+[scala]
+format = '\[[$symbol($version)]($style)\]'
+symbol = " "
+style = 'red dimmed'
+
+[swift]
+disabled = false
+format = '\[[$symbol($version)]($style)\] '
+symbol = ' '
+style = "bold 202"
+
+[zig]
+format = '\[[$symbol($version)]($style)\]'
+symbol = '↯ '
+style = 'bold yellow'
