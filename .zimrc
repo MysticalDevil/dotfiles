@@ -38,7 +38,7 @@ zmodule git-info
 #
 zmodule asdf
 zmodule pvenv
-zmodule ruby
+# zmodule ruby
 
 #
 # Completion

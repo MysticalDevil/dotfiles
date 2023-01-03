@@ -74,8 +74,8 @@ local config = {
 
     -- Font
     font = wezterm.font_with_fallback { {
-        family = 'MesloLGS Nerd Font'
-    }, 'MesloLGS NF', },
+        family = 'MesloLGS Nerd Font',
+    }, 'MesloLGS NF', 'Noto Emoji'},
     font_size = 10,
     normalize_output_to_unicode_nfc = true,
 
