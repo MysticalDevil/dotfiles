@@ -286,6 +286,11 @@ eval "$(navi widget zsh)"
 # eval "$(rbenv init -)"
 # Set opam(OCaml package manager) current env
 eval "$(opam env --switch=default)"
+# Kitty Integration
+autoload -Uz compinit
+compinit
+# Completion for kitty
+kitty + complete setup zsh | source /dev/stdin
 
 # bun completions
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
