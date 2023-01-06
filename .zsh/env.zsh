@@ -25,13 +25,6 @@ export PATH="$HOME/.cargo/bin:$PATH"
 # dotNET Tools
 export PATH="$HOME/.dotnet/tools:$PATH"
 
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="$HOME/.rd/bin:$PATH"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
-
-# Broot configure
-source $HOME/.config/broot/launcher/bash/br
-
 # Tiup database manager
 export PATH="$HOME/.tiup/bin:$PATH"
 
@@ -60,6 +53,3 @@ export LS_COLORS="$(vivid generate one-dark)"
 # Bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
-
-# Eliminate duplicate entries in history
-setopt HIST_IGNORE_DUPS
