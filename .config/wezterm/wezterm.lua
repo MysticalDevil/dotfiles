@@ -11,9 +11,9 @@ if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
     term = '' -- Set to empty so FZF works on windows
     table.insert(launch_menu, {
         label = 'PowerShell',
-        args = { 'pwsh.exe', '-NoLogo' }
+        args = { 'powershell.exe', '-NoLogo' }
     })
-    default_prog = { 'pwsh.exe', '-NoLogo' }
+    default_prog = { 'powershell.exe', '-NoLogo' }
 else
     table.insert(launch_menu, {
         label = 'zsh',
