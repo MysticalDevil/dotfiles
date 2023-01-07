@@ -2,6 +2,10 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-set --export --prepend PATH "/home/omega/.rd/bin"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+# Starship prompt
+function starship_transent_rmpt_func
+  starship module time
+end
+starship init fish | source
+enable_transience
+
