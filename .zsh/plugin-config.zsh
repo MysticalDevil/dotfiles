@@ -2,7 +2,6 @@
 #
 # Fzf - A command-line fuzzy finder
 #
-
 # ---------------------------------------------------------
 
 # preview directory's content with exa when completing cd
@@ -65,10 +64,3 @@ zstyle ':fzf-tab:complete:diff:*' popup-min-size 80 12
 # Paman module setting
 zstyle ':zim:pacman' frontend 'yay'
 zstyle ':zim:pacman' helpers 'aur'
-
-# atuin keybind
-# bindkey '^t' _atuin_search_widget
-
-# Autojump plugin
-# [[ -s /etc/profile.d/autojump.sh ]] && . /etc/profile.d/autojump.sh
-
