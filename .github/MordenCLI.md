@@ -58,6 +58,10 @@
 
 - [`xcp`](https://github.com/tarka/xcp) 文件复制，复制时有进度条 ｜ 替代 cp
 
+- [`watchexec`](https://github.com/watchexec/watchexec) 监视目录文件变动，类似一种热更新
+
+- [`pueue`](https://github.com/) 命令行任务管理工具，用于顺序和并行执行长时间运行的任务
+
 - [`gitoxide`](https://github.com/Byron/gitoxide) git 的 Rust 实现，相比原版 git 更加优雅美观
 
 - [`topgrade`](https://github.com/topgrade-rs/topgrade) 包管理器的升级工具，能够升级系统包、框架包（zimfw，bash-it，oh-my-fish，tmux-tpm）、Runtime包（Bun，Deno）、多版本管理器（rustup，ghcup，asdf，nvm，rbenv）、tldr、git仓库、语言的包管理器（pip，gem，opam，cargo）、固件更新
