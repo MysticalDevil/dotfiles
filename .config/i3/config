@@ -42,12 +42,6 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
-# brightness control
-exec_always --no-startup-id light -I
-bindsym XF86MonBrightnessUp exec light -A 2 && light -O && brightness &
-bindsym XF86MonBrightnessDown exec light -U 2 && light -O && brightness &
-
-
 # use these keys for focus, movement, and resize directions when reaching for
 # the arrows is not convenient
 set $up l
@@ -115,7 +109,7 @@ bindsym $mod+f fullscreen toggle
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+q layout stacking
 bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+t layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -180,6 +174,16 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
+# Use scrot to cut screen
+# 全屏截图
+bindsym --release Print exec "scrot -b -m /tmp/screenshot.png && xclip -selection clipoard -t 'image/png' /tmp/screenshot.png"
+# 截取当前窗口
+bindsym --release $mod+Print exec "scrot -u -b -m /tmp/screenshot.png && xclip -selection clipoard -t 'image/png' /tmp/screenshot.png"
+# 鼠标选择区域
+bindsym --release $mod+Shift+Print exec "scrot -s -b -m /tmp/screenshot.png && xclip -selection clipoard -t 'image/png' /tmp/screenshot.png"
+# QQ 风格的截屏快捷键
+bindsym --release Control+Mod1+A exec "scrot -s -b -m /tmp/screenshot.png && xclip -selection clipoard -t 'image/png' /tmp/screenshot.png"
+
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -214,9 +218,9 @@ bindsym $mod+r mode "resize"
 # }
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id numlockx on
-exec_always --no-startup-id feh --bg-scale "$HOME/Pictures/land.jpg"
-exec_always --no-startup-id mpd
-exec --no-startup-id picom --config ~/.config/picom/picom.conf -b --experimental-backends
+exec_always --no-startup-id feh --bg-scale --randomize "$HOME/Pictures/wallpapers/"
+# exec_always --no-startup-id mpd
+exec --no-startup-id picom -b --experimental-backends
 exec --no-startup-id copyq
 exec --no-startup-id dunst
 exec --no-startup-id fcitx5
@@ -262,4 +266,12 @@ for_window [class="^.*"] border pixel 2
 gaps inner 3
 gaps outer 2
 
+# bind key to start flameshot
 bindsym $mod+Shift+s exec flameshot gui
+# start google-chrome
+bindsym $mod+g exec --no-startup-id google-chrome-stable
+# Lock screen
+bindsym Ctrl+Shift+l exec --no-startup-id blurlock
+exec --no-startup-id xautolock -time 45 -locker blurlock
+# Open file manager
+bindsym $mod+e exec --no-startup-id thunar
