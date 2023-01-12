@@ -1274,3 +1274,157 @@ Jan 10 18:26 : update: added /风雪无人归 - 锦零.flac
 Jan 10 18:26 : update: added /飘向北方 (Live) - 那吾克热-NW,尤长靖.flac
 Jan 10 18:26 : update: added /黎明 - 杨世贸,符白牙.flac
 Jan 12 19:24 : exception: Failed to open '/home/omega/.config/mpd/mpd.state': No such file or directory
+Jan 12 20:21 : output: Failed to play on "PipeWire Sound Server" (pipewire): invalid message id:2 op:2 (Invalid argument)
+Jan 12 20:21 : exception: Failed to open audio output
+Jan 12 20:29 : player: played "Lost Control (Original Mix) - Tyron Hapi,Bianca.flac"
+Jan 12 20:32 : player: played "Lost Melodies - John Dahlbäck.mp3"
+Jan 12 20:35 : player: played "LOUD (feat. Jason Aalon from FEVER 333) - Sullivan King,Jason Aalon Butler.mp3"
+Jan 12 20:38 : player: played "Love - Physika.mp3"
+Jan 12 20:41 : player: played "Love Again - WildVibes,Patrick Key,Stine Kristiansen.mp3"
+Jan 12 20:44 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 20:44 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 20:44 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 20:44 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 20:44 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 20:44 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 20:44 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 20:44 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 20:44 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 20:44 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 20:44 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 20:44 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 20:44 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 20:44 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 20:44 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 20:44 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 20:44 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 20:44 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 20:44 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 20:44 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 20:44 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 20:44 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 20:44 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 20:44 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 20:44 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 20:44 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 20:44 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 20:44 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 20:44 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 20:44 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 20:44 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 20:44 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 20:44 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 20:44 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 20:44 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 20:44 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 20:44 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 20:44 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 20:44 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 20:44 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 20:44 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 20:44 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 20:44 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 20:44 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 20:44 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 20:44 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 20:44 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 20:44 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 20:44 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 20:44 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 20:44 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 20:44 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 20:44 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 20:44 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 20:44 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 20:44 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 20:44 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 20:44 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 20:44 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 20:44 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 20:44 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 20:44 : player: played "Love Ain't Changin - GhostDragon,Caslow,Red Comet.mp3"
+Jan 12 20:49 : flac: FLAC__STREAM_DECODER_ERROR_STATUS_LOST_SYNC
+Jan 12 20:49 : player: played "Love Me For The Weekend (with Ashe) - Party Pupils,MAX,Ashe.flac"
+Jan 12 20:52 : player: played "I Said Hi - Amy Shark.mp3"
+Jan 12 20:55 : player: played "Love Parade - CMC$,Jenny March.mp3"
+Jan 12 20:59 : flac: FLAC__STREAM_DECODER_ERROR_STATUS_LOST_SYNC
+Jan 12 20:59 : player: played "Love You Lately - Ariana & the Rose,RKCB.flac"
+Jan 12 21:04 : player: played "Love Yourself (Natio Remix) - Natio,Justin Bieber,Conor Maynard.mp3"
+Jan 12 21:05 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 21:05 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 21:05 : player: played "Lovefool - twocolors.mp3"
+Jan 12 21:09 : flac: FLAC__STREAM_DECODER_ERROR_STATUS_LOST_SYNC
+Jan 12 21:09 : flac: FLAC__STREAM_DECODER_ERROR_STATUS_BAD_HEADER
+Jan 12 21:09 : flac: FLAC__STREAM_DECODER_ERROR_STATUS_LOST_SYNC
+Jan 12 21:09 : player: played "lovely - Billie Eilish,Khalid.flac"
+Jan 12 21:13 : player: played "Loyal to Me - Nina Nesbitt.flac"
+Jan 12 21:17 : player: played "Lucid Dreams - Juice WRLD.mp3"
+Jan 12 21:19 : flac: FLAC__STREAM_DECODER_ERROR_STATUS_LOST_SYNC
+Jan 12 21:19 : player: played "Lullaby - R3HAB,Mike Williams.flac"
+Jan 12 21:23 : player: played "Lush Life (Acoustic Version) - Zara Larsson.mp3"
+Jan 12 21:25 : flac: FLAC__STREAM_DECODER_ERROR_STATUS_LOST_SYNC
+Jan 12 21:25 : flac: FLAC__STREAM_DECODER_ERROR_STATUS_BAD_HEADER
+Jan 12 21:25 : flac: FLAC__STREAM_DECODER_ERROR_STATUS_LOST_SYNC
+Jan 12 21:26 : player: played "Champion - Fall Out Boy.flac"
+Jan 12 21:29 : player: played "Cappuccino - YUC'e.mp3"
+Jan 12 21:32 : flac: FLAC__STREAM_DECODER_ERROR_STATUS_LOST_SYNC
+Jan 12 21:32 : player: played "Magical - Newclaess,Anvy.flac"
+Jan 12 21:36 : player: played "Good Together - Shallou,Ashe.mp3"
+Jan 12 21:39 : player: played "Centuries (Remix) - Fall Out Boy,Juicy J.mp3"
+Jan 12 21:42 : flac: FLAC__STREAM_DECODER_ERROR_STATUS_LOST_SYNC
+Jan 12 21:42 : player: played "Make It Louder - Quintino.flac"
+Jan 12 21:45 : player: played "Still Around - Justin Mylo,SMBDY.mp3"
+Jan 12 21:48 : player: played "Heathens／Stressed Out（Cover twenty one pilots） - Biscuits.mp3"
+Jan 12 21:52 : player: played "Digital World - Amaranthe.mp3"
+Jan 12 21:52 : pipewire_output: Decoder is too slow; playing silence to avoid xrun
+Jan 12 21:54 : player: played "Maybe - Janieck,BUNT.mp3"
+Jan 12 21:56 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 21:58 : player: played "重生REBORN(Prod.Red Killer) - 阿扯Archer,麦家豪(Michael）,Zachhh.flac"
+Jan 12 22:01 : flac: FLAC__STREAM_DECODER_ERROR_STATUS_LOST_SYNC
+Jan 12 22:01 : flac: FLAC__STREAM_DECODER_ERROR_STATUS_BAD_HEADER
+Jan 12 22:01 : flac: FLAC__STREAM_DECODER_ERROR_STATUS_LOST_SYNC
+Jan 12 22:01 : player: played "Relax - Junona Boys.flac"
+Jan 12 22:01 : player: played "Relive - Atef.flac"
+Jan 12 22:13 : flac: FLAC__STREAM_DECODER_ERROR_STATUS_LOST_SYNC
+Jan 12 22:13 : flac: FLAC__STREAM_DECODER_ERROR_STATUS_BAD_HEADER
+Jan 12 22:13 : flac: FLAC__STREAM_DECODER_ERROR_STATUS_LOST_SYNC
+Jan 12 22:13 : player: played "Relive - Atef.flac"
+Jan 12 22:16 : flac: FLAC__STREAM_DECODER_ERROR_STATUS_LOST_SYNC
+Jan 12 22:17 : player: played "In Between The Lines - Tyrone Wells.flac"
+Jan 12 22:20 : client: [2] malformed command ""
+Jan 12 22:20 : player: played "Remedy - Blackcode,9Lives,Robbie Rosen.mp3"
+Jan 12 22:20 : player: played "Remember (Original Mix) - Sensitive,Bogdan Bondarenko.mp3"
+Jan 12 22:51 : player: played "Remember (Original Mix) - Sensitive,Bogdan Bondarenko.mp3"
+Jan 12 23:01 : flac: FLAC__STREAM_DECODER_ERROR_STATUS_LOST_SYNC
+Jan 12 23:01 : flac: FLAC__STREAM_DECODER_ERROR_STATUS_BAD_HEADER
+Jan 12 23:01 : flac: FLAC__STREAM_DECODER_ERROR_STATUS_LOST_SYNC
+Jan 12 23:01 : player: played "Back To U - SLANDER,William Black.flac"
+Jan 12 23:04 : player: played "Back To You - Hilefex.mp3"
+Jan 12 23:07 : player: played "Backwards - Alexander Stewart.mp3"
+Jan 12 23:10 : player: played "Werk - CID.mp3"
+Jan 12 23:13 : player: played "bad guy - with Justin Bieber - Billie Eilish,Justin Bieber.mp3"
+Jan 12 23:16 : player: played "Skin Tight - Niykee Heaton.mp3"
+Jan 12 23:19 : player: played "Barcelona - Max George.mp3"
+Jan 12 23:20 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 23:20 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 23:20 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 23:21 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 23:21 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 23:21 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 23:21 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 23:24 : player: played "＊＊＊＊ U - Kailee Morgue.mp3"
+Jan 12 23:26 : player: played "Light & Your Story - 千坂.flac"
+Jan 12 23:39 : flac: FLAC__STREAM_DECODER_ERROR_STATUS_LOST_SYNC
+Jan 12 23:39 : flac: FLAC__STREAM_DECODER_ERROR_STATUS_BAD_HEADER
+Jan 12 23:39 : flac: FLAC__STREAM_DECODER_ERROR_STATUS_LOST_SYNC
+Jan 12 23:39 : player: played "What Do I Know？ - Ed Sheeran.flac"
+Jan 12 23:42 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 23:42 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 23:42 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 23:42 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 23:42 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 23:42 : exception: Failed to open /home/omega/.config/mpd/playlists: Not a directory
+Jan 12 23:43 : flac: FLAC__STREAM_DECODER_ERROR_STATUS_LOST_SYNC
+Jan 12 23:43 : player: played "Supermarket Flowers - Ed Sheeran.flac"
+Jan 12 23:46 : flac: FLAC__STREAM_DECODER_ERROR_STATUS_LOST_SYNC
+Jan 12 23:47 : player: played "Supermarket Flowers - Ed Sheeran.flac"
