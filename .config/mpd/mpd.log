@@ -1428,3 +1428,7 @@ Jan 12 23:43 : flac: FLAC__STREAM_DECODER_ERROR_STATUS_LOST_SYNC
 Jan 12 23:43 : player: played "Supermarket Flowers - Ed Sheeran.flac"
 Jan 12 23:46 : flac: FLAC__STREAM_DECODER_ERROR_STATUS_LOST_SYNC
 Jan 12 23:47 : player: played "Supermarket Flowers - Ed Sheeran.flac"
+Jan 12 23:49 : flac: FLAC__STREAM_DECODER_ERROR_STATUS_LOST_SYNC
+Jan 12 23:49 : flac: FLAC__STREAM_DECODER_ERROR_STATUS_BAD_HEADER
+Jan 12 23:49 : flac: FLAC__STREAM_DECODER_ERROR_STATUS_LOST_SYNC
+Jan 12 23:50 : player: played "Nancy Mulligan - Ed Sheeran.flac"
