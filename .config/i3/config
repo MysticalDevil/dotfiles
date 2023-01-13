@@ -78,8 +78,7 @@ bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
 # bindsym $mod+d exec --no-startup-id rofi -show drun
-bindsym $mod+a exec --no-startup-id "~/.config/rofi/bin/windows"
-bindsym $mod+d exec --no-startup-id "~/.config/rofi/bin/launcher"
+bindsym $mod+d exec --no-startup-id "~/.config/rofi/scripts/launcher_t2"
 # bindsym $mod+s exec ~/.config/rofi/bin/greenclip
 # A more modern dmenu replacement is rofi:
 # bindsym $mod+d exec "rofi -modi drun,run -show drun"
@@ -306,9 +305,8 @@ for_window [class="VirtualBox Manager|qemu|Qemu-system-x86_64"] floating enable
 exec_always --no-startup-id "~/.config/polybar/launch.sh"
 exec_always --no-startup-id numlockx on
 exec_always --no-startup-id feh --bg-scale --randomize "$HOME/Pictures/wallpapers/"
-### Autostart autotiling
 exec_always --no-startup-id autotiling -w 1 3 5 7 9
-
+exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=secrets
 exec --no-startup-id picom -b --experimental-backends
 exec --no-startup-id copyq
 exec --no-startup-id dunst
@@ -345,7 +343,7 @@ client.background       #F8F8F2
 # bind key to start flameshot
 bindsym $mod+Shift+s exec flameshot gui
 # start google-chrome
-bindsym $mod+g exec --no-startup-id google-chrome-stable
+bindsym $mod+g exec --no-startup-id google-chrome-stable --password-store=gnome
 # Lock screen
 bindsym $alt+Shift+l exec --no-startup-id "betterlockscreen --lock"
 exec --no-startup-id xautolock -time 45 -locker "betterlockscreen --lock"
