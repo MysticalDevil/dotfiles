@@ -343,9 +343,9 @@ client.background       #F8F8F2
 # bind key to start flameshot
 bindsym $mod+Shift+s exec flameshot gui
 # start google-chrome
-bindsym $mod+g exec --no-startup-id google-chrome-stable --password-store=gnome
+bindsym $mod+b exec --no-startup-id google-chrome-stable --password-store=gnome
 # Lock screen
 bindsym $alt+Shift+l exec --no-startup-id "betterlockscreen --lock"
-exec --no-startup-id xautolock -time 45 -locker "betterlockscreen --lock"
+exec --no-startup-id xautolock -time 45 -locker "betterlockscreen --lock" -detectsleep
 # Open file manager
 bindsym $mod+e exec --no-startup-id thunar
