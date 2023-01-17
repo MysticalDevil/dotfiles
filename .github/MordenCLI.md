@@ -58,6 +58,12 @@
 
 - [`xcp`](https://github.com/tarka/xcp) 文件复制，复制时有进度条 ｜ 替代 cp
 
+- [`gix`](https://github.com/Byron/gitoxide) Git 的惯用、精简、快速和安全的纯 Rust 实现
+
+- [`dura`](https://github.com/tkellogg/dura) 用于监视 Git 存储库的后台进程
+
+- [`csview`](https://github.com/wfxr/csview) 快速漂亮的命令行 csv 查看器
+
 - [`watchexec`](https://github.com/watchexec/watchexec) 监视目录文件变动，类似一种热更新
 
 - [`pueue`](https://github.com/) 命令行任务管理工具，用于顺序和并行执行长时间运行的任务

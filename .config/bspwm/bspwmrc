@@ -138,7 +138,7 @@ done
 
 ## Always Floating Apps
 declare -a floating=(fdm alacritty-float Pcmanfm Thunar qv2ray kitty Onboard Yad 'Firefox:Places' FusionRenderNode \
-Viewnior  persepolis marktext  feh Nm-connection-editor mystiq)
+Viewnior  persepolis marktext  feh Nm-connection-editor mystiq clash-verge)
 for i in "${floating[@]}"; do
    bspc rule -a "$i" state=floating follow=on focus=on
 done
