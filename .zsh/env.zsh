@@ -1,4 +1,6 @@
 # ------------------- Environment variable --------------------------
+export EDITOR=nvim
+
 # Enable ccache - Cache complied files
 export PATH="/usr/lib/ccache/bin/:$PATH"
 
