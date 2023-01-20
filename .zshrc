@@ -1,1 +1,1 @@
-/home/omega/.zsh/init.zsh
+/home/omega/.config/zsh/init.zsh
