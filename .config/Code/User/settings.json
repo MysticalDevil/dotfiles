@@ -1,12 +1,12 @@
 {
   // ======================================= Editor config ========================================
   "editor.bracketPairColorization.enabled": true, // 彩虹括号
-  "editor.codeLensFontFamily": "Menlo for Powerline",
+  "editor.codeLensFontFamily": "Jetbrains Mono",
   "editor.cursorBlinking": "smooth",
   "editor.cursorSmoothCaretAnimation": true,
   "editor.fontFamily": "'Fira Code', 'Jetbrains Mono', 'Space Mono', 'Source Code Pro', 'DejaVu Sans Mono', 'Source Code Pro', Consolas, 'Courier New', 'Hack Nerd Font'",
-  "editor.fontLigatures": true, // 是否启用字体连字
-  "editor.fontSize": 14, //设置字体大小
+  "editor.fontLigatures": true,
+  "editor.fontSize": 14,
   "editor.fontWeight": "normal",
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
@@ -121,5 +121,15 @@
   "go.toolsManagement.autoUpdate": true,
   "haskell.manageHLS": "GHCup",
   "open-in-browser.default": "chrome",
+  // 使用 prettier 格式化 js/ts 的配置
+  "prettier.singleQuote": true,
+  "prettier.semi": false,
   "redhat.telemetry.enabled": true,
+  "settingsSync.ignoredExtensions": [
+    "ms-dotnettools.csharp",
+    "tauri-apps.tauri-vscode",
+    "xadillax.viml",
+    "thenuprojectcontributors.vscode-nushell-lang",
+    "budparr.language-hugo-vscode"
+  ],
 }

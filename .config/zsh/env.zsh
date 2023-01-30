@@ -2,6 +2,8 @@
 export EDITOR=nvim
 
 # Enable ccache - Cache complied files
+export USE_CCACHE=1
+export CCACHE_EXEC=/usr/bin/ccache
 export PATH="/usr/lib/ccache/bin/:$PATH"
 
 # Go language environment
