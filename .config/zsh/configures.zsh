@@ -1,6 +1,3 @@
-# Completion for kitty
-kitty + complete setup zsh | source /dev/stdin
-
 # Bun completions
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
