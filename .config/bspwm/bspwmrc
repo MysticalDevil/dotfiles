@@ -92,7 +92,7 @@ for i in "${files[@]}"; do
 done
 
 ## 4 > Code (always open editors on workspace-4)
-declare -a code=(Visual Studio Code\ Sublime Text)
+declare -a code=(Code Subl neovide)
 for i in "${code[@]}"; do
   bspc rule -a "$i" desktop='^4' follow=on focus=on
 done
