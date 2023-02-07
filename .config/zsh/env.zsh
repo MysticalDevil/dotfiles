@@ -56,3 +56,6 @@ export LS_COLORS="$(vivid generate one-dark)"
 # Bun executable files
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# fnm -- Fast node manager
+# export PATH="$HOME/.local/share/fnm:$PATH"

@@ -11,4 +11,5 @@ eval "$(navi widget zsh)"
 # eval "$(rbenv init -)"
 # Set opam(OCaml package manager) current env
 eval "$(opam env --switch=default)"
-
+# fnm -- NodeJS version manager written by Rust
+eval "$(fnm env --use-on-cd)"

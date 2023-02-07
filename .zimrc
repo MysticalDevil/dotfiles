@@ -36,7 +36,6 @@ zmodule git-info
 #
 # Programming
 #
-zmodule asdf
 zmodule pvenv
 # zmodule ruby
 
