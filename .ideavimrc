@@ -126,9 +126,6 @@ set ffs=unix,dos,mac
 " 使用系统剪贴板
 set clipboard+=unnamedplus
 
-" Tabline config
-set tabline = 2
-
 
 "----------------------------------------------------------------------
 " 设置代码折叠
@@ -199,9 +196,9 @@ map sj :horizontal resize -5<CR>
 map sk :horizontal resize +5<CR>
 map s= <C-w>=
 " 分页
-map ts :tab split<CR>
-map th :tabprev<CR>
-map tl :tabnext<CR>
-map tj :tabfirst<CR>
-map tk :tablast<CR>
-map tc :tabclose<CR>
+" map ts :tab split<CR>
+" map th :tabprev<CR>
+" map tl :tabnext<CR>
+" map tj :tabfirst<CR>
+" map tk :tablast<CR>
+" map tc :tabclose<CR>
