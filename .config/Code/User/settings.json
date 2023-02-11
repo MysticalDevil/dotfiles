@@ -14,9 +14,7 @@
   "editor.guides.bracketPairs": "active",
   "editor.inlineSuggest.enabled": true,
   "editor.linkedEditing": true,
-  "editor.rulers": [
-    120
-  ],
+  "editor.rulers": [120],
   "editor.suggestSelection": "first",
   // Language setting
   "[c]": {
@@ -28,9 +26,7 @@
   "[dart]": {
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
-    "editor.rulers": [
-      80
-    ],
+    "editor.rulers": [80],
     "editor.selectionHighlight": false,
     "editor.suggest.snippetsPreventQuickSuggestions": false,
     "editor.suggestSelection": "first",
@@ -44,7 +40,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[jsonc]": {
-    "editor.defaultFormatter": "vscode.json-language-features"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[lua]": {
     "editor.defaultFormatter": "JohnnyMorganz.stylua"
@@ -67,9 +63,7 @@
     "editor.semanticHighlighting.enabled": false
   },
   // ====================================== Terminal config =======================================
-  "terminal.integrated.commandsToSkipShell": [
-    "language-julia.interrupt"
-  ],
+  "terminal.integrated.commandsToSkipShell": ["language-julia.interrupt"],
   "terminal.integrated.defaultProfile.linux": "zsh (migrated)",
   "terminal.integrated.fontFamily": "Hack Nerd Font",
   "terminal.integrated.profiles.linux": {
@@ -138,4 +132,77 @@
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  // ========================================= VSCode Vim =========================================
+  "vim.leader": ",",
+  "vim.easymotion": true,
+  "vim.incsearch": true,
+  "vim.useCtrlKeys": true,
+  "vim.hlsearch": true,
+  "vim.useSystemClipboard": true,
+  "vim.handleKeys": {
+    "<C-a>": true,
+    "<C-f>": true
+  },
+  "vim.normalModeKeyBindings": [
+    {
+      "before": ["<leader>", "w"],
+      "commands": [":w"]
+    },
+    {
+      "before": ["<leader>", "wa"],
+      "commands": [":wa"]
+    },
+    {
+      "before": ["<leader>", "wq"],
+      "commands": [":wq"]
+    },
+    {
+      "before": ["<leader>", "q"],
+      "commands": [":q"]
+    },
+    {
+      "before": ["<leader>", "qq"],
+      "commands": [":qa!"]
+    },
+    {
+      "before": ["<leader>", "qa"],
+      "commands": [":wqa"]
+    },
+    {
+      "before": ["s", "v"],
+      "commands": [":vsp"]
+    },
+    {
+      "before": ["s", "h"],
+      "commands": [":sp"]
+    },
+    {
+      "before": ["s", "c"],
+      "commands": ["<C-w>", "c"]
+    },
+    {
+      "before": ["s", "o"],
+      "commands": ["<C-w>", "o"]
+    },
+    {
+      "before": ["s", ","],
+      "commands": [":vertical resize -10"]
+    },
+    {
+      "before": ["s", "."],
+      "commands": [":vertical resize +10"]
+    },
+    {
+      "before": ["s", "j"],
+      "commands": [":horizontal resize -5"]
+    },
+    {
+      "before": ["s", "k"],
+      "commands": [":horizontal resize +5"]
+    },
+    {
+      "before": ["s", "="],
+      "commands": ["<C-w>", "="]
+    }
+  ]
 }

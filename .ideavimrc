@@ -176,7 +176,7 @@ map <C-j> 5j
 map <C-k> 5k
 " 快速保存/退出
 map <leader>w  :w<CR>
-map <leader>wq :wa<CR>
+map <leader>wa :wa<CR>
 map <leader>wq :wq<CR>
 map <leader>q  :q<CR>
 map <leader>qq :qa!<CR>
