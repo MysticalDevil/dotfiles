@@ -170,31 +170,31 @@ set wildignore+=*.linux2,*.win32,*.darwin,*.freebsd,*.linux,*.android
 " 指定 <leader> 为 `,`
 let mapleader = ","
 " 快速滚动
-map <C-u> 10j
-map <C-d> 10k
-map <C-j> 5j
-map <C-k> 5k
+noremap <C-u> 10j
+noremap <C-d> 10k
+noremap <C-j> 5j
+noremap <C-k> 5k
 " 快速保存/退出
-map <leader>w  :w<CR>
-map <leader>wa :wa<CR>
-map <leader>wq :wq<CR>
-map <leader>q  :q<CR>
-map <leader>qq :qa!<CR>
-map <leader>qa :wqa!<CR>
+noremap <leader>w  :w<CR>
+noremap <leader>wa :wa<CR>
+noremap <leader>wq :wq<CR>
+noremap <leader>q  :q<CR>
+noremap <leader>qq :qa!<CR>
+noremap <leader>qa :wqa!<CR>
 " 折叠代码
-map Z  :foldopen<CR>
-map zz :foldclose<CR>
+noremap Z  :foldopen<CR>
+noremap zz :foldclose<CR>
 " 分屏
-map s ''
-map sv :vsp<CR>
-map sh :sp<CR>
-map sc <C-w>c
-map so <C-w>o
-map s, :vertical resize -10<CR>
-map s. :vertical resize +10<CR>
-map sj :horizontal resize -5<CR>
-map sk :horizontal resize +5<CR>
-map s= <C-w>=
+noremap s ''
+noremap sv :vsp<CR>
+noremap sh :sp<CR>
+noremap sc <C-w>c
+noremap so <C-w>o
+noremap s, :vertical resize -10<CR>
+noremap s. :vertical resize +10<CR>
+noremap sj :horizontal resize -5<CR>
+noremap sk :horizontal resize +5<CR>
+noremap s= <C-w>=
 " 分页
 " map ts :tab split<CR>
 " map th :tabprev<CR>
