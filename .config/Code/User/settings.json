@@ -143,6 +143,10 @@
     "<C-a>": true,
     "<C-f>": true
   },
+  "vim.ignorecase": true,
+  "vim.smartcase": true,
+  "vim.whichwrap": "b,s,<,>,[,]",
+  "vim.mouseSelectionGoesIntoVisualMode": true,
   "vim.normalModeKeyBindings": [
     {
       "before": ["<leader>", "w"],
