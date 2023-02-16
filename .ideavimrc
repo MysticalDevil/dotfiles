@@ -202,3 +202,9 @@ noremap s= <C-w>=
 " map tj :tabfirst<CR>
 " map tk :tablast<CR>
 " map tc :tabclose<CR>
+
+
+" 插件设置
+ Plug 'easymotion/vim-easymotion'
+ set easymotion
+ map - <Plug>(easymotion-prefix)
