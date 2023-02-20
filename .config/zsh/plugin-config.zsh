@@ -62,5 +62,5 @@ zstyle ':fzf-tab:complete:diff:*' popup-min-size 80 12
 # ---------------------------------------------------------
 
 # Paman module setting
-zstyle ':zim:pacman' frontend 'yay'
-zstyle ':zim:pacman' helpers 'aur'
+# zstyle ':zim:pacman' frontend 'yay'
+# zstyle ':zim:pacman' helpers 'aur'

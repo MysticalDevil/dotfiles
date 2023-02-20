@@ -2,9 +2,9 @@
 export EDITOR=nvim
 
 # Enable ccache - Cache complied files
-export USE_CCACHE=1
-export CCACHE_EXEC=/usr/bin/ccache
-export PATH="/usr/lib/ccache/bin/:$PATH"
+# export USE_CCACHE=1
+# export CCACHE_EXEC=/usr/bin/ccache
+# export PATH="/usr/lib/ccache/bin/:$PATH"
 
 # Go language environment
 export GOMODCACHE="$HOME/.cache/go/pkg/mod"
@@ -15,15 +15,15 @@ export PATH="$GOPATH/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 
 # Google Chrome executable file path
-export CHROME_EXECUTABLE="/usr/bin/google-chrome-stable"
+# export CHROME_EXECUTABLE="/usr/bin/google-chrome-stable"
 
 # Cabal - Haskell package manager
-export PATH="$HOME/.cabal/bin:$PATH"
+# export PATH="$HOME/.cabal/bin:$PATH"
 # Ghcup - Haskell tool version manager
-export PATH="$HOME/.ghcup/bin:$PATH"
+# export PATH="$HOME/.ghcup/bin:$PATH"
 
 # Coursier - Scala tools manager
-export PATH="$PATH:/home/omega/.local/share/coursier/bin"
+# export PATH="$PATH:/home/omega/.local/share/coursier/bin"
 
 # Cargo - Rust Package manager
 export PATH="$HOME/.cargo/bin:$PATH"
