@@ -1,5 +1,5 @@
-[safe]
-	directory = /opt/flutter
+; [safe]
+; 	directory = /opt/flutter
 [user]
 	name = MysticalDevil
 	email = jinpeng7981@outlook.com

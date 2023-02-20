@@ -1,1 +1,1 @@
-/home/omega/.local/share/broot/launcher/fish/br.fish
+/home/delta/.local/share/broot/launcher/fish/br.fish
