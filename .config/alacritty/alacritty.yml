@@ -4,7 +4,7 @@ tabspaces: 4
 # Window about
 window: 
   # background transparency
-  opacity: 0.8
+  opacity: 0.99
   # window decorations
   decorations: full
   # start up mode
@@ -49,10 +49,10 @@ colors:
 
 font:
   normal:
-    family: MesloLGS NF
+    family: MesloLGS Nerd Font
   bold:
-    family: MesloLGS NF
-  size: 8.0
+    family: MesloLGS Nerd Font
+  size: 12.0
 
 draw_bold_text_with_bright_colors: true
 
