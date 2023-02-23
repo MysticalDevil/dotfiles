@@ -15,3 +15,5 @@ eval "$(opam env --switch=default)"
 eval "$(fnm env --use-on-cd)"
 # rbenv -- Simple ruby version manager
 eval "$(rbenv init -)"
+# pipx -- Install and Run Python Applications in Isolated Environments
+eval "$(register-python-argcomplete pipx)"
