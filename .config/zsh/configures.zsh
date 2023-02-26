@@ -12,3 +12,6 @@ setopt HIST_IGNORE_DUPS
 
 # atuin keybind
 # bindkey '^t' _atuin_search_widget
+
+# opam configuration
+[[ ! -r /home/omega/.opam/opam-init/init.zsh ]] || source /home/omega/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
