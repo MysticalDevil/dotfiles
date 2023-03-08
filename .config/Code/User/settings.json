@@ -208,5 +208,9 @@
       "before": ["s", "="],
       "commands": ["<C-w>", "="]
     }
-  ]
+  ],
+  "[python]": {
+    "editor.formatOnType": true
+  },
+  "editor.unicodeHighlight.nonBasicASCII": false
 }
