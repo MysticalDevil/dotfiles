@@ -126,6 +126,9 @@ set ffs=unix,dos,mac
 " 使用系统剪贴板
 set clipboard+=unnamedplus
 
+" surround
+set surround
+
 
 "----------------------------------------------------------------------
 " 设置代码折叠
@@ -170,41 +173,63 @@ set wildignore+=*.linux2,*.win32,*.darwin,*.freebsd,*.linux,*.android
 " 指定 <leader> 为 `,`
 let mapleader = ","
 " 快速滚动
-noremap <C-u> 10j
-noremap <C-d> 10k
-noremap <C-j> 5j
-noremap <C-k> 5k
+nnoremap <C-j> 5j
+nnoremap <C-k> 5k
 " 快速保存/退出
-noremap <leader>w  :w<CR>
-noremap <leader>wa :wa<CR>
-noremap <leader>wq :wq<CR>
-noremap <leader>q  :q<CR>
-noremap <leader>qq :qa!<CR>
-noremap <leader>qa :wqa!<CR>
-" 折叠代码
-noremap Z  :foldopen<CR>
-noremap zz :foldclose<CR>
+nnoremap <leader>w  :w<CR>
+nnoremap <leader>wa :wa<CR>
+nnoremap <leader>wq :wq<CR>
+nnoremap <leader>q  :q<CR>
+nnoremap <leader>qq :qa!<CR>
+nnoremap <leader>qa :wqa!<CR>
 " 分屏
-noremap s ''
-noremap sv :vsp<CR>
-noremap sh :sp<CR>
-noremap sc <C-w>c
-noremap so <C-w>o
-noremap s, :vertical resize -10<CR>
-noremap s. :vertical resize +10<CR>
-noremap sj :horizontal resize -5<CR>
-noremap sk :horizontal resize +5<CR>
-noremap s= <C-w>=
-" 分页
-" map ts :tab split<CR>
-" map th :tabprev<CR>
-" map tl :tabnext<CR>
-" map tj :tabfirst<CR>
-" map tk :tablast<CR>
-" map tc :tabclose<CR>
+nnoremap s ''
+nnoremap sv :vsp<CR>
+nnoremap sh :sp<CR>
+nnoremap sc <C-w>c
+nnoremap so <C-w>o
+nnoremap s, :vertical resize -10<CR>
+nnoremap s. :vertical resize +10<CR>
+nnoremap sj :horizontal resize -5<CR>
+nnoremap sk :horizontal resize +5<CR>
+nnoremap s= <C-w>=
+
+" 打开最近工程
+nnoremap <Leader>o :<C-u>action RecentProjectListGroup<CR>
+" Go to XXX
+nnoremap ga :<C-u>action GotoAction<CR>
+nnoremap gb :<C-u>action JumpToLastChange<CR>
+nnoremap gc :<C-u>action GotoClass<CR>
+nnoremap gd :<C-u>action GotoDeclaration<CR>
+nnoremap gs :<C-u>action GotoSuperMethod<CR>
+nnoremap gi :<C-u>action GotoImplementation<CR>
+nnoremap gf :<C-u>action GotoFile<CR>
+nnoremap gm :<C-u>action GotoSymbol<CR>
+nnoremap gu :<C-u>action ShowUseages<CR>
+nnoremap gt :<C-u>action GotoTest<CR>
+nnoremap gp :<C-u>action FindInPath<CR>
+nnoremap gr :<C-u>action RecentFiles<CR>
+nnoremap gh :<C-u>action Back<CR>
+nnoremap gl :<C-u>action Forward<CR>
+" Toggle
+nnoremap ta :action Annotate<CR>
+nnoremap tb :action ToggleLineBreakpoint<CR>
+nnoremap tm :action ToggleBookmark<CR>
+nnoremap tp :action ActiveProjectToolWindow<CR>
+" 切换标签页
+nnoremap <C-h> gT
+nnoremap <C-l> gt
+" 替换
+nnoremap <Leader>rp :action ReplaceInPath<CR>
+" 格式化代码
+nnoremap <Leader>f :action ReformatCode<CR>
+" 注释
+nnoremap gcc :action CommentByLineComment<CR>
+nnoremap gbc :action CommentByBlockComment<CR>
+vnoremap gc :action CommentByLineComment<CR>
+vnoremap gb :action CommentByBlockComment<CR>
 
 
 " 插件设置
- Plug 'easymotion/vim-easymotion'
- set easymotion
- map - <Plug>(easymotion-prefix)
+Plug 'easymotion/vim-easymotion'
+set easymotion
