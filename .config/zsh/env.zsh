@@ -64,3 +64,6 @@ export PATH="$HOME/.local/share/fnm:$PATH"
 export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
+
+# Use xwayland
+export WINIT_UNIX_BACKEND=wayland
