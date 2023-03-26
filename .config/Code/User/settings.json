@@ -214,5 +214,8 @@
     "editor.formatOnType": true
   },
   "editor.unicodeHighlight.nonBasicASCII": false,
-  "git.openRepositoryInParentFolders": "never"
+  "git.openRepositoryInParentFolders": "never",
+  "[proto3]": {
+    "editor.defaultFormatter": "xaver.clang-format"
+  }
 }
