@@ -4,7 +4,7 @@ tabspaces: 4
 # Window about
 window: 
   # background transparency
-  opacity: 0.99
+  opacity: 0.95
   # window decorations
   decorations: full
   # start up mode
