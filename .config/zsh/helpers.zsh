@@ -38,16 +38,16 @@ zle -N zle-line-init
 
 # Automatically activate python virtual environments
 auto_venv() {
-  if [ -d "venv/bin" ]; then
-    if [[ "$VIRTUAL_ENV" != "$(pwd -P)/venv" ]]; then
-      source venv/bin/activate
+    if [ -d "venv/bin" ]; then
+        if [[ "$VIRTUAL_ENV" != "$(pwd -P)/venv" ]]; then
+            source venv/bin/activate
+        fi
+    elif [[ "$VIRTUAL_ENV" != "" ]]; then
+        deactivate
     fi
-  elif [[ "$VIRTUAL_ENV" != "" ]]; then
-    deactivate
-  fi
 }
 
 chpwd() {
-  auto_venv
+    auto_venv
 }
 auto_venv
