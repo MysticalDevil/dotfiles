@@ -71,3 +71,6 @@ export QT_IM_MODULE=ibus
 # Deno -- An JavaScript Runtime
 export DENO_INSTALL="$HOME/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
+
+# NPM -- node package manager
+export PATH="$HOME/Packages/npm/bin:$PATH"
