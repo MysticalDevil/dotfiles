@@ -213,6 +213,9 @@ nnoremap ta :action Annotate<CR>
 nnoremap tb :action ToggleLineBreakpoint<CR>
 nnoremap tm :action ToggleBookmark<CR>
 nnoremap tp :action ActiveProjectToolWindow<CR>
+" Code Actions
+nnoremap <leader>rn :<C-u>action RenameElement<CR>
+nnoremap <leader>im :<C-u>action ImplementMethoods<CR>
 " 切换标签页
 nnoremap <C-h> gT
 nnoremap <C-l> gt
