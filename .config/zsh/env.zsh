@@ -1,29 +1,20 @@
 # ------------------- Environment variable --------------------------
 export EDITOR=nvim
 
-# Enable ccache - Cache complied files
-# export USE_CCACHE=1
-# export CCACHE_EXEC=/usr/bin/ccache
-# export PATH="/usr/lib/ccache/bin/:$PATH"
-
 # Go language environment
 export GOMODCACHE="$HOME/.cache/go/pkg/mod"
-export GOPATH="$HOME/Packages/go"
-export PATH="$GOPATH/bin:$PATH"
+export GOPATH="$HOME/.local/share/go"
+export GOBIN="$HOME/.local/share/go/bin"
+export GO111MODULE=on
+export PATH="$(go env GOBIN):$(go env GOPATH)/bin:$PATH"
 
 # Binary files path
 export PATH="$HOME/.local/bin:$PATH"
-
-# Google Chrome executable file path
-# export CHROME_EXECUTABLE="/usr/bin/google-chrome-stable"
 
 # Cabal - Haskell package manager
 # export PATH="$HOME/.cabal/bin:$PATH"
 # Ghcup - Haskell tool version manager
 # export PATH="$HOME/.ghcup/bin:$PATH"
-
-# Coursier - Scala tools manager
-# export PATH="$PATH:/home/omega/.local/share/coursier/bin"
 
 # Cargo - Rust Package manager
 export PATH="$HOME/.cargo/bin:$PATH"
@@ -36,22 +27,18 @@ export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
 export GEM_HOME="$HOME/.gem"
 
 # R language files path
-export R_LIBS_USER="$HOME/Packages/R"
-export R_LIBS="$HOME/Packages/R"
+export R_LIBS_USER="$HOME/.local/share/R"
+export R_LIBS="$HOME/.local/share/R"
 export PATH="$R_HOME/bin:$PATH"
 
 # Julia language files path
-export JULIA_DEPOT_PATH="$HOME/Packages/julia"
+export JULIA_DEPOT_PATH="$HOME/.local/share/julia"
 
 # SSH Key path
 export SSH_KEY_PATH="$HOME/.ssh/rsa_id"
 
 # Use vivid to control tools color scheme
 export LS_COLORS="$(vivid generate one-dark)"
-
-# Tools configuration
-# Ghcup config
-# export $GHCUP_INSTALL_BASE_PREFIX/.ghcup/bin
 
 # Bun executable files
 export BUN_INSTALL="$HOME/.bun"
