@@ -60,7 +60,7 @@ export DENO_INSTALL="$HOME/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 
 # NPM -- node package manager
-export PATH="$HOME/Packages/npm/bin:$PATH"
+export npm_config_prefix="$HOME/.local"
 
 # coursier -- modern Scala and Java package manager
 export PATH="$HOME/.local/share/coursier/bin:$PATH"
