@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+# Check that a snake-named parameter was provided
+if [ $# -eq 0 ] || [ ! "$1" ]; then
+  echo "Error: Please provide a snake-named parameter"
+  exit 1
+fi
+
+# Check that parameter is in snake case
+if [[ ! "$1" =~ ^[a-z]+(_[a-z]+)*$ ]]; then
+  echo "Error: Parameter must be in snake case"
+  exit 1
+fi
+
+folder_name=$1
+
+# Convert snake-named parameter to hump-named version
+camel_case_name=$(sed 's/_\([a-z]\)/\U\1/g; s/^\([a-z]\)/\L\1/' <<< "$1")
+
+# Create directory with snake-named parameter
+mkdir "$folder_name"
+
+# Change directory to new directory
+cd "$folder_name" || exit
+
+# Initialize a new Go module with hump-named version of parameter
+go mod init "$camel_case_name"
+
+# Create a main.go file with a helloworld example
+cat <<EOF > main.go
+package main
+
+import "fmt"
+
+func main() {
+    fmt.Println("Hello, world!")
+}
+EOF

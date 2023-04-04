@@ -47,7 +47,7 @@ zstyle ':fzf-tab:complete:*:*' fzf-preview 'less ${(Q)realpath}'
 zstyle ':fzf-tab:complete:*:*' fzf-flags --height=100% --preview-window=right:wrap
 zstyle ':fzf-tab:complete:*:options' fzf-preview
 zstyle ':fzf-tab:complete:*:argument-1' fzf-preview
-export LESSOPEN='|~/.config/.lessfilter.sh %s'
+export LESSOPEN='|~/.local/bin/lessfilter %s'
 
 # switch group using `,` and `.`
 zstyle ':fzf-tab:*' switch-group ',' '.'
