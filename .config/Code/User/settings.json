@@ -16,6 +16,9 @@
   "editor.linkedEditing": true,
   "editor.rulers": [120],
   "editor.suggestSelection": "first",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
   // Language setting
   "[c]": {
     "editor.defaultFormatter": "xaver.clang-format"
@@ -37,7 +40,11 @@
     "editor.defaultFormatter": "ms-azuretools.vscode-docker"
   },
   "[javascript]": {
-    "editor.defaultFormatter": "vscode.typescript-language-features"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2
+  },
+  "[vue]": {
+    "editor.tabSize": 2
   },
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -57,7 +64,8 @@
     "editor.tabSize": 2
   },
   "[typescript]": {
-    "editor.defaultFormatter": "vscode.typescript-language-features"
+    "editor.defaultFormatter": "vscode.typescript-language-features",
+    "editor.tabSize": 2
   },
   "[rust]": {
     "editor.semanticHighlighting.enabled": false
@@ -65,7 +73,6 @@
   // ====================================== Terminal config =======================================
   "terminal.integrated.commandsToSkipShell": ["language-julia.interrupt"],
   "terminal.integrated.defaultProfile.linux": "zsh (migrated)",
-  "terminal.integrated.fontFamily": "Hack Nerd Font",
   "terminal.integrated.profiles.linux": {
     "zsh (migrated)": {
       "args": [],
@@ -77,7 +84,6 @@
   "workbench.colorCustomizations": {
     "editor.bracketPairColorization.enabled": true
   },
-  "workbench.colorTheme": "One Dark Pro",
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter-notebook"
   },
@@ -131,7 +137,8 @@
     "xlthu.pangu-markdown"
   ],
   "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2
   },
   // ========================================= VSCode Vim =========================================
   "vim.leader": ",",
@@ -217,5 +224,29 @@
   "git.openRepositoryInParentFolders": "never",
   "[proto3]": {
     "editor.defaultFormatter": "xaver.clang-format"
-  }
+  },
+  "remote.SSH.remotePlatform": {
+    "192.168.45.141": "linux"
+  },
+  "svg.preview.mode": "svg",
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "zig.zls.path": "/home/delta/.config/Code/User/globalStorage/ziglang.vscode-zig/zls_install/zls",
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": true,
+    "markdown": false,
+    "scminput": false
+  },
+  "terminal.integrated.fontFamily": "MesloLGS NF",
+  // =================================== Nativate theme setting ===================================
+  "window.titleBarStyle": "custom",
+  "window.commandCenter": true,
+  "window.autoDetectColorScheme": true,
+  "workbench.preferredDarkColorTheme": "One Dark Pro",
+  // "workbench.preferredLightColorTheme": "One Light Pro",
+  "editor.renderLineHighlight": "line",
+  "workbench.tree.indent": 12,
+  "workbench.colorTheme": "One Dark Pro"
 }

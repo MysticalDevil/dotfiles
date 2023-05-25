@@ -64,3 +64,6 @@ export npm_config_prefix="$HOME/.local"
 
 # coursier -- modern Scala and Java package manager
 export PATH="$HOME/.local/share/coursier/bin:$PATH"
+
+# DoomEmacs -- another emacs config
+export PATH="$HOME/.config/emacs/bin:$PATH"
