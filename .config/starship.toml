@@ -112,7 +112,7 @@ symbol = " "
 
 [os]
 format = "[$symbol]($style) "
-style = "bold #3E355A"
+style = "bold #DDDAEC"
 disabled = false
 
 [os.symbols]

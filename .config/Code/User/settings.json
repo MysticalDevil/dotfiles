@@ -248,5 +248,6 @@
   // "workbench.preferredLightColorTheme": "One Light Pro",
   "editor.renderLineHighlight": "line",
   "workbench.tree.indent": 12,
-  "workbench.colorTheme": "One Dark Pro"
+  "workbench.colorTheme": "One Dark Pro",
+  "cmake.configureOnOpen": true
 }

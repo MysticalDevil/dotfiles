@@ -13,6 +13,9 @@ window:
   dimensions:
     columns: 120
     lines: 40
+  padding:
+    x: 5
+    y: 5
 
 scrolling:
   history: 10000
