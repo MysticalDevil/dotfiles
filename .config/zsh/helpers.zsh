@@ -1,13 +1,5 @@
-# Terminal simulator Blur {{{ Only for KDE
-if [[ $(ps --no-header -p $PPID -o comm) =~ '^yakuake|alacritty|kitty|wezterm|wezterm-gui$' ]]; then
-    for wid in $(xdotool search --pid $PPID); do
-        xprop -f _KDE_NET_WM_BLUR_BEHIND_REGION 32c -set _KDE_NET_WM_BLUR_BEHIND_REGION 0 -id $wid
-    done
-fi
-# }}}
-
 # Enable Transient Prompt
-zle-line-init() {
+function zle-line-init {
     emulate -L zsh
 
     [[ $CONTEXT == start ]] || return 0
@@ -36,18 +28,15 @@ zle-line-init() {
 }
 zle -N zle-line-init
 
-# Automatically activate python virtual environments
-auto_venv() {
-    if [ -d "venv/bin" ]; then
-        if [[ "$VIRTUAL_ENV" != "$(pwd -P)/venv" ]]; then
-            source venv/bin/activate
-        fi
-    elif [[ "$VIRTUAL_ENV" != "" ]]; then
-        deactivate
-    fi
-}
+function set_wayland_env {
+  cd ${HOME}
+  export LANG=zh_CN.UTF-8
+  export QT_AUTO_SCREEN_SCALE_FACTOR=1
+  export QT_QPA_PLATFORM="wayland;xcb"
+  export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+  export QT_QPA_PLATFORM=qt5ct
 
-chpwd() {
-    auto_venv
+  export _JAVA_AWT_WM_NONEREPARENTING=1
+  export GDK_BACKEND="wayland,x11"
 }
-auto_venv
+set_wayland_env

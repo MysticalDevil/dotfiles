@@ -1,0 +1,30 @@
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+Jun 28 20:26 : player: played "A.LOVE - Missed Call.flac"
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+Jun 28 20:29 : player: played "10,000 Feet - INViDA,Robbie Rosen.mp3"
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+Jun 28 20:31 : player: played "A.LOVE - Missed Call.flac"
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+Jun 28 20:34 : player: played "10,000 Feet - INViDA,Robbie Rosen.mp3"
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+Jun 28 20:34 : player: played "10,000 Feet - INViDA,Robbie Rosen.mp3"
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+Jun 28 20:35 : player: played "10,000 Feet - INViDA,Robbie Rosen.mp3"
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+Jun 28 20:53 : player: played "A.LOVE - Missed Call.flac"
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+Jun 28 21:01 : player: played "10,000 Feet - INViDA,Robbie Rosen.mp3"
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+Jun 28 21:04 : player: played "18 - Miles Away,AXYS,RYYZN.mp3"
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+Jun 28 21:10 : player: played "18 - Miles Away,AXYS,RYYZN.mp3"
