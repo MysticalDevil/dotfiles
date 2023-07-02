@@ -1,0 +1,118 @@
+{
+  "height": 20, // Waybar height (to be removed for auto height)
+  "margin-top": 3,
+  "margin-left": 10,
+  "margin-bottom": 0,
+  "margin-right": 10,
+  "spacing": 5, // Gaps between modules (4px)
+  "modules-left": ["cpu", "memory", "battery", "wlr/workspaces"],
+  "modules-center": ["hyprland/window"],
+  "modules-right": ["network", "pulseaudio", "backlight", "tray", "clock"],
+  "wlr/workspaces": {
+    "format": "{icon}",
+    "on-click": "activate",
+    "format-icons": {
+      "1": "",
+      "2": "",
+      "3": "",
+      "4": "",
+      "5": "",
+      "urgent": "",
+      "active": "",
+      "default": ""
+    }
+  },
+  "hyprland/window": {
+    "format": "{}"
+  },
+  "tray": {
+    "spacing": 10
+  },
+  "clock": {
+    "format": "<span color='#bf616a'> </span>{:%I:%M %p}",
+    "format-alt": "<span color='#bf616a'> </span>{:%a %b %d}",
+    "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>"
+  },
+
+  "cpu": {
+    "interval": 1,
+    "format": " {usage}%",
+    "max-length": 100,
+    "on-click": ""
+  },
+  "memory": {
+    "interval": 30,
+    "format": " {}%",
+    "format-alt": " {used:0.1f}G",
+    "max-length": 10
+  },
+  "backlight": {
+    "device": "eDP-1",
+    "format": "{icon} {percent}%",
+    "format-icons": ["", "", "", "", "", "", "", "", ""],
+    "on-click": ""
+  },
+  "network": {
+    "format-wifi": "直 {signalStrength}%",
+    "format-ethernet": " wired",
+    "format-disconnected": "睊"
+  },
+
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-bluetooth": "  {volume}%",
+    "format-bluetooth-muted": "婢 ",
+    "format-muted": "婢",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", "", ""]
+    },
+    // "on-click": "bluetoothctl connect FC:58:FA:42:3D:D8"
+    "on-click": ""
+  },
+
+  "wireplumber": {
+    "format": "{icon} {volume}%",
+    "format-bluetooth": "  {volume}%",
+    "format-bluetooth-muted": "婢 ",
+    "format-muted": "婢",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", "", ""]
+    }
+  },
+
+  "bluetooth": {
+    "format": " {status}"
+  },
+
+  "battery": {
+    "bat": "BAT1",
+    "adapter": "ADP0",
+    "interval": 60,
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "on-click": "",
+    "max-length": 20,
+    "format": "{icon} {capacity}%",
+    "format-warning": "{icon} {capacity}%",
+    "format-critical": "{icon} {capacity}%",
+    "format-charging": "<span font-family='Font Awesome 6 Free'></span> {capacity}%",
+    "format-plugged": "  {capacity}%",
+    "format-alt": "{icon} {time}",
+    "format-full": "  {capacity}%",
+    "format-icons": [" ", " ", " ", " ", " "]
+  }
+}

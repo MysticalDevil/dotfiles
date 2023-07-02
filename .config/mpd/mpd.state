@@ -1,7 +1,8 @@
-sw_volume: 100
+sw_volume: 98
 audio_device_state:1:PipeWire Output
 audio_device_state:1:my_fifo
 state: stop
+current: 0
 random: 0
 repeat: 0
 single: 0
@@ -12,5 +13,4 @@ mixrampdelay: -1.000000
 playlist_begin
 0:24kGoldn,iann dior - Mood.mp3
 1:3rd Prototype,Harley Bird,Valentina Franco - Renegade.flac
-2:A.LOVE - Missed Call.flac
 playlist_end

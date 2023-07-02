@@ -50,11 +50,6 @@ export PATH="$HOME/.local/share/fnm:$PATH"
 # composer -- PHP package manager
 export PATH="$HOME/.config/composer/vendor/bin:$PATH"
 
-# Ibus input method
-export GTK_IM_MODULE=ibus
-export XMODIFIERS=@im=ibus
-export QT_IM_MODULE=ibus
-
 # Deno -- An JavaScript Runtime
 export DENO_INSTALL="$HOME/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"

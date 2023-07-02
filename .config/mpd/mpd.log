@@ -28,3 +28,7 @@ Jun 28 21:04 : player: played "18 - Miles Away,AXYS,RYYZN.mp3"
 *** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
 *** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
 Jun 28 21:10 : player: played "18 - Miles Away,AXYS,RYYZN.mp3"
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+Jun 29 17:59 : player: played "A.LOVE - Missed Call.flac"
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
