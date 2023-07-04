@@ -1,6 +1,3 @@
-# Bun completions
-[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
-
 # Broot configure
 source $HOME/.config/broot/launcher/bash/br
 

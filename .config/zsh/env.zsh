@@ -26,24 +26,6 @@ export PATH="$HOME/.dotnet/tools:$PATH"
 export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
 export GEM_HOME="$HOME/.gem"
 
-# R language files path
-export R_LIBS_USER="$HOME/.local/share/R"
-export R_LIBS="$HOME/.local/share/R"
-export PATH="$R_HOME/bin:$PATH"
-
-# Julia language files path
-export JULIA_DEPOT_PATH="$HOME/.local/share/julia"
-
-# SSH Key path
-export SSH_KEY_PATH="$HOME/.ssh/rsa_id"
-
-# Use vivid to control tools color scheme
-export LS_COLORS="$(vivid generate one-dark)"
-
-# Bun executable files
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
 # fnm -- Fast node manager
 export PATH="$HOME/.local/share/fnm:$PATH"
 
