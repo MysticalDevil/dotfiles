@@ -9,3 +9,5 @@ source "$HOME/.config/zsh/evals.zsh"
 # for file in $HOME/.zsh/*.zsh; do
 #   source $file
 # done
+
+source /home/delta/.config/broot/launcher/bash/br
