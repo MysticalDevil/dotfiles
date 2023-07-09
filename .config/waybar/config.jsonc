@@ -7,19 +7,28 @@
   "spacing": 5, // Gaps between modules (4px)
   "modules-left": ["cpu", "memory", "battery", "wlr/workspaces"],
   "modules-center": ["hyprland/window"],
-  "modules-right": ["network", "pulseaudio", "backlight", "tray", "clock"],
+  "modules-right": [
+    "network",
+    "pulseaudio",
+    "backlight",
+    "tray",
+    "clock",
+    "custom/power"
+  ],
+  "custom/power": {
+    "format": "{}",
+    "exec": "echo ; echo  logout",
+    "on-click": "wlogout",
+    "interval": 86400, // once every day
+    "tooltip": true
+  },
   "wlr/workspaces": {
     "format": "{icon}",
     "on-click": "activate",
     "format-icons": {
-      "1": "",
-      "2": "",
-      "3": "",
-      "4": "",
-      "5": "",
       "urgent": "",
-      "active": "",
-      "default": ""
+      "active": "",
+      "default": ""
     }
   },
   "hyprland/window": {
@@ -54,9 +63,11 @@
     "on-click": ""
   },
   "network": {
-    "format-wifi": "直 {signalStrength}%",
-    "format-ethernet": " wired",
-    "format-disconnected": "睊"
+    "format": "{ifname}",
+    "format-wifi": "  {essid}",
+    "format-ethernet": "{ipaddr}/{cidr} ",
+    "format-disconnected": "󰖪  No Network",
+    "tooltip": false
   },
 
   "pulseaudio": {
@@ -73,24 +84,7 @@
       "car": "",
       "default": ["", "", ""]
     },
-    // "on-click": "bluetoothctl connect FC:58:FA:42:3D:D8"
-    "on-click": ""
-  },
-
-  "wireplumber": {
-    "format": "{icon} {volume}%",
-    "format-bluetooth": "  {volume}%",
-    "format-bluetooth-muted": "婢 ",
-    "format-muted": "婢",
-    "format-icons": {
-      "headphone": "",
-      "hands-free": "",
-      "headset": "",
-      "phone": "",
-      "portable": "",
-      "car": "",
-      "default": ["", "", ""]
-    }
+    "on-click": "pavucontrol"
   },
 
   "bluetooth": {

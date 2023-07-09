@@ -71,7 +71,7 @@ window#waybar.hidden {
 #mpd,
 #bluetooth,
 #custom-hyprPicker,
-#custom-power-menu,
+#custom-power,
 #custom-spotify,
 #custom-weather,
 #custom-weather.severe,
@@ -120,6 +120,10 @@ window#waybar.hidden {
   color: #6a92d7;
   border-radius: 7.5px;
   padding: 0 0px;
+}
+
+#custom-power {
+  color: #abb2bf;
 }
 
 #custom-weather.severe {
