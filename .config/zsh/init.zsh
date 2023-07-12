@@ -1,13 +1,10 @@
-source "$HOME/.config/zsh/zim-init.zsh"
-source "$HOME/.config/zsh/autoloads.zsh"
-source "$HOME/.config/zsh/helpers.zsh"
-source "$HOME/.config/zsh/configures.zsh"
-source "$HOME/.config/zsh/plugin-config.zsh"
-source "$HOME/.config/zsh/env.zsh"
-source "$HOME/.config/zsh/alias.zsh"
-source "$HOME/.config/zsh/evals.zsh"
-# for file in $HOME/.zsh/*.zsh; do
-#   source $file
-# done
-
-source /home/delta/.config/broot/launcher/bash/br
+for dir in ${ZDOTDIR:-$HOME}/.config/zsh/*/; do
+  if [[ -f ${dir}activate ]]; then
+    # 加载当前目录下的所有 .zsh 文件（除了 activate）
+    for file in ${dir}*.zsh; do
+      if [ "$(basename "$file")" != "activate" ]; then
+        source "$file"
+      fi
+    done
+  fi
+done
