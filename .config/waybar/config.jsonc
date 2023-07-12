@@ -26,14 +26,24 @@
     "format": "{icon}",
     "on-click": "activate",
     "format-icons": {
+      "1": "",
+      "2": "",
+      "3": "",
+      "4": "",
+      "5": "",
       "urgent": "",
-      "active": "",
+      "active": "",
       "default": ""
     }
   },
   "hyprland/window": {
     "format": "👉 {}",
     "separate-outputs": true
+    // "rewrite": {
+    //   "(.*) - Mozilla Firefox": "  $1",
+    //   "(.*) - Google Chrome": "  $1",
+    //   "(.*) - fish": "> [$1]"
+    // }
   },
   "tray": {
     "spacing": 10

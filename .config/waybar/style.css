@@ -23,6 +23,10 @@ window#waybar.hidden {
   opacity: 0.2;
 }
 
+winwow#waybar.empty {
+  background-color: transparent;
+}
+
 #workspaces button {
   padding: 0 0px;
   color: #7984a4;
