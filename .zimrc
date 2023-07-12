@@ -98,3 +98,7 @@ zmodule DarrinTisdale/zsh-aliases-exa
 
 # Auto-close and delete matching delimiters in zsh
 zmodule hlissner/zsh-autopair
+
+# ZSH plugin to automatically switch python virtualenvs 
+# (including pipenv and poetry) as you move between directories
+zmodule MichaelAquilina/zsh-autoswitch-virtualenv
