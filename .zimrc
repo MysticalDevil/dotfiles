@@ -104,4 +104,4 @@ zmodule hlissner/zsh-autopair
 zmodule MichaelAquilina/zsh-autoswitch-virtualenv -n autoswitch_virtualenv
 
 # A better and friendly vi(vim) mode plugin for ZSH.
-# zmodule jeffreytse/zsh-vi-mode
+zmodule jeffreytse/zsh-vi-mode
