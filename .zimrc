@@ -40,7 +40,7 @@ zmodule git-info
 #
 # Programming
 #
-zmodule pvenv
+# zmodule pvenv
 # zmodule ruby
 
 #
@@ -101,7 +101,7 @@ zmodule hlissner/zsh-autopair
 
 # ZSH plugin to automatically switch python virtualenvs 
 # (including pipenv and poetry) as you move between directories
-zmodule MichaelAquilina/zsh-autoswitch-virtualenv
+zmodule MichaelAquilina/zsh-autoswitch-virtualenv -n autoswitch_virtualenv
 
 # A better and friendly vi(vim) mode plugin for ZSH.
-zmodule jeffreytse/zsh-vi-mode
+# zmodule jeffreytse/zsh-vi-mode
