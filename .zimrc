@@ -80,13 +80,6 @@ zmodule ohmyzsh/ohmyzsh --root plugins/sudo
 # Atuin - Magical shell history
 zmodule ellie/atuin
 
-# A utility tool powered by fzf for using git interactively.
-zmodule wfxr/forgit
-
-# GIT utilities -- repo summary, repl, changelog population,
-# author commit percentages and more
-zmodule tj/git-extras --source etc/git-extras-completion.zsh
-
 # Replace zsh's default completion selection menu with fzf!
 zmodule zdharma-continuum/fast-syntax-highlighting
 
