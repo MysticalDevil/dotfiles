@@ -1,16 +1,19 @@
 sw_volume: 98
 audio_device_state:1:PipeWire Output
 audio_device_state:1:my_fifo
-state: stop
-current: 0
+state: play
+current: 2
+time: 47.900000
 random: 0
 repeat: 0
 single: 0
-consume: 0
+consume: 1
 crossfade: 0
 mixrampdb: 0.000000
 mixrampdelay: -1.000000
 playlist_begin
-0:24kGoldn,iann dior - Mood.mp3
-1:3rd Prototype,Harley Bird,Valentina Franco - Renegade.flac
+0:Ed Sheeran - What Do I Know？.flac
+1:Ed Sheeran - Supermarket Flowers.flac
+2:Ed Sheeran - Nancy Mulligan.flac
+3:Alan Walker - Alone.flac
 playlist_end

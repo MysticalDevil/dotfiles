@@ -32,3 +32,673 @@ Jun 28 21:10 : player: played "18 - Miles Away,AXYS,RYYZN.mp3"
 *** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
 Jun 29 17:59 : player: played "A.LOVE - Missed Call.flac"
 *** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+Jul 16 08:29 : player: played "3rd Prototype,Harley Bird,Valentina Franco - Renegade.flac"
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+Jul 16 09:03 : player: played "24kGoldn,iann dior - Mood.mp3"
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+Jul 16 09:11 : player: played "3rd Prototype,Harley Bird,Valentina Franco - Renegade.flac"
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+Jul 16 09:12 : player: played "3rd Prototype,Harley Bird,Valentina Franco - Renegade.flac"
+Jul 16 09:12 : exception: Not playing
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+Jul 16 09:15 : player: played "5 Seconds of Summer,R3HAB - Youngblood (R3HAB Remix).mp3"
+Jul 16 09:59 : inotify: music directory was removed - cannot continue to watch it
+Jul 16 09:59 : exception: Failed to access /home/delta/Music: No such file or directory
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+Jul 16 10:00 : player: played "A.LOVE - Missed Call.flac"
+Jul 16 10:01 : exception: inotify_add_watch() has failed: No such file or directory
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+Jul 16 10:03 : player: played "5 Seconds of Summer,R3HAB - Youngblood (R3HAB Remix).mp3"
+Jul 16 10:03 : exception: Failed to decode /home/delta/Music/A Bit Of Your Love - WildVibes.mp3; Failed to open '/home/delta/Music/A Bit Of Your Love - WildVibes.mp3': No such file or directory
+Jul 16 10:03 : player: played "A Bit Of Your Love - WildVibes.mp3"
+Jul 16 10:04 : exception: Failed to decode /home/delta/Music/886 - 函几hanji.flac; Failed to open '/home/delta/Music/886 - 函几hanji.flac': No such file or directory
+Jul 16 10:04 : player: played "886 - 函几hanji.flac"
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+Jul 16 10:04 : exception: Failed to decode /home/delta/Music/886 - 函几hanji.flac; Failed to open '/home/delta/Music/886 - 函几hanji.flac': No such file or directory
+Jul 16 10:04 : player: played "886 - 函几hanji.flac"
+Jul 16 10:04 : exception: Failed to decode /home/delta/Music/886 - 函几hanji.flac; Failed to open '/home/delta/Music/886 - 函几hanji.flac': No such file or directory
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+Jul 16 10:04 : exception: Failed to decode /home/delta/Music/886 - 函几hanji.flac; Failed to open '/home/delta/Music/886 - 函几hanji.flac': No such file or directory
+Jul 16 10:04 : player: played "886 - 函几hanji.flac"
+Jul 16 10:04 : exception: Failed to decode /home/delta/Music/886 - 函几hanji.flac; Failed to open '/home/delta/Music/886 - 函几hanji.flac': No such file or directory
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+Jul 16 10:04 : exception: Failed to decode /home/delta/Music/886 - 函几hanji.flac; Failed to open '/home/delta/Music/886 - 函几hanji.flac': No such file or directory
+Jul 16 10:04 : player: played "886 - 函几hanji.flac"
+Jul 16 10:04 : exception: Failed to decode /home/delta/Music/886 - 函几hanji.flac; Failed to open '/home/delta/Music/886 - 函几hanji.flac': No such file or directory
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+Jul 16 10:04 : exception: Failed to decode /home/delta/Music/886 - 函几hanji.flac; Failed to open '/home/delta/Music/886 - 函几hanji.flac': No such file or directory
+Jul 16 10:04 : player: played "886 - 函几hanji.flac"
+Jul 16 10:04 : exception: Failed to decode /home/delta/Music/886 - 函几hanji.flac; Failed to open '/home/delta/Music/886 - 函几hanji.flac': No such file or directory
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+Jul 16 10:06 : player: played "8D Tunes - Numb (8D Audio).flac"
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+Jul 16 10:06 : player: played "Abandoned,Enrosa - Out of the Grave.flac"
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+Jul 16 10:34 : exception: Failed to decode /home/delta/Music/A Bit Of Your Love - WildVibes.mp3; Failed to open '/home/delta/Music/A Bit Of Your Love - WildVibes.mp3': No such file or directory
+Jul 16 10:34 : player: played "A Bit Of Your Love - WildVibes.mp3"
+Jul 16 10:34 : exception: Failed to decode /home/delta/Music/A Bit Of Your Love - WildVibes.mp3; Failed to open '/home/delta/Music/A Bit Of Your Love - WildVibes.mp3': No such file or directory
+Jul 16 10:34 : exception: Failed to decode /home/delta/Music/A Bit Of Your Love - WildVibes.mp3; Failed to open '/home/delta/Music/A Bit Of Your Love - WildVibes.mp3': No such file or directory
+Jul 16 10:34 : player: played "A Bit Of Your Love - WildVibes.mp3"
+Jul 16 10:34 : exception: Failed to decode /home/delta/Music/A Bit Of Your Love - WildVibes.mp3; Failed to open '/home/delta/Music/A Bit Of Your Love - WildVibes.mp3': No such file or directory
+Jul 16 10:34 : player: played "A Bit Of Your Love - WildVibes.mp3"
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+Jul 16 10:38 : player: played "Adaro,Vertile - Walk With Me.flac"
+Jul 16 10:38 : exception: Failed to decode /home/delta/Music/10,000 Feet - INViDA,Robbie Rosen.mp3; Failed to open '/home/delta/Music/10,000 Feet - INViDA,Robbie Rosen.mp3': No such file or directory
+Jul 16 10:38 : player: played "10,000 Feet - INViDA,Robbie Rosen.mp3"
+Jul 16 10:38 : exception: Failed to decode /home/delta/Music/10,000 Feet - INViDA,Robbie Rosen.mp3; Failed to open '/home/delta/Music/10,000 Feet - INViDA,Robbie Rosen.mp3': No such file or directory
+Jul 16 10:38 : player: played "10,000 Feet - INViDA,Robbie Rosen.mp3"
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+Jul 16 10:40 : player: played "3rd Prototype,Harley Bird,Valentina Franco - Renegade.flac"
+Jul 16 10:40 : update: added /24kGoldn,iann dior - Mood.mp3
+Jul 16 10:40 : update: added /2Someone,Lanfranchi,Farina - Star Unkind (Lanfranchi & Farina Radio).flac
+Jul 16 10:40 : update: added /3LAU,Carly Paige - Touch.flac
+Jul 16 10:40 : update: added /3rd Prototype,Harley Bird,Valentina Franco - Renegade.flac
+Jul 16 10:40 : update: added /5 Seconds of Summer,R3HAB - Youngblood (R3HAB Remix).mp3
+Jul 16 10:40 : update: added /8D Tunes - Numb (8D Audio).flac
+Jul 16 10:40 : update: added /Aaron Carter - Sooner Or Later.flac
+Jul 16 10:40 : update: added /Aaron Smith,Luvli,Krono - Dancin (Krono Remix).mp3
+Jul 16 10:40 : update: added /Abandoned,Elle Vee - Ever After.flac
+Jul 16 10:40 : update: added /Abandoned,Enrosa - Out of the Grave.flac
+Jul 16 10:40 : update: added /Above & Beyond,Justine Suissa,MitiS - Almost Home (MitiS Remix).flac
+Jul 16 10:40 : update: added /Ace Aura,Voicians - UMBRA.flac
+Jul 16 10:40 : update: added /Adam Christopher - So Far Away (Acoustic).flac
+Jul 16 10:40 : update: added /Adam Levine - No One Else Like You.flac
+Jul 16 10:40 : update: added /Adam Rom - Curse.flac
+Jul 16 10:40 : update: added /Adam Rom - Hostage.flac
+Jul 16 10:40 : update: added /Adam Turley,Jordan Jack - Bipolar Heart.flac
+Jul 16 10:40 : update: added /Adaro,B-Front,Dawnfire - Touch A Star (Dr. Peacock Remix).mp3
+Jul 16 10:40 : update: added /Adaro,Vertile - Walk With Me.flac
+Jul 16 10:40 : update: added /Adib Sin,Salsa - Holding On.flac
+Jul 16 10:40 : update: added /Adrenalize,ADN Lewis - Astronauts.flac
+Jul 16 10:40 : update: added /Aftershock - Rise Of The Machines.flac
+Jul 16 10:40 : update: added /AhXon,Anisko,Spagbo - Love Is Forever.flac
+Jul 16 10:40 : update: added /AhXon - Chasing Dragons.flac
+Jul 16 10:40 : update: added /AIKA,I-Yu - Lightbringer.flac
+Jul 16 10:40 : update: added /Alan Walker - Alone.flac
+Jul 16 10:40 : update: added /Alan Walker,Au／Ra,Tomine Harket - Darkside.mp3
+Jul 16 10:40 : update: added /Alan Walker - Avem (The Aviation Theme).mp3
+Jul 16 10:40 : update: added /Alan Walker,Conor Maynard - Believers.mp3
+Jul 16 10:40 : update: added /Alan Walker,Imanbek - Sweet Dreams.mp3
+Jul 16 10:40 : update: added /Alan Walker,ISÁK - Sorry.mp3
+Jul 16 10:40 : update: added /Alan Walker,K-391,Emelie Hollow - Lily.mp3
+Jul 16 10:40 : update: added /Alan Walker,Noah Cyrus,Digital Farm Animals - All Falls Down.mp3
+Jul 16 10:40 : update: added /Alan Walker,Sia - Move Your Body (Alan Walker Remix).mp3
+Jul 16 10:40 : update: added /Alan Walker,Sorana - Lost Control.mp3
+Jul 16 10:40 : update: added /Alan Walker - Spectre.flac
+Jul 16 10:40 : update: added /Alan Walker - The Spectre.mp3
+Jul 16 10:40 : update: added /Alec Benjamin - If We Have Each Other.flac
+Jul 16 10:40 : update: added /Alec Chambers - Boston.flac
+Jul 16 10:40 : update: added /Alessia Cara - Scars To Your Beautiful.flac
+Jul 16 10:40 : update: added /Alesso - Payday.mp3
+Jul 16 10:40 : update: added /Alex Adair,Thomas Gold - Casual (Thomas Gold Remix).mp3
+Jul 16 10:40 : update: added /Alex Aiono,Feder,MDZN - Lordly (feat. Alex Aiono) [MDZN Remix].flac
+Jul 16 10:40 : update: added /Alexander Oscar - Chemistry.mp3
+Jul 16 10:40 : update: added /Alexander Oscar - Number.mp3
+Jul 16 10:40 : update: added /Alexander Stewart - Backwards.mp3
+Jul 16 10:40 : update: added /Alok,Zeeba,Bruno Martini - Hear Me Now.flac
+Jul 16 10:40 : update: added /A.LOVE - Missed Call.flac
+Jul 16 10:40 : update: added /Amaranthe - Digital World.flac
+Jul 16 10:40 : update: added /amazarashi - 風に流離い.mp3
+Jul 16 10:40 : update: added /Amberlake,KELLA - I Can Be Cool.flac
+Jul 16 10:40 : update: added /American Authors - Best Day Of My Life.flac
+Jul 16 10:40 : update: added /AMIDY,Awakend - Sanctuary.flac
+Jul 16 10:40 : update: added /AMIDY - Ever Known.flac
+Jul 16 10:40 : update: added /AMIDY,Outwild - Satellite.flac
+Jul 16 10:40 : update: added /AMIDY - The Worst Of You.flac
+Jul 16 10:40 : update: added /Amindo,Real Hypha,Dan Millward - Let Go.flac
+Jul 16 10:40 : update: added /Amy Peters - Preoccupied.flac
+Jul 16 10:40 : update: added /Amy Peters - Salt.flac
+Jul 16 10:40 : update: added /Amy Shark - I Said Hi.mp3
+Jul 16 10:40 : update: added /Andrew Rayel,Corti Organ,Max Cameron - New Dawn.flac
+Jul 16 10:40 : update: added /AndyM - Falling.flac
+Jul 16 10:40 : update: added /AnDyWuMUSICLAND,Worry Free Studios - Something Just Like This(Megamix).flac
+Jul 16 10:40 : update: added /ANG,Blackcode,Alessa - Chasing Bliss.flac
+Jul 16 10:40 : update: added /Angelika Vee,Dave202 - Outta Mind.flac
+Jul 16 10:40 : update: added /Angerfist - What Happened.flac
+Jul 16 10:40 : update: added /ANG,Jaxx & Vega - Shark Attack.flac
+Jul 16 10:40 : update: added /Anja Kotar - Really Like You.flac
+Jul 16 10:40 : update: added /Antoine Chambe - Easy Come.flac
+Jul 16 10:40 : update: added /Anyma - Sentient.flac
+Jul 16 10:40 : update: added /Approaching Nirvana - You.flac
+Jul 16 10:40 : update: added /Arcades,Sofia - Fragile.flac
+Jul 16 10:40 : update: added /Arcando,Daniel Garrick,Nessa Bransan - Fall Again.flac
+Jul 16 10:40 : update: added /Arc North,CRVN - Save the World.flac
+Jul 16 10:40 : update: added /Arc North,Krista Marina - Meant To Be.flac
+Jul 16 10:40 : update: added /Arc North,Polarbearz,Camilla Neideman - Together Now.flac
+Jul 16 10:40 : update: added /Ariana & the Rose,RKCB - Love You Lately.flac
+Jul 16 10:40 : update: added /A R I Z O N A - Summer Days.flac
+Jul 16 10:40 : update: added /Arizona Zervas,Swae Lee - ROXANNE (Remix).mp3
+Jul 16 10:40 : update: added /Armin Van Buuren,Avalan,Rising Star - Should I Wait (Armin van Buuren presents Rising Star Remix).flac
+Jul 16 10:40 : update: added /Armin Van Buuren,BullySongs - Freefall.flac
+Jul 16 10:40 : update: added /Armin Van Buuren,Sarah deCourcy,Omnia - Face Of Summer (Omnia Remix).flac
+Jul 16 10:40 : update: added /ARMNHMR,Karra - Silver Lining (feat. KARRA).flac
+Jul 16 10:40 : update: added /ARMNHMR,Linney - Coming Home (feat. Linney).flac
+Jul 16 10:40 : update: added /ARMNHMR,Melanie Fontana - Fragile (feat. Melanie Fontana).flac
+Jul 16 10:40 : update: added /ARMNHMR,neverwaves - Waiting For Love.flac
+Jul 16 10:40 : update: added /Artifact,Bloodlust - Right Off Earth.flac
+Jul 16 10:40 : update: added /Arty,Halsey - Hurricane (Arty Remix).mp3
+Jul 16 10:40 : update: added /Ascence - About You.flac
+Jul 16 10:40 : update: added /Asher Monroe - Here With You.flac
+Jul 16 10:40 : update: added /Ashes Remain - On My Own.flac
+Jul 16 10:40 : update: added /Askling - Next To You.flac
+Jul 16 10:40 : update: added /Aspyer,Matluck - Somebody To Hold.flac
+Jul 16 10:40 : update: added /Au5,Diandra Faye - A Million Miles (feat. Diandra Faye).flac
+Jul 16 10:40 : update: added /Audiotricz,Jay Reeve - Illuminate The Way.flac
+Jul 16 10:40 : update: added /Audiotricz - Locked & Loaded.flac
+Jul 16 10:40 : update: added /Avi8 - A Million Nights.flac
+Jul 16 10:40 : update: added /Avicii,Aloe Blacc - SOS.flac
+Jul 16 10:40 : update: added /Avicii - Fade Into Darkness (Vocal Radio Mix).flac
+Jul 16 10:40 : update: added /Avicii,Martin Garrix,Simon Aldred - Waiting For Love.flac
+Jul 16 10:40 : update: added /Avicii - X You (Radio Edit).flac
+Jul 16 10:40 : update: added /AViVA - Children In The Dark.flac
+Jul 16 10:40 : update: added /Awakend,Azuria Sky - Forever By Your Side.flac
+Jul 16 10:40 : update: added /Awakend,Heather Sommer - Crystal Memories ( feat.Heather Sommer ).flac
+Jul 16 10:40 : update: added /Awakend,Herrin,Sara Skinner - Hold Onto Me.flac
+Jul 16 10:40 : update: added /Awakend,Man Cub,TRØVES - In Too Deep.flac
+Jul 16 10:40 : update: added /Awakend,Monika Santucci - Lost When You're Away.flac
+Jul 16 10:40 : update: added /Awakend,Nytrix - Message From The Stars.flac
+Jul 16 10:40 : update: added /Axel Johansson,Ella Young - Forever.mp3
+Jul 16 10:40 : update: added /Axero - Hold Your Breath.flac
+Jul 16 10:40 : update: added /Axero,Katie McConnell - I'll Be Gone (feat. Katie McConnell).flac
+Jul 16 10:40 : update: added /Axero - Tropical Heaven.flac
+Jul 16 10:40 : update: added /Axollo,Josh Bogert - Silence.flac
+Jul 16 10:40 : update: added /Axwell,Shapov,Years - Belong (Axwell & Years Remode Edit).flac
+Jul 16 10:40 : update: added /ayokay,Future Jr. - Half Past You.mp3
+Jul 16 10:40 : update: added /Bad Boyfriend,Jaime Deraz - Love You Again.flac
+Jul 16 10:40 : update: added /Bazzi - Eyes.flac
+Jul 16 10:40 : update: added /Bag Raiders - Shooting Stars.mp3
+Jul 16 10:40 : update: added /Barren Gates,M.I.M.E - Enslaved.flac
+Jul 16 10:40 : update: added /Basixx,Ella Faye - We Came to Party.flac
+Jul 16 10:40 : update: added /Bea Miller - brand new eyes.flac
+Jul 16 10:40 : update: added /Bear Grillz,HALIENE - The Way We Were.flac
+Jul 16 10:40 : update: added /Beatrich - Superstar.flac
+Jul 16 10:40 : update: added /BEAUZ,AmanderSings,GISHIN - Half a Heart.flac
+Jul 16 10:40 : update: added /BEAUZ,Luke Anders,Ducka Shan - Ceasefire (Feat. Becca Krueger, Eliason).flac
+Jul 16 10:40 : update: added /BEAUZ,Michi - Never Over (feat. Michi).flac
+Jul 16 10:40 : update: added /Bebe Rexha - Ferrari.flac
+Jul 16 10:40 : update: added /Before You Exit - Painkiller.flac
+Jul 16 10:40 : update: added /Bellhouse - On a Night Like This.flac
+Jul 16 10:40 : update: added /B-Front,Deluzion - Unfold Me.flac
+Jul 16 10:40 : update: added /Billie Eilish - Six Feet Under.flac
+Jul 16 10:40 : update: added /Birdy,Jonas Blue - Keeping Your Head Up (Jonas Blue Remix) [Radio Edit].flac
+Jul 16 10:40 : update: added /Bishop Briggs - River.mp3
+Jul 16 10:40 : update: added /Blackcode,9Lives,Robbie Rosen - Remedy.flac
+Jul 16 10:40 : update: added /Blackcode,Adventurer,Revealed Recordings - Love Is Violence.flac
+Jul 16 10:40 : update: added /Black Veil Brides - In the End.flac
+Jul 16 10:40 : update: added /Bleu Clair - The Tempo.flac
+Jul 16 10:40 : update: added /BLÜ EYES - Blame.flac
+Jul 16 10:40 : update: added /BLÜ EYES - supposed to.flac
+Jul 16 10:40 : update: added /Bobina,柳李 Atom Panda - China in the House.flac
+Jul 16 10:40 : update: added /Bougenvilla,Albert Neve,David Puentez - No Matter What (Extended Mix).mp3
+Jul 16 10:40 : update: added /Boyce Avenue,Bea Miller - We Can't Stop.flac
+Jul 16 10:40 : update: added /Boy In Space - Remember Me.flac
+Jul 16 10:40 : update: added /Breathe Carolina,Asketa & Natan Chaim,Rama Duke - Get Away.flac
+Jul 16 10:40 : update: added /BrillLion,She Is Jules - Healing (feat. She Is Jules).flac
+Jul 16 10:40 : update: added /Broiler,Imagine Dragons - Shots (Broiler Remix).mp3
+Jul 16 10:40 : update: added /Brook Xiao,Rachel Horter - Fire.flac
+Jul 16 10:40 : update: added /Bruno Mars - Talking to the Moon.mp3
+Jul 16 10:40 : update: added /BUNT.,BEGINNERS - Young Hearts.mp3
+Jul 16 10:40 : update: added /Calmani & Grey,Pearl Andersson - Tattoo.flac
+Jul 16 10:40 : update: added /Calvin Harris,Ellie Goulding - Outside.flac
+Jul 16 10:40 : update: added /Calvin Harris,John Newman - Blame.mp3
+Jul 16 10:40 : update: added /Carla Wehbe - Love Me For Me.flac
+Jul 16 10:40 : update: added /Carly Rae Jepsen - Curiosity.flac
+Jul 16 10:40 : update: added /Caslow,Exede - City Lights.flac
+Jul 16 10:40 : update: added /Armin Van Buuren,Rising Star,Alexandra Badoi - Cosmos.flac
+Jul 16 10:40 : update: added /ARMNHMR,Melanie Fontana - Forever Young (feat. Melanie Fontana).flac
+Jul 16 10:40 : update: added /ARMNHMR,Miles Away,Mark Klaver - One Sided (feat. Mark Klaver).flac
+Jul 16 10:40 : update: added /ARMNHMR,Rynn,Abandoned - Can't Let You Go.flac
+Jul 16 10:40 : update: added /Arston,Soul Parker - When We Were Young.flac
+Jul 16 10:40 : update: added /Ashley Wallbridge,Karra - Melody.flac
+Jul 16 10:40 : update: added /Ashley Wallbridge,Karra - Undiscovered.flac
+Jul 16 10:40 : update: added /Ashley Wallbridge,Sarah De Warren - World For You.flac
+Jul 16 10:40 : update: added /Ashton Love,MPV,4Beats - Feel Like (17).mp3
+Jul 16 10:40 : update: added /Asketa & Natan Chaim,Kyle Reynolds - Real Love.flac
+Jul 16 10:40 : update: added /Aspyer,Karin Park - The Rest Of Your Life.flac
+Jul 16 10:40 : update: added /Aspyer,Kyle Reynolds,Carly Jay - Chance.flac
+Jul 16 10:40 : update: added /Astronomyy - Pack Of Wolves.flac
+Jul 16 10:40 : update: added /Audrey Mika - Just Friends.mp3
+Jul 16 10:40 : update: added /AURORA - Cure For Me.flac
+Jul 16 10:40 : update: added /Austin Mahone,Rich Homie Quan - Send It (feat. Rich Homie Quan).flac
+Jul 16 10:40 : update: added /Ava Max - Salt (Toby Green Remix).flac
+Jul 16 10:40 : update: added /Ava Max - Sweet but Psycho.flac
+Jul 16 10:40 : update: added /Avi8,Dirty Workz - By Your Side.flac
+Jul 16 10:40 : update: added /Avicii,Imagine Dragons - Heart Upon My Sleeve.flac
+Jul 16 10:40 : update: added /Avicii,Martin Garrix,Simon Aldred - Waiting For Love (1).mp3
+Jul 16 10:40 : update: added /Avicii - Speed (Burn & Lotus F1 Team Mix).flac
+Jul 16 10:40 : update: added /Avicii,Zac Brown - Broken Arrows.flac
+Jul 16 10:40 : update: added /AViVA - PSYCHO.flac
+Jul 16 10:40 : update: added /Axel Johansson - Wonderland.mp3
+Jul 16 10:40 : update: added /Axero - Dusk (Original Mix).flac
+Jul 16 10:40 : update: added /Axero - Young, Wild & Free.flac
+Jul 16 10:40 : update: added /Axxound,Mark & Lukas - Fairy Lights (Mark & Lukas Remix).flac
+Jul 16 10:40 : update: added /Barns Courtney - Glitter & Gold.flac
+Jul 16 10:40 : update: added /Bassic,Heleen - Million Miles Away.flac
+Jul 16 10:40 : update: added /Bassjackers,MOTi - Helter Skelter.flac
+Jul 16 10:40 : update: added /Bassjackers - Want You (So Bad).flac
+Jul 16 10:40 : update: added /BeatBrothers - Fight.flac
+Jul 16 10:40 : update: added /Beatrich - About.flac
+Jul 16 10:40 : update: added /BEAUZ,Elle Vee,KHNG - Goodbye (feat. Elle Vee).flac
+Jul 16 10:40 : update: added /BEAUZ,Nevve,Kastilione - Count The Hours.flac
+Jul 16 10:40 : update: added /BEAUZ,ThatBehavior,Luna Vexa - Bipolar.flac
+Jul 16 10:40 : update: added /Blake Rose - Lost.flac
+Jul 16 10:40 : update: added /Before You Exit - Silence (1).flac
+Jul 16 10:40 : update: added /Before You Exit - Silence.flac
+Jul 16 10:40 : update: added /beignet - Orange Rocket.flac
+Jul 16 10:40 : update: added /beignet - Tulala Story.flac
+Jul 16 10:40 : update: added /Billie Eilish,Justin Bieber - bad guy - with Justin Bieber.flac
+Jul 16 10:40 : update: added /Billie Eilish,Khalid - lovely.flac
+Jul 16 10:40 : update: added /Biray - We Gonna Rock.flac
+Jul 16 10:40 : update: added /Bishop Briggs - Dark Side.mp3
+Jul 16 10:40 : update: added /Blackcode,STVW,Chad Kowal - Collide.flac
+Jul 16 10:40 : update: added /Blanke,Dia Frampton - Spark (with Dia Frampton).flac
+Jul 16 10:40 : update: added /Blanke,Donna Tella - Stuck On You (feat. Donna Tella).flac
+Jul 16 10:40 : update: added /Blanke,Luma - Survive (with Luma).mp3
+Jul 16 10:40 : update: added /Blasterjaxx,Amanda Collis - Rescue Me (feat. Amanda Collis).flac
+Jul 16 10:40 : update: added /Blasterjaxx,Daniele Sorrentino - Our World (feat. Daniele Sorrentino).flac
+Jul 16 10:40 : update: added /Blasterjaxx,Harris & Ford - Bassman.flac
+Jul 16 10:40 : update: added /Blasterjaxx,Mariana BO,Luisah - Dreams (feat. LUISAH).flac
+Jul 16 10:40 : update: added /BLÜ EYES - actually happy.flac
+Jul 16 10:40 : update: added /BLÜ EYES - Some Days.flac
+Jul 16 10:40 : update: added /Bogdan Vix,Claudiu Adam,Mona Moua - Stay.flac
+Jul 16 10:40 : update: added /Boy In Space,SHY Martin - On A Prayer.flac
+Jul 16 10:40 : update: added /Breathe Carolina,Dropgun,Kaleena Zanders - Rhythm Is A Dancer (feat. Kaleena Zanders).flac
+Jul 16 10:40 : update: added /Breathe Carolina,Dropgun,Kaleena Zanders - Sweet Dreams.flac
+Jul 16 10:40 : update: added /Breathe Carolina,Dropgun,Taku-Hero - This Again (Dropgun & Taku-Hero Extended Remix).flac
+Jul 16 10:40 : update: added /Brennan Heart,Blademasterz,Dana - Oldskool & Acid (Original Mix).flac
+Jul 16 10:40 : update: added /Brennan Heart,Blademasterz - Katana (EP Version).flac
+Jul 16 10:40 : update: added /Brennan Heart,Jonathan Mendelsohn - Journey.flac
+Jul 16 10:40 : update: added /Brennan Heart - Way Of Life.flac
+Jul 16 10:40 : update: added /Brooks,KSHMR,Tzar - Voices (feat. TZAR).flac
+Jul 16 10:40 : update: added /Brooks,Zoe Moss - Limbo.mp3
+Jul 16 10:40 : update: added /Bruno Mars,Anderson Paak,Silk Sonic - Leave The Door Open.flac
+Jul 16 10:40 : update: added /BUNT.,Benemy Slope - Save My Mind.mp3
+Jul 16 10:40 : update: added /BUNT.,HON,SMBDY - Hurricane.flac
+Jul 16 10:40 : update: added /Bvrnout,AXYL - Silhouette.flac
+Jul 16 10:40 : update: added /Calvin Harris,Rihanna - This Is What You Came For.mp3
+Jul 16 10:40 : update: added /Calvo,Noubya - Light It Up.flac
+Jul 16 10:40 : update: added /Cartoon,Daniel Levi - On & On.flac
+Jul 16 10:40 : update: added /CAZZETTE,AronChupa,The High - She Wants Me Dead.flac
+Jul 16 10:40 : update: added /Charlie Puth - How Long.flac
+Jul 16 10:40 : update: added /Chester Young,Castion - PYRO.flac
+Jul 16 10:40 : update: added /Chico Rose,Afrojack - Sad (feat. Afrojack).flac
+Jul 16 10:40 : update: added /CMC$,Jenny March - Love Parade.flac
+Jul 16 10:40 : update: added /CMC$,SVEA - Stupid Dumb.flac
+Jul 16 10:40 : update: added /Cody Simpson - La Da Dee.mp3
+Jul 16 10:40 : update: added /Cyber - Closer.flac
+Jul 16 10:40 : update: added /Dabin,Nurko,Donovan Woods - When This Is Over.flac
+Jul 16 10:40 : update: added /Dabin - Smoke Signals.flac
+Jul 16 10:40 : update: added /Daitshi,Bri Tolani - Tongue Tied (feat. Bri Tolani).flac
+Jul 16 10:40 : update: added /Damon Empero - I Promise.flac
+Jul 16 10:40 : update: added /Dance Cartel,Benj Heard - On The Run (feat. Benj Heard).flac
+Jul 16 10:40 : update: added /Danny Olson,Henry Hartley,Mo Falk - Halcyon (Mo Falk Remix).flac
+Jul 16 10:40 : update: added /David Bulla - Unexpected.flac
+Jul 16 10:40 : update: added /D-Block & S-te-Fan - Diamond Hearts.flac
+Jul 16 10:40 : update: added /Deadly Guns,Dither - Sick In The Head.flac
+Jul 16 10:40 : update: added /DEAMN - By My Side.flac
+Jul 16 10:40 : update: added /DEEZL - MORE THAN HUMAN (Original Mix).flac
+Jul 16 10:40 : update: added /Dion Timmer - Playable Dynamic Sounds.flac
+Jul 16 10:40 : update: added /Disco Killerz,Delaney Jane,Sarah Charness - Beautiful Life.flac
+Jul 16 10:40 : update: added /DJ Snake,Lil Jon - Turn Down for What.flac
+Jul 16 10:40 : update: added /Dropgun,Kaleena Zanders - Nothing New.flac
+Jul 16 10:40 : update: added /Duncan Laurence - Arcade.flac
+Jul 16 10:40 : update: added /DVDDY,Caslow,Kellin Quinn - What Isn't Here.flac
+Jul 16 10:40 : update: added /Egzod,Maestro Chives,Neoni - Royalty.flac
+Jul 16 10:40 : update: added /Elephante,SABAI - Love Again.flac
+Jul 16 10:40 : update: added /elijah woods - the way that we started (taylor).flac
+Jul 16 10:40 : update: added /Ella Isaacson,R3HAB,Gallant - Expectations (R3HAB Remix).flac
+Jul 16 10:40 : update: added /Fablers,Revealed Recordings,Sam Knight - Need You.flac
+Jul 16 10:40 : update: added /Fadi - Hold On.flac
+Jul 16 10:40 : update: added /Fall Out Boy - Centuries.flac
+Jul 16 10:40 : update: added /Fall Out Boy - Uma Thurman.flac
+Jul 16 10:40 : update: added /Fancy Floss,MARC,Revealed Recordings - Empty Space.flac
+Jul 16 10:40 : update: added /Far Out,Emilia Ali - Wrong (feat. Emilia Ali).flac
+Jul 16 10:40 : update: added /Far Out,Karra - Constellation.flac
+Jul 16 10:40 : update: added /Fatal Force,Crusher-P,GUMI - Wildfire.flac
+Jul 16 10:40 : update: added /Faustix - Thorns.flac
+Jul 16 10:40 : update: added /Faustix,Alexander Oscar - Somebody New.flac
+Jul 16 10:40 : update: added /Fecko Boltz - NOT SO BAD.flac
+Jul 16 10:40 : update: added /Feint,Laura Brehm - We Won't Be Alone.flac
+Jul 16 10:40 : update: added /Felix Cartal,Steph Jones - Keep Up.flac
+Jul 16 10:40 : update: added /Ferry Corsten,Ciaran McAuley - Mo Chara.flac
+Jul 16 10:40 : update: added /Firelite - Beyond The Stars.flac
+Jul 16 10:40 : update: added /Flay! - Youthful.flac
+Jul 16 10:40 : update: added /Flo Rida,Pitbull - Can't Believe It.flac
+Jul 16 10:40 : update: added /Fly By Midnight - No Choice.flac
+Jul 16 10:40 : update: added /F.O.O.L,The Forgotten - Dystopia 2077.flac
+Jul 16 10:40 : update: added /Fransis Derelle,Parker Polhill - Fly.flac
+Jul 16 10:40 : update: added /Gareth Emery,Annabel - Love You For All Time.flac
+Jul 16 10:40 : update: added /Gareth Emery,Nash,Linney - Yesterday.flac
+Jul 16 10:40 : update: added /Gentle Bones - Be My Ocean.mp3
+Jul 16 10:40 : update: added /Gigo'n'Migo,Crunkz,Revealed Recordings - It’ll Be Alright.flac
+Jul 16 10:40 : update: added /Great Good Fine OK,Emily Burns - Could Be Us.flac
+Jul 16 10:40 : update: added /Grey,Skott - Crime.flac
+Jul 16 10:40 : update: added /Gromee,Jesper Jenset - One Last Time.mp3
+Jul 16 10:40 : update: added /Gryffin,Elley Duhé - Tie Me Down.flac
+Jul 16 10:40 : update: added /Gryffin,Katie Pearlman - Nobody Compares To You.flac
+Jul 16 10:40 : update: added /Gunz For Hire - Seek & Destroy.flac
+Jul 16 10:40 : update: added /Guy Gabriel,Leah Marlene - If U Love Me.flac
+Jul 16 10:40 : update: added /Heather Sommer - you heard me.flac
+Jul 16 10:40 : update: added /Hechmann - Perfect Stranger.mp3
+Jul 16 10:40 : update: added /Hilefex - Back To You.flac
+Jul 16 10:40 : update: added /Hoang,Alisa - Run Back to You (feat. Alisa).flac
+Jul 16 10:40 : update: added /Hoang,Kianna - Gone (feat. Kianna).flac
+Jul 16 10:40 : update: added /HoneyComeBear - Clockwise.flac
+Jul 16 10:40 : update: added /HRVY - ME BECAUSE OF YOU.flac
+Jul 16 10:40 : update: added /HRVY - Million Ways.flac
+Jul 16 10:40 : update: added /Carly Rae Jepsen - Call Me Maybe.flac
+Jul 16 10:40 : update: added /Carly Rae Jepsen - I Really Like You.flac
+Jul 16 10:40 : update: added /Carnage,VINAI - Time For The Techno.flac
+Jul 16 10:40 : update: added /Cartoon,Kóstja,Feint - Whatever I Do (Feint Remix).flac
+Jul 16 10:40 : update: added /Cashae,Kiddo AI - Endless Summer.flac
+Jul 16 10:40 : update: added /Cash Cash,Christina Perri - Hero (feat. Christina Perri).flac
+Jul 16 10:40 : update: added /Cash Cash,Jon Bellion - All Time Low (Cash Cash Remix).mp3
+Jul 16 10:40 : update: added /Cash Cash,Laura White - Gasoline (feat. Laura White).flac
+Jul 16 10:40 : update: added /Cash Cash,Sofia Reyes - How to Love (feat. Sofia Reyes).flac
+Jul 16 10:40 : update: added /Caslow,Exede - Can We Go Back.flac
+Jul 16 10:40 : update: added /Charming Horses,MPH - Find You (Club Mix).flac
+Jul 16 10:40 : update: added /Chillos - Ice On My Baby Sped Up.flac
+Jul 16 10:40 : update: added /Chris James - Better To Lie.flac
+Jul 16 10:40 : update: added /christianalexnder - summer '17.mp3
+Jul 16 10:40 : update: added /Clara Mae - Run Into You.flac
+Jul 16 10:40 : update: added /Clara Mae - Unmiss You.flac
+Jul 16 10:40 : update: added /Coone,Da Tweekaz,Hard Driver - A Thousand Journeys.mp3
+Jul 16 10:40 : update: added /CORSAK胡梦周,马吟吟 - 溯 (Reverse).flac
+Jul 16 10:40 : update: added /Cosmos & Creature - Young.flac
+Jul 16 10:40 : update: added /Crankdat,Kc - What It Feels Like.flac
+Jul 16 10:40 : update: added /Crystal Skies,PRXZM - Moment With You (feat. PRXZM).flac
+Jul 16 10:40 : update: added /Culture Code,Alexis Donn - You & I.flac
+Jul 16 10:40 : update: added /Cyber - Unknown Edge.flac
+Jul 16 10:40 : update: added /Dabin,Trella - Starbright.flac
+Jul 16 10:40 : update: added /DallasK - Self Control.flac
+Jul 16 10:40 : update: added /Daniel Garrick,Clef & Canberra,Revealed Recordings - Firestorm.flac
+Jul 16 10:40 : update: added /Dan Talevski - If I Ain't Got You.flac
+Jul 16 10:40 : update: added /Dante Klein - Nothin' On You.flac
+Jul 16 10:40 : update: added /Da Tweekaz - Heroes Of Today.flac
+Jul 16 10:40 : update: added /Da Tweekaz,Oesch’s die Dritten - Ich schenk' Dir einen Jodler.mp3
+Jul 16 10:40 : update: added /D-Block & S-te-Fan - Gates Of Paradise.flac
+Jul 16 10:40 : update: added /Deadly Guns,MBK,Angernoizer - Bass For The Streets.flac
+Jul 16 10:40 : update: added /Deadly Guns,Serouj Guidanian - Falling Away From Me.flac
+Jul 16 10:40 : update: added /Deep East Music - That Very Night.flac
+Jul 16 10:40 : update: added /D-Fence - Integrity.flac
+Jul 16 10:40 : update: added /Diamond Eyes - Everything.flac
+Jul 16 10:40 : update: added /Dirty Palm,CRVN - Alibi.flac
+Jul 16 10:40 : update: added /Dirty Palm - No Stopping Love.flac
+Jul 16 10:40 : update: added /Disco Fries,Raquel Castro - U Make Me.flac
+Jul 16 10:40 : update: added /Distrion,Jack & James - Over Life.flac
+Jul 16 10:40 : update: added /DJ Snake,Selena Gomez,Ozuna - Taki Taki.flac
+Jul 16 10:40 : update: added /DJ Thera - Wait For You.flac
+Jul 16 10:40 : update: added /DMNDS,poky,Avocuddle - Dancin.flac
+Jul 16 10:40 : update: added /Dreweybear,Vaance - Last Goodbye.flac
+Jul 16 10:40 : update: added /Dr. Peacock,Sefa - Incoming.flac
+Jul 16 10:40 : update: added /D-Sturb - Fire & Blood.flac
+Jul 16 10:40 : update: added /DubVision,Justin OH - Under The Stars.flac
+Jul 16 10:40 : update: added /Ea Kaya - Cruel To Be Kind.mp3
+Jul 16 10:40 : update: added /Ed Sheeran - Shape of You.flac
+Jul 16 10:40 : update: added /Ed Sheeran - What Do I Know？.flac
+Jul 16 10:40 : update: added /E-Force,Disarray - Join The Rebellion (Official Rebellion 2021 Anthem).flac
+Jul 16 10:40 : update: added /Egzod,EMM - Don't Surrender.flac
+Jul 16 10:40 : update: added /Elektronomia - Sky High.flac
+Jul 16 10:40 : update: added /ELIO,Charli XCX - CHARGER (ft. Charli XCX).flac
+Jul 16 10:40 : update: added /Empra - Heavy Heart (Radio Edit).mp3
+Jul 16 10:40 : update: added /Exede - Everything Can Be.flac
+Jul 16 10:40 : update: added /Fairlane,TRØVES - Crumble.flac
+Jul 16 10:40 : update: added /Famba,Eric Lumiere,Raven & Kreyn - In My Head (Raven & Kreyn Remix).mp3
+Jul 16 10:40 : update: added /Far Out - Apex.flac
+Jul 16 10:40 : update: added /Fefe Dobson - Stuttering.mp3
+Jul 16 10:40 : update: added /Feint,Elizaveta - Drifters.flac
+Jul 16 10:40 : update: added /Feint,Veela - Vagrant.flac
+Jul 16 10:40 : update: added /Ferry Corsten,Gouryella - Orenda (Extended Mix).flac
+Jul 16 10:40 : update: added /FEWZ - Echoes.flac
+Jul 16 10:40 : update: added /FEWZ - Endless.flac
+Jul 16 10:40 : update: added /FEWZ - Zodiac.flac
+Jul 16 10:40 : update: added /Firelite - In The Dark Now (Extended Mix).mp3
+Jul 16 10:40 : update: added /Fitz and The Tantrums - HandClap.flac
+Jul 16 10:40 : update: added /Fly By Midnight,Jake Miller - Automatic (feat. Jake Miller).flac
+Jul 16 10:40 : update: added /Fly By Midnight - Nothing New.flac
+Jul 16 10:40 : update: added /Fly By Midnight - What If I Wasn't Done Loving You？.flac
+Jul 16 10:40 : update: added /Friendzone,Nevve - Glow In The Dark (feat. Nevve).flac
+Jul 16 10:40 : update: added /G.E.M.邓紫棋 - 多远都要在一起.flac
+Jul 16 10:40 : update: added /G.E.M.邓紫棋 - 句号.flac
+Jul 16 10:40 : update: added /Gentle Bones - Shifting Over.mp3
+Jul 16 10:40 : update: added /Geoxor - Aether.flac
+Jul 16 10:40 : update: added /Gloria Kim - Winter Without You.flac
+Jul 16 10:40 : update: added /Greyson Chance - Twenty One.flac
+Jul 16 10:40 : update: added /GSPR - We'll Be Alright.flac
+Jul 16 10:40 : update: added /Halcyon,Valentina Franco - Runaway.flac
+Jul 16 10:40 : update: added /Hard Driver - Chemistry.flac
+Jul 16 10:40 : update: added /Caslow,Foster,Brycian - Waiting Part II (The Answer).flac
+Jul 16 10:40 : update: added /Charlotte Lawrence - Just The Same.flac
+Jul 16 10:40 : update: added /Charlotte Lawrence - Slow Motion.flac
+Jul 16 10:40 : update: added /CHROMANCE,Marcus Layton - Wrap Me In Plastic.flac
+Jul 16 10:40 : update: added /Clara Mae - Drunk On Emotions.flac
+Jul 16 10:40 : update: added /Clara Mae - Not Sad Anymore.flac
+Jul 16 10:40 : update: added /CORSAK胡梦周 - 溯Reverse (Live).flac
+Jul 16 10:40 : update: added /Crypton,Claire Classicore - Distraction.flac
+Jul 16 10:40 : update: added /Crypton - Shadows (Original Mix).flac
+Jul 16 10:40 : update: added /Crystal Skies,Ekko - Used To Love.flac
+Jul 16 10:40 : update: added /Crystal Skies,Gallie Fisher - Never Change (feat. Gallie Fisher).flac
+Jul 16 10:40 : update: added /Crystal Skies,Gallie Fisher - This Moment (feat. Gallie Fisher).flac
+Jul 16 10:40 : update: added /Crystal Skies,Mazare,Bertie Scott - Cruel Summer.flac
+Jul 16 10:40 : update: added /Cuebrick - Sunray.flac
+Jul 16 10:40 : update: added /Culture Code,Amanda Collis - Fairytale.flac
+Jul 16 10:40 : update: added /Culture Code,Karra - Coincidence.flac
+Jul 16 10:40 : update: added /Daniel Garrick,Karra - What It Looks Like.flac
+Jul 16 10:40 : update: added /Danimal - Wolves.flac
+Jul 16 10:40 : update: added /Danny Olson,Bebi,Tyler Graves - Undertow.flac
+Jul 16 10:40 : update: added /Danny Olson,Bianca - Waiting (feat. Bianca).flac
+Jul 16 10:40 : update: added /Danny Olson,Sammy Plotkin - Oasis.flac
+Jul 16 10:40 : update: added /Dan + Shay - All To Myself.flac
+Jul 16 10:40 : update: added /Dash Berlin,Bo Bruce - Coming Home.flac
+Jul 16 10:40 : update: added /Da Tweekaz,LNY TNZ - So Easy.flac
+Jul 16 10:40 : update: added /D-Block & S-te-Fan - Feel Inside.flac
+Jul 16 10:40 : update: added /Deagon,Alex Jones (UK),Revealed Recordings - Forever Young.flac
+Jul 16 10:40 : update: added /DEAMN - Sign.flac
+Jul 16 10:40 : update: added /Deep Chills,IVIE - Run Free.flac
+Jul 16 10:40 : update: added /Demxntia,keshi - It Kills Me (feat. keshi).flac
+Jul 16 10:40 : update: added /Devin Wild - Blinded.flac
+Jul 16 10:40 : update: added /Diamond Eyes - 23.flac
+Jul 16 10:40 : update: added /Dirty Palm,Conor Ross,Chandler Blasé - Flowers (feat. Chandler Blasé).flac
+Jul 16 10:40 : update: added /Disero,Josh Smith - Like That.flac
+Jul 16 10:40 : update: added /Distrion,Heleen - Alibi.flac
+Jul 16 10:40 : update: added /Distrion,jeonghyeon,Harley Bird - Fly.flac
+Jul 16 10:40 : update: added /Diviners,Azertion - Feelings.flac
+Jul 16 10:40 : update: added /Diviners,Marin Hoxha,Exede - Chasing The Night.mp3
+Jul 16 10:40 : update: added /DJ Fresh,Rita Ora - Hot Right Now.mp3
+Jul 16 10:40 : update: added /Don Diablo - Cutting Shapes.flac
+Jul 16 10:40 : update: added /DJ Snake,Justin Bieber - Let Me Love You.flac
+Jul 16 10:40 : update: added /Domeno,Karl Sylver,Garrett Raff - I Can Tell.flac
+Jul 16 10:40 : update: added /D-Sturb - Partystarter.flac
+Jul 16 10:40 : update: added /DubVision,Matvey Emerson - Into You (Matvey Emerson Remix).flac
+Jul 16 10:40 : update: added /Ed Sheeran - Nancy Mulligan.flac
+Jul 16 10:40 : update: added /EDX,Jess Ball - Take Me Home (feat. Jess Ball).flac
+Jul 16 10:40 : update: added /Elektronomia - Vision.flac
+Jul 16 10:40 : update: added /Elli Moore - Romeo.flac
+Jul 16 10:40 : update: added /Emil Berg - Du swipa höger.flac
+Jul 16 10:40 : update: added /Emma Bale - Cut Loose.mp3
+Jul 16 10:40 : update: added /Eternal Raijin - Call of Silence.flac
+Jul 16 10:40 : update: added /Excision,Sarah De Warren - Back to Life.flac
+Jul 16 10:40 : update: added /Extra Terra,Max Brhon - Elon Trust.flac
+Jul 16 10:40 : update: added /Fais,Afrojack - Hey (Radio Edit).mp3
+Jul 16 10:40 : update: added /Fall Out Boy - Immortals.flac
+Jul 16 10:40 : update: added /Fall Out Boy,Juicy J - Centuries (Remix).mp3
+Jul 16 10:40 : update: added /Faustix - Jealous.flac
+Jul 16 10:40 : update: added /Faux Chaux,Bianca - Better Off Alone.flac
+Jul 16 10:40 : update: added /FEWZ - Luna's Vanishing.flac
+Jul 16 10:40 : update: added /Fireprox,M1ZH - All Yours.flac
+Jul 16 10:40 : update: added /Flay! - In The Sky.flac
+Jul 16 10:40 : update: added /Flip Capella,OTRAY,Vinze - Going Crazy.flac
+Jul 16 10:40 : update: added /Flo Rida,99 Percent - Cake.mp3
+Jul 16 10:40 : update: added /Fly By Midnight - All The Feels.flac
+Jul 16 10:40 : update: added /Fly By Midnight - What If I Wasn't Done Loving You？ (1).flac
+Jul 16 10:40 : update: added /Frank Walker,Astrid S - Only When It Rains.mp3
+Jul 16 10:40 : update: added /Futuristic Polar Bears,Cuebrick,LUX (US) - Love On Fire.mp3
+Jul 16 10:40 : update: added /Futuristik,Harley Bird,Cadmium - Seasons (Futuristik & Whogaux Remix).flac
+Jul 16 10:40 : update: added /Gabriela Bee - u get me.flac
+Jul 16 10:40 : update: added /Gamma Skies,Milva - Every Day.flac
+Jul 16 10:40 : update: added /Gareth Coker,Aeralie Brighton - Ori, Lost In the Storm (feat. Aeralie Brighton).flac
+Jul 16 10:40 : update: added /Gareth Emery,Alex & Sierra - We Were Young.flac
+Jul 16 10:40 : update: added /Gaullin - Op Opa.flac
+Jul 16 10:40 : update: added /G.E.M.邓紫棋 - 倒数.flac
+Jul 16 10:40 : update: added /GhostDragon,Kuo,April Bender - Darker Days.flac
+Jul 16 10:40 : update: added /Giuseppe Ottaviani,Cari - Beautiful.mp3
+Jul 16 10:40 : update: added /gnash,DENM - belong.flac
+Jul 16 10:40 : update: added /Greenjelin,Paulina Cameron - Sky of Dreams.flac
+Jul 16 10:40 : update: added /Grumbae,Alessia Labate - Move On.flac
+Jul 16 10:40 : update: added /Gryffin,CHVRCHES - Clearest Blue (Gryffin Remix).mp3
+Jul 16 10:40 : update: added /Capitol Kids! - Wake.flac
+Jul 16 10:40 : update: added /Caroline Manning - Sour Strawberry.flac
+Jul 16 10:40 : update: added /Caslow,Exede - Days Of Our Youth.flac
+Jul 16 10:40 : update: added /Charlie Puth,Selena Gomez - We Don't Talk Anymore.flac
+Jul 16 10:40 : update: added /Charlie Puth - Slow It Down.flac
+Jul 16 10:40 : update: added /Charlie Puth - The Way I Am.flac
+Jul 16 10:40 : update: added /Cheat Codes,Nicky Romero - Sober.flac
+Jul 16 10:40 : update: added /CHiCO - color.mp3
+Jul 16 10:40 : update: added /Chill Satellite - My Eyes.flac
+Jul 16 10:40 : update: added /Chime - Can't Feel It.flac
+Jul 16 10:40 : update: added /Chloe Adams - Dirty Thoughts.flac
+Jul 16 10:40 : update: added /Christopher - My Heart.flac
+Jul 16 10:40 : update: added /CID - Werk.flac
+Jul 16 10:40 : update: added /Clarx,Moe Aly - Healing.flac
+Jul 16 10:40 : update: added /Clean Bandit,Jess Glynne - Rather Be.mp3
+Jul 16 10:40 : update: added /Clean Bandit,Zara Larsson - Symphony (feat. Zara Larsson).flac
+Jul 16 10:40 : update: added /Coldplay - A Sky Full of Stars.flac
+Jul 16 10:40 : update: added /Crystal Skies - Crash & Burn.flac
+Jul 16 10:40 : update: added /Curbi,Brooke Tomlinson - Spiritual (Mriya).flac
+Jul 16 10:40 : update: added /Dabin,Koste - Forever.flac
+Jul 16 10:40 : update: added /Danny Avila - Hard To Love.mp3
+Jul 16 10:40 : update: added /Danny Olson,Linney - Once Again.flac
+Jul 16 10:40 : update: added /Danny Olson,Yetep,EASAE - Melting (feat. EASAE).flac
+Jul 16 10:40 : update: added /Dash Berlin - Never Cry Again.flac
+Jul 16 10:40 : update: added /Dave Crusher,JackMar,LEV in the Wild - Somebody To Love.flac
+Jul 16 10:40 : update: added /David Guetta,Brooks,Loote - Better When You're Gone.flac
+Jul 16 10:40 : update: added /Daya,Owen Norton - Insomnia (Owen Norton Remix).mp3
+Jul 16 10:40 : update: added /Debris,Justin Petti,Veronica Bravo - I Need Love.flac
+Jul 16 10:40 : update: added /Dillon Francis,SHIFT K3Y,Marc E. Bassy - Love Me Better.flac
+Jul 16 10:40 : update: added /Disco Fries,Raquel Castro,Asketa & Natan Chaim - U Make Me (Natan Chaim & Asketa Remix).flac
+Jul 16 10:40 : update: added /DJ Snake,Bipolar Sunshine - Middle.mp3
+Jul 16 10:40 : update: added /Doja Cat,Nicki Minaj - Say So (Original Version).mp3
+Jul 16 10:40 : update: added /DOLF,Yellow Claw,Caroline Pennell - Vertigo.mp3
+Jul 16 10:40 : update: added /Don Diablo - Thousand Faces (Acoustic).flac
+Jul 16 10:40 : update: added /Donna Tella,Arc North - Symphony.flac
+Jul 16 10:40 : update: added /Dramma - Мимими.flac
+Jul 16 10:40 : update: added /Dr. Peacock,Sefa - Incoming (1).flac
+Jul 16 10:40 : update: added /Ed Sheeran,Khalid - Beautiful People (feat. Khalid).flac
+Jul 16 10:40 : update: added /Ed Sheeran - Supermarket Flowers.flac
+Jul 16 10:40 : update: added /E-Force,Bloodlust - Deathblow.flac
+Jul 16 10:40 : update: added /Egg - putting a spin on low.flac
+Jul 16 10:40 : update: added /Ella Vos - Dreaming, backwards.flac
+Jul 16 10:40 : update: added /Ellie Goulding,Jonas Blue - Still Falling For You (Jonas Blue Remix).flac
+Jul 16 10:40 : update: added /Ellis,Triangle - Every Second.flac
+Jul 16 10:40 : update: added /Embody,Claire Ridgely - Lost & Found.flac
+Jul 16 10:40 : update: added /EMBRZ - Breathe.flac
+Jul 16 10:40 : update: added /Emilee - Feels Like a Dream.flac
+Jul 16 10:40 : update: added /Envine - All Around Me.flac
+Jul 16 10:40 : update: added /Evalyn,Marky Style,Guy Gabriel - Cherry Lambo (Marky Style & Guy Gabriel Remix).flac
+Jul 16 10:40 : update: added /Fairlane,ROZES,JT Roach - Out Loud.flac
+Jul 16 10:40 : update: added /Fall Out Boy - Champion.flac
+Jul 16 10:40 : update: added /Fall Out Boy - My Songs Know What You Did In The Dark (Light Em Up).flac
+Jul 16 10:40 : update: added /Famba,Frank Pierce - Vibe.mp3
+Jul 16 10:40 : update: added /Famba - Space.mp3
+Jul 16 10:40 : update: added /Faustix,Shannon Rani - Crying In The Sun.flac
+Jul 16 10:40 : update: added /Faustix,Shannon Rani,Vinze - Crying In The Sun (Vinze Remix).flac
+Jul 16 10:40 : update: added /Feder,Alex Aiono - Lordly (Instrumental Mix).flac
+Jul 16 10:40 : update: added /Feint - Weavers.flac
+Jul 16 10:40 : update: added /Fells - Tell Me It's Okay.flac
+Jul 16 10:40 : update: added /Ferry Corsten,Gouryella - Walhalla (From the Heavens Mix).flac
+Jul 16 10:40 : update: added /FEWZ - Between Moments.flac
+Jul 16 10:40 : update: added /FIFTY FIFTY - Cupid (Twin Ver.).flac
+Jul 16 10:40 : update: added /FlyBoy,Coby Grant,The Onyx Twins - I Will Be OK.mp3
+Jul 16 10:40 : update: added /Fly By Midnight - Borrow Your Time.flac
+Jul 16 10:40 : update: added /Freshtuff - My Life (Original Mix).flac
+Jul 16 10:40 : update: added /Galantis,Hook N Sling,Dotan - Never Felt A Love Like This (feat. Dotan) [Raven & Kreyn Remix].flac
+Jul 16 10:40 : update: added /Gamper & Dadoni - Creep.flac
+Jul 16 10:40 : update: added /Gareth Emery,Alastor,London Thor - Hands.flac
+Jul 16 10:40 : update: added /Gavin DeGraw - Fire.mp3
+Jul 16 10:40 : update: added /G.E.M.邓紫棋 - 再见.flac
+Jul 16 10:40 : update: added /GhostDragon,Exede - I Quit Drinking.flac
+Jul 16 10:40 : update: added /GhostDragon,GLNNA - Make Me Fall.flac
+Jul 16 10:40 : update: added /Ghost Stories,D-Block & S-te-Fan - Inside My Head.flac
+Jul 16 10:40 : update: added /Griffin Oskar - Bulletproof.mp3
+Jul 16 10:40 : update: added /Gryffin,Maia Wright - Body Back.flac
+Jul 16 10:40 : update: added /Hard Driver - Don't Give Up Now.flac
+Jul 16 10:40 : update: added /HARIZ - Think of Me.flac
+Jul 16 10:40 : update: added /Hawk Nelson - Sold Out.flac
+Jul 16 10:40 : update: added /Hedegaard - Ready To Love You.mp3
+Jul 16 10:40 : update: added /Hey Violet - Break My Heart.flac
+Jul 16 10:40 : update: added /Hyper Potions,MYLK - Papaya.flac
+Jul 16 10:40 : update: added /Hyper Potions - Surf.flac
+Jul 16 10:40 : update: added /Gryffin,John Martin - Cry.flac
+Jul 16 10:40 : update: added /Hannie,HICARI,Isaiah Dreads - Drama.flac
+Jul 16 10:40 : update: added /Heatbeat,Eric Lumiere - You've Got Me Now.flac
+Jul 16 10:40 : update: added /Hedegaard - Ready To Love You (1).flac
+Jul 16 10:40 : update: added /Hillsong Young & Free - Wake (Live).flac
+Jul 16 10:40 : update: added /Herrin,Vaance,Luma - Wait For You.flac
+Jul 16 10:40 : update: added /HoneyComeBear - Defy.flac
+Jul 16 10:40 : update: added /Gryffin,SLANDER,Calle Lehmann - All You Need To Know.flac
+Jul 16 10:40 : update: added /HALIENE - Dream in Color.flac
+Jul 16 10:40 : update: added /Hedley - Lose Control.flac
+Jul 16 10:40 : update: added /HIGHSOCIETY,Sunnie Williams - Like Hell.flac
+Jul 16 10:40 : update: added /Hugel,Amber Van Day - WTF.flac
+Jul 16 10:40 : update: added /Ice Spice,Nicki Minaj - Princess Diana.flac
+Jul 16 10:40 : ffmpeg/flac: Format flac detected only with low score of 1, misdetection possible!
+Jul 16 10:40 : ffmpeg/flac: Could not find codec parameters for stream 0 (Audio: flac, 0 channels): unspecified sample format
+Consider increasing the value for the 'analyzeduration' (0) and 'probesize' (5000000) options
+Jul 16 10:40 : ffmpeg: Unsupported libavcodec SampleFormat value: name   depth (?)
+Jul 16 10:40 : update: added /Haywyre,Ellis - Tell Me (Ellis Remix).flac
+Jul 16 10:40 : update: added /Hollyn,Aaron Cole - Steady Me (feat. Aaron Cole).flac
+Jul 16 10:40 : update: added /HRVY,Matoma - Good Vibes.flac
+Jul 16 10:40 : update: added /Husman - Who You Are.flac
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+Jul 16 10:41 : player: played "Dabin,Trella - Starbright.flac"
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+Jul 16 10:42 : exception: No such directory
+Jul 16 10:42 : exception: No such directory
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
