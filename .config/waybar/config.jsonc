@@ -11,6 +11,7 @@
     "network",
     "pulseaudio",
     "backlight",
+    "custom/weather",
     "tray",
     "clock",
     "custom/power"
@@ -48,13 +49,20 @@
   "tray": {
     "spacing": 10
   },
+  "custom/weather": {
+    "exec": "~/.config/waybar/scripts/get_weather.sh Harbin+China",
+    "return-type": "json",
+    "format": "{}",
+    "tooltip": true,
+    "interval": 3600
+  },
   "clock": {
     "format": "<span color='#bf616a'> </span>{:%I:%M %p}",
     "format-alt": "<span color='#bf616a'> </span>{:%a %b %d}",
     "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
     "locale": "en_US.UTF-8",
     "calendar": {
-      "mode": "year",
+      "mode": "month",
       "mode-mon-col": 3,
       "weeks-pos": "right",
       "on-scroll": 1,
@@ -126,12 +134,13 @@
   "battery": {
     "bat": "BAT1",
     "adapter": "ADP0",
+    "design-capacity": false,
+    "full-at": 90,
     "interval": 60,
     "states": {
       "warning": 30,
       "critical": 15
     },
-    "on-click": "",
     "max-length": 20,
     "format": "{icon} {capacity}%",
     "format-warning": "{icon} {capacity}%",
