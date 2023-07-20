@@ -8,6 +8,8 @@
 
 # Formats the current working directory to be used by prompts.
 zmodule prompt-pwd
+# Because your terminal should be able to perform tasks asynchronously without external tools!
+zmodule mafredri/zsh-async --source async.zsh
 # Replace zsh's default completion selection menu with fzf!
 zmodule Aloxaf/fzf-tab
 
@@ -48,7 +50,7 @@ zmodule git-info
 #
 
 # Additional completion definitions for Zsh.
-zmodule zsh-users/zsh-completions --fpath src
+# zmodule zsh-users/zsh-completions --fpath src
 # Enables and configures smart and extensive tab completion.
 # completion must be sourced after all modules that add completion definitions.
 zmodule completion
@@ -71,8 +73,8 @@ zmodule zsh-users/zsh-autosuggestions
 # Provides functions for easy archive manipulation.
 zmodule archive
 
-# Double click ESC to add sudo
 zmodule ohmyzsh/ohmyzsh --root plugins/sudo
+zmodule ohmyzsh/ohmyzsh --root plugins/command-not-found
 
 # McFly - fly through your shell history
 # zmodule cantino/mcfly
@@ -80,21 +82,25 @@ zmodule ohmyzsh/ohmyzsh --root plugins/sudo
 # Atuin - Magical shell history
 zmodule ellie/atuin
 
+# The Rapid Application Development textual user interface library for Zsh.
+zmodule z-shell/zui
+# Complete options from manual pages – press Ctrl-F to start the completer.
+zmodule z-shell/zzcomplete
+# The plugin configures and delivers completions
+zmodule z-shell/zsh-fancy-completions
 # Replace zsh's default completion selection menu with fzf!
 zmodule zdharma-continuum/fast-syntax-highlighting
-
-# Zsh completion for docker and docker-compose.
-zmodule greymd/docker-zsh-completion
-
-# Zsh plugin adding aliases for the exa command-line tool
-zmodule DarrinTisdale/zsh-aliases-exa
+# Zsh plugin to replace command gnu/ls with ogham/exa
+zmodule z-shell/zsh-exa
+#  Feature-rich Syntax Highlighting for Zsh
+zmodule z-shell/F-Sy-H
 
 # Auto-close and delete matching delimiters in zsh
 zmodule hlissner/zsh-autopair
 
 # ZSH plugin to automatically switch python virtualenvs 
 # (including pipenv and poetry) as you move between directories
-zmodule MichaelAquilina/zsh-autoswitch-virtualenv -n autoswitch_virtualenv
+zmodule MichaelAquilina/zsh-autoswitch-virtualenv --source autoswitch_virtualenv.plugin.zsh
 
 # A better and friendly vi(vim) mode plugin for ZSH.
 zmodule jeffreytse/zsh-vi-mode
