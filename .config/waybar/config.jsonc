@@ -161,10 +161,10 @@
     "format": "{stateIcon} {artist} - {title}",
     "format-disconnected": " Disconnected",
     "format-paused": "{stateIcon} {artist} - {title}",
-    "format-stopped": "<span color='#ff4499'></span> Stopped",
+    "format-stopped": "<span color='#ff5694'></span> Stopped",
     "state-icons": {
-      "paused": "<span color='#fbe066'></span>",
-      "playing": "<span color='#55ff22'></span>"
+      "paused": "<span color='#fbe569'></span>",
+      "playing": "<span color='#5fdf21'></span>"
     },
     "tooltip-format": "MPD (connected)",
     "tooltip-format-disconnected": "MPD (disconnected)",
