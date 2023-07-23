@@ -172,12 +172,12 @@ winwow#waybar.empty {
 }
 
 #pulseaudio {
-  color: #7d9bba;
+  color: #747fbc;
 }
 
 #backlight {
-  /* color: #EBCB8B; */
-  color: #8fbcbb;
+  color: #56b6c2;
+  /* color: #8fbcbb; */
 }
 
 #clock {
@@ -230,7 +230,7 @@ label:focus {
 }
 
 #network {
-  color: #b48ead;
+  color: #c678dd;
 }
 
 #network.disconnected {
