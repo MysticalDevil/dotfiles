@@ -1,10 +1,13 @@
 {
+  "layer": "top",
+  // "mode": "dock",
   "height": 20, // Waybar height (to be removed for auto height)
   "margin-top": 3,
   "margin-left": 10,
   "margin-bottom": 0,
   "margin-right": 10,
   "spacing": 5, // Gaps between modules (4px)
+  "fixed-center": true,
   "modules-left": ["cpu", "memory", "battery", "wlr/workspaces"],
   "modules-center": ["mpd"],
   "modules-right": [
