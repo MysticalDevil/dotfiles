@@ -190,11 +190,11 @@
     },
     {
       "before": ["s", "c"],
-      "commands": ["<C-w>", "c"]
+      "after": ["<C-w>", "c"]
     },
     {
       "before": ["s", "o"],
-      "commands": ["<C-w>", "o"]
+      "after": ["<C-w>", "o"]
     },
     {
       "before": ["s", ","],
@@ -214,7 +214,7 @@
     },
     {
       "before": ["s", "="],
-      "commands": ["<C-w>", "="]
+      "after": ["<C-w>", "="]
     }
   ],
   "[python]": {
