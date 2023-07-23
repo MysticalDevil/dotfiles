@@ -32,9 +32,11 @@ export PATH="$HOME/.local/share/fnm:$PATH"
 # composer -- PHP package manager
 export PATH="$HOME/.config/composer/vendor/bin:$PATH"
 
-# Deno -- An JavaScript Runtime
+# Deno -- A JavaScript Runtime Writen by Rust
 export DENO_INSTALL="$HOME/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
+
+# Bun -- A JavaScript Runtime Writen by Zig
 
 # NPM -- node package manager
 export npm_config_prefix="$HOME/.local"
