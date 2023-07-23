@@ -37,6 +37,8 @@ export DENO_INSTALL="$HOME/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 
 # Bun -- A JavaScript Runtime Writen by Zig
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
 
 # NPM -- node package manager
 export npm_config_prefix="$HOME/.local"
