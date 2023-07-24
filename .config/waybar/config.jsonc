@@ -107,7 +107,7 @@
   },
   "network": {
     "format": "{ifname}",
-    "format-wifi": "  {essid}",
+    "format-wifi": "  {bandwidthTotalBytes}",
     "format-ethernet": "{ipaddr}/{cidr} ",
     "format-disconnected": "󰖪  No Network",
     "tooltip": false
