@@ -5,7 +5,7 @@ function set_wayland_env {
   export QT_QPA_PLATFORM="wayland;xcb"
   export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
 
-  export _JAVA_AWT_WM_NONEREPARENTING=1
+  # export _JAVA_AWT_WM_NONEREPARENTING=1
   export GDK_BACKEND="wayland,x11"
 }
 set_wayland_env
