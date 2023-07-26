@@ -58,6 +58,20 @@ zmodule completion
 #
 # Modules that must be initialized last
 #
+
+# The Rapid Application Development textual user interface library for Zsh.
+zmodule z-shell/zui
+# Complete options from manual pages – press Ctrl-F to start the completer.
+zmodule z-shell/zzcomplete
+# The plugin configures and delivers completions
+zmodule z-shell/zsh-fancy-completions
+# Replace zsh's default completion selection menu with fzf!
+# zmodule zdharma-continuum/fast-syntax-highlighting
+# Zsh plugin to replace command gnu/ls with ogham/exa
+zmodule z-shell/zsh-exa
+#  Feature-rich Syntax Highlighting for Zsh
+zmodule z-shell/F-Sy-H
+
 # Fish-like syntax highlighting for Zsh.
 # zsh-users/zsh-syntax-highlighting must be sourced after completion
 # zmodule zsh-users/zsh-syntax-highlighting
@@ -81,19 +95,6 @@ zmodule ohmyzsh/ohmyzsh --root plugins/command-not-found
 
 # Atuin - Magical shell history
 zmodule ellie/atuin
-
-# The Rapid Application Development textual user interface library for Zsh.
-zmodule z-shell/zui
-# Complete options from manual pages – press Ctrl-F to start the completer.
-zmodule z-shell/zzcomplete
-# The plugin configures and delivers completions
-zmodule z-shell/zsh-fancy-completions
-# Replace zsh's default completion selection menu with fzf!
-zmodule zdharma-continuum/fast-syntax-highlighting
-# Zsh plugin to replace command gnu/ls with ogham/exa
-zmodule z-shell/zsh-exa
-#  Feature-rich Syntax Highlighting for Zsh
-zmodule z-shell/F-Sy-H
 
 # Auto-close and delete matching delimiters in zsh
 zmodule hlissner/zsh-autopair
