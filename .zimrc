@@ -27,6 +27,8 @@ zmodule utility
 zmodule magic-enter
 # Provides a convenient way to load ssh-agent.
 zmodule ssh
+# Sets up asdf, with auto install and optimized usage of the direnv plugin.
+zmodule asdf
 
 #
 # Prompt
