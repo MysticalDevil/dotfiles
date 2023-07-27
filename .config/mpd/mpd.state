@@ -1,9 +1,9 @@
 sw_volume: 98
 audio_device_state:1:PipeWire Output
 audio_device_state:1:my_fifo
-state: play
-current: 2
-time: 47.900000
+state: pause
+current: 255
+time: 6.328000
 random: 0
 repeat: 0
 single: 0
@@ -12,8 +12,464 @@ crossfade: 0
 mixrampdb: 0.000000
 mixrampdelay: -1.000000
 playlist_begin
-0:Ed Sheeran - What Do I Know？.flac
-1:Ed Sheeran - Supermarket Flowers.flac
-2:Ed Sheeran - Nancy Mulligan.flac
-3:Alan Walker - Alone.flac
+0:Devin Wild - Blinded.flac
+1:Cash Cash,Christina Perri - Hero (feat. Christina Perri).flac
+2:Fly By Midnight - Borrow Your Time.flac
+3:Alec Chambers - Boston.flac
+4:Bea Miller - brand new eyes.flac
+5:Hey Violet - Break My Heart.flac
+6:Avicii,Zac Brown - Broken Arrows.flac
+7:DEAMN - By My Side.flac
+8:Avi8,Dirty Workz - By Your Side.flac
+9:Carly Rae Jepsen - Call Me Maybe.flac
+10:Eternal Raijin - Call of Silence.flac
+11:Caslow,Exede - Can We Go Back.flac
+12:Flo Rida,Pitbull - Can't Believe It.flac
+13:Chime - Can't Feel It.flac
+14:ARMNHMR,Rynn,Abandoned - Can't Let You Go.flac
+15:Capitol Kids! - Wake.flac
+16:DJ Snake,Justin Bieber - Let Me Love You.flac
+17:Alex Adair,Thomas Gold - Casual (Thomas Gold Remix).mp3
+18:BEAUZ,Luke Anders,Ducka Shan - Ceasefire (Feat. Becca Krueger, Eliason).flac
+19:Fall Out Boy - Centuries.flac
+20:Aspyer,Kyle Reynolds,Carly Jay - Chance.flac
+21:ELIO,Charli XCX - CHARGER (ft. Charli XCX).flac
+22:Charlotte Lawrence - Slow Motion.flac
+23:Askling - Next To You.flac
+24:ANG,Blackcode,Alessa - Chasing Bliss.flac
+25:AhXon - Chasing Dragons.flac
+26:Diviners,Marin Hoxha,Exede - Chasing The Night.mp3
+27:Hard Driver - Chemistry.flac
+28:Evalyn,Marky Style,Guy Gabriel - Cherry Lambo (Marky Style & Guy Gabriel Remix).flac
+29:AViVA - Children In The Dark.flac
+30:Caslow,Exede - City Lights.flac
+31:Gryffin,CHVRCHES - Clearest Blue (Gryffin Remix).mp3
+32:HoneyComeBear - Clockwise.flac
+33:Cyber - Closer.flac
+34:Culture Code,Karra - Coincidence.flac
+35:A R I Z O N A - Summer Days.flac
+36:Blackcode,STVW,Chad Kowal - Collide.flac
+37:Crystal Skies,Gallie Fisher - This Moment (feat. Gallie Fisher).flac
+38:Crystal Skies - Crash & Burn.flac
+39:Breathe Carolina,Dropgun,Taku-Hero - This Again (Dropgun & Taku-Hero Extended Remix).flac
+40:Dirty Palm,Conor Ross,Chandler Blasé - Flowers (feat. Chandler Blasé).flac
+41:Alexander Oscar - Chemistry.mp3
+42:Far Out,Karra - Constellation.flac
+43:Armin Van Buuren,Rising Star,Alexandra Badoi - Cosmos.flac
+44:Great Good Fine OK,Emily Burns - Could Be Us.flac
+45:BEAUZ,Nevve,Kastilione - Count The Hours.flac
+46:Boyce Avenue,Bea Miller - We Can't Stop.flac
+47:Gamper & Dadoni - Creep.flac
+48:Grey,Skott - Crime.flac
+49:Crystal Skies,Mazare,Bertie Scott - Cruel Summer.flac
+50:Ea Kaya - Cruel To Be Kind.mp3
+51:Fairlane,TRØVES - Crumble.flac
+52:Gryffin,John Martin - Cry.flac
+53:Faustix,Shannon Rani,Vinze - Crying In The Sun (Vinze Remix).flac
+54:AURORA - Cure For Me.flac
+55:Carly Rae Jepsen - Curiosity.flac
+56:Adam Rom - Curse.flac
+57:Emma Bale - Cut Loose.mp3
+58:Don Diablo - Cutting Shapes.flac
+59:DMNDS,poky,Avocuddle - Dancin.flac
+60:Aaron Smith,Luvli,Krono - Dancin (Krono Remix).mp3
+61:GhostDragon,Kuo,April Bender - Darker Days.flac
+62:Alan Walker,Au／Ra,Tomine Harket - Darkside.mp3
+63:Caslow,Exede - Days Of Our Youth.flac
+64:E-Force,Bloodlust - Deathblow.flac
+65:Cartoon,Kóstja,Feint - Whatever I Do (Feint Remix).flac
+66:HoneyComeBear - Defy.flac
+67:Calvin Harris,Ellie Goulding - Outside.flac
+68:D-Block & S-te-Fan - Diamond Hearts.flac
+69:Hawk Nelson - Sold Out.flac
+70:Alan Walker,Sorana - Lost Control.mp3
+71:Alan Walker,K-391,Emelie Hollow - Lily.mp3
+72:Chloe Adams - Dirty Thoughts.flac
+73:AIKA,I-Yu - Lightbringer.flac
+74:Fall Out Boy - My Songs Know What You Did In The Dark (Light Em Up).flac
+75:Hard Driver - Don't Give Up Now.flac
+76:Egzod,EMM - Don't Surrender.flac
+77:Bruno Mars - Talking to the Moon.mp3
+78:Hannie,HICARI,Isaiah Dreads - Drama.flac
+79:HALIENE - Dream in Color.flac
+80:Blasterjaxx,Mariana BO,Luisah - Dreams (feat. LUISAH).flac
+81:Feint,Elizaveta - Drifters.flac
+82:Clara Mae - Drunk On Emotions.flac
+83:Emil Berg - Du swipa höger.flac
+84:Axero - Dusk (Original Mix).flac
+85:F.O.O.L,The Forgotten - Dystopia 2077.flac
+86:Antoine Chambe - Easy Come.flac
+87:FEWZ - Echoes.flac
+88:Ashley Wallbridge,Karra - Melody.flac
+89:Extra Terra,Max Brhon - Elon Trust.flac
+90:Armin Van Buuren,BullySongs - Freefall.flac
+91:Armin Van Buuren,Sarah deCourcy,Omnia - Face Of Summer (Omnia Remix).flac
+92:Fancy Floss,MARC,Revealed Recordings - Empty Space.flac
+93:FEWZ - Endless.flac
+94:Cashae,Kiddo AI - Endless Summer.flac
+95:Barren Gates,M.I.M.E - Enslaved.flac
+96:Deep East Music - That Very Night.flac
+97:Abandoned,Elle Vee - Ever After.flac
+98:AMIDY - Ever Known.flac
+99:Gamma Skies,Milva - Every Day.flac
+100:Ellis,Triangle - Every Second.flac
+101:Diamond Eyes - Everything.flac
+102:Exede - Everything Can Be.flac
+103:Bebe Rexha - Ferrari.flac
+104:Ella Isaacson,R3HAB,Gallant - Expectations (R3HAB Remix).flac
+105:Bazzi - Eyes.flac
+106:Avicii - Fade Into Darkness (Vocal Radio Mix).flac
+107:Axxound,Mark & Lukas - Fairy Lights (Mark & Lukas Remix).flac
+108:Culture Code,Amanda Collis - Fairytale.flac
+109:Arcando,Daniel Garrick,Nessa Bransan - Fall Again.flac
+110:AndyM - Falling.flac
+111:Deadly Guns,Serouj Guidanian - Falling Away From Me.flac
+112:Faustix,Alexander Oscar - Somebody New.flac
+113:Faustix - Jealous.flac
+114:D-Block & S-te-Fan - Feel Inside.flac
+115:Ashton Love,MPV,4Beats - Feel Like (17).mp3
+116:Diviners,Azertion - Feelings.flac
+117:Emilee - Feels Like a Dream.flac
+118:DJ Snake,Selena Gomez,Ozuna - Taki Taki.flac
+119:Amy Peters - Preoccupied.flac
+120:BeatBrothers - Fight.flac
+121:Charming Horses,MPH - Find You (Club Mix).flac
+122:Brook Xiao,Rachel Horter - Fire.flac
+123:Gavin DeGraw - Fire.mp3
+124:D-Sturb - Fire & Blood.flac
+125:Danny Olson,Linney - Once Again.flac
+126:Daniel Garrick,Clef & Canberra,Revealed Recordings - Firestorm.flac
+127:Distrion,jeonghyeon,Harley Bird - Fly.flac
+128:Fransis Derelle,Parker Polhill - Fly.flac
+129:Axel Johansson,Ella Young - Forever.mp3
+130:Alesso - Payday.mp3
+131:Awakend,Azuria Sky - Forever By Your Side.flac
+132:Deagon,Alex Jones (UK),Revealed Recordings - Forever Young.flac
+133:Arcades,Sofia - Fragile.flac
+134:ARMNHMR,Melanie Fontana - Fragile (feat. Melanie Fontana).flac
+135:Dr. Peacock,Sefa - Incoming.flac
+136:Dr. Peacock,Sefa - Incoming (1).flac
+137:Ferry Corsten,Gouryella - Walhalla (From the Heavens Mix).flac
+138:Cash Cash,Laura White - Gasoline (feat. Laura White).flac
+139:D-Block & S-te-Fan - Gates Of Paradise.flac
+140:Gentle Bones - Shifting Over.mp3
+141:Breathe Carolina,Asketa & Natan Chaim,Rama Duke - Get Away.flac
+142:Coldplay - A Sky Full of Stars.flac
+143:Friendzone,Nevve - Glow In The Dark (feat. Nevve).flac
+144:Birdy,Jonas Blue - Keeping Your Head Up (Jonas Blue Remix) [Radio Edit].flac
+145:Flip Capella,OTRAY,Vinze - Going Crazy.flac
+146:Hoang,Kianna - Gone (feat. Kianna).flac
+147:HRVY,Matoma - Good Vibes.flac
+148:BEAUZ,Elle Vee,KHNG - Goodbye (feat. Elle Vee).flac
+149:Gryffin,Maia Wright - Body Back.flac
+150:Danny Olson,Henry Hartley,Mo Falk - Halcyon (Mo Falk Remix).flac
+151:BEAUZ,AmanderSings,GISHIN - Half a Heart.flac
+152:ayokay,Future Jr. - Half Past You.mp3
+153:Faustix,Shannon Rani - Crying In The Sun.flac
+154:Danny Avila - Hard To Love.mp3
+155:Firelite - In The Dark Now (Extended Mix).mp3
+156:Clarx,Moe Aly - Healing.flac
+157:BrillLion,She Is Jules - Healing (feat. She Is Jules).flac
+158:Alok,Zeeba,Bruno Martini - Hear Me Now.flac
+159:Ava Max - Salt (Toby Green Remix).flac
+160:Empra - Heavy Heart (Radio Edit).mp3
+161:Hedley - Lose Control.flac
+162:Fall Out Boy - Uma Thurman.flac
+163:Bassjackers,MOTi - Helter Skelter.flac
+164:Asher Monroe - Here With You.flac
+165:Da Tweekaz - Heroes Of Today.flac
+166:Fais,Afrojack - Hey (Radio Edit).mp3
+167:Fadi - Hold On.flac
+168:Awakend,Herrin,Sara Skinner - Hold Onto Me.flac
+169:Axero - Hold Your Breath.flac
+170:Adib Sin,Salsa - Holding On.flac
+171:Hollyn,Aaron Cole - Steady Me (feat. Aaron Cole).flac
+172:Adam Rom - Hostage.flac
+173:Griffin Oskar - Bulletproof.mp3
+174:Cash Cash,Sofia Reyes - How to Love (feat. Sofia Reyes).flac
+175:BUNT.,HON,SMBDY - Hurricane.flac
+176:Amberlake,KELLA - I Can Be Cool.flac
+177:Debris,Justin Petti,Veronica Bravo - I Need Love.flac
+178:Damon Empero - I Promise.flac
+179:GhostDragon,Exede - I Quit Drinking.flac
+180:Carly Rae Jepsen - I Really Like You.flac
+181:FlyBoy,Coby Grant,The Onyx Twins - I Will Be OK.mp3
+182:Axero,Katie McConnell - I'll Be Gone (feat. Katie McConnell).flac
+183:Angelika Vee,Dave202 - Outta Mind.flac
+184:Chillos - Ice On My Baby Sped Up.flac
+185:Da Tweekaz,Oesch’s die Dritten - Ich schenk' Dir einen Jodler.mp3
+186:Dan Talevski - If I Ain't Got You.flac
+187:Guy Gabriel,Leah Marlene - If U Love Me.flac
+188:Audiotricz,Jay Reeve - Illuminate The Way.flac
+189:Black Veil Brides - In the End.flac
+190:Flay! - In The Sky.flac
+191:Awakend,Man Cub,TRØVES - In Too Deep.flac
+192:Ghost Stories,D-Block & S-te-Fan - Inside My Head.flac
+193:Daya,Owen Norton - Insomnia (Owen Norton Remix).mp3
+194:D-Fence - Integrity.flac
+195:DubVision,Matvey Emerson - Into You (Matvey Emerson Remix).flac
+196:Demxntia,keshi - It Kills Me (feat. keshi).flac
+197:Gigo'n'Migo,Crunkz,Revealed Recordings - It’ll Be Alright.flac
+198:E-Force,Disarray - Join The Rebellion (Official Rebellion 2021 Anthem).flac
+199:Freshtuff - My Life (Original Mix).flac
+200:Brennan Heart,Jonathan Mendelsohn - Journey.flac
+201:Audrey Mika - Just Friends.mp3
+202:Fitz and The Tantrums - HandClap.flac
+203:Charlotte Lawrence - Just The Same.flac
+204:Brennan Heart,Blademasterz,Dana - Oldskool & Acid (Original Mix).flac
+205:Brennan Heart,Blademasterz - Katana (EP Version).flac
+206:Felix Cartal,Steph Jones - Keep Up.flac
+207:Alessia Cara - Scars To Your Beautiful.flac
+208:Dreweybear,Vaance - Last Goodbye.flac
+209:Amindo,Real Hypha,Dan Millward - Let Go.flac
+210:Calvo,Noubya - Light It Up.flac
+211:HIGHSOCIETY,Sunnie Williams - Like Hell.flac
+212:Disero,Josh Smith - Like That.flac
+213:Brooks,Zoe Moss - Limbo.mp3
+214:Avicii,Martin Garrix,Simon Aldred - Waiting For Love.flac
+215:Avicii,Martin Garrix,Simon Aldred - Waiting For Love (1).mp3
+216:Audiotricz - Locked & Loaded.flac
+217:Alex Aiono,Feder,MDZN - Lordly (feat. Alex Aiono) [MDZN Remix].flac
+218:Feder,Alex Aiono - Lordly (Instrumental Mix).flac
+219:Blake Rose - Lost.flac
+220:Embody,Claire Ridgely - Lost & Found.flac
+221:Awakend,Monika Santucci - Lost When You're Away.flac
+222:Aaron Carter - Sooner Or Later.flac
+223:Elephante,SABAI - Love Again.flac
+224:AhXon,Anisko,Spagbo - Love Is Forever.flac
+225:Blackcode,Adventurer,Revealed Recordings - Love Is Violence.flac
+226:Dillon Francis,SHIFT K3Y,Marc E. Bassy - Love Me Better.flac
+227:Carla Wehbe - Love Me For Me.flac
+228:Amy Shark - I Said Hi.mp3
+229:Futuristic Polar Bears,Cuebrick,LUX (US) - Love On Fire.mp3
+230:CMC$,Jenny March - Love Parade.flac
+231:Bad Boyfriend,Jaime Deraz - Love You Again.flac
+232:Gareth Emery,Annabel - Love You For All Time.flac
+233:Ariana & the Rose,RKCB - Love You Lately.flac
+234:Billie Eilish,Khalid - lovely.flac
+235:Fall Out Boy - Champion.flac
+236:Fall Out Boy,Juicy J - Centuries (Remix).mp3
+237:GhostDragon,GLNNA - Make Me Fall.flac
+238:Amaranthe - Digital World.flac
+239:HRVY - ME BECAUSE OF YOU.flac
+240:Arc North,Krista Marina - Meant To Be.flac
+241:Danny Olson,Yetep,EASAE - Melting (feat. EASAE).flac
+242:Awakend,Heather Sommer - Crystal Memories ( feat.Heather Sommer ).flac
+243:Awakend,Nytrix - Message From The Stars.flac
+244:Gentle Bones - Be My Ocean.mp3
+245:DJ Snake,Bipolar Sunshine - Middle.mp3
+246:Bassic,Heleen - Million Miles Away.flac
+247:HRVY - Million Ways.flac
+248:Ferry Corsten,Ciaran McAuley - Mo Chara.flac
+249:Crystal Skies,PRXZM - Moment With You (feat. PRXZM).flac
+250:beignet - Tulala Story.flac
+251:Feint,Laura Brehm - We Won't Be Alone.flac
+252:24kGoldn,iann dior - Mood.mp3
+253:DEEZL - MORE THAN HUMAN (Original Mix).flac
+254:Grumbae,Alessia Labate - Move On.flac
+255:Alexander Oscar - Number.mp3
+256:Danny Olson,Sammy Plotkin - Oasis.flac
+257:American Authors - Best Day Of My Life.flac
+258:Bellhouse - On a Night Like This.flac
+259:Boy In Space,SHY Martin - On A Prayer.flac
+260:Dance Cartel,Benj Heard - On The Run (feat. Benj Heard).flac
+261:Gromee,Jesper Jenset - One Last Time.mp3
+262:ARMNHMR,Miles Away,Mark Klaver - One Sided (feat. Mark Klaver).flac
+263:Frank Walker,Astrid S - Only When It Rains.mp3
+264:Excision,Sarah De Warren - Back to Life.flac
+265:Gaullin - Op Opa.flac
+266:DJ Fresh,Rita Ora - Hot Right Now.mp3
+267:Ferry Corsten,Gouryella - Orenda (Extended Mix).flac
+268:Gareth Coker,Aeralie Brighton - Ori, Lost In the Storm (feat. Aeralie Brighton).flac
+269:Alan Walker - Spectre.flac
+270:Blasterjaxx,Daniele Sorrentino - Our World (feat. Daniele Sorrentino).flac
+271:Fairlane,ROZES,JT Roach - Out Loud.flac
+272:Abandoned,Enrosa - Out of the Grave.flac
+273:Distrion,Jack & James - Over Life.flac
+274:Hyper Potions,MYLK - Papaya.flac
+275:D-Sturb - Partystarter.flac
+276:Hechmann - Perfect Stranger.mp3
+277:Ice Spice,Nicki Minaj - Princess Diana.flac
+278:AViVA - PSYCHO.flac
+279:Egg - putting a spin on low.flac
+280:Chester Young,Castion - PYRO.flac
+281:Clean Bandit,Jess Glynne - Rather Be.mp3
+282:beignet - Orange Rocket.flac
+283:Hedegaard - Ready To Love You (1).flac
+284:Hedegaard - Ready To Love You.mp3
+285:Asketa & Natan Chaim,Kyle Reynolds - Real Love.flac
+286:Anja Kotar - Really Like You.flac
+287:Blackcode,9Lives,Robbie Rosen - Remedy.flac
+288:Boy In Space - Remember Me.flac
+289:3rd Prototype,Harley Bird,Valentina Franco - Renegade.flac
+290:Blasterjaxx,Amanda Collis - Rescue Me (feat. Amanda Collis).flac
+291:Domeno,Karl Sylver,Garrett Raff - I Can Tell.flac
+292:Breathe Carolina,Dropgun,Kaleena Zanders - Rhythm Is A Dancer (feat. Kaleena Zanders).flac
+293:Artifact,Bloodlust - Right Off Earth.flac
+294:Aftershock - Rise Of The Machines.flac
+295:Bishop Briggs - River.mp3
+296:Elli Moore - Romeo.flac
+297:Arizona Zervas,Swae Lee - ROXANNE (Remix).mp3
+298:Egzod,Maestro Chives,Neoni - Royalty.flac
+299:Hoang,Alisa - Run Back to You (feat. Alisa).flac
+300:Deep Chills,IVIE - Run Free.flac
+301:Clara Mae - Run Into You.flac
+302:Halcyon,Valentina Franco - Runaway.flac
+303:Bobina,柳李 Atom Panda - China in the House.flac
+304:Chico Rose,Afrojack - Sad (feat. Afrojack).flac
+305:Crankdat,Kc - What It Feels Like.flac
+306:Amy Peters - Salt.flac
+307:AMIDY,Awakend - Sanctuary.flac
+308:AMIDY - The Worst Of You.flac
+309:AMIDY,Outwild - Satellite.flac
+310:DEAMN - Sign.flac
+311:BUNT.,Benemy Slope - Save My Mind.mp3
+312:Arc North,CRVN - Save the World.flac
+313:Doja Cat,Nicki Minaj - Say So (Original Version).mp3
+314:Futuristik,Harley Bird,Cadmium - Seasons (Futuristik & Whogaux Remix).flac
+315:Gunz For Hire - Seek & Destroy.flac
+316:DallasK - Self Control.flac
+317:Austin Mahone,Rich Homie Quan - Send It (feat. Rich Homie Quan).flac
+318:Anyma - Sentient.flac
+319:Crypton - Shadows (Original Mix).flac
+320:Ed Sheeran - Shape of You.flac
+321:ANG,Jaxx & Vega - Shark Attack.flac
+322:CAZZETTE,AronChupa,The High - She Wants Me Dead.flac
+323:Bag Raiders - Shooting Stars.mp3
+324:Broiler,Imagine Dragons - Shots (Broiler Remix).mp3
+325:Armin Van Buuren,Avalan,Rising Star - Should I Wait (Armin van Buuren presents Rising Star Remix).flac
+326:Deadly Guns,Dither - Sick In The Head.flac
+327:Axollo,Josh Bogert - Silence.flac
+328:Before You Exit - Silence (1).flac
+329:Before You Exit - Silence.flac
+330:Bvrnout,AXYL - Silhouette.flac
+331:ARMNHMR,Karra - Silver Lining (feat. KARRA).flac
+332:Billie Eilish - Six Feet Under.flac
+333:Elektronomia - Sky High.flac
+334:Greenjelin,Paulina Cameron - Sky of Dreams.flac
+335:Da Tweekaz,LNY TNZ - So Easy.flac
+336:Adam Christopher - So Far Away (Acoustic).flac
+337:Cheat Codes,Nicky Romero - Sober.flac
+338:BLÜ EYES - Some Days.flac
+339:Aspyer,Matluck - Somebody To Hold.flac
+340:Dave Crusher,JackMar,LEV in the Wild - Somebody To Love.flac
+341:AnDyWuMUSICLAND,Worry Free Studios - Something Just Like This(Megamix).flac
+342:Alan Walker,ISÁK - Sorry.mp3
+343:Avicii,Aloe Blacc - SOS.flac
+344:Caroline Manning - Sour Strawberry.flac
+345:Famba - Space.mp3
+346:Blanke,Dia Frampton - Spark (with Dia Frampton).flac
+347:Avicii - Speed (Burn & Lotus F1 Team Mix).flac
+348:Curbi,Brooke Tomlinson - Spiritual (Mriya).flac
+349:2Someone,Lanfranchi,Farina - Star Unkind (Lanfranchi & Farina Radio).flac
+350:Bogdan Vix,Claudiu Adam,Mona Moua - Stay.flac
+351:Ellie Goulding,Jonas Blue - Still Falling For You (Jonas Blue Remix).flac
+352:Chris James - Better To Lie.flac
+353:Blanke,Donna Tella - Stuck On You (feat. Donna Tella).flac
+354:CMC$,SVEA - Stupid Dumb.flac
+355:Fefe Dobson - Stuttering.mp3
+356:christianalexnder - summer '17.mp3
+357:Cuebrick - Sunray.flac
+358:Beatrich - Superstar.flac
+359:BLÜ EYES - supposed to.flac
+360:Hyper Potions - Surf.flac
+361:Cody Simpson - La Da Dee.mp3
+362:Blanke,Luma - Survive (with Luma).mp3
+363:Ava Max - Sweet but Psycho.flac
+364:Breathe Carolina,Dropgun,Kaleena Zanders - Sweet Dreams.flac
+365:Alan Walker,Imanbek - Sweet Dreams.mp3
+366:Donna Tella,Arc North - Symphony.flac
+367:EDX,Jess Ball - Take Me Home (feat. Jess Ball).flac
+368:Calmani & Grey,Pearl Andersson - Tattoo.flac
+369:Haywyre,Ellis - Tell Me (Ellis Remix).flac
+370:Fells - Tell Me It's Okay.flac
+371:FIFTY FIFTY - Cupid (Twin Ver.).flac
+372:Barns Courtney - Glitter & Gold.flac
+373:ARMNHMR,Melanie Fontana - Forever Young (feat. Melanie Fontana).flac
+374:Dash Berlin - Never Cry Again.flac
+375:Aspyer,Karin Park - The Rest Of Your Life.flac
+376:Alan Walker - The Spectre.mp3
+377:Bleu Clair - The Tempo.flac
+378:elijah woods - the way that we started (taylor).flac
+379:Bear Grillz,HALIENE - The Way We Were.flac
+380:Astronomyy - Pack Of Wolves.flac
+381:HARIZ - Think of Me.flac
+382:Flo Rida,99 Percent - Cake.mp3
+383:Calvin Harris,Rihanna - This Is What You Came For.mp3
+384:Faustix - Thorns.flac
+385:Don Diablo - Thousand Faces (Acoustic).flac
+386:Gryffin,Elley Duhé - Tie Me Down.flac
+387:Avicii,Imagine Dragons - Heart Upon My Sleeve.flac
+388:Carnage,VINAI - Time For The Techno.flac
+389:Arc North,Polarbearz,Camilla Neideman - Together Now.flac
+390:Daitshi,Bri Tolani - Tongue Tied (feat. Bri Tolani).flac
+391:Adaro,B-Front,Dawnfire - Touch A Star (Dr. Peacock Remix).mp3
+392:Ella Vos - Dreaming, backwards.flac
+393:DJ Snake,Lil Jon - Turn Down for What.flac
+394:Greyson Chance - Twenty One.flac
+395:Gabriela Bee - u get me.flac
+396:Disco Fries,Raquel Castro - U Make Me.flac
+397:Disco Fries,Raquel Castro,Asketa & Natan Chaim - U Make Me (Natan Chaim & Asketa Remix).flac
+398:EMBRZ - Breathe.flac
+399:3LAU,Carly Paige - Touch.flac
+400:Ace Aura,Voicians - UMBRA.flac
+401:DubVision,Justin OH - Under The Stars.flac
+402:Christopher - My Heart.flac
+403:Danny Olson,Bebi,Tyler Graves - Undertow.flac
+404:Ashley Wallbridge,Karra - Undiscovered.flac
+405:David Bulla - Unexpected.flac
+406:B-Front,Deluzion - Unfold Me.flac
+407:Cyber - Unknown Edge.flac
+408:Clara Mae - Unmiss You.flac
+409:Crystal Skies,Ekko - Used To Love.flac
+410:Feint,Veela - Vagrant.flac
+411:DOLF,Yellow Claw,Caroline Pennell - Vertigo.mp3
+412:Dion Timmer - Playable Dynamic Sounds.flac
+413:Famba,Frank Pierce - Vibe.mp3
+414:Elektronomia - Vision.flac
+415:Charlie Puth - The Way I Am.flac
+416:Charlie Puth - How Long.flac
+417:Charlie Puth - Slow It Down.flac
+418:Brooks,KSHMR,Tzar - Voices (feat. TZAR).flac
+419:DJ Thera - Wait For You.flac
+420:Herrin,Vaance,Luma - Wait For You.flac
+421:Danny Olson,Bianca - Waiting (feat. Bianca).flac
+422:ARMNHMR,neverwaves - Waiting For Love.flac
+423:Caslow,Foster,Brycian - Waiting Part II (The Answer).flac
+424:Hillsong Young & Free - Wake (Live).flac
+425:Adaro,Vertile - Walk With Me.flac
+426:Bassjackers - Want You (So Bad).flac
+427:FEWZ - Between Moments.flac
+428:Brennan Heart - Way Of Life.flac
+429:Dash Berlin,Bo Bruce - Coming Home.flac
+430:Basixx,Ella Faye - We Came to Party.flac
+431:Biray - We Gonna Rock.flac
+432:Gareth Emery,Alex & Sierra - We Were Young.flac
+433:GSPR - We'll Be Alright.flac
+434:Feint - Weavers.flac
+435:Angerfist - What Happened.flac
+436:Ashes Remain - On My Own.flac
+437:Fly By Midnight - What If I Wasn't Done Loving You？ (1).flac
+438:Fly By Midnight - What If I Wasn't Done Loving You？.flac
+439:Clean Bandit,Zara Larsson - Symphony (feat. Zara Larsson).flac
+440:DVDDY,Caslow,Kellin Quinn - What Isn't Here.flac
+441:Daniel Garrick,Karra - What It Looks Like.flac
+442:Dabin,Nurko,Donovan Woods - When This Is Over.flac
+443:Arston,Soul Parker - When We Were Young.flac
+444:Husman - Who You Are.flac
+445:Crypton,Claire Classicore - Distraction.flac
+446:Fatal Force,Crusher-P,GUMI - Wildfire.flac
+447:Gloria Kim - Winter Without You.flac
+448:Famba,Eric Lumiere,Raven & Kreyn - In My Head (Raven & Kreyn Remix).mp3
+449:Danimal - Wolves.flac
+450:Axel Johansson - Wonderland.mp3
+451:Ashley Wallbridge,Sarah De Warren - World For You.flac
+452:CHROMANCE,Marcus Layton - Wrap Me In Plastic.flac
+453:Far Out,Emilia Ali - Wrong (feat. Emilia Ali).flac
+454:Hugel,Amber Van Day - WTF.flac
+455:Avicii - X You (Radio Edit).flac
+456:G.E.M.邓紫棋 - 句号.flac
+457:G.E.M.邓紫棋 - 多远都要在一起.flac
+458:G.E.M.邓紫棋 - 再见.flac
+459:CORSAK胡梦周,马吟吟 - 溯 (Reverse).flac
 playlist_end
