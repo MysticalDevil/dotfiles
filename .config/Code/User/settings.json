@@ -1,6 +1,11 @@
 {
   // ======================================= Editor config ========================================
-  "editor.bracketPairColorization.enabled": true, // 彩虹括号
+  "editor.bracketPairColorization.enabled": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": false,
+    "source.fixAll.eslint": true,
+    "source.organizeImports": false
+  },
   "editor.codeLensFontFamily": "Jetbrains Mono",
   "editor.cursorBlinking": "smooth",
   "editor.cursorSmoothCaretAnimation": "on",
@@ -14,12 +19,121 @@
   "editor.guides.bracketPairs": "active",
   "editor.inlineSuggest.enabled": true,
   "editor.linkedEditing": true,
+  "editor.renderLineHighlight": "line",
   "editor.rulers": [120],
   "editor.suggestSelection": "first",
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+  "editor.unicodeHighlight.nonBasicASCII": false,
+  // ====================================== Terminal config =======================================
+  "terminal.integrated.defaultProfile.linux": "zsh (migrated)",
+  "terminal.integrated.fontFamily": "MesloLGS Nerd Font",
+  "terminal.integrated.profiles.linux": {
+    "zsh (migrated)": {
+      "args": [],
+      "path": "zsh"
+    }
   },
-  // Language setting
+  "terminal.integrated.smoothScrolling": true,
+  // ====================================== Workbench config ======================================
+  "workbench.colorCustomizations": {
+    "editor.bracketPairColorization.enabled": true
+  },
+  "workbench.colorTheme": "One Dark Pro",
+  "workbench.editorAssociations": {},
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.list.smoothScrolling": true,
+  "workbench.preferredDarkColorTheme": "One Dark Pro",
+  "workbench.tree.indent": 12,
+  // ======================================= Window config ========================================
+  "window.commandCenter": true,
+  "window.titleBarStyle": "custom",
+  // ======================================== Files config ========================================
+  "files.associations": {
+    "*.tpl": "html",
+    ".zimrc": "shellscript"
+  },
+  "files.autoSave": "afterDelay",
+  "files.exclude": {
+    "**/.classpath": true,
+    "**/.project": true,
+    "**/.settings": true,
+    "**/.factorypath": true,
+    "**/.git": true,
+    "**/.github": true,
+    "**/.nuxt": true,
+    "**/.output": true,
+    "**/.pnpm": true,
+    "**/.vscode": true,
+    "**/.yarn": true,
+    "**/bower_components": true,
+    "**/dist/**": true,
+    "**/logs": true,
+    "**/node_modules": true,
+    "**/out/**": true,
+    "**/package-lock.json": true,
+    "**/pnpm-lock.yaml": true,
+    "**/tmp": true,
+    "**/yarn.lock": true
+  },
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true,
+  // ========================================= Git config =========================================
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "git.openRepositoryInParentFolders": "never",
+  // ====================================== Explorer config =======================================
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  // ======================================== Other config ========================================
+  "security.workspace.trust.untrustedFiles": "open",
+  // ======================================= Plugin config ========================================
+  "auto-close-tag.activationOnLanguage": [
+    "javascript",
+    "javascriptreact",
+    "html",
+    "xml",
+    "php"
+  ],
+  "cmake.configureOnOpen": true,
+  "dev.containers.executeInWSL": true,
+  "errorLens.enabledDiagnosticLevels": ["warning", "error"],
+  "eslint.codeAction.showDocumentation": {
+    "enable": true
+  },
+  "eslint.quiet": true,
+  "eslint.validate": [
+    "javascript",
+    "typescript",
+    "javascriptreact",
+    "typescriptreact",
+    "vue",
+    "html",
+    "markdown",
+    "json",
+    "jsonc",
+    "json5"
+  ],
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": true,
+    "markdown": false,
+    "scminput": false
+  },
+  "go.toolsManagement.autoUpdate": true,
+  "open-in-browser.default": "chrome",
+  "prettier.singleQuote": true,
+  "prettier.semi": false,
+  "redhat.telemetry.enabled": true,
+  "settingsSync.ignoredExtensions": [
+    "ms-dotnettools.csharp",
+    "tauri-apps.tauri-vscode",
+    "xadillax.viml",
+    "thenuprojectcontributors.vscode-nushell-lang",
+    "budparr.language-hugo-vscode",
+    "xlthu.pangu-markdown"
+  ],
+  "svg.preview.mode": "svg",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  // ===================================== Languages setting ======================================
   "[c]": {
     "editor.defaultFormatter": "xaver.clang-format"
   },
@@ -39,12 +153,16 @@
   "[dockerfile]": {
     "editor.defaultFormatter": "ms-azuretools.vscode-docker"
   },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2
+  },
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.tabSize": 2
   },
-  "[vue]": {
-    "editor.tabSize": 2
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -55,89 +173,28 @@
   "[markdown]": {
     "editor.defaultFormatter": "yzhang.markdown-all-in-one"
   },
+  "[python]": {
+    "editor.formatOnType": true
+  },
+  "[proto3]": {
+    "editor.defaultFormatter": "xaver.clang-format"
+  },
   "[ruby]": {
-    "editor.defaultFormatter": "Shopify.ruby-lsp",
+    "editor.defaultFormatter": "testdouble.vscode-standard-ruby",
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
     "editor.insertSpaces": true,
     "editor.semanticHighlighting.enabled": true,
     "editor.tabSize": 2
   },
+  "[rust]": {
+    "editor.semanticHighlighting.enabled": false
+  },
   "[typescript]": {
     "editor.defaultFormatter": "vscode.typescript-language-features",
     "editor.tabSize": 2
   },
-  "[rust]": {
-    "editor.semanticHighlighting.enabled": false
-  },
-  // ====================================== Terminal config =======================================
-  "terminal.integrated.commandsToSkipShell": ["language-julia.interrupt"],
-  "terminal.integrated.defaultProfile.linux": "zsh (migrated)",
-  "terminal.integrated.profiles.linux": {
-    "zsh (migrated)": {
-      "args": [],
-      "path": "zsh"
-    }
-  },
-  "terminal.integrated.smoothScrolling": true,
-  // ====================================== Workbench config ======================================
-  "workbench.colorCustomizations": {
-    "editor.bracketPairColorization.enabled": true
-  },
-  "workbench.editorAssociations": {
-    "*.ipynb": "jupyter-notebook"
-  },
-  "workbench.iconTheme": "material-icon-theme",
-  "workbench.list.smoothScrolling": true,
-  // ======================================== Files config ========================================
-  "files.associations": {
-    "*.tpl": "html",
-    ".zimrc": "shellscript"
-  },
-  "files.autoSave": "afterDelay",
-  "files.exclude": {
-    "**/.classpath": true,
-    "**/.project": true,
-    "**/.settings": true,
-    "**/.factorypath": true
-  },
-  "files.insertFinalNewline": true,
-  "files.trimTrailingWhitespace": true,
-  // ========================================= Git config =========================================
-  "git.autofetch": true,
-  "git.confirmSync": false,
-  // ====================================== Explorer config =======================================
-  "explorer.confirmDelete": false,
-  "explorer.confirmDragAndDrop": false,
-  // ======================================== Other config ========================================
-  "security.workspace.trust.untrustedFiles": "open",
-  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-  // ======================================= Plugin config ========================================
-  "auto-close-tag.activationOnLanguage": [
-    "javascript",
-    "javascriptreact",
-    "html",
-    "xml",
-    "php"
-  ],
-  "dev.containers.executeInWSL": true,
-  "go.toolsManagement.autoUpdate": true,
-  "haskell.manageHLS": "GHCup",
-  "open-in-browser.default": "chrome",
-  // 使用 prettier 格式化 js/ts 的配置
-  "prettier.singleQuote": true,
-  "prettier.semi": false,
-  "redhat.telemetry.enabled": true,
-  "settingsSync.ignoredExtensions": [
-    "ms-dotnettools.csharp",
-    "tauri-apps.tauri-vscode",
-    "xadillax.viml",
-    "thenuprojectcontributors.vscode-nushell-lang",
-    "budparr.language-hugo-vscode",
-    "xlthu.pangu-markdown"
-  ],
-  "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[vue]": {
     "editor.tabSize": 2
   },
   // ========================================= VSCode Vim =========================================
@@ -217,37 +274,5 @@
       "after": ["<C-w>", "="]
     }
   ],
-  "[python]": {
-    "editor.formatOnType": true
-  },
-  "editor.unicodeHighlight.nonBasicASCII": false,
-  "git.openRepositoryInParentFolders": "never",
-  "[proto3]": {
-    "editor.defaultFormatter": "xaver.clang-format"
-  },
-  "remote.SSH.remotePlatform": {
-    "192.168.45.141": "linux"
-  },
-  "svg.preview.mode": "svg",
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "zig.zls.path": "/home/delta/.config/Code/User/globalStorage/ziglang.vscode-zig/zls_install/zls",
-  "github.copilot.enable": {
-    "*": true,
-    "plaintext": true,
-    "markdown": false,
-    "scminput": false
-  },
-  "terminal.integrated.fontFamily": "MesloLGS Nerd Font",
-  // =================================== Nativate theme setting ===================================
-  "window.titleBarStyle": "custom",
-  "window.commandCenter": true,
-  "window.autoDetectColorScheme": true,
-  "workbench.preferredDarkColorTheme": "One Dark Pro",
-  // "workbench.preferredLightColorTheme": "One Light Pro",
-  "editor.renderLineHighlight": "line",
-  "workbench.tree.indent": 12,
-  "workbench.colorTheme": "One Dark Pro",
-  "cmake.configureOnOpen": true
+  "d.dubCompiler": "dmd.EXE"
 }
