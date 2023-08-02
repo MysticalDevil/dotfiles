@@ -89,13 +89,13 @@
 
   "cpu": {
     "interval": 1,
-    "format": " {usage}%",
+    "format": "󰄧 {usage}%",
     "max-length": 100,
     "on-click": ""
   },
   "memory": {
     "interval": 30,
-    "format": " {}%",
+    "format": "󰄫 {}%",
     "format-alt": " {used:0.1f}G",
     "max-length": 10
   },
@@ -108,7 +108,7 @@
   "network": {
     "format": "{ifname}",
     "format-wifi": "  {bandwidthTotalBytes}",
-    "format-ethernet": "{ipaddr}/{cidr} ",
+    "format-ethernet": "{ipaddr}/{cidr} 󰈀",
     "format-disconnected": "󰖪  No Network",
     "tooltip": false
   },
@@ -116,12 +116,12 @@
   "pulseaudio": {
     "format": "{icon} {volume}%",
     "format-bluetooth": "  {volume}%",
-    "format-bluetooth-muted": "婢 ",
-    "format-muted": "婢",
+    "format-bluetooth-muted": "󰖁 ",
+    "format-muted": "󰖁",
     "format-icons": {
       "headphone": "",
-      "hands-free": "",
-      "headset": "",
+      "hands-free": "󰂑",
+      "headset": "󰂑",
       "phone": "",
       "portable": "",
       "car": "",
@@ -159,7 +159,7 @@
     "unknown-tag": "N/A",
 
     "format": "{stateIcon} {artist} - {title}",
-    "format-disconnected": " Disconnected",
+    "format-disconnected": "󰎊 Disconnected",
     "format-paused": "{stateIcon} {artist} - {title}",
     "format-stopped": "<span color='#ff5694'></span> Stopped",
     "state-icons": {

@@ -96,7 +96,7 @@ zmodule ohmyzsh/ohmyzsh --root plugins/command-not-found
 # zmodule cantino/mcfly
 
 # Atuin - Magical shell history
-zmodule ellie/atuin
+# zmodule ellie/atuin
 
 # Auto-close and delete matching delimiters in zsh
 zmodule hlissner/zsh-autopair

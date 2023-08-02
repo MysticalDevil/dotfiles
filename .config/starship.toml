@@ -65,9 +65,9 @@ error_symbol = '[✗](bold red)'
 
 [battery]
 disabled = false
-full_symbol = ""
-charging_symbol = ""
-discharging_symbol = ""
+full_symbol = "󰁹"
+charging_symbol = "󰂄"
+discharging_symbol = "󰂃"
 format = "[$symbol$percentage]($style) "
 [[battery.display]]
 threshold = 10
@@ -83,7 +83,7 @@ show_milliseconds = false
 format = "[ $path]($style) [$read_only]($read_only_style) "
 truncation_length = 2
 style = "underline bold green"
-read_only = ""
+read_only = "󰌾"
 truncation_symbol = "../"
 
 [hostname]
@@ -108,7 +108,7 @@ disabled = true
 threshold = 75
 format = '\[$symbol[$ram( | $swap)]($style)\] '
 style = "white bold dimmed"
-symbol = " "
+symbol = "󰍛 "
 
 [os]
 format = "[$symbol]($style) "
@@ -127,10 +127,10 @@ Emscripten = " "
 EndeavourOS = " "
 Fedora = " "
 FreeBSD = " "
-Garuda = "﯑ "
+Garuda = "󰛓 "
 Gentoo = " "
-HardenedBSD = "ﲊ "
-Illumos = " "
+HardenedBSD = "󰞌 "
+Illumos = "󰈸 "
 Linux = " "
 Macos = " "
 Manjaro = " "
@@ -139,19 +139,19 @@ MidnightBSD = " "
 Mint = " "
 NetBSD = " "
 NixOS = " "
-OpenBSD = " "
+OpenBSD = "󰈺 "
 openSUSE = " "
-OracleLinux = " "
+OracleLinux = "󰌷 "
 Pop = " "
 Raspbian = " "
 Redhat = " "
 RedHatEnterprise = " "
 Redox = " "
-Solus = "ﴱ "
+Solus = "󰠳 "
 SUSE = " "
 Ubuntu = " "
 Unknown = " "
-Windows = " "
+Windows = "󰍲 "
 
 [package]
 format = '\[[$symbol$version]($style)\]'
@@ -290,12 +290,12 @@ style = 'bold blue'
 
 [meson]
 format = '\[[$symbol$project]($style)\]'
-symbol = '卑 '
+symbol = '󰔶 '
 style = 'blue bold'
 
 [nim]
 format = '\[[$symbol($version)]($style)\]'
-symbol = " "
+symbol = "󰆥 "
 style = "yellow bold"
 
 [nodejs]

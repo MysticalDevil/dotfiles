@@ -13,3 +13,5 @@ eval "$(navi widget zsh)"
 eval "$(fnm env --use-on-cd)"
 # pipx -- Install and Run Python Applications in Isolated Environments
 eval "$(register-python-argcomplete pipx)"
+# atuin -- Magic shell history
+eval "$(atuin init zsh --disable-up-arrow)"

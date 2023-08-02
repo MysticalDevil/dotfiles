@@ -32,3 +32,5 @@ for dir in ${ZDOTDIR:-$HOME}/.config/zsh/*/; do
     done
   fi
 done
+
+source /home/delta/.config/broot/launcher/bash/br
