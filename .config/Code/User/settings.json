@@ -24,14 +24,9 @@
   "editor.suggestSelection": "first",
   "editor.unicodeHighlight.nonBasicASCII": false,
   // ====================================== Terminal config =======================================
-  "terminal.integrated.defaultProfile.linux": "zsh (migrated)",
+  "terminal.integrated.cwd": "",
+  "terminal.integrated.defaultProfile.linux": "zsh",
   "terminal.integrated.fontFamily": "MesloLGS Nerd Font",
-  "terminal.integrated.profiles.linux": {
-    "zsh (migrated)": {
-      "args": [],
-      "path": "zsh"
-    }
-  },
   "terminal.integrated.smoothScrolling": true,
   // ====================================== Workbench config ======================================
   "workbench.colorCustomizations": {
@@ -273,6 +268,5 @@
       "before": ["s", "="],
       "after": ["<C-w>", "="]
     }
-  ],
-  "d.dubCompiler": "dmd.EXE"
+  ]
 }
