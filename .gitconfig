@@ -3,3 +3,5 @@
 	email = jinpeng7981@outlook.com
 [init]
 	defaultBranch = master
+[safe]
+	directory = /opt/flutter
