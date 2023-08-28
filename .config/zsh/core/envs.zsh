@@ -51,3 +51,7 @@ export PATH="$HOME/.luarocks/bin:$PATH"
 
 # DoomEmacs -- another emacs config
 export PATH="$HOME/.config/emacs/bin:$PATH"
+
+
+# Chrome execuable path
+export CHROME_EXECUTABLE="/usr/bin/google-chrome-stable"
