@@ -70,9 +70,13 @@ zmodule z-shell/zsh-fancy-completions
 # Replace zsh's default completion selection menu with fzf!
 # zmodule zdharma-continuum/fast-syntax-highlighting
 # Zsh plugin to replace command gnu/ls with ogham/exa
-zmodule z-shell/zsh-exa
+# zmodule z-shell/zsh-exa
+# Zsh plugin replace GNU/ls with next generation Peltoche/lsd
+zmodule z-shell/zsh-lsd
 #  Feature-rich Syntax Highlighting for Zsh
 zmodule z-shell/F-Sy-H
+# History search for multiple words
+# zmodule z-shell/H-S-MW
 
 # Fish-like syntax highlighting for Zsh.
 # zsh-users/zsh-syntax-highlighting must be sourced after completion
