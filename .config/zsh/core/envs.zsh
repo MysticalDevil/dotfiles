@@ -12,9 +12,9 @@ export PATH="$(go env GOBIN):$(go env GOPATH)/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 
 # Cabal - Haskell package manager
-# export PATH="$HOME/.cabal/bin:$PATH"
+export PATH="$HOME/.cabal/bin:$PATH"
 # Ghcup - Haskell tool version manager
-# export PATH="$HOME/.ghcup/bin:$PATH"
+export PATH="$HOME/.ghcup/bin:$PATH"
 
 # Cargo - Rust Package manager
 export PATH="$HOME/.cargo/bin:$PATH"
