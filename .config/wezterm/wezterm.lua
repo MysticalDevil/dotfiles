@@ -93,7 +93,7 @@ local config = {
 	-- Allow using ^ with single key press
 	use_dead_keys = false,
 
-	color_scheme = "OneDark (base16)",
+	color_scheme = "One Dark (Gogh)",
 
 	inactive_pane_hsb = {
 		hue = 1.0,
