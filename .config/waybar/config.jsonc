@@ -9,23 +9,15 @@
   "spacing": 5, // Gaps between modules (4px)
   "fixed-center": true,
   "modules-left": ["cpu", "memory", "battery", "wlr/workspaces"],
-  "modules-center": ["mpd"],
+  "modules-center": ["hyprland/window"],
   "modules-right": [
     "network",
     "pulseaudio",
     "backlight",
     "custom/weather",
     "tray",
-    "clock",
-    "custom/power"
+    "clock"
   ],
-  "custom/power": {
-    "format": "{}",
-    "exec": "echo ; echo  logout",
-    "on-click": "wlogout",
-    "interval": 86400, // once every day
-    "tooltip": true
-  },
   "wlr/workspaces": {
     "format": "{icon}",
     "on-click": "activate",
@@ -41,13 +33,16 @@
     }
   },
   "hyprland/window": {
-    "format": "👉 {}",
-    "separate-outputs": true
-    // "rewrite": {
-    //   "(.*) - Mozilla Firefox": "  $1",
-    //   "(.*) - Google Chrome": "  $1",
-    //   "(.*) - fish": "> [$1]"
-    // }
+    "format": "{}",
+    "separate-outputs": true,
+    "rewrite": {
+      "(.*) — Mozilla Firefox": "  $1",
+      "(.*) - Google Chrome": "  $1",
+      "(.*) - Visual Studio Code": "󰨞 $1",
+      "(.*) - VLC media player": "󰕼 $1",
+      "(.*) – Doom Emacs": " $1"
+    },
+    "max-length": 50
   },
   "tray": {
     "spacing": 10

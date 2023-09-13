@@ -23,7 +23,10 @@ window#waybar.hidden {
   opacity: 0.2;
 }
 
-winwow#waybar.empty {
+window#waybar.empty #window {
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
   background-color: transparent;
 }
 
@@ -49,14 +52,14 @@ winwow#waybar.empty {
 }
 
 #workspaces button.urgent {
-  background-color: #eb4d4b;
+  color: #deb887;
 }
 
 #window {
   /* border-radius: 20px; */
   /* padding-left: 10px; */
   /* padding-right: 10px; */
-  color: #64727d;
+  color: #f8f8f8;
 }
 
 #clock,
@@ -75,7 +78,6 @@ winwow#waybar.empty {
 #mpd,
 #bluetooth,
 #custom-hyprPicker,
-#custom-power,
 #custom-spotify,
 #custom-weather,
 #custom-weather.severe,
@@ -124,10 +126,6 @@ winwow#waybar.empty {
   color: #6a92d7;
   border-radius: 7.5px;
   padding: 0 0px;
-}
-
-#custom-power {
-  color: #abb2bf;
 }
 
 #custom-weather.severe {
