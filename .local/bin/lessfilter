@@ -35,10 +35,10 @@ missing_cmd() {
     fi
 }
 
-# Display a directory using exa command
+# Display a directory using eza command
 show_directory() {
-    missing_cmd exa
-    exa --git -hl --color=always --icons "$1"
+    missing_cmd eza
+    eza --git -hl --color=always --icons "$1"
 }
 
 # Display an image using chafa and exiftool commands
