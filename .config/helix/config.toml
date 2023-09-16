@@ -24,12 +24,13 @@ color-modes = false
 [editor.statusline]
 left = [
   "mode",
-  "file-name",
-  "file-modification-indicator",
   "version-control",
   "diagnostics",
+  "file-name",
+  "file-modification-indicator",
+  "spinner",
 ]
-center = ["spinner"]
+center = []
 right = [
   "file-line-ending",
   "separator",

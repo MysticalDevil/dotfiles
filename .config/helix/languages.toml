@@ -1,6 +1,8 @@
 [language-server]
 taplo = { command = "taplo", args = ["lsp", "stdio"] }
+pyright = { command = "pyright-langserver", args = ["--stdio"], config = {} }
 
+# Toml
 [[language]]
 name = "toml"
 scope = "source.toml"
@@ -17,6 +19,7 @@ rulers = [120]
 name = "toml"
 source = { git = "https://github.com/ikatyang/tree-sitter-toml", rev = "7cff70bbcbbc62001b465603ca1ea88edd668704" }
 
+# Rust
 [language-server.rust-analyzer]
 command = "rust-analyzer"
 
@@ -78,6 +81,7 @@ args = { attachCommands = [ "platform select remote-gdb-server", "platform conne
 name = "rust"
 source = { git = "https://github.com/tree-sitter/tree-sitter-rust", rev = "0431a2c60828731f27491ee9fdefe25e250ce9c9" }
 
+# Go
 [language-server.gopls]
 command = "gopls"
 
@@ -141,5 +145,19 @@ args = { mode = "core", program = "{0}", coreFilePath = "{1}" }
 name = "go"
 source = { git = "https://github.com/tree-sitter/tree-sitter-go", rev = "64457ea6b73ef5422ed1687178d4545c3e91334a" }
 
+# Python
 [[language]]
+name = "python"
+scope = "source.python"
+injection-regex = "python"
+file-types = ["py","pyi","py3","pyw","ptl",".pythonstartup",".pythonrc","SConstruct"]
+shebangs = ["python"]
+roots = ["pyproject.toml", "setup.py", "poetry.lock", "pyrightconfig.json"]
+comment-token = "#"
+# TODO: pyls needs utf-8 offsets
+indent = { tab-width = 4, unit = "    " }
+
+[[grammar]]
+name = "python"
+source = { git = "https://github.com/tree-sitter/tree-sitter-python", rev = "de221eccf9a221f5b85474a553474a69b4b5784d" }
 
