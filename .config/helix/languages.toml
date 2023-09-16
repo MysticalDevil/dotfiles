@@ -1,6 +1,7 @@
 [language-server]
 clangd = { command = "clangd" }
 pyright = { command = "pyright-langserver", args = ["--stdio"], config = {} }
+solargraph = { command = "solargraph", args = ["stdio"] }
 taplo = { command = "taplo", args = ["lsp", "stdio"] }
 
 # Rust
@@ -265,3 +266,35 @@ indent = { tab-width = 2, unit = "  " }
 [[grammar]]
 name = "lua"
 source = { git = "https://github.com/MunifTanjim/tree-sitter-lua", rev = "887dfd4e83c469300c279314ff1619b1d0b85b91" }
+
+
+# Ruby
+[[language]]
+name = "ruby"
+scope = "source.ruby"
+injection-regex = "ruby"
+file-types = ["rb", "rake", "rakefile", "irb", "gemfile", "gemspec", "Rakefile", "Gemfile", "rabl", "jbuilder", "jb", "Podfile", "podspec", "Vagrantfile", "Brewfile"]
+shebangs = ["ruby"]
+roots = []
+comment-token = "#"
+indent = { tab-width = 2, unit = "  " }
+
+[[grammar]]
+name = "ruby"
+source = { git = "https://github.com/tree-sitter/tree-sitter-ruby", rev = "206c7077164372c596ffa8eaadb9435c28941364" }
+
+
+# Scheme
+[[language]]
+name = "scheme"
+scope = "source.scheme"
+injection-regex = "scheme"
+file-types = ["ss", "scm"]
+shebangs = ["scheme", "guile", "chicken"]
+roots = []
+comment-token = ";"
+indent = { tab-width = 2, unit = "  " }
+
+[[grammar]]
+name = "scheme"
+source = { git = "https://github.com/6cdh/tree-sitter-scheme", rev = "af3af6c9356b936f8a515a1e449c32e804c2b1a8" }
