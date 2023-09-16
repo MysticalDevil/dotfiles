@@ -23,8 +23,8 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.dotnet/tools:$PATH"
 
 # Gems - Ruby gems path
-export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
-export GEM_HOME="$HOME/.gem"
+export GEM_HOME=$HOME/.gem
+export PATH="$GEM_HOME/bin:$PATH"
 
 # fnm -- Fast node manager
 export PATH="$HOME/.local/share/fnm:$PATH"
@@ -46,8 +46,8 @@ export npm_config_prefix="$HOME/.local"
 # PNPM -- Fast, disk space efficient package manager
 export PNPM_HOME="$HOME/.local/share/pnpm"
 case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
+    *":$PNPM_HOME:"*) ;;
+    *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
 
