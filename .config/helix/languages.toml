@@ -1,7 +1,6 @@
 [language-server]
 clangd = { command = "clangd" }
 clojure-lsp = { command = "clojure-lsp" }
-elixir-ls = { command = "elixir-ls", config = { elixirLS.dialyzerEnabled = false } }
 pyright = { command = "pyright-langserver", args = ["--stdio"], config = {} }
 solargraph = { command = "solargraph", args = ["stdio"] }
 taplo = { command = "taplo", args = ["lsp", "stdio"] }
@@ -315,20 +314,3 @@ indent = { tab-width = 2, unit = "  " }
 [[grammar]]
 name = "scheme"
 source = { git = "https://github.com/6cdh/tree-sitter-scheme", rev = "af3af6c9356b936f8a515a1e449c32e804c2b1a8" }
-
-
-# Elixir
-[[language]]
-name = "elixir"
-scope = "source.elixir"
-injection-regex = "(elixir|ex)"
-file-types = ["ex", "exs", "mix.lock"]
-shebangs = ["elixir"]
-roots = ["mix.exs", "mix.lock"]
-comment-token = "#"
-indent = { tab-width = 2, unit = "  " }
-
-[[grammar]]
-name = "elixir"
-source = { git = "https://github.com/elixir-lang/tree-sitter-elixir", rev = "b20eaa75565243c50be5e35e253d8beb58f45d56"  }
-
