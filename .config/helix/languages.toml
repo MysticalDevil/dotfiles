@@ -1,0 +1,18 @@
+[language-server]
+taplo = { command = "taplo", args = ["lsp", "stdio"] }
+
+[[language]]
+name = "toml"
+scope = "source.toml"
+injection-regex = "toml"
+file-types = ["toml", "poetry.lock", "Cargo.lock"]
+roots = []
+auto-format = true
+diagnostic-severity = "Error"
+comment-token = "#"
+indent = { tab-width = 2, unit = "  " }
+rulers = [120]
+
+[[grammar]]
+name = "toml"
+source = { git = "https://github.com/ikatyang/tree-sitter-toml", rev = "7cff70bbcbbc62001b465603ca1ea88edd668704" }
