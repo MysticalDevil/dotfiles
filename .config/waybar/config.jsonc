@@ -8,7 +8,7 @@
   "margin-right": 10,
   "spacing": 5, // Gaps between modules (4px)
   "fixed-center": true,
-  "modules-left": ["cpu", "memory", "battery", "wlr/workspaces"],
+  "modules-left": ["cpu", "memory", "battery", "mpd", "wlr/workspaces"],
   "modules-center": ["hyprland/window"],
   "modules-right": [
     "network",
@@ -153,23 +153,24 @@
     "interval": 2,
     "unknown-tag": "N/A",
 
-    "format": "{stateIcon} {artist} - {title}",
+    "format": "{stateIcon} [{elapsedTime:%M:%S}/{totalTime:%M:%S}]",
     "format-disconnected": "󰎊 Disconnected",
     "format-paused": "{stateIcon} {artist} - {title}",
     "format-stopped": "<span color='#ff5694'></span> Stopped",
     "state-icons": {
       "paused": "<span color='#fbe569'></span>",
-      "playing": "<span color='#5fdf21'></span>"
+      "playing": "<span color='#4ada20'></span>"
     },
+    "title-len": 20,
     "tooltip-format": "MPD (connected)",
     "tooltip-format-disconnected": "MPD (disconnected)",
     // Commands to execute on events
     "on-click": "mpc toggle",
-    "on-click-middle": "mpc prev",
-    "on-click-right": "mpc next",
+    "on-click-middle": "~/.config/rofi/applets/bin/mpd.sh",
+    "on-click-right": "",
     "on-update": "",
-    "on-scroll-up": "mpc seek +00:00:01",
-    "on-scroll-down": "mpc seek -00:00:01",
+    "on-scroll-up": "mpc prev",
+    "on-scroll-down": "mpc next",
     "smooth-scrolling-threshold": 1
   }
 }
