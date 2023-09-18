@@ -8,13 +8,21 @@
   "margin-right": 10,
   "spacing": 5, // Gaps between modules (4px)
   "fixed-center": true,
-  "modules-left": ["cpu", "memory", "battery", "mpd", "wlr/workspaces"],
+  "modules-left": [
+    "custom/launcher",
+    "cpu",
+    "memory",
+    "battery",
+    "mpd",
+    "wlr/workspaces"
+  ],
   "modules-center": ["hyprland/window"],
   "modules-right": [
     "network",
     "pulseaudio",
     "backlight",
     "custom/weather",
+    "custom/keylock",
     "tray",
     "clock"
   ],
@@ -46,13 +54,6 @@
   },
   "tray": {
     "spacing": 10
-  },
-  "custom/weather": {
-    "exec": "~/.config/waybar/scripts/get_weather.sh Harbin+China",
-    "return-type": "json",
-    "format": "{}",
-    "tooltip": true,
-    "interval": 3600
   },
   "clock": {
     "format": "<span color='#bf616a'> </span>{:%I:%M %p}",
@@ -172,5 +173,22 @@
     "on-scroll-up": "mpc prev",
     "on-scroll-down": "mpc next",
     "smooth-scrolling-threshold": 1
+  },
+  "custom/launcher": {
+    "format": " {}",
+    "exec": "whoami",
+    "on-click": "~/.config/rofi/launchers/type-1/launcher.sh"
+  },
+  "custom/weather": {
+    "exec": "~/.config/waybar/scripts/get_weather.sh Harbin+China",
+    "return-type": "json",
+    "format": "{}",
+    "tooltip": true,
+    "interval": 3600
+  },
+  "custom/keylock": {
+    "exec": "~/.config/waybar/scripts/keylock-monitor.sh",
+    "interval": 1,
+    "format": "{}"
   }
 }

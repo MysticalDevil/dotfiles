@@ -72,6 +72,8 @@ window#waybar.empty #window {
 #bluetooth,
 #custom-hyprPicker,
 #custom-spotify,
+#custom-launcher,
+#custom-keylock,
 #custom-weather,
 #custom-weather.severe,
 #custom-weather.sunnyDay,
@@ -113,18 +115,11 @@ window#waybar.empty #window {
   background-color: #1e1e1e;
 }
 
-#custom-power-menu {
-  border-radius: 9.5px;
-  background-color: #1b242b;
-  border-radius: 7.5px;
-  padding: 0 0;
-}
-
 #custom-launcher {
-  background-color: #1b242b;
-  color: #6a92d7;
-  border-radius: 7.5px;
-  padding: 0 0;
+  background-color: #1e1e1e;
+  color: #beb8db;
+  border-radius: 20px;
+  padding: 0 10px;
 }
 
 #custom-weather.severe {
