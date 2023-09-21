@@ -180,7 +180,7 @@
     "on-click": "~/.config/rofi/launchers/type-1/launcher.sh"
   },
   "custom/weather": {
-    "exec": "~/.config/waybar/scripts/get_weather.sh Harbin+China",
+    "exec": "~/.config/waybar/scripts/get-weather.sh Harbin+China",
     "return-type": "json",
     "format": "{}",
     "tooltip": true,
