@@ -229,7 +229,7 @@ symbol = " "
 style = "bold purple"
 always_show_remote = true
 only_attached = false
-ignore_branches = ["main", "master"]
+ignore_branches = []
 
 [git_commit]
 format = '[\($hash$tag\)]($style) '
