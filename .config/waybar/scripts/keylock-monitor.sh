@@ -1,25 +1,50 @@
 #!/usr/bin/env bash
 
-check_keyboard() {
-    local capslock=$1
-    local numlock=$2
+# Get list of input leds
+mapfile -t leds < <(find /sys/class/leds/ | grep -E "/sys/class/leds/input[^/]+$")
 
-    if [[ "$capslock" == "1" && "$numlock" == "1" ]]; then
-        echo "<span color='#fff'>󰪛 󰎠</span>"
-    elif [[ "$capslock" == "1" && "$numlock" == "0" ]]; then
-        echo "<span color='#fff'>󰪛</span> <span color='#555'>󰎠</span>"
-    elif [[ "$capslock" == "0" && "$numlock" == "1" ]]; then
-        echo "<span color='#555'>󰪛</span> <span color='#fff'>󰎠</span>"
-    else
-        echo "<span color='#555'>󰪛 󰎠</span>"
+capsleds=()
+numleds=()
+for led in "${leds[@]}"; do
+    # Get caps lock leds
+    if [[ "$led" =~ .*::capslock$ ]]; then
+        capsleds+=("$led")
     fi
-}
 
-capslock1=$(cat /sys/class/leds/input25::capslock/brightness)
-numlock1=$(cat /sys/class/leds/input25::numlock/brightness)
+    # Get caps lock leds
+    if [[ "$led" =~ .*::numlock$ ]]; then
+        numleds+=("$led")
+    fi
+done
 
-capslock2=$(cat /sys/class/leds/input36::capslock/brightness)
-numlock2=$(cat /sys/class/leds/input36::numlock/brightness)
+capslock=0
+numlock=0
+# Loop through caps and num lock leds
+for ((i=0; i<${#capsleds[@]}; i++)); do
 
-check_keyboard "$capslock1" "$numlock1"
-check_keyboard "$capslock2" "$numlock2"
+    # Check if caps lock led file exists
+    if [ -f "${capsleds[$i]}/brightness" ]; then
+        # Read brightness status
+        capslock=$(cat "${capsleds[$i]}/brightness")
+    fi
+
+    # Check if num lock led file exists
+    if [ -f "${numleds[$i]}/brightness" ]; then
+        # Read brightness status
+        numlock=$(cat "${numleds[$i]}/brightness")
+    fi
+done
+
+# Print icon based on caps and num lock state
+if [[ "$capslock" == "0" && "$numlock" == "0" ]]; then
+    echo "<span color='#555'>󰪛 󰎠</span>"
+
+elif [[ "$capslock" == "0" && "$numlock" == "1" ]]; then
+    echo "<span color='#555'>󰪛</span> <span color='#fff'>󰎠</span>"
+
+elif [[ "$capslock" == "1" && "$numlock" == "0" ]]; then
+    echo "<span color='#fff'>󰪛</span> <span color='#555'>󰎠</span>"
+
+else
+    echo "<span color='#fff'>󰪛 󰎠</span>"
+fi
