@@ -1,6 +1,9 @@
 # ------------------- Environment variable --------------------------
 export EDITOR=nvim
 
+# Nix user's packages binary
+export PATH="$HOME/.nix-profile/bin:$PATH"
+
 # Go language environment
 export GOMODCACHE="$HOME/.cache/go/pkg/mod"
 export GOPATH="$HOME/.local/share/go"
