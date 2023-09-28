@@ -320,7 +320,7 @@ detect_extensions = ["c", "h"]
 
 [cmake]
 format = '\[[$symbol($version)]($style)\]'
-symbol = '󰔶 C'
+symbol = 'CMake '
 style = 'bold red'
 detect_files = ["CMakeLists.txt", "CMakeCache.txt"]
 
@@ -475,7 +475,7 @@ lua_binary = "lua"
 
 [meson]
 format = '\[[$symbol$project]($style)\]'
-symbol = '󰔶 M'
+symbol = 'Meson '
 style = 'bold purple'
 truncation_length = 10
 truncation_symbol = "…"
