@@ -24,6 +24,7 @@ format = """$os\
         (↓ Toolchain version modules ↓)\
         $c\
         $cmake\
+        $crystal\
         $dart\
         $deno\
         $dotnet\
