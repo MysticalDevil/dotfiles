@@ -1,7 +1,5 @@
 # Number of spaces in the Tab
 tabspaces: 4
-env:
-  TERM: xterm-256color
 # Window about
 window:
   # background transparency
