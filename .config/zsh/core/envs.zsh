@@ -26,7 +26,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.dotnet/tools:$PATH"
 
 # Gems - Ruby gems path
-export GEM_HOME=$HOME/.gem
+export GEM_HOME="$(gem env user_gemhome)"
 export PATH="$GEM_HOME/bin:$PATH"
 
 # fnm -- Fast node manager

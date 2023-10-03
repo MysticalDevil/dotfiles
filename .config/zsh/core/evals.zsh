@@ -15,3 +15,5 @@ eval "$(fnm env --use-on-cd)"
 eval "$(register-python-argcomplete pipx)"
 # atuin -- Magic shell history
 eval "$(atuin init zsh --disable-up-arrow)"
+# rbenv -- Manage your app's Ruby environment  
+eval "$(~/.rbenv/bin/rbenv init - zsh)"
