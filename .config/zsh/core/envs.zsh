@@ -17,17 +17,13 @@ export PATH="$HOME/.local/bin:$PATH"
 # Cabal - Haskell package manager
 export PATH="$HOME/.cabal/bin:$PATH"
 # Ghcup - Haskell tool version manager
-export PATH="$HOME/.ghcup/bin:$PATH"
+# export PATH="$HOME/.ghcup/bin:$PATH"
 
 # Cargo - Rust Package manager
 export PATH="$HOME/.cargo/bin:$PATH"
 
 # dotNET Tools
 export PATH="$HOME/.dotnet/tools:$PATH"
-
-# Gems - Ruby gems path
-export GEM_HOME="$(gem env user_gemhome)"
-export PATH="$GEM_HOME/bin:$PATH"
 
 # fnm -- Fast node manager
 export PATH="$HOME/.local/share/fnm:$PATH"
