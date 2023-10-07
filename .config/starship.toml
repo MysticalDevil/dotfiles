@@ -583,7 +583,7 @@ detect_files = ["Gemfile", ".ruby-version"]
 
 [rust]
 format = '\[[$symbol($version)]($style)\]'
-symbol = ' '
+symbol = '🦀 '
 style = "bold 124"
 detect_extensions = ["rs"]
 detect_files = ["Cargo.toml"]
