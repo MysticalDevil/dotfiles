@@ -17,7 +17,7 @@ for ((retry=1; retry<=MAX_RETRIES; retry++)); do
     tooltip=$(curl -s "https://wttr.in/$1?format=4&m" | sed -E "s/\s+/ /g")
 
     if [[ $text == *"Unknown location"* ]]; then
-        echo "{\"text\":\"error\", \"tooltip\":\"Unknown location\"}"
+        echo '{"text": "error", "tooltip": "Unknown location"}'
         exit 1
     elif [ -n "$text" ] && [ -n "$tooltip" ]; then
         echo "{\"text\":\"$text\", \"tooltip\":\"$tooltip\"}"
@@ -27,4 +27,4 @@ for ((retry=1; retry<=MAX_RETRIES; retry++)); do
     sleep $WAIT_SECONDS
 done
 
-echo "{\"text\":\"error\", \"tooltip\":\"error\"}"
+echo '{"text": "error", "tooltip": "error"}'
