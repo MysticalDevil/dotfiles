@@ -37,14 +37,14 @@ done
 
 # Print icon based on caps and num lock state
 if [[ "$capslock" == "0" && "$numlock" == "0" ]]; then
-    echo "<span color='#555'>󰪛 󰎠</span>"
+    echo "{\"text\": \"<span color='#555'>󰪛 󰎠</span>\", \"tooltip\": \"Numlock off. Capslock off.\"}"
 
 elif [[ "$capslock" == "0" && "$numlock" == "1" ]]; then
-    echo "<span color='#555'>󰪛</span> <span color='#fff'>󰎠</span>"
+    echo "{\"text\": \"<span color='#555'>󰪛</span> <span color='#fff'>󰎠</span>\", \"tooltip\": \"Capslock off. Numlock on.\"}"
 
 elif [[ "$capslock" == "1" && "$numlock" == "0" ]]; then
-    echo "<span color='#fff'>󰪛</span> <span color='#555'>󰎠</span>"
+    echo "{\"text\": \"<span color='#fff'>󰪛</span> <span color='#555'>󰎠</span>\", \"tooltip\": \"Capslock on. Numlock on.\"}"
 
 else
-    echo "<span color='#fff'>󰪛 󰎠</span>"
+    echo "{\"text\": \"<span color='#fff'>󰪛 󰎠</span>\", \"tooltip\": \"Capslock on. Numlock on\"}"
 fi

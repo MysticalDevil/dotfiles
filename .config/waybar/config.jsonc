@@ -188,6 +188,7 @@
   },
   "custom/keylock": {
     "exec": "~/.config/waybar/scripts/keylock-monitor.sh",
+    "return-type": "json",
     "interval": 1,
     "format": "{}"
   }
