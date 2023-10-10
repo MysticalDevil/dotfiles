@@ -1,3 +1,5 @@
+LOCALLIB="$HOME/.local/lib"
+LOCALSHARE="$HOME/.local/share"
 # ------------------- Environment variable --------------------------
 export EDITOR=nvim
 
@@ -6,8 +8,8 @@ export PATH="$HOME/.nix-profile/bin:$PATH"
 
 # Go language environment
 export GOMODCACHE="$HOME/.cache/go/pkg/mod"
-export GOPATH="$HOME/.local/share/go"
-export GOBIN="$HOME/.local/share/go/bin"
+export GOPATH="$LOCALLIB/go"
+export GOBIN="$LOCALLIB/go/bin"
 export GO111MODULE=on
 export PATH="$(go env GOBIN):$(go env GOPATH)/bin:$PATH"
 
@@ -26,10 +28,17 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.dotnet/tools:$PATH"
 
 # fnm -- Fast node manager
-export PATH="$HOME/.local/share/fnm:$PATH"
+export PATH="$LOCALSHARE/fnm:$PATH"
 
 # composer -- PHP package manager
 export PATH="$HOME/.config/composer/vendor/bin:$PATH"
+
+# CPAN -- Perl package manager
+export PATH="$LOCALLIB/perl5/bin${PATH:+:${PATH}}"
+export PERL5LIB="$LOCALLIB/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"
+export PERL_LOCAL_LIB_ROOT="$LOCALLIB/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"
+export PERL_MB_OPT="--install_base \"$LOCALLIB/perl5\""
+export PERL_MM_OPT="INSTALL_BASE=$LOCALLIB/perl5"
 
 # Deno -- A JavaScript Runtime Writen by Rust
 export DENO_INSTALL="$HOME/.deno"
@@ -43,7 +52,7 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 export npm_config_prefix="$HOME/.local"
 
 # PNPM -- Fast, disk space efficient package manager
-export PNPM_HOME="$HOME/.local/share/pnpm"
+export PNPM_HOME="$LOCALSHARE/pnpm"
 case ":$PATH:" in
     *":$PNPM_HOME:"*) ;;
     *) export PATH="$PNPM_HOME:$PATH" ;;
@@ -51,7 +60,7 @@ esac
 # pnpm end
 
 # coursier -- modern Scala and Java package manager
-export PATH="$HOME/.local/share/coursier/bin:$PATH"
+export PATH="$LOCALSHARE/coursier/bin:$PATH"
 
 # luarocks -- The lua package manager
 export PATH="$HOME/.luarocks/bin:$PATH"
