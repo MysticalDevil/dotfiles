@@ -61,16 +61,12 @@ zmodule completion
 # Modules that must be initialized last
 #
 
-# The Rapid Application Development textual user interface library for Zsh.
-zmodule z-shell/zui
-# Complete options from manual pages – press Ctrl-F to start the completer.
-zmodule z-shell/zzcomplete
 # The plugin configures and delivers completions
 zmodule z-shell/zsh-fancy-completions
 # Replace zsh's default completion selection menu with fzf!
 # zmodule zdharma-continuum/fast-syntax-highlighting
-# Zsh plugin to replace command gnu/ls with ogham/exa
-# zmodule z-shell/zsh-exa
+# Zsh plugin to replace command gnu/ls with eza
+# zmodule z-shell/zsh-eza
 # Zsh plugin replace GNU/ls with next generation Peltoche/lsd
 zmodule z-shell/zsh-lsd
 #  Feature-rich Syntax Highlighting for Zsh
