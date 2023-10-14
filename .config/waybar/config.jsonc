@@ -187,9 +187,10 @@
     "interval": 3600
   },
   "custom/keylock": {
-    "exec": "~/.config/waybar/scripts/keylock-monitor.sh",
+    "exec": "~/.config/waybar/scripts/keylock-monitor.py",
     "return-type": "json",
-    "interval": 1,
-    "format": "{}"
+    "format": "{}",
+    "tooltip": false,
+    "interval": 1
   }
 }
