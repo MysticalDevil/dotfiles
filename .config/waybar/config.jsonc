@@ -41,14 +41,28 @@
     }
   },
   "hyprland/window": {
-    "format": "{}",
+    "format": "{title} [{class}]",
     "separate-outputs": true,
     "rewrite": {
-      "(.*) — Mozilla Firefox": "  $1",
-      "(.*) - Google Chrome": "  $1",
-      "(.*) - Visual Studio Code": "󰨞 $1",
-      "(.*) - VLC media player": "󰕼 $1",
-      "(.*) – Doom Emacs": " $1"
+      "^(.*) \\[(Alacritty|foot|kitty|.*wezterm.*)\\]": "  $1",
+      "^(.*) \\[(.*Nautilus.*)\\]": "  $1",
+      "^(.*) — Mozilla Firefox \\[firefox\\]$": "  $1",
+      "Mozilla Firefox \\[firefox\\]$": " ",
+      "^(.*) - Mozilla Thunderbird \\[thunderbird\\]": "󰺻  $1",
+      "^(.*) - Google Chrome \\[google-chrome\\]$": "  $1",
+      "^(.*) - Visual Studio Code \\[Code\\]$": "󰨞  $1",
+      "^(.*) - Visual Studio Code \\[code.*\\]$": "󰨞  $1",
+      "^(.*) – Doom Emacs \\[emacs\\]$": "  $1",
+      "^(.*) – \\[emacs\\]$": "  $1",
+      "(.*neovide.*)": "  Neovide",
+      "^(.*) \\[nvim-qt\\]$": "  $1",
+      "^(.*) - Discord \\[discord\\]$": "󰙯  $1",
+      "^(.*) \\[(.*telegram.*)\\]": "  $1",
+      "^(.*) \\[(.*Spotify.*)\\]$": "  $1",
+      "^(.*) \\[jetbrains-studio\\]": "󰀲 $1",
+      "^(.*) VLC media player \\[vlc\\]$": "󰕼  $1",
+      "VLC media player \\[vlc\\]$": "󰕼  $1",
+      "^(.*) \\[.*\\]": "$1"
     },
     "max-length": 50
   },
