@@ -18,6 +18,7 @@
   "editor.formatOnType": true,
   "editor.guides.bracketPairs": "active",
   "editor.inlineSuggest.enabled": true,
+  "editor.inlayHints.enabled": "on",
   "editor.linkedEditing": true,
   "editor.renderLineHighlight": "line",
   "editor.rulers": [120],
@@ -32,7 +33,6 @@
   "workbench.colorCustomizations": {
     "editor.bracketPairColorization.enabled": true
   },
-  "workbench.colorTheme": "One Dark Pro",
   "workbench.editorAssociations": {},
   "workbench.iconTheme": "material-icon-theme",
   "workbench.list.smoothScrolling": true,
@@ -80,6 +80,63 @@
   "explorer.confirmDragAndDrop": false,
   // ======================================== Other config ========================================
   "security.workspace.trust.untrustedFiles": "open",
+  // ======================================== Inlay Hints =========================================
+  "typescript.inlayHints.enumMemberValues.enabled": true,
+  "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
+  "typescript.inlayHints.parameterNames.enabled": "all",
+  "typescript.inlayHints.parameterNames.suppressWhenArgumentMatchesName": true,
+  "typescript.inlayHints.parameterTypes.enabled": true,
+  "typescript.inlayHints.propertyDeclarationTypes.enabled": true,
+  "typescript.inlayHints.variableTypes.enabled": true,
+  "typescript.inlayHints.variableTypes.suppressWhenTypeMatchesName": true,
+
+  "javascript.inlayHints.enumMemberValues.enabled": true,
+  "javascript.inlayHints.functionLikeReturnTypes.enabled": true,
+  "javascript.inlayHints.parameterNames.enabled": "all",
+  "javascript.inlayHints.parameterNames.suppressWhenArgumentMatchesName": true,
+  "javascript.inlayHints.parameterTypes.enabled": true,
+  "javascript.inlayHints.propertyDeclarationTypes.enabled": true,
+  "javascript.inlayHints.variableTypes.enabled": true,
+  "javascript.inlayHints.variableTypes.suppressWhenTypeMatchesName": true,
+
+  "go.inlayHints.rangeVariableTypes": true,
+  "go.inlayHints.assignVariableTypes": true,
+  "go.inlayHints.compositeLiteralFields": true,
+  "go.inlayHints.compositeLiteralTypes": true,
+  "go.inlayHints.constantValues": true,
+  "go.inlayHints.functionTypeParameters": true,
+  "go.inlayHints.parameterNames": true,
+
+  "python.analysis.inlayHints.callArgumentNames": "all",
+  "python.analysis.inlayHints.functionReturnTypes": true,
+  "python.analysis.inlayHints.pytestParameters": true,
+  "python.analysis.inlayHints.variableTypes": true,
+
+  "csharp.inlayHints.enableInlayHintsForImplicitObjectCreation": true,
+  "csharp.inlayHints.enableInlayHintsForImplicitVariableTypes": true,
+  "csharp.inlayHints.enableInlayHintsForTypes": true,
+  "csharp.inlayHints.enableInlayHintsForLambdaParameterTypes": true,
+
+  "rust-analyzer.inlayHints.bindingModeHints.enable": false,
+  "rust-analyzer.inlayHints.chainingHints.enable": true,
+  "rust-analyzer.inlayHints.closingBraceHints.enable": true,
+  "rust-analyzer.inlayHints.closingBraceHints.minLines": 25,
+  "rust-analyzer.inlayHints.lifetimeElisionHints.enable": "skip_trivial",
+  "rust-analyzer.inlayHints.closureCaptureHints.enable": false,
+  "rust-analyzer.inlayHints.closureReturnTypeHints.enable": "with_block",
+  "rust-analyzer.inlayHints.closureStyle": "impl_fn",
+  "rust-analyzer.inlayHints.discriminantHints.enable": "fieldless",
+  "rust-analyzer.inlayHints.expressionAdjustmentHints.enable": "reborrow",
+  "rust-analyzer.inlayHints.expressionAdjustmentHints.hideOutsideUnsafe": false,
+  "rust-analyzer.inlayHints.expressionAdjustmentHints.mode": "postfix",
+  "rust-analyzer.inlayHints.lifetimeElisionHints.useParameterNames": false,
+  "rust-analyzer.inlayHints.maxLength": 25,
+  "rust-analyzer.inlayHints.parameterHints.enable": true,
+  "rust-analyzer.inlayHints.reborrowHints.enable": "mutable",
+  "rust-analyzer.inlayHints.renderColons": true,
+  "rust-analyzer.inlayHints.typeHints.enable": true,
+  "rust-analyzer.inlayHints.typeHints.hideClosureInitialization": false,
+  "rust-analyzer.inlayHints.typeHints.hideNamedConstructor": false,
   // ======================================= Plugin config ========================================
   "auto-close-tag.activationOnLanguage": [
     "javascript",
@@ -135,6 +192,9 @@
   "[cpp]": {
     "editor.defaultFormatter": "xaver.clang-format"
   },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "[dart]": {
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
@@ -169,7 +229,8 @@
     "editor.defaultFormatter": "yzhang.markdown-all-in-one"
   },
   "[python]": {
-    "editor.formatOnType": true
+    "editor.formatOnType": true,
+    "editor.defaultFormatter": "ms-python.black-formatter"
   },
   "[proto3]": {
     "editor.defaultFormatter": "xaver.clang-format"
@@ -268,5 +329,11 @@
       "before": ["s", "="],
       "after": ["<C-w>", "="]
     }
-  ]
+  ],
+  "files.watcherExclude": {
+    "**/.bloop": true,
+    "**/.metals": true,
+    "**/.ammonite": true
+  },
+  "workbench.colorTheme": "One Dark Pro"
 }
