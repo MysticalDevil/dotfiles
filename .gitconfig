@@ -2,8 +2,8 @@
   pager = delta
 
 [user]
-	name = MysticalDevil
-	email = jinpeng7981@outlook.com
+	name = Mystical-C
+	email = 64483945+MysticalDevil@users.noreply.github.com
 [init]
 	defaultBranch = master
 
@@ -22,3 +22,8 @@
 
 [diff]
     colorMoved = default
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
