@@ -22,6 +22,7 @@
   "editor.linkedEditing": true,
   "editor.renderLineHighlight": "line",
   "editor.rulers": [120],
+  "editor.smoothScrolling": true,
   "editor.suggestSelection": "first",
   "editor.unicodeHighlight.nonBasicASCII": false,
   // ====================================== Terminal config =======================================
@@ -335,5 +336,8 @@
     "**/.metals": true,
     "**/.ammonite": true
   },
-  "workbench.colorTheme": "One Dark Pro"
+  "workbench.colorTheme": "One Dark Pro",
+  "editor.unicodeHighlight.allowedCharacters": {
+    "\f": true
+  }
 }
