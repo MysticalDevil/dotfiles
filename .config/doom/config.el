@@ -23,7 +23,7 @@
 ;;
 (setq doom-font (font-spec :family "Fira Code" :size 15 :weight 'semi-light)
       doom-variable-pitch-font (font-spec :family "MesloLGS Nerd Font" :size 15))
-(setq doom-unicode-font doom-font)
+(setq doom-symbol-font doom-font)
 ;;
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
@@ -94,3 +94,29 @@
   (defadvice! good-scroll--scroll-down (&optional arg)
     :override 'scroll-down
     (good-scroll-move (- (good-scroll--convert-line-to-step arg)))))
+
+(setq auto-save-default t)
+(run-with-idle-timer 5 t #'save-some-buffers t)
+(setq make-backup-files nil)
+(setq confirm-kill-emacs nil)
+(set-frame-position (selected-frame) 0 0)
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
+(setq initial-frame-alist '((top . 1) (left . 1) (width . 114) (height .32)))
+
+;; Org mode
+(setq org-export-coding-system 'utf-8)
+(setq org-src-fontify-natively t)
+(setq org-html-doctype "html5")
+(setq org-html-xml-declaration nil)
+(setq-default prettify-symbols-alist '(("#+BEGIN_SRC" . "†")("#+END_SRC" . "†")("#+begin_src" . "†") ("#+end_src" . "†") (">=" . "≥")("=>" . "⇨")))
+(setq prettify-symbols-unprettify-at-point 'right-edge)
+(add-hook 'org-mode-hook 'prettify-symbols-mode)
+(setq org-adapt-indentation nil)
+
+;;auto-wrap
+(global-visual-line-mode 1)  ;1 for on, 0 for off.
+
+;; language evniroment
+(set-language-environment 'UTF-8)
+(set-locale-environment "UTF-8")
+(define-coding-system-alias 'UTF-8 'utf-8)
