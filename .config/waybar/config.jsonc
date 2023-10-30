@@ -52,8 +52,6 @@
       "^(.*) - Google Chrome \\[google-chrome\\]$": "  $1",
       "^(.*) - Visual Studio Code \\[Code\\]$": "󰨞  $1",
       "^(.*) - Visual Studio Code \\[code.*\\]$": "󰨞  $1",
-      "^(.*) – Doom Emacs \\[emacs\\]$": "  $1",
-      "^(.*) – \\[emacs\\]$": "  $1",
       "(.*neovide.*)": "  Neovide",
       "^(.*) \\[nvim-qt\\]$": "  $1",
       "^(.*) - Discord \\[discord\\]$": "󰙯  $1",
@@ -62,8 +60,7 @@
       "^(.*) \\[jetbrains-studio\\]": "󰀲 $1",
       "^(.*) VLC media player \\[vlc\\]$": "󰕼  $1",
       "VLC media player \\[vlc\\]$": "󰕼  $1",
-      "^(.*) \\[.*\\]": "$1",
-      "\\[\\]": ""
+      "^(.*) \\[.*\\]": "$1"
     },
     "max-length": 50
   },
