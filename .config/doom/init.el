@@ -92,7 +92,7 @@
        ;;ansible
        ;;biblio             ; Writes a PhD for you (citation needed)
        ;;collab             ; buffers with friends
-       ;;debugger           ; FIXME stepping through code, to help you add bugs
+       debugger           ; FIXME stepping through code, to help you add bugs
        ;;direnv
        ;;docker
        editorconfig         ; let someone else argue about tabs vs spaces
@@ -100,7 +100,7 @@
        (eval +overlay)      ; run code, run (also, repls)
        ;;gist               ; interacting with github gists
        lookup               ; navigate your code and its documentation
-       lsp                  ; M-x vscode
+       (lsp +eglot)         ; M-x vscode
        magit                ; a git porcelain for Emacs
        ;;make               ; run make tasks from Emacs
        ;;pass               ; password manager for nerds
@@ -127,9 +127,9 @@
        crystal              ; ruby at the speed of c
        ;;csharp             ; unity, .NET, and mono shenanigans
        ;;data               ; config/data formats
-       (dart +flutter)      ; paint ui and not much else
+       (dart +flutter +lsp) ; paint ui and not much else
        ;;dhall
-       elixir               ; erlang done right
+       (elixir +lsp)        ; erlang done right
        ;;elm                ; care for a cup of TEA?
        emacs-lisp           ; drown in parentheses
        ;;erlang             ; an elegant language for a more civilized age
@@ -147,13 +147,15 @@
        ;;idris              ; a language you can depend on
        ;;json               ; At least it ain't XML
        ;;(java +lsp)        ; the poster child for carpal tunnel syndrome
-       javascript           ; all(hope(abandon(ye(who(enter(here))))))
+       (javascript +lsp)    ; all(hope(abandon(ye(who(enter(here))))))
        ;;julia              ; a better, faster MATLAB
        ;;kotlin             ; a better, slicker Java(Script)
        ;;latex              ; writing papers in Emacs has never been so fun
        ;;lean               ; for folks with too much to prove
        ;;ledger             ; be audit you can be
-       ;;lua                ; one-based indices? one-based indices
+       (lua +lsp
+            +fennel
+            +moonscript)    ; one-based indices? one-based indices
        markdown             ; writing docs for people to ignore
        ;;nim                ; python + lisp at the speed of c
        nix                  ; I hereby declare "nix geht mehr!"
@@ -170,16 +172,16 @@
        ;;rst                ; ReST in peace
        ;;(ruby +rails)      ; 1.step {|i| p "Ruby is #{i.even? ? 'love' : 'life'}"}
        (rust +lsp)          ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
-       scala                ; java, but go
+       (scala +lsp)         ; java, but go
        ;;(scheme +guile)    ; a fully conniving family of lisps
-       sh                   ; she sells {ba,z,fi}sh shells on the C xor
+       (sh +fish +lsp)      ; she sells {ba,z,fi}sh shells on the C xor
        ;;sml
        ;;solidity           ; do you need a blockchain? No.
        ;;swift              ; who asked for emoji variables?
        ;;terra              ; Earth and Moon in alignment for performance.
        web                  ; the tubes
        yaml                 ; JSON, but readable
-       zig                  ; C, but simpler
+       (zig +lsp)           ; C, but simpler
 
        :email
        (mu4e +org +gmail)
