@@ -108,3 +108,5 @@ max-indent-retain = 40
 wrap-indicator = "↪"
 wrap-at-text-width = false
 
+[editor.smart-tab]
+enable = true
