@@ -1,5 +1,6 @@
 [core]
   pager = delta
+	excludesfile = ~/.gitignore
 
 [user]
 	name = Mystical-C
@@ -21,7 +22,8 @@
     conflictstyle = diff3
 
 [diff]
-    colorMoved = default
+  colorMoved = default
+
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
