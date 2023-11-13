@@ -2,6 +2,8 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
+source ~/.config/fish/aliases.fish
+
 # ------------------ Third part software ------------------
 # Starship prompt
 function starship_transent_rmpt_func
