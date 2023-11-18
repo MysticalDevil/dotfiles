@@ -24,6 +24,9 @@
   "editor.rulers": [120],
   "editor.smoothScrolling": true,
   "editor.suggestSelection": "first",
+  "editor.unicodeHighlight.allowedCharacters": {
+    "\f": true
+  },
   "editor.unicodeHighlight.nonBasicASCII": false,
   // ====================================== Terminal config =======================================
   "terminal.integrated.cwd": "",
@@ -34,6 +37,7 @@
   "workbench.colorCustomizations": {
     "editor.bracketPairColorization.enabled": true
   },
+  "workbench.colorTheme": "One Dark Pro",
   "workbench.editorAssociations": {},
   "workbench.iconTheme": "material-icon-theme",
   "workbench.list.smoothScrolling": true,
@@ -72,6 +76,11 @@
   },
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
+  "files.watcherExclude": {
+    "**/.bloop": true,
+    "**/.metals": true,
+    "**/.ammonite": true
+  },
   // ========================================= Git config =========================================
   "git.autofetch": true,
   "git.confirmSync": false,
@@ -254,90 +263,7 @@
   "[vue]": {
     "editor.tabSize": 2
   },
-  // ========================================= VSCode Vim =========================================
-  "vim.leader": ",",
-  "vim.easymotion": true,
-  "vim.incsearch": true,
-  "vim.useCtrlKeys": true,
-  "vim.hlsearch": true,
-  "vim.useSystemClipboard": true,
-  "vim.handleKeys": {
-    "<C-a>": true,
-    "<C-f>": true
-  },
-  "vim.ignorecase": true,
-  "vim.smartcase": true,
-  "vim.whichwrap": "b,s,<,>,[,]",
-  "vim.mouseSelectionGoesIntoVisualMode": true,
-  "vim.normalModeKeyBindings": [
-    {
-      "before": ["<leader>", "w"],
-      "commands": [":w"]
-    },
-    {
-      "before": ["<leader>", "wa"],
-      "commands": [":wa"]
-    },
-    {
-      "before": ["<leader>", "wq"],
-      "commands": [":wq"]
-    },
-    {
-      "before": ["<leader>", "q"],
-      "commands": [":q"]
-    },
-    {
-      "before": ["<leader>", "qq"],
-      "commands": [":qa!"]
-    },
-    {
-      "before": ["<leader>", "qa"],
-      "commands": [":wqa"]
-    },
-    {
-      "before": ["s", "v"],
-      "commands": [":vsp"]
-    },
-    {
-      "before": ["s", "h"],
-      "commands": [":sp"]
-    },
-    {
-      "before": ["s", "c"],
-      "after": ["<C-w>", "c"]
-    },
-    {
-      "before": ["s", "o"],
-      "after": ["<C-w>", "o"]
-    },
-    {
-      "before": ["s", ","],
-      "commands": [":vertical resize -10"]
-    },
-    {
-      "before": ["s", "."],
-      "commands": [":vertical resize +10"]
-    },
-    {
-      "before": ["s", "j"],
-      "commands": [":horizontal resize -5"]
-    },
-    {
-      "before": ["s", "k"],
-      "commands": [":horizontal resize +5"]
-    },
-    {
-      "before": ["s", "="],
-      "after": ["<C-w>", "="]
-    }
-  ],
-  "files.watcherExclude": {
-    "**/.bloop": true,
-    "**/.metals": true,
-    "**/.ammonite": true
-  },
-  "workbench.colorTheme": "One Dark Pro",
-  "editor.unicodeHighlight.allowedCharacters": {
-    "\f": true
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
   }
 }
