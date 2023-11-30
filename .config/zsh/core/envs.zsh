@@ -65,6 +65,10 @@ export PATH="$LOCALSHARE/coursier/bin:$PATH"
 # luarocks -- The lua package manager
 export PATH="$HOME/.luarocks/bin:$PATH"
 
+# Flutter
+export FLUTTER_HOME="/opt/flutter"
+export PATH="$FLUTTER_HOME/bin:$PATH"
+
 # DoomEmacs -- another emacs config
 export PATH="$HOME/.config/emacs/bin:$PATH"
 
