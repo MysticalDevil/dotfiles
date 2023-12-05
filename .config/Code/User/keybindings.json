@@ -8,5 +8,9 @@
     "key": "escape",
     "command": "-extension.vim_escape",
     "when": "editorTextFocus && vim.active && !inDebugRepl"
+  },
+  {
+    "key": "capslock",
+    "command": "vscode-neovim.escape"
   }
 ]
