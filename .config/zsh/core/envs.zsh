@@ -68,6 +68,8 @@ export PATH="$HOME/.luarocks/bin:$PATH"
 # Flutter
 export FLUTTER_HOME="/opt/flutter"
 export PATH="$FLUTTER_HOME/bin:$PATH"
+export PATH="$HOME/.pub-cache/bin:$PATH"
+export FVM_HOME="$LOCALSHARE/fvm"
 
 # DoomEmacs -- another emacs config
 export PATH="$HOME/.config/emacs/bin:$PATH"
