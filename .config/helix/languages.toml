@@ -1,5 +1,7 @@
 [language-server]
 phpactor = { command = "phpactor" }
+v-analyzer = { command = "v-analyzer", args = [""] }
+
 
 [[language]]
 name = "python"
@@ -22,4 +24,19 @@ shebangs = ["php"]
 roots = ["composer.json", "index.php"]
 language-servers = [ "phpactor" ]
 indent = { tab-width = 4, unit = "    " }
+
+[[language]]
+auto-format = true
+comment-token = "//"
+file-types = ["v", "vv", "vsh"]
+indent = {tab-width = 4, unit = "\t"}
+language-servers = ["v-analyzer"]
+name = "v"
+roots = ["v.mod"]
+scope = "source.v"
+shebangs = ["v run"]
+
+[[grammar]]
+name = "v"
+source = {git = "https://github.com/v-analyzer/v-analyzer", subpath = "tree_sitter_v", rev = "e14fdf6e661b10edccc744102e4ccf0b187aa8ad"}
 
