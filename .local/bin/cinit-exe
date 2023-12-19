@@ -1,0 +1,58 @@
+#!/usr/bin/env bash
+
+# Create src directory
+mkdir -p src
+
+# Create Makefile with specified content
+cat <<EOL > Makefile
+CC = clang
+CFLAGS = -Wall -Wextra -std=c17
+CONFIG ?= release
+
+BUILD_DIR = build
+SRC_DIR = src
+
+TARGET = \$(BUILD_DIR)/program
+SOURCES = \$(wildcard \$(SRC_DIR)/*.c)
+OBJECTS = \$(SOURCES:\$(SRC_DIR)/%.c=\$(BUILD_DIR)/%.o)
+
+.PHONY: all clean
+
+all: \$(TARGET)
+
+\$(BUILD_DIR):
+	mkdir -p \$(BUILD_DIR)
+
+\$(BUILD_DIR)/%.o: \$(SRC_DIR)/%.c | \$(BUILD_DIR)
+	\$(CC) \$(CFLAGS) -c \$< -o \$@
+
+\$(TARGET): \$(OBJECTS)
+	\$(CC) \$(OBJECTS) -o \$@
+
+run: \$(TARGET)
+	./\$(TARGET)
+
+clean:
+	rm -rf \$(BUILD_DIR)
+
+debug: CFLAGS += -g
+debug: all
+
+release: CFLAGS += -O2
+release: all
+EOL
+
+# Create main.c with specified content
+cat <<EOL > src/main.c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char *argv[]) {
+
+  printf("Hello World!\n");
+
+  return EXIT_SUCCESS;
+}
+EOL
+
+echo "Project structure created. Use 'make run' to run this project."
