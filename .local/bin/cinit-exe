@@ -55,4 +55,11 @@ int main(int argc, char *argv[]) {
 }
 EOL
 
+# Create .gitignore file
+cat <<EOL > .gitignore
+/build/
+*.o
+*.d
+EOL
+
 echo "Project structure created. Use 'make run' to run this project."
