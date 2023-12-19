@@ -1,0 +1,81 @@
+#!/usr/bin/env bash
+
+# Project name
+project_name="$1"
+
+# Check if project name is provided
+if [[ -z "$project_name" ]]; then
+    project_name="$(basename "$PWD")"
+fi
+
+# Create directories
+mkdir -p src build include
+
+# Create files
+touch CMakeLists.txt src/Pointer.cpp src/main.cpp include/Pointer.h .gitignore
+
+# Populate files
+cat << EOL > CMakeLists.txt
+cmake_minimum_required(VERSION 3.25)
+
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+project(${project_name} LANGUAGES CXX)
+
+set(SOURCES src/Pointer.cpp src/main.cpp)
+
+add_executable(\${PROJECT_NAME} \${SOURCES})
+
+target_include_directories(\${PROJECT_NAME} PRIVATE \${PROJECT_SOURCE_DIR}/include)
+EOL
+
+cat << EOL > src/main.cpp
+#include "Pointer.h"
+#include <iostream>
+
+auto main() -> int {
+  auto pointer1 = Pointer{.x = 100.0, .y = 200};
+  auto pointer2 = Pointer{.x = 50.0, .y = 100};
+
+  std::cout << pointer1.distanceTo(pointer2) << std::endl;
+
+  return 0;
+}
+EOL
+
+cat << EOL > src/Pointer.cpp
+#include <cmath>
+
+#include "Pointer.h"
+
+auto Pointer::distanceTo(const Pointer &other) -> double {
+  double dx = x - other.x;
+  double dy = y - other.y;
+  return sqrt(dx * dx + dy * dy);
+}
+EOL
+
+cat << EOL > include/Pointer.h
+#ifndef __POINTER_H__
+
+#define __POINTER_H__
+
+struct Pointer {
+  double x;
+  double y;
+
+  auto distanceTo(const Pointer &other) -> double;
+};
+
+#endif // !__POINTER_H__
+EOL
+
+echo "# Ignore build outputs" > .gitignore
+echo "build/*" >> .gitignore
+
+cd build || return
+cmake ..
+ln -s compile_commands.json ..
+cd ..
+
+echo "Project '$project_name' initialized!"
