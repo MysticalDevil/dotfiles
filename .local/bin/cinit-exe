@@ -3,6 +3,13 @@
 # Create src directory
 mkdir -p src
 
+# Get project name
+project_name=$1
+
+if [[ -z $project_name ]]; then
+    project_name=$(basename "$PWD")
+fi
+
 # Create Makefile with specified content
 cat <<EOL > Makefile
 CC = clang
@@ -12,7 +19,7 @@ CONFIG ?= release
 BUILD_DIR = build
 SRC_DIR = src
 
-TARGET = \$(BUILD_DIR)/program
+TARGET = \$(BUILD_DIR)/$project_name
 SOURCES = \$(wildcard \$(SRC_DIR)/*.c)
 OBJECTS = \$(SOURCES:\$(SRC_DIR)/%.c=\$(BUILD_DIR)/%.o)
 
