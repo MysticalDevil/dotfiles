@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+function check_programs() {
+    local programs=("$@")
+    local unabled_programs=()
+
+    for program in "${programs[@]}"; do
+        # echo "$program"
+        if ! command -v "$program" &> /dev/null; then
+            echo "$program is not executable, please ensure you have install it."
+            unabled_programs+=("$program")
+        fi
+    done
+
+    if [ ${#unabled_programs[@]} -gt 0 ]; then
+        echo "There are some program is not executable"
+        return 1
+    fi
+
+    return 0
+}
+
+# Wallpaper manager
+programs=("swww" "waybar" "dunst" "fcitx5" "udiskie")
+
+if ! check_programs "${programs[@]}"; then
+    echo "There are some program not executable"
+    exit 1
+fi
+
+swww init &
+waybar &
+dunst &
+fcitx5 --replace -d &
+udiskie &
