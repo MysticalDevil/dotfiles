@@ -1,7 +1,10 @@
 LOCALLIB="$HOME/.local/lib"
 LOCALSHARE="$HOME/.local/share"
 # ------------------- Environment variable --------------------------
-export EDITOR=nvim
+export EDITOR="nvim"
+
+export PAGER="bat"
+export MANPAGER="bat"
 
 # Nix user's packages binary
 export PATH="$HOME/.nix-profile/bin:$PATH"
