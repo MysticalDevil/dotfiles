@@ -28,7 +28,8 @@ if ! check_programs "${programs[@]}"; then
     exit 1
 fi
 
-swww init &
+swww init
+
 waybar &
 dunst &
 fcitx5 --replace -d &
