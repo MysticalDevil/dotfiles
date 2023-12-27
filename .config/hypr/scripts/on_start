@@ -34,3 +34,4 @@ waybar &
 dunst &
 fcitx5 --replace -d &
 udiskie &
+nm-applet --indicator &
