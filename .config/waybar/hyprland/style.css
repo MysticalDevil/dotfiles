@@ -280,11 +280,12 @@ label:focus {
 
 #keyboard-state {
   color: #8844cd;
+  padding: 0 10px;
   min-width: 16px;
 }
 
 #keyboard-state > label {
-  padding: 0 0;
+  padding: 0 5px;
 }
 
 #keyboard-state > label.locked {
