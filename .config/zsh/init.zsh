@@ -1,4 +1,5 @@
 source "$HOME/.config/zsh/autoloads.zsh"
+source "$HOME/.config/zsh/plugins/fzf-tab.zsh"
 
 for dir in ${ZDOTDIR:-$HOME}/.config/zsh/*/; do
     if [[ -f ${dir}activate ]]; then
