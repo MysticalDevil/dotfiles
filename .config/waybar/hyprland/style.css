@@ -70,6 +70,7 @@ window#waybar.empty #window {
 #idle_inhibitor,
 #mpd,
 #bluetooth,
+#keyboard-state,
 #custom-hyprPicker,
 #custom-spotify,
 #custom-launcher,
@@ -278,10 +279,7 @@ label:focus {
 }
 
 #keyboard-state {
-  background: #97e1ad;
-  color: #000000;
-  padding: 0 0;
-  margin: 0 5px;
+  color: #8844cd;
   min-width: 16px;
 }
 

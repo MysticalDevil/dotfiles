@@ -28,9 +28,11 @@ if ! check_programs "${programs[@]}"; then
     exit 1
 fi
 
+WAYBAR_DIR="$HOME/.config/waybar/hyprland"
+
 swww init
 
-waybar &
+waybar -c "$WAYBAR_DIR/config.jsonc" -s "$WAYBAR_DIR/style.css" &
 dunst &
 fcitx5 --replace -d &
 udiskie &

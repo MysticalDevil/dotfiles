@@ -1,12 +1,11 @@
 {
   "layer": "top",
-  // "mode": "dock",
-  "height": 20, // Waybar height (to be removed for auto height)
+  "height": 20,
   "margin-top": 3,
   "margin-left": 10,
   "margin-bottom": 0,
   "margin-right": 10,
-  "spacing": 5, // Gaps between modules (4px)
+  "spacing": 5,
   "fixed-center": true,
   "modules-left": [
     "custom/launcher",
@@ -16,13 +15,15 @@
     "mpd",
     "hyprland/workspaces"
   ],
-  "modules-center": ["hyprland/window"],
+  "modules-center": [
+    "hyprland/window"
+  ],
   "modules-right": [
     "network",
     "pulseaudio",
     "backlight",
     "custom/weather",
-    "custom/keylock",
+    "keyboard-state",
     "tray",
     "clock"
   ],
@@ -67,6 +68,18 @@
   "tray": {
     "spacing": 10
   },
+  "keyboard-state": {
+    "numlock": true,
+    "capslock": true,
+    "format": {
+        "numlock": "N {icon}",
+        "capslock": "C {icon}"                                                                                                                                                       
+    },
+    "format-icons": {
+      "locked": "",
+      "unlocked": ""
+    }
+  },
   "clock": {
     "format": "<span color='#bf616a'> </span>{:%I:%M %p}",
     "format-alt": "<span color='#bf616a'> </span>{:%a %b %d}",
@@ -94,7 +107,6 @@
       "on-scroll-down": "shift_down"
     }
   },
-
   "cpu": {
     "interval": 1,
     "format": "󰄧 {usage}%",
@@ -110,7 +122,17 @@
   "backlight": {
     "device": "eDP-1",
     "format": "{icon} {percent}%",
-    "format-icons": ["", "", "", "", "", "", "", "", ""],
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
     "on-click": ""
   },
   "network": {
@@ -120,7 +142,6 @@
     "format-disconnected": "󰖪  No Network",
     "tooltip": false
   },
-
   "pulseaudio": {
     "format": "{icon} {volume}%",
     "format-bluetooth": "  {volume}%",
@@ -133,15 +154,17 @@
       "phone": "",
       "portable": "",
       "car": "",
-      "default": ["", "", ""]
+      "default": [
+        "",
+        "",
+        ""
+      ]
     },
     "on-click": "pavucontrol"
   },
-
   "bluetooth": {
     "format": " {status}"
   },
-
   "battery": {
     "bat": "BAT1",
     "adapter": "ADP0",
@@ -160,12 +183,17 @@
     "format-plugged": "  {capacity}%",
     "format-alt": "{icon} {time}",
     "format-full": "  {capacity}%",
-    "format-icons": [" ", " ", " ", " ", " "]
+    "format-icons": [
+      " ",
+      " ",
+      " ",
+      " ",
+      " "
+    ]
   },
   "mpd": {
     "interval": 2,
     "unknown-tag": "N/A",
-
     "format": "{stateIcon} [{elapsedTime:%M:%S}/{totalTime:%M:%S}]",
     "format-disconnected": "󰎊 Disconnected",
     "format-paused": "{stateIcon} {artist} - {title}",
@@ -177,7 +205,6 @@
     "title-len": 20,
     "tooltip-format": "MPD (connected)",
     "tooltip-format-disconnected": "MPD (disconnected)",
-    // Commands to execute on events
     "on-click": "mpc toggle",
     "on-click-middle": "~/.config/rofi/applets/bin/mpd.sh",
     "on-click-right": "",
@@ -197,12 +224,5 @@
     "format": "{}",
     "tooltip": true,
     "interval": 3600
-  },
-  "custom/keylock": {
-    "exec": "~/.config/waybar/scripts/keylock-monitor.py",
-    "return-type": "json",
-    "format": "{}",
-    "tooltip": false,
-    "interval": 1
   }
 }
