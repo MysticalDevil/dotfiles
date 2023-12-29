@@ -1,4 +1,4 @@
-layer=top
+layer=overlay
 markup=1
 anchor=bottom-right
 background-color=#1E1E28
@@ -22,3 +22,6 @@ format=<span font="MesloLGS Nerd Font weight=325 Italic" size="12288">%s</span>\
 
 [mode=do-not-disturb]
 invisible=1
+
+[mode=locked]
+layer=top

@@ -223,6 +223,6 @@
     "return-type": "json",
     "format": "{}",
     "tooltip": true,
-    "interval": 3600
+    "interval": 21600
   }
 }
