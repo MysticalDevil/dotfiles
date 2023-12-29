@@ -134,14 +134,19 @@
     },
     "custom/media": {
         "format": "{icon} {}",
+        "escape": true,
         "return-type": "json",
-        "max-length": 20,
+        "max-length": 40,
         "format-icons": {
             "spotify": " ",
             "default": "󰎆 "
         },
-        "escape": true,
-        "on-click": "playerctl play-pause"
+        "on-click": "playerctl play-pause",
+        "on-click-right": "playerctl stop",
+        "smooth-scrolling-threshold": 10,
+        "on-scroll-up": "playerctl next",
+        "on-scroll-down": "playerctl previous",
+        "exec": "~/.config/waybar/scripts/mediaplayer.py 2> /dev/null"
     },
     "custom/launcher": {
         "format": "",
