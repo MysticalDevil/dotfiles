@@ -1,6 +1,6 @@
-layer=bottom
+layer=top
 markup=1
-anchor=top-right
+anchor=bottom-right
 background-color=#1E1E28
 text-color=#DADAE8
 width=300
