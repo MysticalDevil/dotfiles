@@ -6,17 +6,13 @@
 
 zstyle ':fzf-tab:complete:*:*' fzf-flags --height=100% --preview-window=right:wrap
 
-# show file content
-zstyle ':fzf-tab:complete:*:*' fzf-preview 'less ${(Q)realpath}'
-export LESSOPEN='|~/.local/bin/lessfilter %s'
-
 # Gentoo complete cache
 zstyle ':completion::complete:*' use-cache 1
 
 
 # preview directory's content with exa when completing cd
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
-zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'eza -1 --color=always $realpath'
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza --git -1 --color=always $realpath'
+zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'eza --git -1 --color=always $realpath'
 # disable sort when completing `git checkout`
 zstyle ':completion:*:git-checkout:*' sort false
 # set descriptions format to enable group support
@@ -65,6 +61,10 @@ zstyle ':fzf-tab:*' switch-group ',' '.'
 # commands
 zstyle ':fzf-tab:complete:-command-:*' fzf-preview \
     '(out=$(tldr --color always "$word") 2>/dev/null && echo $out) || (out=$(MANWIDTH=$FZF_PREVIEW_COLUMNS man "$word") 2>/dev/null && echo $out) || (out=$(which "$word") && echo $out) || echo "${(P)word}"'
+
+# show file content
+zstyle ':fzf-tab:complete:*:*' fzf-preview 'less ${(Q)realpath}'
+export LESSOPEN='|~/.local/bin/lessfilter.py %s'
 
 # enable tmux popup
 zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
