@@ -54,7 +54,8 @@
         "tooltip": false
     },
     "memory": {
-        "format": "{}% "
+        "format": "{}% 󰄫",
+        "format-alt": "{used:0.1f}G "
     },
     "temperature": {
         // "thermal-zone": 2,
