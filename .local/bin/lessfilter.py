@@ -19,6 +19,7 @@ def missing_cmd(cmd):
         print(
             f"The '{cmd}' command is missing, please install the corresponding package."
         )
+        exit(1)
 
 
 def show_directory(path):
@@ -29,8 +30,8 @@ def show_directory(path):
 def show_image_file(path):
     missing_cmd("chafa")
     missing_cmd("exiftool")
-    data = subprocess.check_output(["in2csv", path])
-    highlight_file(path, data)
+    subprocess.run(["chafa", path])
+    subprocess.run(["exiftool", path])
 
 
 def highlight_file(path, data):
@@ -100,7 +101,9 @@ def main(path):
     elif category == "text":
         show_text_file(path)
     elif category == "application":
-        if kind in ["vnd.gentoo.ebuild", "pdf", "json"]:
+        if kind == "vnd.gentoo.ebuild":
+            show_text_file(path)
+        elif kind in ["pdf", "json"]:
             globals()[f"show_{kind}_file"](path)
         elif kind in [
             "vnd.ms-word",

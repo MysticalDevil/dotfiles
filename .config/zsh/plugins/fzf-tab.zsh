@@ -64,7 +64,7 @@ zstyle ':fzf-tab:complete:-command-:*' fzf-preview \
 
 # show file content
 zstyle ':fzf-tab:complete:*:*' fzf-preview 'less ${(Q)realpath}'
-export LESSOPEN='|~/.local/bin/lessfilter.py %s'
+export LESSOPEN='|~/.local/bin/lessfilter %s'
 
 # enable tmux popup
 zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
