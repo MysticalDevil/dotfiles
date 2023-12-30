@@ -261,10 +261,6 @@ label:focus {
   background-color: #eb4d4b;
 }
 
-#idle_inhibitor {
-  background-color: #2d3436;
-}
-
 #idle_inhibitor.activated {
   background-color: #ecf0f1;
   color: #2d3436;
@@ -279,7 +275,7 @@ label:focus {
 }
 
 #keyboard-state {
-  color: #8844cd;
+  color: #04bc38;
   padding: 0 10px;
   min-width: 16px;
 }
@@ -289,5 +285,5 @@ label:focus {
 }
 
 #keyboard-state > label.locked {
-  background: rgba(0, 0, 0, 0.2);
+  color: #dc2368;
 }

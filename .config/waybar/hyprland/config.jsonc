@@ -12,6 +12,7 @@
     "cpu",
     "memory",
     "battery",
+    "idle_inhibitor",
     "mpd",
     "hyprland/workspaces"
   ],
@@ -212,6 +213,13 @@
     "on-scroll-up": "mpc prev",
     "on-scroll-down": "mpc next",
     "smooth-scrolling-threshold": 1
+  },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+        "activated": " ",
+        "deactivated": " "
+    }
   },
   "custom/launcher": {
     "format": " {}",
