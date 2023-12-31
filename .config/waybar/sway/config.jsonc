@@ -1,81 +1,156 @@
 {
-  "layer": "top",
-  "position": "top",
-  "modules-left": [
-    "sway/mode"
-  ],
-  "modules-center": [],
-  "modules-right": [
-    "sway/workspaces",
-    "tray",
-    "idle_inhibitor",
-    "backlight",
-    "pulseaudio",
-    "battery",
-    "sway/language",
-    "clock"
-  ],
-  "sway/window": {
-    "max-length": 50
-  },
-  "tray": {
-    "icon-size": 20,
-    "spacing": 3
-  },
-  "idle_inhibitor": {
-    "format": "{icon}",
-    "format-icons": {
-      "activated": "",
-      "deactivated": ""
-    }
-  },
-  "pulseaudio": {
-    "format": "{volume}% {icon}",
-    "format-bluetooth": "{volume}% {icon}",
-    "format-muted": "",
-    "format-icons": {
-      "headphone": "",
-      "hands-free": "",
-      "headset": "",
-      "phone": "",
-      "portable": "",
-      "car": "",
-      "default": [
-        "",
-        ""
-      ]
-    },
-    "scroll-step": 2,
-    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-    "on-click-right": "pavucontrol"
-  },
-  "backlight": {
-    "device": "intel_backlight",
-    "format": "{percent}% {icon}",
-    "format-icons": [
-      "",
-      ""
+    "margin": "5 20 5 20",
+    "modules-left": [
+        "sway/workspaces",
+        "sway/language",
+        "keyboard-state",
+        "custom/update",
+        "sway/mode"
     ],
-    "on-scroll-up": "light -A 1",
-    "on-scroll-down": "light -U 1"
-  },
-  "battery": {
-    "format": "{capacity}% {icon}",
-    "format-icons": [
-      "",
-      "",
-      "",
-      "",
-      ""
-    ]
-  },
-  "clock": {
-    "format": "{:%H:%M %Z}",
-    "tooltip": true,
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "timezones": [
-      "Europe/Paris",
-      "UTC"
-    ]
-  }
+    "modules-center": [
+        "clock",
+        "custom/weather"
+    ],
+    "modules-right": [
+        "pulseaudio",
+        "custom/mem",
+        "backlight",
+        "battery",
+        "tray"
+    ],
+    "sway/workspaces": {
+        "disable-scroll": true,
+        "persistent-workspaces": {
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": []
+        }
+    },
+    "sway/language": {
+        "format": "{} 󰌌",
+        "min-length": 5,
+        "tooltip": false
+    },
+    "keyboard-state": {
+        "capslock": true,
+        "format": "{name} {icon} ",
+        "format-icons": {
+            "locked": " ",
+            "unlocked": ""
+        }
+    },
+    "custom/update": {
+        "format": "{} ",
+        "interval": 3600,
+        "exec": "~/.config/waybar/scripts/gentoo_checkupdate.sh",
+        "exec-if": "exit 0",
+        "signal": 8,
+        "tooltip": false
+    },
+    // "custom/mail": {
+    //     "format": "{} 󰊫",
+    //     "exec": "$HOME/.config/waybar/scripts/check_gmail.py",
+    //     "interval": 120,
+    //     "on-click": "google-chrome-stable https://mail.google.com/mail/u/0/#inbox ; pkill -SIGRTMIN+9 waybar",
+    //     "signal": 9,
+    //     "tooltip": false
+    // },
+    "sway/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+    "clock": {
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format": "{:%a, %d %b, %I:%M %p}"
+    },
+    "custom/weather": {
+        "format": "{}",
+        "tooltip": true,
+        "interval": 1800,
+        "exec": "$HOME/.config/waybar/scripts/wttr.py",
+        "return-type": "json"
+    },
+    "pulseaudio": {
+        "reverse-scrolling": 1,
+        "format": "{volume}% {icon} {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": "󰋐 {icon} {format_source}",
+        "format-muted": "󰖁 {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "󰏴",
+            "headset": "󰋋",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": [
+                "󰕿",
+                "󰖀",
+                "󰕾"
+            ]
+        },
+        "on-click": "pavucontrol",
+        "min-length": 13
+    },
+    "custom/mem": {
+        "format": "{} 󰍛",
+        "interval": 3,
+        "exec": "free -h | awk '/Mem:/{printf $3}'",
+        "tooltip": false
+    },
+    "temperature": {
+        "critical-threshold": 80,
+        "format": "{temperatureC}°C {icon}",
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ],
+        "tooltip": false
+    },
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{percent}% {icon}",
+        "format-icons": [
+            "󰃚",
+            "󰃛",
+            "󰃜",
+            "󰃝",
+            "󰃞",
+            "󰃟",
+            "󰃠"
+        ],
+        "min-length": 7
+    },
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% 󰂄",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{time} {icon}",
+        "format-icons": [
+            "󰁺",
+            "󰁻",
+            "󰁼",
+            "󰁼",
+            "󰁾",
+            "󰁿",
+            "󰂀",
+            "󰂁",
+            "󰂂",
+            "󰁹"
+        ],
+        "on-update": "~/.config/waybar/scripts/check_battery.sh"
+    },
+    "tray": {
+        "icon-size": 16,
+        "spacing": 0
+    }
 }

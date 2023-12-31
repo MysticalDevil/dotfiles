@@ -1,10 +1,7 @@
 {
   "layer": "top",
   "height": 20,
-  "margin-top": 3,
-  "margin-left": 10,
-  "margin-bottom": 0,
-  "margin-right": 10,
+  "margin": "5 10 0 10",
   "spacing": 5,
   "fixed-center": true,
   "modules-left": [
@@ -227,7 +224,8 @@
     "on-click": "~/.config/rofi/launchers/type-1/launcher.sh"
   },
   "custom/weather": {
-    "exec": "~/.config/waybar/scripts/get-weather.sh Harbin+China",
+    // "exec": "~/.config/waybar/scripts/get-weather.sh Harbin+China",
+    "exec": "$HOME/.config/waybar/scripts/wttr.py",
     "return-type": "json",
     "format": "{}",
     "tooltip": true,
