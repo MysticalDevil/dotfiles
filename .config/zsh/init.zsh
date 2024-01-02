@@ -35,3 +35,6 @@ for dir in ${ZDOTDIR:-$HOME}/.config/zsh/*/; do
         done
     fi
 done
+
+# bun completions
+[ -s "/home/delta/.bun/_bun" ] && source "/home/delta/.bun/_bun"
