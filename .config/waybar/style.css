@@ -41,12 +41,12 @@ window#waybar.empty #window {
 }
 
 /* If workspaces is the leftmost module, omit left margin */
-.modules-left > widget:first-child > #workspaces {
+.modules-left>widget:first-child>#workspaces {
   margin-left: 0;
 }
 
 /* If workspaces is the rightmost module, omit right margin */
-.modules-right > widget:last-child > #workspaces {
+.modules-right>widget:last-child>#workspaces {
   margin-right: 0;
 }
 
@@ -113,6 +113,7 @@ label:focus {
   background-color: #1e1e1e;
 }
 
+
 #backlight {
   color: #56b6c2;
 }
@@ -138,6 +139,7 @@ label:focus {
   border-radius: 5px;
   background-color: red;
 }
+
 
 #battery {
   color: #c0caf5;
@@ -309,7 +311,7 @@ label:focus {
 }
 
 #privacy {
-  color: #fce80c;
+  color: #fce80c
 }
 
 /*
@@ -337,11 +339,11 @@ label:focus {
 
 /* #tray menu {} */
 
-#tray > .passive {
+#tray>.passive {
   -gtk-icon-effect: dim;
 }
 
-#tray > .needs-attention {
+#tray>.needs-attention {
   -gtk-icon-effect: highlight;
   background-color: #eb4d4b;
 }
@@ -460,7 +462,7 @@ label:focus {
 
 #custom-launcher {
   background-color: #1e1e1e;
-  color: #beb8db;
+  color: #60a5fa;
   border-radius: 20px;
   padding: 0 15px;
 }

@@ -10,12 +10,11 @@
     "memory",
     "battery",
     "idle_inhibitor",
-    "mpd",
-    "hyprland/submap",
-    "hyprland/workspaces"
+    "sway/mode",
+    "sway/workspaces"
   ],
   "modules-center": [
-    "hyprland/window"
+    "sway/window"
   ],
   "modules-right": [
     "network",
@@ -490,7 +489,7 @@
     "on-click": "swaymsg input type:keyboard xkb_switch_layout next"
   },
   "custom/launcher": {
-    "format": " {}",
+    "format": " {}",
     "exec": "whoami",
     "on-click": "wofi --insensitive --show drun"
   },
