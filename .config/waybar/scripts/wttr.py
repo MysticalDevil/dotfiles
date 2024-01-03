@@ -121,4 +121,8 @@ for i, day in enumerate(weather["weather"]):
         ] += f"{format_time(hour['time'])} {WEATHER_CODES[hour['weatherCode']]} {format_temp(hour['FeelsLikeC'])} {hour['weatherDesc'][0]['value']}, {format_chances(hour)}\n"
 
 
-print(json.dumps(data))
+json_data = json.dumps(data)
+print(json_data)
+
+with open("weather.json", "w") as f:
+    f.write(json_data)
