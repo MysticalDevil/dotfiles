@@ -7,6 +7,13 @@
   padding: 0;
 }
 
+tooltip {
+  background-color: rgba(43, 48, 59, 0.5);
+  padding: 5px;
+  border-bottom: 3px solid rgba(100, 114, 125, 0.5);
+  border-radius: 8px;
+}
+
 window#waybar {
   /* background-color: rgba(26, 27, 38, 0.5); */
   background-color: transparent;
@@ -62,6 +69,7 @@ label:focus {
 }
 
 #backlight,
+#backlight-slider,
 #battery,
 #bluetooth,
 #cava,
@@ -80,6 +88,7 @@ label:focus {
 #mpris,
 #network,
 #pulseaudio,
+#pulseaudio-slider,
 #privacy,
 #sndio,
 #submap,
@@ -91,22 +100,15 @@ label:focus {
 #wireplumber,
 #workspaces,
 #user,
-#custom-media,
-#custom-hyprPicker,
-#custom-spotify,
+#group-power,
+#group-hardware,
+#group-pulseaudio,
+#group-backlight,
+#group-control,
+#group-media,
+#group-info,
 #custom-launcher,
-#custom-keylock,
-#custom-weather,
-#custom-weather.severe,
-#custom-weather.sunnyDay,
-#custom-weather.clearNight,
-#custom-weather.cloudyFoggyDay,
-#custom-weather.cloudyFoggyNight,
-#custom-weather.rainyDay,
-#custom-weather.rainyNight,
-#custom-weather.showyIcyDay,
-#custom-weather.snowyIcyNight,
-#custom-weather.default {
+#custom-weather {
   padding: 0 15px;
   color: #e5e5e5;
   border-radius: 20px;
@@ -114,7 +116,12 @@ label:focus {
 }
 
 #backlight {
+  padding: 0 5px;
   color: #56b6c2;
+}
+
+#backlight-slider {
+  padding: 0 5px;
 }
 
 #backlight-slider slider {
@@ -127,8 +134,8 @@ label:focus {
 }
 
 #backlight-slider trough {
-  min-height: 80px;
-  min-width: 10px;
+  min-height: 10px;
+  min-width: 100px;
   border-radius: 5px;
   background-color: black;
 }
@@ -136,10 +143,16 @@ label:focus {
 #backlight-slider highlight {
   min-width: 10px;
   border-radius: 5px;
-  background-color: red;
+  background-color: white;
+}
+
+#group-backlight {
+  padding: 0 5px;
 }
 
 #battery {
+  padding: 0 5px;
+  border-radius: 16px;
   color: #c0caf5;
   /* background-color: #90b1b1; */
 }
@@ -188,12 +201,16 @@ label:focus {
 }
 
 #cpu {
+  padding: 0 5px;
+  border-radius: 16px;
   color: #fb958b;
   background-color: #1e1e1e;
 }
 
 #disk {
-  background-color: #964b00;
+  padding: 0 5px;
+  border-radius: 16px;
+  color: #6eb9ff;
 }
 
 /*
@@ -202,6 +219,8 @@ label:focus {
 */
 
 #idle_inhibitor {
+  padding-left: 5px;
+  padding-right: 3px;
   background-color: #1e1e1e;
   color: #2d3436;
 }
@@ -220,7 +239,7 @@ label:focus {
 
 #keyboard-state {
   color: #04bc38;
-  padding: 0 10px;
+  padding: 0 5px;
   min-width: 16px;
 }
 
@@ -243,25 +262,34 @@ label:focus {
 /* #language.<short> {} */
 
 #memory {
+  padding: 0 5px;
+  border-radius: 16px;
   color: #ebcb8b;
   background-color: #1e1e1e;
 }
 
+#mpd {
+  padding: 0 5px;
+}
+
 /*
-#mpd {}
 #mpd.disconnected {}
 #mpd.stoped {}
 #mpd.playing {}
 #mpd.paused {}
 */
 
+#mpris {
+  padding: 0 5px;
+}
+
 /*
-#mpris {}
 #mpris.${status} {}
 #mpris.${player} {}
 */
 
 #network {
+  padding: 0 5px;
   color: #c678dd;
 }
 
@@ -277,6 +305,7 @@ label:focus {
 */
 
 #pulseaudio {
+  padding: 0 5px;
   color: #747fbc;
 }
 
@@ -285,6 +314,10 @@ label:focus {
 #pulseaudio.muted {}
 #pulseaudio.source-muted {}
 */
+
+#pulseaudio-slider {
+  padding: 0 5px;
+}
 
 #pulseaudio-slider slider {
   min-height: 0px;
@@ -296,8 +329,8 @@ label:focus {
 }
 
 #pulseaudio-slider trough {
-  min-height: 80px;
-  min-width: 10px;
+  min-height: 10px;
+  min-width: 100px;
   border-radius: 5px;
   background-color: black;
 }
@@ -305,7 +338,11 @@ label:focus {
 #pulseaudio-slider highlight {
   min-width: 10px;
   border-radius: 5px;
-  background-color: green;
+  background-color: white;
+}
+
+#group-pulseaudio {
+  padding: 0 5px;
 }
 
 #privacy {
@@ -328,10 +365,14 @@ label:focus {
 }
 
 #temperature {
-  background-color: #f0932b;
+  padding: 0 5px;
+  border-radius: 16px;
+  transition: none;
+  color: #5be394;
 }
 
 #temperature.critical {
+  color: #fff;
   background-color: #eb4d4b;
 }
 
@@ -467,47 +508,27 @@ label:focus {
   padding: 0 15px;
 }
 
-#custom-weather.severe {
-  color: #eb937d;
+#custom-power {
+  padding-left: 5px;
+  padding-right: 8px;
+  color: #fc5674;
+  font-weight: bold;
 }
 
-#custom-weather.sunnyDay {
-  color: #c2ca76;
+#custom-quit {
+  padding-left: 5px;
+  padding-right: 8px;
+  color: #fcba03;
 }
 
-#custom-weather.clearNight {
-  color: #cad3f5;
+#custom-lock {
+  padding-left: 5px;
+  padding-right: 8px;
+  color: #56cbfc;
 }
 
-#custom-weather.cloudyFoggyDay,
-#custom-weather.cloudyFoggyNight {
-  color: #c2ddda;
-}
-
-#custom-weather.rainyDay,
-#custom-weather.rainyNight {
-  color: #5aaca5;
-}
-
-#custom-weather.showyIcyDay,
-#custom-weather.snowyIcyNight {
-  color: #d6e7e5;
-}
-
-#custom-weather.default {
-  color: #dbd9d8;
-}
-
-#custom-media {
-  background-color: #66cc99;
-  color: #2a5c45;
-  min-width: 100px;
-}
-
-#custom-media.custom-spotify {
-  background-color: #66cc99;
-}
-
-#custom-media.custom-vlc {
-  background-color: #ffa000;
+#custom-reboot {
+  padding-left: 5px;
+  padding-right: 8px;
+  color: #ff8138;
 }
