@@ -358,7 +358,7 @@
       "HDMI-A-1": 3
     }
   },
-  "hyprland/windows": {
+  "hyprland/window": {
     "format": "{title} [{class}]",
     "separate-outputs": true,
     "rewrite": {
@@ -377,8 +377,7 @@
       "^(.*) \\[(.*Spotify.*)\\]$": "  $1",
       "^(.*) \\[jetbrains-studio\\]": "󰀲 $1",
       "^(.*) VLC media player \\[vlc\\]$": "󰕼  $1",
-      "VLC media player \\[vlc\\]$": "󰕼  $1",
-      "^(.*) \\[.*\\]": "$1"
+      "VLC media player \\[vlc\\]$": "󰕼  $1"
     },
     "max-length": 50
   },
