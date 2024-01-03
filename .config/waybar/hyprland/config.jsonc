@@ -11,7 +11,6 @@
     "battery",
     "idle_inhibitor",
     "mpd",
-    "hyprland/submap",
     "hyprland/workspaces"
   ],
   "modules-center": [
@@ -21,7 +20,6 @@
     "network",
     "pulseaudio",
     "backlight",
-    "custom/weather",
     "keyboard-state",
     "tray",
     "clock"
@@ -83,7 +81,6 @@
     "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}"
   },
   "cava": {
-    // "cava_config": "$XDG_CONFIG_HOME/cava/cava.conf",
     "framerate": 30,
     "autosens": 1,
     "sensitivity": 100,
@@ -209,7 +206,7 @@
     "tooltip-format": "MPD (connected)",
     "tooltip-format-disconnected": "MPD (disconnected)",
     "on-click": "mpc toggle",
-    "on-click-right": "",
+    "on-click-right": "~/.config/rofi/applets/bin/mpd.sh",
     "on-update": "",
     "on-scroll-up": "mpc prev",
     "on-scroll-down": "mpc next",
@@ -354,7 +351,6 @@
     "width": 30,
     "icon": true
   },
-  // =========================================================
   "dwl/tags": {
     "num-tags": 5,
     "tag-labels": [
@@ -367,6 +363,7 @@
     "disable-click": false
   },
   "hyprland/workspaces": {
+    "active-only": true,
     "format": "{icon}",
     "on-click": "activate",
     "format-icons": {
@@ -377,11 +374,11 @@
       "5": "",
       "urgent": "",
       "focused": "",
-      "default": "",
-      "persistent-workspaces": {
-        "*": 5,
-        "HDMI-A-1": 3
-      }
+      "default": ""
+    },
+    "persistent-workspaces": {
+      "*": 5,
+      "HDMI-A-1": 3
     }
   },
   "hyprland/windows": {
@@ -437,7 +434,7 @@
     "max-length": 50,
     "on-click": "",
     "on-scroll": "",
-    "smooth-scrolling-threshold": 0.0,
+    "smooth-scrolling-threshold": 0,
     "tooltip": true
   },
   "sway/mode": {
