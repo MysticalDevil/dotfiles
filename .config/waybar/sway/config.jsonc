@@ -246,11 +246,11 @@
   "custom/reboot": {
     "format": "󰜉",
     "tooltip": false,
-    "on-click": "reboot"
+    "on-click": "~/.config/waybar/scripts/confirm-dialog.sh reboot"
   },
   "custom/power": {
     "format": "",
     "tooltip": false,
-    "on-click": "shutdown now"
+    "on-click": "~/.config/waybar/scripts/confirm-dialog.sh shutdown"
   }
 }
