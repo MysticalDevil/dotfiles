@@ -1,3 +1,13 @@
+# Broot configure
+source "$HOME/.config/broot/launcher/bash/br"
+
+# emsdk -- CXX wasm sdk
+export EMSDK_QUIET=1
+source "$HOME/.local/share/emsdk/emsdk_env.sh"
+
+# Eliminate duplicate entries in history
+setopt HIST_IGNORE_DUPS
+
 # --------------------------- Eval ----------------------------------
 # Use zoxide to replace cd command
 eval "$(zoxide init zsh --cmd cd)"
@@ -15,5 +25,5 @@ eval "$(fnm env --use-on-cd)"
 eval "$(register-python-argcomplete pipx)"
 # atuin -- Magic shell history
 eval "$(atuin init zsh --disable-up-arrow)"
-# rbenv -- Manage your app's Ruby environment  
+# rbenv -- Manage your app's Ruby environment
 eval "$(~/.rbenv/bin/rbenv init - zsh)"

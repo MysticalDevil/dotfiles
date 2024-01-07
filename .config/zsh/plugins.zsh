@@ -1,3 +1,4 @@
+#!/usr/bin/env zsh
 # ------------------------- Modules setting -------------------------
 #
 # Fzf - A command-line fuzzy finder

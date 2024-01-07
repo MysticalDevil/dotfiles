@@ -1,40 +1,20 @@
-source "$HOME/.config/zsh/autoloads.zsh"
-source "$HOME/.config/zsh/plugins/fzf-tab.zsh"
+ZSH_HOME=$HOME/.config/zsh
 
-for dir in ${ZDOTDIR:-$HOME}/.config/zsh/*/; do
-    if [[ -f ${dir}activate ]]; then
-        # Split the files into two arrays
-        symbol_files=()
-        alpha_files=()
-        for file in ${dir}*.zsh; do
-            base=$(basename "$file")
-            if [ "$base" != "activate" ]; then
-                # If the filename starts with a symbol, add it to the symbol_files array
-                # else add it to the alpha_files array
-                if [[ "$base" =~ ^[^a-zA-Z].* ]]; then
-                    symbol_files+=("$file")
-                else
-                    alpha_files+=("$file")
-                fi
-            fi
-        done
+source "$ZSH_HOME/autoloads.zsh"
+source "$ZSH_HOME/_zim.zsh"
+source "$ZSH_HOME/functions/others.zsh"
 
-        # Sort the arrays
-        IFS=$'\n'
-        sorted_symbol_files=($(sort <<<"${symbol_files[*]}"))
-        sorted_alpha_files=($(sort <<<"${alpha_files[*]}"))
-        unset IFS
 
-        # Merge the arrays
-        files=("${sorted_symbol_files[@]}" "${sorted_alpha_files[@]}")
+source "$ZSH_HOME/aliaes.zsh"
+source "$ZSH_HOME/plugins.zsh"
 
-        # Now source the files
-        for file in "${files[@]}"; do
-            # echo "Loading $file"
-            source "$file"
-        done
-    fi
+
+source "$ZSH_HOME/envs.zsh"
+source "$ZSH_HOME/third-part.zsh"
+
+for file in "$ZSH_HOME/completions"; do
+    source "$file"
 done
 
-# bun completions
-[ -s "/home/delta/.bun/_bun" ] && source "/home/delta/.bun/_bun"
+zle -N zle-line-init # Enable Transient Prompt
+# set_wayland_env # Setup wayland necessary envs
