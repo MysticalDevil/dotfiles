@@ -45,6 +45,7 @@ window#waybar.empty #window {
   margin: 0;
   border: 0;
   background-color: transparent;
+  font-size: 0;
 }
 
 /* If workspaces is the leftmost module, omit left margin */
