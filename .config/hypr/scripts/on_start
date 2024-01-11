@@ -30,6 +30,8 @@ fi
 
 WAYBAR_DIR="$HOME/.config/waybar/hyprland"
 
+pkill swww
+sleep 2
 swww init
 
 waybar -c "$WAYBAR_DIR/config.jsonc" -s "$WAYBAR_DIR/style.css" &

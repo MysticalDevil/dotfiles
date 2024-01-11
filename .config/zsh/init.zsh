@@ -1,9 +1,9 @@
+#!/usr/bin/env zsh
+
 ZSH_HOME=$HOME/.config/zsh
 
 source "$ZSH_HOME/autoloads.zsh"
 source "$ZSH_HOME/_zim.zsh"
-source "$ZSH_HOME/functions/others.zsh"
-
 
 source "$ZSH_HOME/aliaes.zsh"
 source "$ZSH_HOME/plugins.zsh"
@@ -12,7 +12,10 @@ source "$ZSH_HOME/plugins.zsh"
 source "$ZSH_HOME/envs.zsh"
 source "$ZSH_HOME/third-part.zsh"
 
-for file in "$ZSH_HOME/completions"; do
+for file in "$ZSH_HOME/functions/"*.zsh; do
+    source "$file"
+done
+for file in "$ZSH_HOME/completions/"*.zsh; do
     source "$file"
 done
 
