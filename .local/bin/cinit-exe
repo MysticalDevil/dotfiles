@@ -1,72 +1,77 @@
 #!/usr/bin/env bash
 
-# Create src directory
-mkdir -p src
+# Set project name
+PROJECT_NAME=$1
 
-# Get project name
-project_name=$1
-
-if [[ -z $project_name ]]; then
-    project_name=$(basename "$PWD")
+if [[ -z $PROJECT_NAME ]]; then
+  PROJECT_NAME=$(basename "$PWD")
 fi
 
-# Create Makefile with specified content
-cat <<EOL > Makefile
-CC = clang
+# Create directories
+mkdir -p build include src
+
+# Create source files
+echo "int add(int a, int b);" > include/lib.h
+cat > src/lib.c << EOF
+#include "lib.h"
+
+int add(int a, int b) {
+  return a + b;
+}
+EOF
+
+cat > src/main.c << EOF
+#include <stdio.h>
+
+#include "lib.h"
+
+int main(void) {
+  printf("1 + 2 = %d\n", add(1, 2));
+}
+EOF
+
+# Create Makefile
+cat > Makefile <<EOF
+CC = gcc
 CFLAGS = -Wall -Wextra -std=c17
 CONFIG ?= release
 
-BUILD_DIR = build
-SRC_DIR = src
+SRCDIR = src
+INCDIR = include
+BUILDDIR = build
 
-TARGET = \$(BUILD_DIR)/$project_name
-SOURCES = \$(wildcard \$(SRC_DIR)/*.c)
-OBJECTS = \$(SOURCES:\$(SRC_DIR)/%.c=\$(BUILD_DIR)/%.o)
+SOURCES := \$(wildcard \$(SRCDIR)/*.c)
+OBJECTS := \$(SOURCES:\$(SRCDIR)/%.c=\$(BUILDDIR)/%.o)
+INCLUDES := -I\$(INCDIR)
 
-.PHONY: all clean
+EXECUTABLE = \$(BUILDDIR)/${PROJECT_NAME}
 
-all: \$(TARGET)
+.PHONY: all clean build
 
-\$(BUILD_DIR):
-	mkdir -p \$(BUILD_DIR)
+all: \$(EXECUTABLE)
 
-\$(BUILD_DIR)/%.o: \$(SRC_DIR)/%.c | \$(BUILD_DIR)
-	\$(CC) \$(CFLAGS) -c \$< -o \$@
+\$(EXECUTABLE): \$(OBJECTS)
+	\$(CC) \$(CFLAGS) \$(INCLUDES) $^ -o \$@
 
-\$(TARGET): \$(OBJECTS)
-	\$(CC) \$(OBJECTS) -o \$@
+\$(BUILDDIR)/%.o: \$(SRCDIR)/%.c
+	\$(CC) \$(CFLAGS) \$(INCLUDES) -c $< -o \$@
 
-run: \$(TARGET)
-	./\$(TARGET)
+run: \$(EXECUTABLE)
+	./\$(EXECUTABLE)
 
 clean:
-	rm -rf \$(BUILD_DIR)
+	rm -f \$(BUILDDIR)/*.o \$(EXECUTABLE)
 
 debug: CFLAGS += -g
 debug: all
 
 release: CFLAGS += -O2
 release: all
-EOL
 
-# Create main.c with specified content
-cat <<EOL > src/main.c
-#include <stdio.h>
-#include <stdlib.h>
+gen-db:
+	compiledb make
+EOF
 
-int main(void) {
-
-  printf("Hello World!\n");
-
-  return EXIT_SUCCESS;
-}
-EOL
-
-# Create .gitignore file
-cat <<EOL > .gitignore
-/build/
-*.o
-*.d
-EOL
-
-echo "Project structure created. Use 'make run' to run this project."
+cat > .gitignore <<EOF
+build/
+EOF
