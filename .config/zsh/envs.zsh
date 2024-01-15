@@ -68,6 +68,10 @@ export PATH="$LOCALSHARE/coursier/bin:$PATH"
 # luarocks -- The lua package manager
 export PATH="$HOME/.luarocks/bin:$PATH"
 
+# wasmer -- The leading Wasm Runtime supporting WASIX, WASI and Emscripten
+export WASMER_DIR="$HOME/.wasmer"
+[ -s "$WASMER_DIR/wasmer.sh" ] && source "$WASMER_DIR/wasmer.sh"
+
 # Flutter
 export FLUTTER_HOME="/opt/flutter"
 export PATH="$FLUTTER_HOME/bin:$PATH"
