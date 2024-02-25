@@ -9,8 +9,19 @@
     "command": "-extension.vim_escape",
     "when": "editorTextFocus && vim.active && !inDebugRepl"
   },
+  /*
   {
     "key": "capslock",
     "command": "vscode-neovim.escape"
+  }
+  */
+  {
+    "key": "escape",
+    "command": "-calva.clearInlineResults"
+  },
+  {
+    "key": "shift+escape",
+    "command": "calva.clearInlineResults",
+    "when": "editorTextFocus && !editorHasMultipleSelections && !editorReadOnly && !hasOtherSuggestions && !suggestWidgetVisible && editorLangId == 'clojure'"
   }
 ]

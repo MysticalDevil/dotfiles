@@ -266,5 +266,13 @@
   "extensions.experimental.affinity": {
     "asvetliakov.vscode-neovim": 1
   },
-  "cmake.options.statusBarVisibility": "compact"
+  "cmake.options.statusBarVisibility": "compact",
+  "cmake.showOptionsMovedNotification": false,
+  "zig.path": "",
+  "zig.initialSetupDone": true,
+  "zig.zls.path": "/home/theta/.config/Code/User/globalStorage/ziglang.vscode-zig/zls_install/zls",
+  "[java]": {
+    "editor.defaultFormatter": "redhat.java"
+  },
+  "calva.paredit.defaultKeyMap": "strict"
 }

@@ -23,3 +23,6 @@ alias flrd="flutter run --debug"
 alias flrp="flutter run --profile"
 alias flrr="flutter run --release"
 alias flupgrd="flutter upgrade"
+
+# common
+alias nush="/usr/bin/nu"

@@ -1,6 +1,8 @@
 [core]
   pager = delta
 	excludesfile = ~/.gitignore
+	packedGitLimit = 512m
+	packedGitWindowSize = 512m
 
 [user]
 	name = Mystical-C
@@ -31,3 +33,9 @@
 	required = true
 [color]
 	ui = auto
+[http]
+	postBuffer = 524288000
+[pack]
+	deltaCacheSize = 2047m
+	packSizeLimit = 2047m
+	windowMemory = 2047m
