@@ -76,7 +76,6 @@ export WASMER_DIR="$HOME/.wasmer"
 export FLUTTER_HOME="/opt/flutter"
 export PATH="$FLUTTER_HOME/bin:$PATH"
 export PATH="$HOME/.pub-cache/bin:$PATH"
-export FVM_CACHE_PATH="$HOME/.cache/fvm"
 
 # Android SDK
 export ANDROID_HOME=$HOME/Android/Sdk
