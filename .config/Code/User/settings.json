@@ -147,6 +147,9 @@
   "rust-analyzer.inlayHints.typeHints.enable": true,
   "rust-analyzer.inlayHints.typeHints.hideClosureInitialization": false,
   "rust-analyzer.inlayHints.typeHints.hideNamedConstructor": false,
+
+  "java.inlayHints.parameterNames.enabled": "all",
+  "java.inlayHints.parameterNames.exclusions": ["this"],
   // ======================================= Plugin config ========================================
   "auto-close-tag.activationOnLanguage": [
     "javascript",
