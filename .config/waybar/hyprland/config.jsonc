@@ -377,7 +377,8 @@
       "^(.*) \\[(.*Spotify.*)\\]$": "  $1",
       "^(.*) \\[jetbrains-studio\\]": "󰀲 $1",
       "^(.*) VLC media player \\[vlc\\]$": "󰕼  $1",
-      "VLC media player \\[vlc\\]$": "󰕼  $1"
+      "VLC media player \\[vlc\\]$": "󰕼  $1",
+      " \\[\\]": ""
     },
     "max-length": 50
   },
