@@ -1,0 +1,41 @@
+[core]
+  pager = delta
+	excludesfile = ~/.gitignore
+	packedGitLimit = 512m
+	packedGitWindowSize = 512m
+
+[user]
+	name = Mystical-C
+	email = 64483945+MysticalDevil@users.noreply.github.com
+[init]
+	defaultBranch = master
+
+[safe]
+	directory = /opt/flutter
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true    # use n and N to move between diff sections
+    light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+
+[merge]
+    conflictstyle = diff3
+
+[diff]
+  colorMoved = default
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[color]
+	ui = auto
+[http]
+	postBuffer = 524288000
+[pack]
+	deltaCacheSize = 2047m
+	packSizeLimit = 2047m
+	windowMemory = 2047m

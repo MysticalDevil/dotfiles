@@ -1,0 +1,504 @@
+{
+  "layer": "top",
+  "height": 20,
+  "margin": "5 10 0 10",
+  "spacing": 5,
+  "fixed-center": true,
+  "modules-left": [
+    "custom/launcher",
+    "cpu",
+    "memory",
+    "battery",
+    "idle_inhibitor",
+    "sway/mode",
+    "sway/workspaces"
+  ],
+  "modules-center": [
+    "sway/window"
+  ],
+  "modules-right": [
+    "network",
+    "pulseaudio",
+    "backlight",
+    "custom/weather",
+    "keyboard-state",
+    "tray",
+    "clock"
+  ],
+  "backlight": {
+    "device": "eDP-1",
+    "format": "{icon} {percent}%",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "on-click": ""
+  },
+  "backlight/slider": {
+    "min": 0,
+    "max": 100,
+    "orientation": "horizontal",
+    "device": "intel_backlight"
+  },
+  "battery": {
+    "bat": "BAT1",
+    "adapter": "ADP0",
+    "design-capacity": false,
+    "full-at": 90,
+    "interval": 60,
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "max-length": 20,
+    "format": "{icon} {capacity}%",
+    "format-warning": "{icon} {capacity}%",
+    "format-critical": "{icon} {capacity}%",
+    "format-charging": "<span font-family='Font Awesome 6 Free'></span> {capacity}%",
+    "format-plugged": "  {capacity}%",
+    "format-alt": "{icon} {time}",
+    "format-full": "  {capacity}%",
+    "format-icons": [
+      " ",
+      " ",
+      " ",
+      " ",
+      " "
+    ]
+  },
+  "bluetooth": {
+    "format": " {status}",
+    "format-disabled": "󰂲",
+    "format-connected": " {num_connections} connected",
+    "tooltip-format": "{controller_alias}\t{controller_address}",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}"
+  },
+  "cava": {
+    // "cava_config": "$XDG_CONFIG_HOME/cava/cava.conf",
+    "framerate": 30,
+    "autosens": 1,
+    "sensitivity": 100,
+    "bars": 14,
+    "lower_cutoff_freq": 50,
+    "higher_cutoff_freq": 10000,
+    "method": "pulse",
+    "source": "auto",
+    "stereo": true,
+    "reverse": false,
+    "bar_delimiter": 0,
+    "monstercat": false,
+    "waves": false,
+    "noise_reduction": 0.77,
+    "input_delay": 2,
+    "format-icons": [
+      "▁",
+      "▂",
+      "▃",
+      "▄",
+      "▅",
+      "▆",
+      "▇",
+      "█"
+    ],
+    "actions": {
+      "on-click-right": "mode"
+    }
+  },
+  "clock": {
+    "format": "<span color='#bf616a'> </span>{:%I:%M %p}",
+    "format-alt": "<span color='#bf616a'> </span>{:%a %b %d}",
+    "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
+    "locale": "en_US.UTF-8",
+    "calendar": {
+      "mode": "month",
+      "mode-mon-col": 3,
+      "weeks-pos": "right",
+      "on-scroll": 1,
+      "on-click-right": "mode",
+      "format": {
+        "months": "<span color='#ffead3'><b>{}</b></span>",
+        "days": "<span color='#ecc6d9'><b>{}</b></span>",
+        "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+        "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+        "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+      }
+    },
+    "actions": {
+      "on-click-right": "mode",
+      "on-click-forward": "tz_up",
+      "on-click-backward": "tz_down",
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down"
+    }
+  },
+  "cpu": {
+    "interval": 1,
+    "format": "󰄧 {usage}%",
+    "max-length": 100,
+    "on-click": ""
+  },
+  "disk": {
+    "interval": 30,
+    "format": " {percentage_free}% on {path}",
+    "path": "/"
+  },
+  "gamemode": {
+    "format": "{glyph}",
+    "format-alt": "{glyph} {count}",
+    "glyph": "󰊴",
+    "hide-not-running": true,
+    "use-icon": true,
+    "icon-name": "input-gaming-symbolic",
+    "icon-spacing": 4,
+    "icon-size": 20,
+    "tooltip": true,
+    "tooltip-format": "Games running: {count}"
+  },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": " ",
+      "deactivated": " "
+    }
+  },
+  "jack": {
+    "format": "DSP {}%",
+    "format-xrun": "{xruns} xruns",
+    "format-disconnected": "DSP off",
+    "realtime": true
+  },
+  "keyboard-state": {
+    "numlock": true,
+    "capslock": true,
+    "format": {
+      "numlock": "N {icon}",
+      "capslock": "C {icon}"
+    },
+    "format-icons": {
+      "locked": "",
+      "unlocked": ""
+    }
+  },
+  "memory": {
+    "interval": 30,
+    "format": "󰄫 {}%",
+    "format-alt": " {used:0.1f}G",
+    "max-length": 10
+  },
+  "mpd": {
+    "interval": 2,
+    "unknown-tag": "N/A",
+    "format": "{stateIcon} [{elapsedTime:%M:%S}/{totalTime:%M:%S}]",
+    "format-disconnected": "󰎊 Disconnected",
+    "format-paused": "{stateIcon} {artist} - {title}",
+    "format-stopped": "<span color='#ff5694'></span> Stopped",
+    "state-icons": {
+      "paused": "<span color='#fbe569'></span>",
+      "playing": "<span color='#4ada20'></span>"
+    },
+    "title-len": 20,
+    "tooltip-format": "MPD (connected)",
+    "tooltip-format-disconnected": "MPD (disconnected)",
+    "on-click": "mpc toggle",
+    "on-click-right": "",
+    "on-update": "",
+    "on-scroll-up": "mpc prev",
+    "on-scroll-down": "mpc next",
+    "smooth-scrolling-threshold": 1
+  },
+  "mpris": {
+    "format": "DEFAULT: {player_icon} {dynamic}",
+    "format-paused": "DEFAULT: {status_icon} <i>{dynamic}</i>",
+    "player-icons": {
+      "default": "▶",
+      "mpv": "🎵"
+    },
+    "status-icons": {
+      "paused": "⏸ "
+    },
+    "ignored-players": [
+      "firefox"
+    ]
+  },
+  "network": {
+    "format": "{ifname}",
+    "format-wifi": "  {bandwidthTotalBytes}",
+    "format-ethernet": "{ipaddr}/{cidr} 󰈀",
+    "format-disconnected": "󰖪  No Network",
+    "tooltip": false
+  },
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-bluetooth": "  {volume}%",
+    "format-bluetooth-muted": "󰖁 ",
+    "format-muted": "󰖁",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "󰂑",
+      "headset": "󰂑",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": [
+        "",
+        "",
+        ""
+      ]
+    },
+    "on-click": "pavucontrol"
+  },
+  "pulseaudio/slider": {
+    "min": 0,
+    "max": 100,
+    "orientation": "horizontal"
+  },
+  "privacy": {
+    "icon-spacing": 4,
+    "icon-size": 18,
+    "transition-duration": 250,
+    "modules": [
+      {
+        "type": "screenshare",
+        "tooltip": true,
+        "tooltip-icon-size": 24
+      },
+      {
+        "type": "audio-in",
+        "tooltip": true,
+        "tooltip-icon-size": 24
+      },
+      {
+        "type": "audio-out",
+        "tooltip": true,
+        "tooltip-icon-size": 24
+      }
+    ]
+  },
+  "sndio": {
+    "format": "{raw_value} 󰝚",
+    "scroll-step": 3
+  },
+  "temperature": {
+    "thermal-zone": 2,
+    "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+    "critical-threshold": 80,
+    "format-critical": "{temperatureC}°C ",
+    "format": "{temperatureC}°C "
+  },
+  "tray": {
+    "spacing": 10
+  },
+  "taskbar": {
+    "format": "{icon}",
+    "icon-size": 14,
+    "icon-theme": "Paprius-Dark",
+    "tooltip-format": "{title}",
+    "on-click": "activate",
+    "on-click-middle": "close",
+    "ignore-list": [
+      "Alacritty"
+    ],
+    "app_ids-mapping": {
+      "firefoxdeveloperedition": "firefox-developer-edition"
+    },
+    "rewrite": {
+      "Firefox Web Browser": "Firefox",
+      "Foot Server": "Terminal"
+    }
+  },
+  "upower": {
+    "native-path": "battery_sony_controller_battery_d0o27o88o32ofcoee",
+    "icon-size": 20,
+    "hide-if-empty": true,
+    "tooltip": true,
+    "tooltip-spacing": 20
+  },
+  "wireplumber": {
+    "format": "{volume}% {icon}",
+    "format-muted": "",
+    "on-click": "helvum",
+    "format-icons": [
+      "",
+      "",
+      ""
+    ]
+  },
+  "wlr/workspaces": {
+    "format": "{icon}",
+    "on-click": "activate",
+    "format-icons": {
+      "1": "",
+      "2": "",
+      "3": "",
+      "4": "",
+      "5": "",
+      "urgent": "",
+      "active": "",
+      "default": ""
+    },
+    "sort-by-number": true
+  },
+  "user": {
+    "format": "{user} (up {work_d} days ↑)",
+    "interval": 60,
+    "height": 30,
+    "width": 30,
+    "icon": true
+  },
+  // =========================================================
+  "dwl/tags": {
+    "num-tags": 5,
+    "tag-labels": [
+      "一",
+      "二",
+      "三",
+      "四",
+      "五"
+    ],
+    "disable-click": false
+  },
+  "hyprland/workspaces": {
+    "active-only": true,
+    "format": "{icon}",
+    "on-click": "activate",
+    "format-icons": {
+      "1": "",
+      "2": "",
+      "3": "",
+      "4": "",
+      "5": "",
+      "urgent": "",
+      "focused": "",
+      "default": ""
+    },
+    "persistent-workspaces": {
+      "*": 5,
+      "HDMI-A-1": 3
+    }
+  },
+  "hyprland/windows": {
+    "format": "{title} [{class}]",
+    "separate-outputs": true,
+    "rewrite": {
+      "^(.*) \\[(Alacritty|foot|kitty|.*wezterm.*)\\]": "  $1",
+      "^(.*) \\[(.*Nautilus.*)\\]": "  $1",
+      "^(.*) — Mozilla Firefox \\[firefox\\]$": "  $1",
+      "Mozilla Firefox \\[firefox\\]$": " ",
+      "^(.*) - Mozilla Thunderbird \\[thunderbird\\]": "󰺻  $1",
+      "^(.*) - Google Chrome \\[google-chrome\\]$": "  $1",
+      "^(.*) - Visual Studio Code \\[Code\\]$": "󰨞  $1",
+      "^(.*) - Visual Studio Code \\[code.*\\]$": "󰨞  $1",
+      "(.*neovide.*)": "  Neovide",
+      "^(.*) \\[nvim-qt\\]$": "  $1",
+      "^(.*) - Discord \\[discord\\]$": "󰙯  $1",
+      "^(.*) \\[(.*telegram.*)\\]": "  $1",
+      "^(.*) \\[(.*Spotify.*)\\]$": "  $1",
+      "^(.*) \\[jetbrains-studio\\]": "󰀲 $1",
+      "^(.*) VLC media player \\[vlc\\]$": "󰕼  $1",
+      "VLC media player \\[vlc\\]$": "󰕼  $1",
+      "^(.*) \\[.*\\]": "$1"
+    },
+    "max-length": 50
+  },
+  "hyprland/language": {
+    "format": " {}",
+    "format-en": "EN",
+    "format-zh": "中",
+    "keyboard-name": ""
+  },
+  "hyprland/submap": {
+    "format": "󰟁 {}",
+    "max-length": 8,
+    "tooltip": false
+  },
+  "river/mode": {
+    "format": "mode: {}"
+  },
+  "river/tags": {
+    "num-tags": 5,
+    "set-tags": [
+      2147483649,
+      2147483650,
+      2147483652,
+      2147483656,
+      2147483664
+    ]
+  },
+  "river/window": {
+    "format": "{}",
+    "max-length": 50,
+    "on-click": "",
+    "on-scroll": "",
+    "smooth-scrolling-threshold": 0.0,
+    "tooltip": true
+  },
+  "sway/mode": {
+    "format": "󱇯 {}",
+    "max-length": 10
+  },
+  "sway/window": {
+    "format": "{title} [{app_id}]",
+    "separate-outputs": true,
+    "rewrite": {
+      "^(.*) \\[(Alacritty|foot|kitty|.*wezterm.*)\\]": "  $1",
+      "^(.*) \\[(.*Nautilus.*)\\]": "  $1",
+      "^(.*) - Mozilla Firefox \\[firefox\\]$": "  $1",
+      "^(.*) - Mozilla Thunderbird \\[thunderbird\\]": "󰺻  $1",
+      "^(.*) - Google Chrome \\[google-chrome\\]$": "  $1",
+      "^(.*) - Visual Studio Code \\[Code\\]$": "󰨞  $1",
+      "^(.*) - Visual Studio Code \\[code.*\\]$": "󰨞  $1",
+      "(.*neovide.*)": "  Neovide",
+      "^(.*) \\[nvim-qt\\]$": "  $1",
+      "^(.*) - Discord \\[discord\\]$": "󰙯  $1",
+      "^(.*) \\[(.*telegram.*)\\]": "  $1",
+      "^(.*) \\[(.*Spotify.*)\\]$": "  $1",
+      "^(.*) \\[jetbrains-studio\\]": "󰀲 $1",
+      "^(.*) VLC media player \\[vlc\\]$": "󰕼  $1",
+      "VLC media player \\[vlc\\]$": "󰕼  $1",
+      "^(.*) \\[.*\\]": "$1"
+    },
+    "max-length": 50
+  },
+  "sway/workspaces": {
+    "format": "{icon}",
+    "on-click": "activate",
+    "format-icons": {
+      "1": "",
+      "2": "",
+      "3": "",
+      "4": "",
+      "5": "",
+      "urgent": "",
+      "focused": "",
+      "default": "",
+      "high-priority-named": [
+        "1",
+        "2"
+      ]
+    }
+  },
+  "sway/language": {
+    "format": "{short} {variant}",
+    "on-click": "swaymsg input type:keyboard xkb_switch_layout next"
+  },
+  "custom/launcher": {
+    "format": " {}",
+    "exec": "whoami",
+    "on-click": "wofi --insensitive --show drun"
+  },
+  "custom/weather": {
+    "exec": "$HOME/.config/waybar/scripts/wttr.py",
+    "return-type": "json",
+    "format": "{}",
+    "tooltip": true,
+    "interval": 21600
+  }
+}

@@ -1,0 +1,106 @@
+""" Plugins  --------------------------------
+Plug 'tpope/vim-surround'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'tpope/vim-commentary'
+Plug 'vim-scripts/argtextobj.vim'
+Plug 'easymotion/vim-easymotion'
+Plug 'kana/vim-textobj-entire'
+Plug 'vim-scripts/ReplaceWithRegister'
+Plug 'tommcdo/vim-exchange'
+Plug 'machakann/vim-highlightedyank'
+
+" set surround
+" set multiple-cursors
+" set commentary
+" set argtextobj
+" set easymotion
+" set textobj-entire
+" set ReplaceWithRegister
+" set exchange
+" set highlightedyank
+
+""" Plugin settings -----------------------------
+let g:argtextobj_pairs="[:],(:,<:>"
+
+""" Common settings -----------------------------
+set nocompatible
+set backspace=eol,start,indent
+set nowrap
+set ttimeout
+set ttimeoutlen=100
+set ruler
+set mouse=a
+set whichwrap=b,s,<,>,[,]
+
+set ignorecase
+set smartcase
+set hlsearch
+set incsearch
+
+set showmode
+set so=5
+set incsearch
+set nu
+set showmatch
+set matchtime=2
+
+""" Idea specific settings ----------------------
+set ideajoin
+set ideastatusicon=gray
+set idearefactormode=keep
+
+""" Key mappings --------------------------------
+let mapleader = ","
+
+nnoremap <C-h> gT
+nnoremap <C-l> gt
+
+nnoremap <Leader>w  :w<cr>
+nnoremap <Leader>q  :q<cr>
+nnoremap <Leader>wq :wq<cr>
+
+nnoremap s <Nop>
+nnoremap sv :vsplit<cr>
+nnoremap sh :hsplit<cr>
+nnoremap sc <C-w>c
+nnoremap so <C-w>o
+nnoremap s= <C-w>=
+nnoremap s, :vertical resize -10<cr>
+nnoremap s. :vertical resize +10<cr>
+nnoremap sj :horizontal resize -5<cr>
+nnoremap sk :horizontal resize +5<cr>
+
+nnoremap <Leader><Leader>f <Plug>(easymotion-s)<cr>
+nnoremap <Leader><Leader>e <Plug>(easymotion-f)<cr>
+
+
+nnoremap ga :action GotoAction<cr>
+nnoremap gb :action JumpToLastChange<cr>
+nnoremap gc :action GotoClass<cr>
+nnoremap gd :action GotoDeclaration<cr>
+nnoremap gs :action GotoSuperMethod<cr>
+nnoremap gi :action GotoImplementation<cr>
+nnoremap gf :action GotoFile<cr>
+nnoremap gm :action GotoSymbol<cr>
+nnoremap gu :action ShowUseages<cr>
+nnoremap gt :action GotoTest<cr>
+nnoremap gp :action FindInPath<cr>
+nnoremap gr :action RecentFiles<cr>
+nnoremap gh :action Back<cr>
+nnoremap gl :action Forward<cr>
+nnoremap ta :action Annotate<cr>
+nnoremap tb :action ToggleLineBreakpoint<cr>
+nnoremap tm :action ToggleBookmark<cr>
+nnoremap tp :action ActiveProjectToolWindow<cr>
+
+nnoremap <Leader>rn :action RenameElement<cr>
+nnoremap <Leader>im :action ImplementMethoods<cr>
+
+nnoremap <Leader>rp :action ReplaceInPath<cr>
+nnoremap <Leader>f :action ReformatCode<cr>
+
+nnoremap gcc :action CommentByLineComment<cr>
+nnoremap gbc :action CommentByBlockComment<cr>
+vnoremap gc :action CommentByLineComment<cr>
+vnoremap gb :action CommentByBlockComment<cr>
+

@@ -1,0 +1,14 @@
+# Files
+*.gz
+*.tmproj
+*.7z
+
+# Folders
+.vscode/
+build/
+node_modules/
+
+# If folders don't work, you can still do this
+.vscode/*
+build/*
+node_modules/

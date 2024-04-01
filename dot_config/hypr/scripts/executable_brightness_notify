@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+function notify_brightness {
+    brightness="$1"
+    if [[ $brightness -eq 0 ]]; then
+        dunstify -i /usr/share/icons/Papirus-Dark/symbolic/status/display-brightness-off-symbolic.svg \
+            " Brightness: " \
+            -h string:x-canonical-private-synchronous:brightness \
+            -h int:value:"$brightness" -t 1500
+    elif [[ $brightness -le 30 ]]; then
+        dunstify -i /usr/share/icons/Papirus-Dark/symbolic/status/display-brightness-low-symbolic.svg \
+            " Brightness: " \
+            -h string:x-canonical-private-synchronous:brightness \
+            -h int:value:"$brightness" -t 1500
+    elif [[ $brightness -le 70 ]]; then
+        dunstify -i /usr/share/icons/Papirus-Dark/symbolic/status/display-brightness-medium-symbolic.svg \
+            " Brightness: " \
+            -h string:x-canonical-private-synchronous:brightness \
+            -h int:value:"$brightness" -t 1500
+    else
+        dunstify -i /usr/share/icons/Papirus-Dark/symbolic/status/display-brightness-high-symbolic.svg \
+            " Brightness: " \
+            -h string:x-canonical-private-synchronous:brightness \
+            -h int:value:"$brightness" -t 1500
+    fi
+}
+
+
+brightness=$(brightnessctl g )
+full_brightness=255
+brightness_percentage=$(( (brightness * 100) / full_brightness ))
+killall dunst
+
+notify_brightness "$brightness_percentage"

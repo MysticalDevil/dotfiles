@@ -1,0 +1,77 @@
+#!/usr/bin/env bash
+
+# Set project name
+PROJECT_NAME=$1
+
+if [[ -z $PROJECT_NAME ]]; then
+  PROJECT_NAME=$(basename "$PWD")
+fi
+
+# Create directories
+mkdir -p build include src
+
+# Create source files
+echo "int add(int a, int b);" > include/lib.h
+cat > src/lib.c << EOF
+#include "lib.h"
+
+int add(int a, int b) {
+  return a + b;
+}
+EOF
+
+cat > src/main.c << EOF
+#include <stdio.h>
+
+#include "lib.h"
+
+int main(void) {
+  printf("1 + 2 = %d\n", add(1, 2));
+}
+EOF
+
+# Create Makefile
+cat > Makefile <<EOF
+CC = gcc
+CFLAGS = -Wall -Wextra -std=c17
+CONFIG ?= release
+
+SRCDIR = src
+INCDIR = include
+BUILDDIR = build
+
+SOURCES := \$(wildcard \$(SRCDIR)/*.c)
+OBJECTS := \$(SOURCES:\$(SRCDIR)/%.c=\$(BUILDDIR)/%.o)
+INCLUDES := -I\$(INCDIR)
+
+EXECUTABLE = \$(BUILDDIR)/${PROJECT_NAME}
+
+.PHONY: all clean build
+
+all: \$(EXECUTABLE)
+
+\$(EXECUTABLE): \$(OBJECTS)
+	\$(CC) \$(CFLAGS) \$(INCLUDES) $^ -o \$@
+
+\$(BUILDDIR)/%.o: \$(SRCDIR)/%.c
+	\$(CC) \$(CFLAGS) \$(INCLUDES) -c $< -o \$@
+
+run: \$(EXECUTABLE)
+	./\$(EXECUTABLE)
+
+clean:
+	rm -f \$(BUILDDIR)/*.o \$(EXECUTABLE)
+
+debug: CFLAGS += -g
+debug: all
+
+release: CFLAGS += -O2
+release: all
+
+gen-db:
+	compiledb make
+EOF
+
+cat > .gitignore <<EOF
+build/
+EOF

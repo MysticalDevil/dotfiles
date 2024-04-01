@@ -1,0 +1,359 @@
+* {
+  border: none;
+  border-radius: 5px;
+  /* `otf-font-awesome` is required to be installed for icons */
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  min-height: 0;
+}
+
+window#waybar {
+  background-color: transparent;
+  color: #e8e8e8;
+  transition-property: background-color;
+  transition-duration: 0.5s;
+}
+
+window#waybar.hidden {
+  opacity: 0.2;
+}
+
+#workspaces button {
+  background: #1f1f1f;
+  color: #e8e8e8;
+  border-radius: 20px;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+#workspaces button:hover {
+  background: lightblue;
+  color: black;
+  border-bottom: 3px solid #e8e8e8;
+}
+
+#workspaces button.focused {
+  background: #1f1f1f;
+}
+
+#workspaces button.focused:hover {
+  background: lightblue;
+  color: black;
+  border-bottom: 3px solid #e8e8e8;
+}
+
+#workspaces button.urgent {
+  background-color: #eb4d4b;
+}
+
+#mode {
+  background-color: #64727d;
+  border-bottom: 3px solid #e8e8e8;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#custom-launcher,
+#custom-reboot,
+#custom-power,
+#custom-lock,
+#custom-quit,
+#custom-snip,
+#group-power,
+#group-pulseaudio,
+#group-backlight,
+#taskbar,
+#tray,
+#mode,
+#idle_inhibitor,
+#mpd {
+  padding: 0 15px;
+  color: #e8e8e8;
+}
+
+#window,
+#workspaces {
+  margin: 0px 4px;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+  margin-left: 0px;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+  margin-right: 0px;
+}
+
+#clock {
+  background-color: #171717;
+  color: #e8e8e8;
+}
+
+#battery {
+  background-color: #e8e8e8;
+  color: #000000;
+}
+
+#battery.charging,
+#battery.plugged {
+  color: #e8e8e8;
+  background-color: #26a65b;
+}
+
+@keyframes blink {
+  to {
+    background-color: #e8e8e8;
+    color: #000000;
+  }
+}
+
+#battery.critical:not(.charging) {
+  background-color: #f53c3c;
+  color: #e8e8e8;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+label:focus {
+  background-color: #000000;
+}
+
+#cpu {
+  background-color: #171717;
+  color: #e8e8e8;
+}
+
+#memory {
+  background-color: #171717;
+  color: #e8e8e8;
+}
+
+#disk {
+  background-color: #171717;
+  color: #e8e8e8;
+}
+
+#network {
+  background-color: #171717;
+  color: #e8e8e8;
+}
+
+#network.disconnected {
+  background-color: #171717;
+  color: #ff1755;
+}
+
+#group-backlight {
+  background-color: #171717;
+  padding: 0 10px;
+}
+
+#backlight {
+  background-color: #171717;
+  color: #e8e8e8;
+  padding: 0 5px;
+}
+
+#backlight-slider {
+  padding: 0 5px;
+}
+
+#backlight-slider slider {
+  min-height: 0px;
+  min-width: 0px;
+  opacity: 0;
+  background-image: none;
+  border: none;
+  box-shadow: none;
+}
+#backlight-slider trough {
+  min-height: 10px;
+  min-width: 80px;
+  border-radius: 5px;
+  background-color: black;
+}
+#backlight-slider highlight {
+  min-width: 10px;
+  border-radius: 5px;
+  background-color: lightgreen;
+}
+
+#group-pulseaudio {
+  background-color: #171717;
+  padding: 0 10px;
+}
+
+#pulseaudio {
+  background-color: #171717;
+  color: #e8e8e8;
+  padding: 0 5px;
+}
+
+#pulseaudio.muted {
+  background-color: #171717;
+  color: #ee4455;
+}
+
+#pulseaudio-slider {
+  padding: 0 5px;
+}
+
+#pulseaudio-slider slider {
+  min-height: 0px;
+  min-width: 0px;
+  opacity: 0;
+  background-image: none;
+  border: none;
+  box-shadow: none;
+}
+#pulseaudio-slider trough {
+  min-height: 10px;
+  min-width: 80px;
+  border-radius: 5px;
+  background-color: black;
+}
+#pulseaudio-slider highlight {
+  min-width: 10px;
+  border-radius: 5px;
+  background-color: lightgreen;
+}
+
+#group-power {
+  background-color: #171717;
+  border-radius: 0px 20px 20px 0px;
+  margin-right: 5px;
+  padding-left: 5px;
+  padding-right: 8px;
+}
+
+#custom-power {
+  background-color: #171717;
+  border-radius: 20px;
+  font-size: 18px;
+  color: #eb385f;
+}
+
+#custom-quit {
+  background-color: #171717;
+  border-radius: 20px;
+  font-size: 14px;
+  color: #64f244;
+}
+
+#custom-lock {
+  background-color: #171717;
+  border-radius: 20px;
+  font-size: 14px;
+  color: #ff861c;
+}
+
+#custom-reboot {
+  background-color: #171717;
+  border-radius: 20px;
+  font-size: 14px;
+  color: #1cffdd;
+}
+
+#custom-launcher {
+  background-color: #171717;
+  font-size: 20px;
+  border-radius: 20px 0px 0px 20px;
+  margin-left: 5px;
+  padding-left: 15px;
+  padding-right: 18px;
+}
+
+#custom-snip {
+  background-color: #171717;
+  color: skyblue;
+  font-size: 18px;
+  padding-left: 10px;
+  padding-right: 15px;
+}
+
+#taskbar {
+  background-color: #171717;
+  border-radius: 0px 20px 20px 0px;
+  padding-right: 18px;
+}
+
+#taskbar button {
+  margin: 5px 3px;
+}
+
+#taskbar button.active {
+  margin: 5px 3px;
+  border-bottom: 2px solid #2e2e2e;
+  border-radius: 10px;
+}
+
+#temperature {
+  background-color: #171717;
+  color: #e8e8e8;
+}
+
+#temperature.critical {
+  background-color: #ff2b64;
+}
+
+#tray {
+  background-color: #171717;
+  color: #e8e8e8;
+}
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+  background-color: #171717;
+  color: #e8e8e8;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+  background-color: #171717;
+  color: #e8e8e8;
+}
+
+#idle_inhibitor {
+  background-color: #171717;
+  border-radius: 20px 0px 0px 20px;
+  padding-left: 13px;
+  padding-right: 10px;
+}
+
+#idle_inhibitor.activated {
+  background-color: #171717;
+  color: #e8e8e8;
+  border-radius: 20px 0px 0px 20px;
+}
+
+#language {
+  background-color: #171717;
+  color: #e8e8e8;
+  min-width: 16px;
+}
+
+#keyboard-state {
+  background: #97e1ad;
+  color: #000000;
+  padding: 0 10px;
+  min-width: 16px;
+}
+
+#keyboard-state > label {
+  padding: 0px 5px;
+}
+
+#keyboard-state > label.locked {
+  background: rgba(0, 0, 0, 0.2);
+}

@@ -1,0 +1,79 @@
+#!/usr/bin/env bash
+
+# Get current directory name for project name
+PROJECT_NAME=$1
+
+if [[ -z $PROJECT_NAME ]]; then
+  PROJECT_NAME=$(basename "$PWD")
+fi
+
+# Create directories
+mkdir -p build include src
+
+# Create CMakeLists.txt
+cat > CMakeLists.txt <<EOF 
+cmake_minimum_required(VERSION 3.25)
+
+project($PROJECT_NAME LANGUAGES CXX)
+
+set(CMAKE_CXX_STANDARD 17) 
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+set(HEADERS include/Pointer.h)
+set(SOURCES src/main.cxx src/Pointer.cxx)
+
+add_executable(\${PROJECT_NAME} \${SOURCES})
+
+target_include_directories(\${PROJECT_NAME}  
+  PRIVATE
+    \${PROJECT_SOURCE_DIR}/include  
+)
+EOF
+
+cat > include/Pointer.h <<EOF
+#pragma once
+
+#ifndef __POINTER_H__
+#define __POINTER_H__
+
+struct Pointer {
+  double x;
+  double y;
+
+  auto distanceTo(const Pointer &other) -> double;
+};
+
+#endif // !__POINTER_H__
+EOF
+
+cat > src/Pointer.cxx <<EOF
+#include <cmath>
+
+#include "Pointer.h"
+
+auto Pointer::distanceTo(const Pointer &other) -> double {
+  double dx = x - other.x;
+  double dy = y - other.y;
+  
+  return sqrt(dx * dx + dy * dy);
+}
+EOF
+
+cat > src/main.cxx <<EOF
+#include <iostream>
+
+#include "Pointer.h"
+
+auto main(void) -> int {
+  auto pointer1 = Pointer{.x = 100.0, .y = 200};
+  auto pointer2 = Pointer{.x = 50.0, .y = 100};
+
+  std::cout << pointer1.distanceTo(pointer2) << std::endl;
+  
+  return 0;
+}
+EOF
+
+cat > .gitignore <<EOF
+build/
+EOF

@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+function notify_muted {
+    volume="$1"
+    dunstify -i /usr/share/icons/Papirus-Dark/24x24/panel/volume-level-muted.svg \
+        " Muted: " \
+        -h string:x-canonical-private-synchronous:audio \
+        -h int:value:"$volume" -t 1500
+}
+
+function notify_audio {
+    volume="$1"
+    muted=$(pamixer --get-mute)
+    $muted && notify_muted "$volume" && return
+
+    if [[ "$volume" -eq 0 ]]; then
+        notify_muted "$volume"
+    elif [[ "$volume" -le 30 ]]; then
+        dunstify -i /usr/share/icons/Papirus-Dark/24x24/panel/volume-level-low.svg \
+            " Volume: " \
+            -h string:x-canonical-private-synchronous:audio \
+            -h int:value:"$volume" -t 1500
+    elif [[ "$volume" -le 70 ]]; then
+        dunstify -i /usr/share/icons/Papirus-Dark/24x24/panel/volume-level-medium.svg \
+            " Volume: " \
+            -h string:x-canonical-private-synchronous:audio \
+            -h int:value:"$volume" -t 1500
+    else
+        dunstify -i /usr/share/icons/Papirus-Dark/24x24/panel/volume-level-high.svg \
+            " Volume: " \
+            -h string:x-canonical-private-synchronous:audio \
+            -h int:value:"$volume" -t 1500
+    fi
+}
+
+curr_volume=$(pamixer --get-volume)
+
+killall dunst
+notify_audio "$curr_volume"

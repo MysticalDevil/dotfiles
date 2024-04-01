@@ -1,0 +1,162 @@
+#!/usr/bin/env bash
+
+# Define the command for bat, with fallback to batcat on Debian systems
+if [[ $(lsb_release -si) == "Debian" ]]; then
+    BAT_CMD="batcat"
+else
+    BAT_CMD="bat"
+fi
+
+# Define a function for displaying files with bat command
+bat_file() {
+    local file="$1"
+    eval "${BAT_CMD}" --color=always --line-range :200 "$file"
+}
+
+# Define a function for displaying files with bat command, with syntax highlighting
+bat_highlight() {
+    local file="$1"
+    if pygmentize -N "$file" >/dev/null 2>&1; then
+        pygmentize -O style=one-dark -f 256 -g "$file" | eval "${BAT_CMD}" --color=always --line-range :200 -p
+    else
+        bat_file "$file"
+    fi
+}
+
+# Check if a command is available
+has_cmd() {
+    command -v "$1" >/dev/null 2>&1
+}
+
+# Print a message if a command is missing
+missing_cmd() {
+    if ! has_cmd "$1"; then
+        echo "The '$1' command is missing, please install the corresponding package."
+    fi
+}
+
+# Display a directory using eza command
+show_directory() {
+    missing_cmd eza
+    eza --git -hl --color=always --icons "$1"
+}
+
+# Display an image using chafa and exiftool commands
+show_image_file() {
+    missing_cmd chafa
+    missing_cmd exiftool
+    chafa "$1"
+    exiftool "$1"
+}
+
+# Display an Excel file using in2csv and xsv commands
+show_excel_file() {
+    missing_cmd in2csv
+    missing_cmd xsv
+    in2csv "$1" | xsv table | bat_highlight "$1"
+}
+
+# Display a text file using pygmentize and jq commands, with syntax highlighting
+show_text_file() {
+    missing_cmd pygmentize
+    missing_cmd jq
+    if pygmentize -N "$1" >/dev/null 2>&1; then
+        pygmentize -O style=one-dark -f 256 -g "$1" | bat_highlight "$1"
+    else
+        bat_file "$1"
+    fi
+}
+
+# Display a JSON files use jq and bat
+show_json_file() {
+    local file="$1"
+    missing_cmd jq
+    if jq . "$file" >/dev/null 2>&1; then
+        jq . "$file" | bat_highlight "$file"
+    else
+        bat_file "$file"
+    fi
+}
+
+# Display a PDF file using pdftotext command
+show_pdf_file() {
+    missing_cmd pdftotext
+    pdftotext -nopgbrk -q "$1" - | bat_highlight "$1"
+}
+
+# Display an Office file using wv and pandoc commands
+show_office_file() {
+    missing_cmd wv
+    missing_cmd pandoc
+    wv -p -c -nw -f text/html "$1" | pandoc -t plain | bat_highlight "$1"
+}
+
+# Display a video file using mediainfo command
+show_video_file() {
+    missing_cmd mediainfo
+    mediainfo "$1"
+}
+
+# Display other types of files using file and highlight commands, with syntax highlighting for text files
+show_other_file() {
+    missing_cmd file
+    missing_cmd highlight
+    local file_type
+    file_type=$(file --brief --mime-type "$1")
+    if [[ "$file_type" == "text/plain" ]]; then
+        highlight -O ansi "$1" | bat_highlight "$1"
+    else
+        echo "File type is $file_type"
+    fi
+}
+
+
+# Main function for displaying files
+main() {
+    local file="$1"
+    local mime_type
+    mime_type=$(file -bL --mime-type "$file")
+    local category=${mime_type%%/*}
+    local kind=${mime_type#*/}
+
+    case "$category" in
+        inode)
+            show_directory "$file"
+            ;;
+        image)
+            show_image_file "$file"
+            ;;
+        text)
+            show_text_file "$file"
+            ;;
+        application)
+            case "$kind" in
+                vnd.gentoo.ebuild)
+                    show_text_file "$file"
+                    ;;
+                pdf)
+                    show_pdf_file "$file"
+                    ;;
+                json)
+                    show_json_file "$file"
+                    ;;
+                    vnd.ms-word|vnd.openxmlformats-officedocument.wordprocessingml.document|\
+                        vnd.ms-excel|vnd.openxmlformats-officedocument.spreadsheetml.sheet|\
+                    vnd.ms-powerpoint|vnd.openxmlformats-officedocument.presentationml.presentation)
+                    show_office_file "$file"
+                    ;;
+                *)
+                    show_other_file "$file"
+                    ;;
+            esac
+            ;;
+        video)
+            show_video_file "$file"
+            ;;
+        *)
+            show_other_file "$file"
+            ;;
+    esac
+}
+
+main "$1"

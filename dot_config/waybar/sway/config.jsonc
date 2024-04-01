@@ -1,0 +1,256 @@
+{
+  "margin": "5",
+  "modules-left": [
+    "group/group-keyboard",
+    "group/group-hardware",
+    "sway/mode",
+    "sway/workspaces"
+  ],
+  "modules-center": [
+    "clock",
+    "custom/weather"
+  ],
+  "modules-right": [
+    "group/group-control",
+    "tray",
+    "group/group-power"
+  ],
+  "group/group-hardware": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 500,
+      "children-class": "not-temperature",
+      "transition-left-to-right": true
+    },
+    "modules": [
+      "temperature",
+      "cpu",
+      "memory",
+      "battery"
+    ]
+  },
+  "battery": {
+    "bat": "BAT1",
+    "adapter": "ACAD",
+    "interval": 60,
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{capacity}% {icon}",
+    "format-charging": "{capacity}% 󰂄",
+    "format-plugged": "{capacity}% ",
+    "format-alt": "{time} {icon}",
+    "format-icons": [
+      "󰁺",
+      "󰁻",
+      "󰁼",
+      "󰁼",
+      "󰁾",
+      "󰁿",
+      "󰂀",
+      "󰂁",
+      "󰂂",
+      "󰁹"
+    ]
+  },
+  "cpu": {
+    "interval": 1,
+    "format": "{usage}% 󰄧",
+    "max-length": 100,
+    "on-click": ""
+  },
+  "memory": {
+    "interval": 30,
+    "format": "{}% 󰄫",
+    "format-alt": "{used:0.1f}G ",
+    "max-length": 10
+  },
+  "temperature": {
+    "critical-threshold": 85,
+    "format": "{temperatureC}°C {icon}",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "tooltip": false
+  },
+  "group/group-control": {
+    "orientation": "horizontal",
+    "modules": [
+      "pulseaudio",
+      "backlight"
+    ]
+  },
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{percent}% {icon}",
+    "format-icons": [
+      "󰃚",
+      "󰃛",
+      "󰃜",
+      "󰃝",
+      "󰃞",
+      "󰃟",
+      "󰃠"
+    ],
+    "min-length": 7
+  },
+  "pulseaudio": {
+    "reverse-scrolling": 1,
+    "format": "{volume}% {icon} {format_source}",
+    "format-bluetooth": "{volume}% {icon} {format_source}",
+    "format-bluetooth-muted": "󰋐 {icon} {format_source}",
+    "format-muted": "󰖁 {format_source}",
+    "format-source": "{volume}% ",
+    "format-source-muted": "",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "󰏴",
+      "headset": "󰋋",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": [
+        "󰕿",
+        "󰖀",
+        "󰕾"
+      ]
+    },
+    "on-click": "pavucontrol",
+    "min-length": 13
+  },
+  "privacy": {
+    "icon-spacing": 4,
+    "icon-size": 18,
+    "transition-duration": 250,
+    "modules": [
+      {
+        "type": "screenshare",
+        "tooltip": true,
+        "tooltip-icon-size": 24
+      },
+      {
+        "type": "audio-in",
+        "tooltip": true,
+        "tooltip-icon-size": 24
+      },
+      {
+        "type": "audio-out",
+        "tooltip": true,
+        "tooltip-icon-size": 24
+      }
+    ]
+  },
+  "group/group-keyboard": {
+    "orientation": "horizontal",
+    "modules": [
+      "sway/language",
+      "keyboard-state"
+    ]
+  },
+  "sway/language": {
+    "format": "{} 󰌌",
+    "min-length": 5,
+    "tooltip": false
+  },
+  "keyboard-state": {
+    "capslock": true,
+    "format": "{name} {icon} ",
+    "format-icons": {
+      "locked": " ",
+      "unlocked": ""
+    }
+  },
+  "clock": {
+    "format": "{:%H:%M}  ",
+    "format-alt": "{:%a, %b %d, %Y (%R)} 󰃰 ",
+    "timezones": [
+      "Asia/Shanghai",
+      "America/New_York",
+      "Etc/Greenwich"
+    ],
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "year",
+      "mode-mon-col": 3,
+      "weeks-pos": "right",
+      "on-scroll": 1,
+      "on-click-right": "mode",
+      "format": {
+        "months": "<span color='#ffead3'><b>{}</b></span>",
+        "days": "<span color='#ecc6d9'><b>{}</b></span>",
+        "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+        "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+        "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+      }
+    },
+    "actions": {
+      "on-click-right": "mode",
+      "on-click-forward": "tz_up",
+      "on-click-backward": "tz_down",
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down"
+    }
+  },
+  "custom/weather": {
+    "format": "{}",
+    "tooltip": true,
+    "interval": 10800,
+    "exec": "cat $HOME/.config/waybar/scripts/weather.json",
+    "return-type": "json"
+  },
+  "tray": {
+    "icon-size": 16,
+    "spacing": 8
+  },
+  "sway/workspaces": {
+    "disable-scroll": true,
+    "persistent-workspaces": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": []
+    }
+  },
+  "sway/mode": {
+    "format": "<span style=\"italic\">{}</span>"
+  },
+  "group/group-power": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 500,
+      "children-class": "not-power",
+      "transition-left-to-right": false
+    },
+    "modules": [
+      "custom/power",
+      "custom/quit",
+      "custom/lock",
+      "custom/reboot"
+    ]
+  },
+  "custom/quit": {
+    "format": "󰗼",
+    "tooltip": false,
+    "on-click": "hyprctl dispatch exit"
+  },
+  "custom/lock": {
+    "format": "󰍁",
+    "tooltip": false,
+    "on-click": "swaylock"
+  },
+  "custom/reboot": {
+    "format": "󰜉",
+    "tooltip": false,
+    "on-click": "~/.config/waybar/scripts/confirm-dialog.sh reboot"
+  },
+  "custom/power": {
+    "format": "",
+    "tooltip": false,
+    "on-click": "~/.config/waybar/scripts/confirm-dialog.sh shutdown"
+  }
+}
