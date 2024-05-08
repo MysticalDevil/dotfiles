@@ -1,0 +1,11 @@
+Host github.com
+  HostName github.com
+  AddKeysToAgent yes
+  IdentityFile ~/.ssh/id_ed25519
+  User MysticalDevil
+
+Host github.com-0x2F6A
+  HostName github.com
+  AddKeysToAgent yes
+  IdentityFile ~/.ssh/id_ecdsa
+  User 0x2F6A
