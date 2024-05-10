@@ -1,7 +1,10 @@
 wsl = false
 multigrid = true
 vsync = true
-maximized = false
 srgb = false
 idle = true
 neovim_bin = "/usr/bin/nvim"
+no-multigrid = false
+frame = "full"
+title-hidden = true
+tabs = true
