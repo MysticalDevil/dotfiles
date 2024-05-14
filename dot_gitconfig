@@ -12,6 +12,7 @@
 
 [safe]
 	directory = /opt/flutter
+	directory = /var/db/repos/local
 
 [interactive]
     diffFilter = delta --color-only
