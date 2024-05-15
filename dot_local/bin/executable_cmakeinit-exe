@@ -12,11 +12,11 @@ mkdir -p build include src
 
 # Create CMakeLists.txt
 cat > CMakeLists.txt <<EOF 
-cmake_minimum_required(VERSION 3.25)
+cmake_minimum_required(VERSION 3.28)
 
 project($PROJECT_NAME LANGUAGES CXX)
 
-set(CMAKE_CXX_STANDARD 17) 
+set(CMAKE_CXX_STANDARD 23) 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 set(HEADERS include/Pointer.h)
