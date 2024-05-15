@@ -277,5 +277,6 @@
   "[java]": {
     "editor.defaultFormatter": "redhat.java"
   },
-  "calva.paredit.defaultKeyMap": "strict"
+  "calva.paredit.defaultKeyMap": "strict",
+  "java.jdt.ls.java.home": "/usr/lib/jvm/openjdk-21"
 }
