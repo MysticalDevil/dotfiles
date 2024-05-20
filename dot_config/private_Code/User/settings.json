@@ -148,8 +148,6 @@
   "rust-analyzer.inlayHints.typeHints.hideClosureInitialization": false,
   "rust-analyzer.inlayHints.typeHints.hideNamedConstructor": false,
 
-  "java.inlayHints.parameterNames.enabled": "all",
-  "java.inlayHints.parameterNames.exclusions": ["this"],
   // ======================================= Plugin config ========================================
   "auto-close-tag.activationOnLanguage": [
     "javascript",
@@ -196,8 +194,16 @@
     "budparr.language-hugo-vscode",
     "xlthu.pangu-markdown"
   ],
-  "svg.preview.mode": "svg",
+  "svg.preview.mode": "img",
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
+  },
+  "cmake.options.statusBarVisibility": "compact",
+  "cmake.showOptionsMovedNotification": false,
+  "zig.path": "",
+  "zig.initialSetupDone": true,
+  "zig.zls.path": "/home/theta/.config/Code/User/globalStorage/ziglang.vscode-zig/zls_install/zls",
   // ===================================== Languages setting ======================================
   "[c]": {
     "editor.defaultFormatter": "xaver.clang-format"
@@ -216,7 +222,8 @@
     "editor.suggest.snippetsPreventQuickSuggestions": false,
     "editor.suggestSelection": "first",
     "editor.tabCompletion": "onlySnippets",
-    "editor.wordBasedSuggestions": "off"
+    "editor.wordBasedSuggestions": "off",
+    "editor.inlayHints.enabled": "on"
   },
   "[dockerfile]": {
     "editor.defaultFormatter": "ms-azuretools.vscode-docker"
@@ -226,7 +233,7 @@
     "editor.tabSize": 2
   },
   "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.defaultFormatter": "biomejs.biome",
     "editor.tabSize": 2
   },
   "[json]": {
@@ -243,18 +250,10 @@
   },
   "[python]": {
     "editor.formatOnType": true,
-    "editor.defaultFormatter": "ms-python.black-formatter"
+    "editor.defaultFormatter": "charliermarsh.ruff"
   },
   "[proto3]": {
     "editor.defaultFormatter": "xaver.clang-format"
-  },
-  "[ruby]": {
-    "editor.defaultFormatter": "testdouble.vscode-standard-ruby",
-    "editor.formatOnSave": true,
-    "editor.formatOnType": true,
-    "editor.insertSpaces": true,
-    "editor.semanticHighlighting.enabled": true,
-    "editor.tabSize": 2
   },
   "[rust]": {
     "editor.semanticHighlighting.enabled": false
@@ -265,18 +264,5 @@
   },
   "[vue]": {
     "editor.tabSize": 2
-  },
-  "extensions.experimental.affinity": {
-    "asvetliakov.vscode-neovim": 1
-  },
-  "cmake.options.statusBarVisibility": "compact",
-  "cmake.showOptionsMovedNotification": false,
-  "zig.path": "",
-  "zig.initialSetupDone": true,
-  "zig.zls.path": "/home/theta/.config/Code/User/globalStorage/ziglang.vscode-zig/zls_install/zls",
-  "[java]": {
-    "editor.defaultFormatter": "redhat.java"
-  },
-  "calva.paredit.defaultKeyMap": "strict",
-  "java.jdt.ls.java.home": "/usr/lib/jvm/openjdk-21"
+  }
 }
