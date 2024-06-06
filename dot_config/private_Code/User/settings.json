@@ -201,7 +201,7 @@
   },
   "cmake.options.statusBarVisibility": "compact",
   "cmake.showOptionsMovedNotification": false,
-  "zig.path": "",
+  "zig.path": "zig",
   "zig.initialSetupDone": true,
   "zig.zls.path": "/home/theta/.config/Code/User/globalStorage/ziglang.vscode-zig/zls_install/zls",
   // ===================================== Languages setting ======================================

@@ -34,3 +34,5 @@ eval "$(deno completions zsh)"
 # flutter -- Google's UI toolkit for building beautiful, natively compiled applications
 # for mobile, web, desktop, and embedded devices from a single codebase.
 eval "$(flutter zsh-completion)"
+# vfox -- A version fox
+eval "$(vfox activate zsh)"
