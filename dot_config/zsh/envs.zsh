@@ -85,6 +85,9 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 # DoomEmacs -- another emacs config
 export PATH="$HOME/.config/emacs/bin:$PATH"
 
+# Neovide config
+export NEOVIDE_FORK=1
+
 
 # Chrome execuable path
 export CHROME_EXECUTABLE="/usr/bin/google-chrome-stable"
