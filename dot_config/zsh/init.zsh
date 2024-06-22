@@ -2,7 +2,6 @@
 
 ZSH_HOME=$HOME/.config/zsh
 
-source "$ZSH_HOME/autoloads.zsh"
 source "$ZSH_HOME/_zim.zsh"
 
 source "$ZSH_HOME/aliaes.zsh"
