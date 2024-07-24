@@ -92,9 +92,7 @@ zmodule archive
 zmodule ohmyzsh/ohmyzsh --root plugins/sudo
 zmodule ohmyzsh/ohmyzsh --root plugins/command-not-found
 zmodule ohmyzsh/ohmyzsh --root plugins/extract
-zmodule ohmyzsh/ohmyzsh --root plugins/adb
 zmodule ohmyzsh/ohmyzsh --root plugins/direnv
-zmodule ohmyzsh/ohmyzsh --root plugins/fd
 zmodule ohmyzsh/ohmyzsh --root plugins/dotnet
 
 # McFly - fly through your shell history

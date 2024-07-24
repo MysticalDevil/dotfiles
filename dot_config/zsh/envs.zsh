@@ -34,7 +34,7 @@ export PATH="$HOME/.dotnet/tools:$PATH"
 export PATH="$LOCALSHARE/fnm:$PATH"
 
 # composer -- PHP package manager
-export PATH="$HOME/.config/composer/vendor/bin:$PATH"
+# export PATH="$HOME/.config/composer/vendor/bin:$PATH"
 
 # CPAN -- Perl package manager
 export PATH="$LOCALLIB/perl5/bin${PATH:+:${PATH}}"
@@ -91,3 +91,6 @@ export NEOVIDE_FORK=1
 
 # Chrome execuable path
 export CHROME_EXECUTABLE="/usr/bin/google-chrome-stable"
+
+# zed editor
+export PATH="$HOME/.local/zed-preview.app/libexec:$PATH"
