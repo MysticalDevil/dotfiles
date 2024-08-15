@@ -91,6 +91,3 @@ export NEOVIDE_FORK=1
 
 # Chrome execuable path
 export CHROME_EXECUTABLE="/usr/bin/google-chrome-stable"
-
-# zed editor
-export PATH="$HOME/.local/zed-preview.app/libexec:$PATH"
