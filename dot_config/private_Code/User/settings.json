@@ -267,5 +267,7 @@
   },
   "lldb.library": "/Library/Developer/CommandLineTools/Library/PrivateFrameworks/LLDB.framework/Versions/A/LLDB",
   "lldb.launch.expressions": "native",
-  "maui.configuration.androidSdkPreferredPath": "/usr/local/Caskroom/android-sdk/4333796/tools/bin"
+  "maui.configuration.androidSdkPreferredPath": "/usr/local/Caskroom/android-sdk/4333796/tools/bin",
+  "typeChallenges.workspaceFolder": "/home/delta/.typeChallenges",
+  "haskell.manageHLS": "GHCup"
 }

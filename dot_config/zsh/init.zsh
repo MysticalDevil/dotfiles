@@ -17,7 +17,3 @@ done
 
 zle -N zle-line-init # Enable Transient Prompt
 # set_wayland_env # Setup wayland necessary envs
-
-
-# bun completions
-[ -s "/home/delta/.bun/_bun" ] && source "/home/delta/.bun/_bun"
