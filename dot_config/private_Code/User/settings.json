@@ -269,5 +269,9 @@
   "lldb.launch.expressions": "native",
   "maui.configuration.androidSdkPreferredPath": "/usr/local/Caskroom/android-sdk/4333796/tools/bin",
   "typeChallenges.workspaceFolder": "/home/delta/.typeChallenges",
-  "haskell.manageHLS": "GHCup"
+  "haskell.manageHLS": "GHCup",
+  "cmake.pinnedCommands": [
+    "workbench.action.tasks.configureTaskRunner",
+    "workbench.action.tasks.runTask"
+  ]
 }

@@ -1,0 +1,95 @@
+use-grammars = { only = ["carbon"] }
+
+[language-server]
+efm-langserver = { command = "efm-langserver" }
+phpactor = { command = "phpactor" }
+v-analyzer = { command = "v-analyzer", args = [""] }
+
+[[language]]
+name = "carbon"
+scope = "source.carbon"
+file-types = ["carbon"]
+comment-token = "//"
+indent = { tab-width = 2, unit = "  " }
+roots = [".git"]
+
+
+[[language]]
+name = "python"
+scope = "source.python"
+injection-regex = "python"
+file-types = [
+  "py",
+  "pyi",
+  "py3",
+  "pyw",
+  "ptl",
+  ".pythonstartup",
+  ".pythonrc",
+  "SConstruct",
+  "rpy",
+  "cpy",
+  "ipy",
+  "pyt",
+  "SConscript",
+]
+shebangs = ["python"]
+roots = ["pyproject.toml", "setup.py", "poetry.lock", "pyrightconfig.json"]
+comment-token = "#"
+language-servers = ["pylyzer"]
+# TODO: pyls needs utf-8 offsets
+indent = { tab-width = 4, unit = "    " }
+
+[[language]]
+name = "php"
+scope = "source.php"
+injection-regex = "php"
+file-types = ["php", "inc", "php4", "php5", "phtml", "ctp"]
+shebangs = ["php"]
+roots = ["composer.json", "index.php"]
+language-servers = ["phpactor"]
+indent = { tab-width = 4, unit = "    " }
+
+[[language]]
+name = "v"
+scope = "source.v"
+auto-format = true
+file-types = ["v", "vv", "vsh"]
+shebangs = ["v run"]
+roots = ["v.mod"]
+comment-token = "//"
+language-servers = ["v-analyzer"]
+indent = { tab-width = 4, unit = "\t" }
+
+[[grammar]]
+name = "v"
+source = { git = "https://github.com/v-analyzer/v-analyzer", subpath = "tree_sitter_v", rev = "e14fdf6e661b10edccc744102e4ccf0b187aa8ad" }
+
+[[language]]
+name = "html"
+scope = "text.html.basic"
+injection-regex = "html"
+file-types = [
+  "html",
+  "htm",
+  "shtml",
+  "xhtml",
+  "xht",
+  "jsp",
+  "asp",
+  "aspx",
+  "jshtm",
+  "volt",
+  "rhtml",
+]
+language-servers = ["vscode-html-language-server"]
+auto-format = true
+indent = { tab-width = 2, unit = "  " }
+
+[language.auto-pairs]
+'(' = ')'
+'{' = '}'
+'[' = ']'
+'"' = '"'
+'`' = '`'
+'<' = '>'

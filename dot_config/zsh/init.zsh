@@ -17,3 +17,10 @@ done
 
 zle -N zle-line-init # Enable Transient Prompt
 # set_wayland_env # Setup wayland necessary envs
+
+# Wasmer
+export WASMER_DIR="/home/delta/.wasmer"
+[ -s "$WASMER_DIR/wasmer.sh" ] && source "$WASMER_DIR/wasmer.sh"
+
+# bun completions
+[ -s "/home/delta/.bun/_bun" ] && source "/home/delta/.bun/_bun"
