@@ -25,8 +25,6 @@ eval "$(fnm env --use-on-cd)"
 eval "$(register-python-argcomplete pipx)"
 # atuin -- Magic shell history
 eval "$(atuin init zsh --disable-up-arrow)"
-# rbenv -- Manage your app's Ruby environment
-eval "$(~/.rbenv/bin/rbenv init - zsh)"
 # bun -- Incredibly fast JavaScript runtime, bundler, test runner, and package manager – all in one
 eval "$(bun completions)"
 # deno -- A modern runtime for JavaScript and TypeScript.
