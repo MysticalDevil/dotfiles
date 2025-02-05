@@ -1,6 +1,6 @@
 layer=overlay
 markup=1
-anchor=bottom-right
+anchor=top-right
 background-color=#1E1E28
 text-color=#DADAE8
 width=300
