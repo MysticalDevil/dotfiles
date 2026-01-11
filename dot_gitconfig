@@ -5,7 +5,7 @@
 	packedGitWindowSize = 512m
 
 [init]
-	defaultBranch = master
+	defaultBranch = main
 
 [safe]
 	directory = /var/db/repos/local
