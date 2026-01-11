@@ -1,17 +1,13 @@
 [core]
-  pager = delta
+  pager = omega
 	excludesfile = ~/.gitignore
 	packedGitLimit = 512m
 	packedGitWindowSize = 512m
 
-[user]
-	name = Mystical-C
-	email = 64483945+MysticalDevil@users.noreply.github.com
 [init]
 	defaultBranch = master
 
 [safe]
-	directory = /opt/flutter
 	directory = /var/db/repos/local
 
 [interactive]
@@ -40,3 +36,6 @@
 	deltaCacheSize = 2047m
 	packSizeLimit = 2047m
 	windowMemory = 2047m
+[user]
+	name = MysticalDevil
+	email = jinpeng7981@outlook.com
