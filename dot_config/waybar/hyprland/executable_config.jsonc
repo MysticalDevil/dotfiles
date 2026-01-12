@@ -396,14 +396,14 @@
   "custom/launcher": {
     "format": " {}",
     "exec": "whoami",
-    "on-click": "~/.config/rofi/scripts/launcher_t1"
+    "on-click": "vicinae toggle"
   },
   "custom/weather": {
-    "exec": "cat ~/.config/waybar/scripts/weather.json",
+    "exec": "python3 ~/.config/waybar/scripts/wttr.py",
     "return-type": "json",
     "format": "{}",
     "tooltip": true,
-    "interval": 21600
+    "interval": 7200
   },
   "custom/quit": {
     "format": "󰗼",

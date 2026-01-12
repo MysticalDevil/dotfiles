@@ -59,7 +59,7 @@ WEATHER_CODES = {
 data = {}
 
 
-weather = requests.get("https://wttr.in/Fujin?format=j1").json()
+weather = requests.get("https://wttr.in/Hangzhou?format=j1").json()
 
 
 def format_time(time):
@@ -90,13 +90,13 @@ def format_chances(hour):
     return ", ".join(conditions)
 
 
-data[
-    "text"
-] = f'{WEATHER_CODES[weather["current_condition"][0]["weatherCode"]]} {weather["current_condition"][0]["FeelsLikeC"]}°'
+data["text"] = (
+    f"{WEATHER_CODES[weather['current_condition'][0]['weatherCode']]} {weather['current_condition'][0]['FeelsLikeC']}°"
+)
 
-data[
-    "tooltip"
-] = f"<b>{weather['current_condition'][0]['weatherDesc'][0]['value']} {weather['current_condition'][0]['temp_C']}°</b>\n"
+data["tooltip"] = (
+    f"<b>{weather['current_condition'][0]['weatherDesc'][0]['value']} {weather['current_condition'][0]['temp_C']}°</b>\n"
+)
 data["tooltip"] += f"Feels like: {weather['current_condition'][0]['FeelsLikeC']}°\n"
 data["tooltip"] += f"Wind: {weather['current_condition'][0]['windspeedKmph']}Km/h\n"
 data["tooltip"] += f"Humidity: {weather['current_condition'][0]['humidity']}%\n"
@@ -109,16 +109,16 @@ for i, day in enumerate(weather["weather"]):
         data["tooltip"] += "Tomorrow, "
     data["tooltip"] += f"{day['date']}</b>\n"
     data["tooltip"] += f"⬆️ {day['maxtempC']}° ⬇️ {day['mintempC']}° "
-    data[
-        "tooltip"
-    ] += f" {day['astronomy'][0]['sunrise']}  {day['astronomy'][0]['sunset']}\n"
+    data["tooltip"] += (
+        f" {day['astronomy'][0]['sunrise']}  {day['astronomy'][0]['sunset']}\n"
+    )
     for hour in day["hourly"]:
         if i == 0:
             if int(format_time(hour["time"])) < datetime.now().hour - 2:
                 continue
-        data[
-            "tooltip"
-        ] += f"{format_time(hour['time'])} {WEATHER_CODES[hour['weatherCode']]} {format_temp(hour['FeelsLikeC'])} {hour['weatherDesc'][0]['value']}, {format_chances(hour)}\n"
+        data["tooltip"] += (
+            f"{format_time(hour['time'])} {WEATHER_CODES[hour['weatherCode']]} {format_temp(hour['FeelsLikeC'])} {hour['weatherDesc'][0]['value']}, {format_chances(hour)}\n"
+        )
 
 
 json_data = json.dumps(data)
