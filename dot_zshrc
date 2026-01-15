@@ -240,7 +240,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 # luarocks -- The lua package manager
 export PATH="$HOME/.luarocks/bin:$PATH"
 
-# Chrome execuable path
+# Chrome executable path
 export CHROME_EXECUTABLE="/usr/bin/google-chrome-stable"
 
 
@@ -249,9 +249,7 @@ export CHROME_EXECUTABLE="/usr/bin/google-chrome-stable"
 # Use zoxide to replace cd command
 eval "$(zoxide init zsh --cmd cd)"
 # Enable starship
-if [[ $TERM != "linux" ]]; then
-    eval "$(starship init zsh)"
-fi
+eval "$(starship init zsh)"
 # atuin -- Magic shell history
 eval "$(atuin init zsh --disable-up-arrow)"
 # mise -- dev tools, env vars, task runner
