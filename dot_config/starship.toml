@@ -12,20 +12,26 @@ command_timeout = 1000
 # Configure the format of the prompt
 format = """$os\
         $username \
+        $sudo\
         $hostname\
         $shlvl\
         $kubernetes\
         $directory\
+        $direnv\
         $git_branch\
         $git_commit\
         $git_state\
         $git_status\
+        $git_metrics\
         $hg_branch\
         $docker_context\
         $package\
         (↓ Toolchain version modules ↓)\
+        $buf\
+        $bun\
         $c\
         $cmake\
+        $meson\
         $crystal\
         $dart\
         $deno\
@@ -99,6 +105,10 @@ truncation_symbol = "../"
 style = "underline bold green"
 read_only = "󰌾"
 read_only_style = "italic red"
+
+# Direnv indicator is very useful in monorepos (.envrc)
+[direnv]
+disabled = false
 
 [hostname]
 ssh_only = true
@@ -203,6 +213,10 @@ format = "[as $symbol]($style)"
 style = "bold green"
 symbol = " "
 
+# Show current shell (useful when switching bash/zsh/fish)
+[shell]
+disabled = false
+
 [username]
 style_user = "bold bright-white"
 style_root = "red bold"
@@ -254,6 +268,7 @@ bisect = "BISECTING"
 am = "AM"
 am_or_rebase = "AM/REBASE"
 
+# Already configured by you; now enabled in format for monorepo daily use
 [git_metrics]
 format = "([+$added]($added_style) )([-$deleted]($deleted_style) )"
 added_style = "bold green"
