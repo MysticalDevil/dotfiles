@@ -4,8 +4,8 @@ Host github.com
   IdentityFile ~/.ssh/id_ed25519
   User MysticalDevil
 
-Host github.com-0x2F6A
-  HostName github.com
+Host raspberrypi
+  HostName 192.168.31.133
   AddKeysToAgent yes
-  IdentityFile ~/.ssh/id_ecdsa
-  User 0x2F6A
+  IdentityFile ~/.ssh/id_ed25519
+  User alpha

@@ -1,0 +1,50 @@
+@define-color base_bg #1e1e1e;
+@define-color transparent transparent;
+
+@define-color text_white #ffffff;
+@define-color text_main #e5e5e5;
+@define-color text_dim #abb2bf;
+@define-color text_dark #2d3436;
+@define-color text_inactive #7984a4;
+@define-color text_visible #b3b3b3;
+@define-color text_window #f8f8f8;
+
+@define-color tooltip_bg rgba(43, 48, 59, 0.5);
+@define-color tooltip_border rgba(100, 114, 125, 0.5);
+@define-color blink_bg rgba(30, 34, 42, 0.5);
+
+@define-color black #000000;
+@define-color white #ffffff;
+
+@define-color cyan #56b6c2;
+@define-color lavender #c0caf5;
+@define-color green_success #26a65b;
+@define-color green_bright #04bc38;
+@define-color green_special #17ad14;
+@define-color green_upower #2bdb49;
+@define-color red_critical #f53c3c;
+@define-color red_bg_critical #eb4d4b;
+@define-color red_muted #f93e67;
+@define-color blue_grey #707d9d;
+@define-color blue_light #c8d2e0;
+@define-color blue_disk #6eb9ff;
+@define-color pink_cpu #fb958b;
+@define-color white_idle #ecf0f1;
+@define-color pink_locked #dc2368;
+@define-color teal_lang_bg #00b093;
+@define-color purple_lang_fg #740864;
+@define-color yellow_mem #ebcb8b;
+@define-color purple_net #c678dd;
+@define-color blue_audio #747fbc;
+@define-color yellow_privacy #fce80c;
+@define-color green_temp #5be394;
+@define-color grey_taskbar #d3d1d1;
+@define-color cyan_wp #09f2ea;
+@define-color red_wp_muted #f20d09;
+@define-color brown_urgent #deb887;
+@define-color purple_launcher #beb8db;
+
+@define-color custom_power #fc5674;
+@define-color custom_quit #fcba03;
+@define-color custom_lock #56cbfc;
+@define-color custom_reboot #ff8138;
