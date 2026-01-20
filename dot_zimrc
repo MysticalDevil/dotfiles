@@ -1,17 +1,11 @@
-# This is not sourced during shell startup, and it's only used to configure the
-# zimfw plugin manager.
+# Start configuration added by Zim Framework install {{{
+#
+# This is not sourced during shell startup and is only used to configure zimfw.
 #
 
 #
 # Modules
 #
-
-# Formats the current working directory to be used by prompts.
-zmodule prompt-pwd
-# Because your terminal should be able to perform tasks asynchronously without external tools!
-zmodule mafredri/zsh-async --source async.zsh
-# Replace zsh's default completion selection menu with fzf!
-zmodule Aloxaf/fzf-tab
 
 # Sets sane Zsh built-in environment options.
 zmodule environment
@@ -23,87 +17,47 @@ zmodule input
 zmodule termtitle
 # Utility aliases and functions. Adds colour to ls, grep and less.
 zmodule utility
-# Shown when there is no command and user presses ENTER.
-zmodule magic-enter
-# Provides a convenient way to load ssh-agent.
-zmodule ssh
-# Sets up asdf, with auto install and optimized usage of the direnv plugin.
-# zmodule asdf
+
+# <-- Normally new modules should be added here. Check each module documentation
+# for any caveats.
 
 #
 # Prompt
 #
 
-# Exposes to prompts how long the last command took to execute, used by asciiship.
-zmodule duration-info
-# Exposes git repository status information to prompts, used by asciiship.
-zmodule git-info
+# Exposes how long the last command took to run to prompts.
+# zmodule duration-info
+# Exposes git repository status information to prompts.
+# zmodule git-info
 # A heavily reduced, ASCII-only version of the Spaceship and Starship prompts.
 # zmodule asciiship
-
-#
-# Programming
-#
-# zmodule pvenv
-# zmodule ruby
 
 #
 # Completion
 #
 
 # Additional completion definitions for Zsh.
-# zmodule zsh-users/zsh-completions --fpath src
-# Enables and configures smart and extensive tab completion.
-# completion must be sourced after all modules that add completion definitions.
-# zmodule completion
+zmodule zsh-users/zsh-completions --fpath src
+# Enables and configures smart and extensive tab completion, must be sourced
+# after all modules that add completion definitions.
+zmodule completion
 
 #
 # Modules that must be initialized last
 #
 
-# The plugin configures and delivers completions
-zmodule z-shell/zsh-fancy-completions
 # Replace zsh's default completion selection menu with fzf!
-# zmodule zdharma-continuum/fast-syntax-highlighting
-# Zsh plugin to replace command gnu/ls with eza
-# zmodule z-shell/zsh-eza
-# Zsh plugin replace GNU/ls with next generation Peltoche/lsd
-zmodule z-shell/zsh-lsd
-#  Feature-rich Syntax Highlighting for Zsh
-zmodule z-shell/F-Sy-H
-# History search for multiple words
-# zmodule z-shell/H-S-MW
+zmodule Aloxaf/fzf-tab
 
-# Fish-like syntax highlighting for Zsh.
-# zsh-users/zsh-syntax-highlighting must be sourced after completion
-# zmodule zsh-users/zsh-syntax-highlighting
-# Fish-like history search (up arrow) for Zsh.
-# zsh-users/zsh-history-substring-search must be sourced after zsh-users/zsh-syntax-highlighting
+# Fish-like syntax highlighting for Zsh, must be sourced after completion.
+zmodule zsh-users/zsh-syntax-highlighting
+# Fish-like history search for Zsh, must be sourced after
+# zsh-users/zsh-syntax-highlighting. Bind keyboard shortcuts in your ~/.zshrc:
+# https://github.com/zsh-users/zsh-history-substring-search/blob/master/README.md#usage
 zmodule zsh-users/zsh-history-substring-search
-# Fish-like autosuggestions for Zsh.
+# Fish-like autosuggestions for Zsh. Add the following to your ~/.zshrc to boost
+# performance: ZSH_AUTOSUGGEST_MANUAL_REBIND=1
 zmodule zsh-users/zsh-autosuggestions
+# }}} End configuration added by Zim Framework install
 
-# Pacman alias
-# zmodule pacman
 
-# Provides functions for easy archive manipulation.
-zmodule archive
-
-zmodule ohmyzsh/ohmyzsh --root plugins/sudo
-zmodule ohmyzsh/ohmyzsh --root plugins/command-not-found
-zmodule ohmyzsh/ohmyzsh --root plugins/extract
-zmodule ohmyzsh/ohmyzsh --root plugins/direnv
-zmodule ohmyzsh/ohmyzsh --root plugins/dotnet
-
-# McFly - fly through your shell history
-# zmodule cantino/mcfly
-
-# Atuin - Magical shell history
-# zmodule ellie/atuin
-
-# Auto-close and delete matching delimiters in zsh
-zmodule hlissner/zsh-autopair
-
-# ZSH plugin to automatically switch python virtualenvs
-# (including pipenv and poetry) as you move between directories
-zmodule MichaelAquilina/zsh-autoswitch-virtualenv --source autoswitch_virtualenv.plugin.zsh
