@@ -1,287 +1,213 @@
-# Start configuration added by Zim install {{{
-#
-# User configuration sourced by interactive shells
-#
+# ~/.zshrc
 
-#
-# History
-#
-
-
-# Remove older command from the history if a duplicate is to be added.
+# -----------------
+# Zsh options
+# -----------------
 setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
+setopt SHARE_HISTORY
+setopt INC_APPEND_HISTORY
 
-#
-# Input/output
-#
-
-# Set editor default keymap to emacs (`-e`) or vi (`-v`)
-bindkey -v
-
-# Prompt for spelling correction of commands.
-#setopt CORRECT
-
-# Customize spelling correction prompt.
-#SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
-
-# Remove path separator from WORDCHARS.
+bindkey -e
 WORDCHARS=${WORDCHARS//[\/]}
 
 # -----------------
-# Zim configuration
+# Helpers and OS detection
 # -----------------
+_has() { (( ${+commands[$1]} )); }
 
-# Use degit instead of git as the default tool to install and update modules.
-#zstyle ':zim:zmodule' use 'degit'
+IS_GENTOO=0
+if [[ -r /etc/os-release ]]; then
+  # shellcheck disable=SC1091
+  . /etc/os-release
+  [[ ${ID:-} == gentoo ]] && IS_GENTOO=1
+fi
+[[ -e /etc/gentoo-release ]] && IS_GENTOO=1
 
-# --------------------
-# Module configuration
-# --------------------
-
-#
-# git
-#
-
-# Set a custom prefix for the generated aliases. The default prefix is 'G'.
-#zstyle ':zim:git' aliases-prefix 'g'
-
-#
-# input
-#
-
-# Append `../` to your input for each `.` you type after an initial `..`
-#zstyle ':zim:input' double-dot-expand yes
-
-#
-# termtitle
-#
-
-# Set a custom terminal title format using prompt expansion escape sequences.
-# See http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html#Simple-Prompt-Escapes
-# If none is provided, the default '%n@%m: %~' is used.
-#zstyle ':zim:termtitle' format '%1~'
-
-#
-# zsh-autosuggestions
-#
-
-# Disable automatic widget re-binding on each precmd. This can be set when
-# zsh-users/zsh-autosuggestions is the last module in your ~/.zimrc.
+# -----------------
+# Zim module config
+# -----------------
 ZSH_AUTOSUGGEST_MANUAL_REBIND=1
-
-# Customize the style that the suggestions are shown with.
-# See https://github.com/zsh-users/zsh-autosuggestions/blob/master/README.md#suggestion-highlight-style
-#ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=242'
-
-#
-# zsh-syntax-highlighting
-#
-
-# Set what highlighters will be used.
-# See https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/docs/highlighters.md
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 
-# Customize the main highlighter styles.
-# See https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/docs/highlighters/main.md#how-to-tweak-it
-#typeset -A ZSH_HIGHLIGHT_STYLES
-#ZSH_HIGHLIGHT_STYLES[comment]='fg=242'
+# -----------------
+# Pager and man
+# -----------------
+export EDITOR=nvim
 
-# ------------------
-# Initialize modules
-# ------------------
-
-ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
-# Download zimfw plugin manager if missing.
-if [[ ! -e ${ZIM_HOME}/zimfw.zsh ]]; then
-    if (( ${+commands[curl]} )); then
-        curl -fsSL --create-dirs -o ${ZIM_HOME}/zimfw.zsh \
-            https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh
-    else
-        mkdir -p ${ZIM_HOME} && wget -nv -O ${ZIM_HOME}/zimfw.zsh \
-            https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh
-    fi
+if _has bat; then
+  export PAGER=bat
+  export MANPAGER='bat -l man -p --paging=always'
+else
+  export PAGER=less
+  export MANPAGER='less -R'
 fi
-# Install missing modules, and update ${ZIM_HOME}/init.zsh if missing or outdated.
-if [[ ! ${ZIM_HOME}/init.zsh -nt ${ZDOTDIR:-${HOME}}/.zimrc ]]; then
-    source ${ZIM_HOME}/zimfw.zsh init -q
+export MANROFFOPT='-c'
+
+# -----------------
+# Initialize Zim
+# -----------------
+ZIM_HOME=${ZDOTDIR:-$HOME}/.zim
+if [[ ! -e $ZIM_HOME/zimfw.zsh ]]; then
+  if _has curl; then
+    curl -fsSL --create-dirs -o $ZIM_HOME/zimfw.zsh \
+      https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh
+  else
+    mkdir -p $ZIM_HOME && wget -nv -O $ZIM_HOME/zimfw.zsh \
+      https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh
+  fi
 fi
-# Initialize modules.
-source ${ZIM_HOME}/init.zsh
+if [[ ! $ZIM_HOME/init.zsh -nt ${ZIM_CONFIG_FILE:-${ZDOTDIR:-$HOME}/.zimrc} ]]; then
+  source $ZIM_HOME/zimfw.zsh init
+fi
+source $ZIM_HOME/init.zsh
 
-# ------------------------------
-# Post-init module configuration
-# ------------------------------
-
-#
-# zsh-history-substring-search
-#
-
+# -----------------
+# Keybinds
+# -----------------
 zmodload -F zsh/terminfo +p:terminfo
-# Bind ^[[A/^[[B manually so up/down works both before and after zle-line-init
-for key ('^[[A' '^P' ${terminfo[kcuu1]}) bindkey ${key} history-substring-search-up
-for key ('^[[B' '^N' ${terminfo[kcud1]}) bindkey ${key} history-substring-search-down
-for key ('k') bindkey -M vicmd ${key} history-substring-search-up
-for key ('j') bindkey -M vicmd ${key} history-substring-search-down
+for key ('^[[A' '^P' ${terminfo[kcuu1]}) bindkey $key history-substring-search-up
+for key ('^[[B' '^N' ${terminfo[kcud1]}) bindkey $key history-substring-search-down
+for key ('k') bindkey -M vicmd $key history-substring-search-up
+for key ('j') bindkey -M vicmd $key history-substring-search-down
 unset key
-# }}} End configuration added by Zim install
+
+# Optional: Atuin search on Ctrl+R if the widget exists
+(( ${+widgets[atuin-search]} )) && bindkey '^R' atuin-search
 
 # -----------------
-# Zsh configuration
+# Completion and fzf-tab
 # -----------------
+zstyle ':completion:*:descriptions' format '[%d]'
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*:git-checkout:*' sort false
 
-# Terminal simulator Blur {{{
-if [[ $(ps --no-header -p $PPID -o comm) =~ '^yakuake|alacritty|kitty|wezterm|wezterm-gui$' ]]; then
-    for wid in $(xdotool search --pid $PPID); do
-    xprop -f _KDE_NET_WM_BLUR_BEHIND_REGION 32c -set _KDE_NET_WM_BLUR_BEHIND_REGION 0 -id $wid; done
+if (( IS_GENTOO )); then
+  zstyle ':completion::complete:*' use-cache 1
+  zstyle ':completion:*' cache-path "$HOME/.cache/zsh"
 fi
-# }}}
 
-
-#!/usr/bin/env zsh
-# ------------------------- Modules setting -------------------------
-#
-# Fzf - A command-line fuzzy finder
-#
-# ---------------------------------------------------------
-
+zstyle ':fzf-tab:*' switch-group ',' '.'
 zstyle ':fzf-tab:complete:*:*' fzf-flags --height=100% --preview-window=right:wrap
 
-# Gentoo complete cache
-zstyle ':completion::complete:*' use-cache 1
+# Directory preview for cd and zoxide
+if _has lsd; then
+  zstyle ':fzf-tab:complete:cd:*' fzf-preview 'lsd --color=always -1 -- "$realpath"'
+  zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'lsd --color=always -1 -- "$realpath"'
+fi
 
+# systemd unit status preview
+_has systemctl && zstyle ':fzf-tab:complete:systemctl-*:*' fzf-preview 'SYSTEMD_COLORS=1 systemctl status "$word"'
 
-# preview directory's content with exa when completing cd
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza --git -1 --color=always $realpath'
-zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'eza --git -1 --color=always $realpath'
-# disable sort when completing `git checkout`
-zstyle ':completion:*:git-checkout:*' sort false
-# set descriptions format to enable group support
-zstyle ':completion:*:descriptions' format '[%d]'
-# set list-colors to enable filename colorizing
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-
-# show systemd unit status
-zstyle ':fzf-tab:complete:systemctl-*:*' fzf-preview 'SYSTEMD_COLORS=1 systemctl status $word'
-
-# give a preview of commandline arguments when completing `kill`
+# Process preview
 zstyle ':completion:*:*:*:*:processes' command "ps -u $USER -o pid,user,comm -w -w"
 zstyle ':fzf-tab:complete:(kill|ps):argument-rest' fzf-preview \
-    '[[ $group == "[process ID]" ]] && ps --pid=$word -o cmd --no-headers -w -w'
+  '[[ $group == "[process ID]" ]] && ps --pid="$word" -o cmd --no-headers -w -w'
 zstyle ':fzf-tab:complete:(kill|ps):argument-rest' fzf-flags --preview-window=down:3:wrap
 
-# environment variable
+# Environment variable preview
 zstyle ':fzf-tab:complete:(-command-|-parameter-|-brace-parameter-|export|unset|expand):*' \
-    fzf-preview 'echo ${(P)word}'
+  fzf-preview 'echo ${(P)word}'
 
-# git | it is an example. you can change it
-zstyle ':fzf-tab:complete:git-(add|diff|restore):*' fzf-preview \
-    'git diff $word | delta'
-zstyle ':fzf-tab:complete:git-log:*' fzf-preview \
-    'git log --color=always $word'
-zstyle ':fzf-tab:complete:git-help:*' fzf-preview \
-    'git help $word | bat -plman --color=always'
-zstyle ':fzf-tab:complete:git-show:*' fzf-preview \
+# Git previews
+if _has git; then
+  if _has delta; then
+    zstyle ':fzf-tab:complete:git-(add|diff|restore):*' fzf-preview 'git diff "$word" | delta'
+  else
+    zstyle ':fzf-tab:complete:git-(add|diff|restore):*' fzf-preview 'git diff "$word"'
+  fi
+  zstyle ':fzf-tab:complete:git-log:*' fzf-preview 'git log --color=always "$word"'
+
+  if _has bat; then
+    zstyle ':fzf-tab:complete:git-help:*' fzf-preview 'git help "$word" | bat -l man -p --color=always'
+  else
+    zstyle ':fzf-tab:complete:git-help:*' fzf-preview 'git help "$word" | less -R'
+  fi
+
+  zstyle ':fzf-tab:complete:git-show:*' fzf-preview \
     'case "$group" in
-  "commit tag") git show --color=always $word ;;
-  *) git show --color=always $word | delta ;;
-esac'
-zstyle ':fzf-tab:complete:git-checkout:*' fzf-preview \
+       "commit tag") git show --color=always "$word" ;;
+       *) git show --color=always "$word" '"$(_has delta && echo '| delta' || true)"' ;;
+     esac'
+
+  zstyle ':fzf-tab:complete:git-checkout:*' fzf-preview \
     'case "$group" in
-  "modified file") git diff $word | delta ;;
-  "recent commit object name") git show --color=always $word | delta ;;
-  *) git log --color=always $word ;;
-esac'
+       "modified file") git diff "$word" '"$(_has delta && echo '| delta' || true)"' ;;
+       "recent commit object name") git show --color=always "$word" '"$(_has delta && echo '| delta' || true)"' ;;
+       *) git log --color=always "$word" ;;
+     esac'
+fi
 
-# tldr
-zstyle ':fzf-tab:complete:tldr:argument-1' fzf-preview 'tldr --color always $word'
+# tldr preview
+_has tldr && zstyle ':fzf-tab:complete:tldr:argument-1' fzf-preview 'tldr --color always "$word"'
 
-# switch group using `,` and `.`
-zstyle ':fzf-tab:*' switch-group ',' '.'
-
-# commands
+# Command preview
 zstyle ':fzf-tab:complete:-command-:*' fzf-preview \
-    '(out=$(tldr --color always "$word") 2>/dev/null && echo $out) || (out=$(MANWIDTH=$FZF_PREVIEW_COLUMNS man "$word") 2>/dev/null && echo $out) || (out=$(which "$word") && echo $out) || echo "${(P)word}"'
+  '(tldr --color always "$word" 2>/dev/null) || (MANWIDTH=$FZF_PREVIEW_COLUMNS man "$word" 2>/dev/null) || command -v "$word" || echo "${(P)word}"'
 
-# show file content
-zstyle ':fzf-tab:complete:*:*' fzf-preview 'less ${(Q)realpath}'
-export LESSOPEN='|less'
+# File preview
+if _has bat; then
+  zstyle ':fzf-tab:complete:*:*' fzf-preview \
+    'bat --style=plain --color=always --paging=never -- "${(Q)realpath}" 2>/dev/null || less -R -- "${(Q)realpath}" 2>/dev/null || file --brief --mime -- "${(Q)realpath}"'
+else
+  zstyle ':fzf-tab:complete:*:*' fzf-preview \
+    'less -R -- "${(Q)realpath}" 2>/dev/null || file --brief --mime -- "${(Q)realpath}"'
+fi
 
-# enable tmux popup
-zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
-# apply to all command
+# tmux popup support if available
+_has ftb-tmux-popup && zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
 zstyle ':fzf-tab:*' popup-min-size 50 8
-# only apply to 'diff'
 zstyle ':fzf-tab:complete:diff:*' popup-min-size 80 12
 
-
-LOCALLIB="$HOME/.local/lib"
-LOCALSHARE="$HOME/.local/share"
-# ------------------- Environment variable --------------------------
-export EDITOR="nvim"
-
-export PAGER="bat"
-export MANPAGER="bat"
-
-
-# Go language environment
-export GOMODCACHE="$HOME/.cache/go/pkg/mod"
-export GOPATH="$LOCALLIB/go"
-export GOBIN="$LOCALLIB/go/bin"
-export GO111MODULE=on
-export PATH="$(go env GOBIN):$(go env GOPATH)/bin:$PATH"
-
-# Binary files path
+# -----------------
+# Environment and PATH
+# -----------------
 export PATH="$HOME/.local/bin:$PATH"
-
-# Cargo - Rust Package manager
-export PATH="$HOME/.cargo/bin:$PATH"
-
-
-# luarocks -- The lua package manager
+export PATH="$HOME/.local/share/mise/shims:$PATH"
+export npm_config_prefix="$HOME/.local"
 export PATH="$HOME/.luarocks/bin:$PATH"
 
-# Chrome executable path
-export CHROME_EXECUTABLE="/usr/bin/google-chrome-stable"
+export GOMODCACHE="$HOME/.cache/go/pkg/mod"
+export GOPATH="$HOME/.local/lib/go"
+export GOBIN="$HOME/.local/lib/go/bin"
+export GO111MODULE=on
+export PATH="$GOBIN:$GOPATH/bin:$PATH"
 
+# -----------------
+# Aliases
+# -----------------
+_has lsd && alias ls='lsd' && alias ll='lsd -l' && alias la='lsd -a'
 
+# -----------------
+# Third-party init
+# -----------------
+_has zoxide && eval "$(zoxide init zsh --cmd cd)"
+_has atuin && eval "$(atuin init zsh --disable-up-arrow)"
+_has starship && [[ $TERM != linux ]] && eval "$(starship init zsh)"
 
-# --------------------------- Eval ----------------------------------
-# Use zoxide to replace cd command
-eval "$(zoxide init zsh --cmd cd)"
-# Enable starship
-eval "$(starship init zsh)"
-# atuin -- Magic shell history
-eval "$(atuin init zsh --disable-up-arrow)"
-# mise -- dev tools, env vars, task runner
-eval "$(mise activate zsh)"
-
-# Enable Transient Prompt
+# -----------------
+# Transient prompt
+# -----------------
 function zle-line-init {
-    emulate -L zsh
+  emulate -L zsh
+  [[ $CONTEXT == start ]] || return 0
 
-    [[ $CONTEXT == start ]] || return 0
+  while true; do
+    zle .recursive-edit
+    local -i ret=$?
+    [[ $ret == 0 && $KEYS == $'\4' ]] || break
+    [[ -o ignore_eof ]] || exit 0
+  done
 
-    while true; do
-        zle .recursive-edit
-        local -i ret=$?
-        [[ $ret == 0 && $KEYS == $'\4' ]] || break
-        [[ -o ignore_eof ]] || exit 0
-    done
+  local saved_prompt=$PROMPT saved_rprompt=$RPROMPT
+  PROMPT='$fg[green]❯ '
+  RPROMPT=''
+  zle .reset-prompt
+  PROMPT=$saved_prompt
+  RPROMPT=$saved_rprompt
 
-    local saved_prompt=$PROMPT
-    local saved_rprompt=$RPROMPT
-    PROMPT='$fg[green]❯ '
-    RPROMPT=''
-    zle .reset-prompt
-    PROMPT=$saved_prompt
-    RPROMPT=$saved_rprompt
-
-    if ((ret)); then
-        zle .send-break
-    else
-        zle .accept-line
-    fi
-    return ret
+  (( ret )) && zle .send-break || zle .accept-line
+  return ret
 }
+zle -N zle-line-init
 
-zle -N zle-line-init # Enable Transient Prompt
