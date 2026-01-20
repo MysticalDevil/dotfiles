@@ -1,14 +1,14 @@
 [core]
-  pager = omega
-	excludesfile = ~/.gitignore
-	packedGitLimit = 512m
-	packedGitWindowSize = 512m
+    pager = delta
+    excludesfile = ~/.gitignore
+    packedGitLimit = 512m
+    packedGitWindowSize = 512m
 
 [init]
-	defaultBranch = main
+    defaultBranch = main
 
 [safe]
-	directory = /var/db/repos/local
+    directory = /var/db/repos/local
 
 [interactive]
     diffFilter = delta --color-only
@@ -16,26 +16,29 @@
 [delta]
     navigate = true    # use n and N to move between diff sections
     light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+    dark = true
 
 [merge]
-    conflictstyle = diff3
+    conflictstyle = zdiff3
 
 [diff]
-  colorMoved = default
+    colorMoved = default
 
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+
 [color]
-	ui = auto
-[http]
-	postBuffer = 524288000
+    ui = auto
+
 [pack]
-	deltaCacheSize = 2047m
-	packSizeLimit = 2047m
-	windowMemory = 2047m
+    deltaCacheSize = 256m
+    packSizeLimit = 1024m
+    windowMemory = 512m
+
 [user]
-	name = MysticalDevil
-	email = jinpeng7981@outlook.com
+    name = MysticalDevil
+    email = jinpeng7981@outlook.com
+
