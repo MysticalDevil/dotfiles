@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+DP_NAME="DP-1"
+EDP_NAME="eDP-1"
+
+dp_connected() {
+    hyprctl monitors -j | jq -e --arg n "$DP_NAME" '.[] | select(.name == $n)' >/dev/null 2>&1
+}
+
+edp_disabled() {
+    hyprctl monitors -j | jq -e --arg n "$EDP_NAME" '.[] | select(.name == $n and .disabled == true)' >/dev/null 2>&1
+}
+
+ensure_layout() {
+    hyprctl keyword monitor "${EDP_NAME},1920x1080@144,0x0,1" >/dev/null
+    if dp_connected; then
+        hyprctl keyword monitor "${DP_NAME},2560x1440@180,1920x0,1" >/dev/null
+    fi
+}
+
+disable_edp() {
+    hyprctl keyword monitor "${EDP_NAME},disable" >/dev/null
+}
+
+move_all_workspaces_to() {
+    local target="$1"
+    hyprctl workspaces -j | jq -r '.[].id' | while read -r ws; do
+        [[ -n "$ws" ]] && hyprctl dispatch moveworkspacetomonitor "$ws" "$target" >/dev/null
+    done
+    hyprctl dispatch focusmonitor "$target" >/dev/null
+}
+
+main() {
+    if dp_connected; then
+        move_all_workspaces_to "$DP_NAME"
+        disable_edp
+    else
+        ensure_layout
+        move_all_workspaces_to "$EDP_NAME"
+    fi
+}
+
+main

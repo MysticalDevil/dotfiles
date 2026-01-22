@@ -46,6 +46,12 @@ zmodule completion
 # Modules that must be initialized last
 #
 
+zmodule ohmyzsh/ohmyzsh --root plugins/docker-compose
+zmodule ohmyzsh/ohmyzsh --root plugins/sudo
+zmodule ohmyzsh/ohmyzsh --root plugins/extract
+zmodule ohmyzsh/ohmyzsh --root plugins/colored-man-pages
+zmodule ohmyzsh/ohmyzsh --root plugins/command-not-found
+
 # Replace zsh's default completion selection menu with fzf!
 zmodule Aloxaf/fzf-tab
 
@@ -59,5 +65,4 @@ zmodule zsh-users/zsh-history-substring-search
 # performance: ZSH_AUTOSUGGEST_MANUAL_REBIND=1
 zmodule zsh-users/zsh-autosuggestions
 # }}} End configuration added by Zim Framework install
-
 

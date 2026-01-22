@@ -176,7 +176,7 @@ export PATH="$GOBIN:$GOPATH/bin:$PATH"
 # -----------------
 # Aliases
 # -----------------
-_has lsd && alias ls='lsd' && alias ll='lsd -l' && alias la='lsd -a'
+_has lsd && alias ls='lsd' && alias ll='lsd -l' && alias la='lsd -a' && alias tree="lsd --tree"
 
 # -----------------
 # Third-party init
