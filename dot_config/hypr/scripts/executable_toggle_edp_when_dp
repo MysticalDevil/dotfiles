@@ -4,6 +4,25 @@ set -euo pipefail
 DP_NAME="DP-1"
 EDP_NAME="eDP-1"
 
+notify() {
+    local title="$1"
+    local body="$2"
+
+    if command -v notify-send >/dev/null 2>&1; then
+        notify-send -a "hypr" -i "video-display" "$title" "$body" >/dev/null 2>&1 || true
+        return 0
+    fi
+
+    # Fallback: Hyprland built-in notification overlay
+    if command -v hyprctl >/dev/null 2>&1; then
+        # hyprctl notify <icon> <time_ms> <color> <message>
+        # icon: -1 uses default
+        # color is ARGB hex, e.g. 0xffa0a0a0
+        hyprctl notify -1 2000 0xffa0a0a0 "${title}: ${body}" >/dev/null 2>&1 || true
+        return 0
+    fi
+}
+
 dp_connected() {
     hyprctl monitors -j | jq -e --arg n "$DP_NAME" '.[] | select(.name == $n)' >/dev/null 2>&1
 }
@@ -33,11 +52,21 @@ move_all_workspaces_to() {
 
 main() {
     if dp_connected; then
-        move_all_workspaces_to "$DP_NAME"
-        disable_edp
+        if edp_disabled; then
+            # Toggle ON: re-enable eDP-1 and restore layout
+            ensure_layout
+            move_all_workspaces_to "$EDP_NAME"
+            notify "Display toggled" "DP-1 connected. Enabled eDP-1 and moved workspaces to eDP-1."
+        else
+            # Toggle OFF: disable eDP-1 and move workspaces to DP-1
+            move_all_workspaces_to "$DP_NAME"
+            disable_edp
+            notify "Display toggled" "DP-1 connected. Moved workspaces to DP-1 and disabled eDP-1."
+        fi
     else
         ensure_layout
         move_all_workspaces_to "$EDP_NAME"
+        notify "Display toggled" "DP-1 not connected. Restored eDP-1 layout and moved workspaces to eDP-1."
     fi
 }
 
