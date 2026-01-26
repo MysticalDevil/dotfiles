@@ -176,7 +176,64 @@ export PATH="$GOBIN:$GOPATH/bin:$PATH"
 # -----------------
 # Aliases
 # -----------------
-_has lsd && alias ls='lsd' && alias ll='lsd -l' && alias la='lsd -a' && alias tree="lsd --tree"
+alias ls='command ls --color=auto'
+
+function _in_git_repo {
+  command git rev-parse --is-inside-work-tree >/dev/null 2>&1
+}
+
+function l {
+  if _has eza && _has git && _in_git_repo; then
+    command eza -lah --git --group-directories-first --icons=auto "$@"
+  elif _has lsd; then
+    command lsd -lah --group-dirs=first "$@"
+  else
+    command ls -lah --color=auto "$@"
+  fi
+}
+
+function ll {
+  if _has eza && _has git && _in_git_repo; then
+    command eza -lh --git --group-directories-first --icons=auto "$@"
+  elif _has lsd; then
+    command lsd -lh --group-dirs=first "$@"
+  else
+    command ls -lh --color=auto "$@"
+  fi
+}
+
+function lt {
+  if _has eza && _has git && _in_git_repo; then
+    command eza --tree --level=2 --git --group-directories-first --icons=auto "$@"
+  elif _has lsd; then
+    command lsd --tree --depth=2 "$@"
+  else
+    command tree -L 2 "$@"
+  fi
+}
+
+function la {
+  if _has eza && _has git && _in_git_repo; then
+    command eza -lah --git --all --group-directories-first --icons=auto "$@"
+  elif _has lsd; then
+    command lsd -lah -a --group-dirs=first "$@"
+  else
+    command ls -lahA --color=auto "$@"
+  fi
+}
+
+function tree {
+  if _has lsd; then
+    command lsd --tree --depth=2 "$@"
+  elif _has eza; then
+    command eza --tree --level=2 --icons=auto "$@"
+  elif _has tree; then
+    command tree -L 2 "$@"
+  else
+    printf '%s\n' "tree: no lsd/eza/tree found" >&2
+    return 127
+  fi
+}
 
 # -----------------
 # Third-party init
