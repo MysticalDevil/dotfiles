@@ -1,0 +1,31 @@
+# ---------------------------
+# Zsh environment variables
+# ---------------------------
+
+# Set custom local libraries and share directories
+export LOCALLIB="$HOME/.local/lib"
+export LOCALSHARE="$HOME/.local/share"
+
+# Go language environment (XDG compliant paths)
+export XDG_CACHE_HOME="${XDG_CACHE_HOME:-$HOME/.cache}"
+export XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
+export GOPATH="$LOCALLIB/go"
+export GOMODCACHE="$XDG_CACHE_HOME/go/pkg/mod"
+export GOCACHE="$XDG_CACHE_HOME/go-build"
+export GOBIN="$LOCALLIB/go/bin"
+export GO111MODULE=on
+
+# Add Go binaries to the PATH
+export PATH="$GOBIN:$GOPATH/bin:$HOME/.local/bin:$PATH"
+
+# Other binary file paths
+export PATH="$HOME/.local/bin:$PATH"
+
+# NPM -- node package manager
+export npm_config_prefix="$HOME/.local"
+
+# luarocks -- Lua package manager
+export PATH="$HOME/.luarocks/bin:$PATH"
+
+# mise -- Front-end to the dev environment
+export PATH="$HOME/.local/share/mise/shims:$PATH"
