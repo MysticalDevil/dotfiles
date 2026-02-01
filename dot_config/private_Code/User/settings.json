@@ -4,7 +4,7 @@
   "editor.codeActionsOnSave": {
     "source.fixAll": "never",
     "source.fixAll.eslint": "explicit",
-    "source.organizeImports": "never"
+    "source.organizeImports": "never",
   },
   "editor.codeLensFontFamily": "Jetbrains Mono",
   "editor.cursorBlinking": "smooth",
@@ -32,7 +32,7 @@
   "terminal.integrated.smoothScrolling": true,
   // ====================================== Workbench config ======================================
   "workbench.colorCustomizations": {
-    "editor.bracketPairColorization.enabled": true
+    "editor.bracketPairColorization.enabled": true,
   },
   "workbench.colorTheme": "One Dark Pro",
   "workbench.editorAssociations": {},
@@ -46,7 +46,7 @@
   // ======================================== Files config ========================================
   "files.associations": {
     "*.tpl": "html",
-    ".zimrc": "shellscript"
+    ".zimrc": "shellscript",
   },
   "files.autoSave": "afterDelay",
   "files.exclude": {
@@ -69,13 +69,13 @@
     "**/package-lock.json": true,
     "**/pnpm-lock.yaml": true,
     "**/tmp": true,
-    "**/yarn.lock": true
+    "**/yarn.lock": true,
   },
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
   "files.watcherExclude": {
     "**/.bloop": true,
-    "**/.metals": true
+    "**/.metals": true,
   },
   // ========================================= Git config =========================================
   "git.autofetch": true,
@@ -86,7 +86,6 @@
   "explorer.confirmDragAndDrop": false,
   // ======================================== Other config ========================================
   "security.workspace.trust.untrustedFiles": "open",
-  "typescript.experimental.useTsgo": true,
   // ======================================== Inlay Hints =========================================
   "typescript.inlayHints.enumMemberValues.enabled": true,
   "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
@@ -150,19 +149,19 @@
     "javascriptreact",
     "html",
     "xml",
-    "php"
+    "php",
   ],
   "cmake.configureOnOpen": true,
   "errorLens.enabledDiagnosticLevels": ["warning", "error"],
   "eslint.codeAction.showDocumentation": {
-    "enable": true
+    "enable": true,
   },
   "eslint.quiet": true,
   "github.copilot.enable": {
     "*": true,
     "plaintext": true,
     "markdown": false,
-    "scminput": false
+    "scminput": false,
   },
   "go.toolsManagement.autoUpdate": true,
   "open-in-browser.default": "chrome",
@@ -173,24 +172,24 @@
     "tauri-apps.tauri-vscode",
     "xadillax.viml",
     "budparr.language-hugo-vscode",
-    "xlthu.pangu-markdown"
+    "xlthu.pangu-markdown",
   ],
   "svg.preview.mode": "img",
   "extensions.experimental.affinity": {
-    "asvetliakov.vscode-neovim": 1
+    "asvetliakov.vscode-neovim": 1,
   },
   "cmake.options.statusBarVisibility": "compact",
   "zig.path": "",
   "zig.zls.path": "/home/theta/.config/Code/User/globalStorage/ziglang.vscode-zig/zls_install/zls",
   // ===================================== Languages setting ======================================
   "[c]": {
-    "editor.defaultFormatter": "xaver.clang-format"
+    "editor.defaultFormatter": "xaver.clang-format",
   },
   "[cpp]": {
-    "editor.defaultFormatter": "xaver.clang-format"
+    "editor.defaultFormatter": "xaver.clang-format",
   },
   "[css]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "[dart]": {
     "editor.formatOnSave": true,
@@ -201,42 +200,43 @@
     "editor.suggestSelection": "first",
     "editor.tabCompletion": "onlySnippets",
     "editor.wordBasedSuggestions": "off",
-    "editor.inlayHints.enabled": "on"
+    "editor.inlayHints.enabled": "on",
   },
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
   },
   "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "[lua]": {
-    "editor.defaultFormatter": "JohnnyMorganz.stylua"
+    "editor.defaultFormatter": "JohnnyMorganz.stylua",
   },
   "[markdown]": {
-    "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+    "editor.defaultFormatter": "yzhang.markdown-all-in-one",
   },
   "[python]": {
     "editor.formatOnType": true,
-    "editor.defaultFormatter": "charliermarsh.ruff"
+    "editor.defaultFormatter": "charliermarsh.ruff",
   },
   "[proto3]": {
-    "editor.defaultFormatter": "xaver.clang-format"
+    "editor.defaultFormatter": "xaver.clang-format",
   },
   "[rust]": {
-    "editor.semanticHighlighting.enabled": false
+    "editor.semanticHighlighting.enabled": false,
   },
   "[typescript]": {
     "editor.defaultFormatter": "vscode.typescript-language-features",
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
   },
   "[vue]": {
     "editor.tabSize": 2,
-    "editor.defaultFormatter": "Vue.volar"
+    "editor.defaultFormatter": "Vue.volar",
   },
   "maui.configuration.androidSdkPreferredPath": "/usr/local/Caskroom/android-sdk/4333796/tools/bin",
-  "zig.zls.enabled": "on"
+  "zig.zls.enabled": "on",
+  "svelte.enable-ts-plugin": true,
 }

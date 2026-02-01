@@ -29,3 +29,4 @@ export PATH="$HOME/.luarocks/bin:$PATH"
 
 # mise -- Front-end to the dev environment
 export PATH="$HOME/.local/share/mise/shims:$PATH"
+. "$HOME/.cargo/env"
