@@ -311,7 +311,7 @@ label:focus {
 }
 
 #privacy {
-  color: #fce80c
+  color: #fce80c;
 }
 
 /*
@@ -413,7 +413,7 @@ label:focus {
   padding: 0;
 }
 
-#workspaces button.persistend {
+#workspaces button.persistent {
   color: #fff;
 }
 
@@ -430,7 +430,7 @@ label:focus {
   color: #fff;
 }
 
-#workspaces button.hover {
+#workspaces button:hover {
   background-color: transparent;
 }
 

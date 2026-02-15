@@ -345,7 +345,7 @@ label:focus {
   padding: 0;
 }
 
-#workspaces button.persistend {
+#workspaces button.persistent {
   color: @white;
 }
 
@@ -362,7 +362,7 @@ label:focus {
   color: @white;
 }
 
-#workspaces button.hover {
+#workspaces button:hover {
   box-shadow: 0 -3px @text_visible;
   background-color: rgba(255, 255, 255, 0.1);
 }

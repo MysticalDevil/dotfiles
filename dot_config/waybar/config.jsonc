@@ -10,12 +10,9 @@
     "memory",
     "battery",
     "idle_inhibitor",
-    "sway/mode",
-    "sway/workspaces"
+    "wlr/workspaces"
   ],
-  "modules-center": [
-    "sway/window"
-  ],
+  "modules-center": [],
   "modules-right": [
     "network",
     "pulseaudio",
@@ -299,7 +296,7 @@
   "taskbar": {
     "format": "{icon}",
     "icon-size": 14,
-    "icon-theme": "Paprius-Dark",
+    "icon-theme": "Papirus-Dark",
     "tooltip-format": "{title}",
     "on-click": "activate",
     "on-click-middle": "close",
@@ -439,55 +436,6 @@
     "on-scroll": "",
     "smooth-scrolling-threshold": 0.0,
     "tooltip": true
-  },
-  "sway/mode": {
-    "format": "󱇯 {}",
-    "max-length": 10
-  },
-  "sway/window": {
-    "format": "{title} [{app_id}]",
-    "separate-outputs": true,
-    "rewrite": {
-      "^(.*) \\[(Alacritty|foot|kitty|.*wezterm.*)\\]": "  $1",
-      "^(.*) \\[(.*Nautilus.*)\\]": "  $1",
-      "^(.*) - Mozilla Firefox \\[firefox\\]$": "  $1",
-      "^(.*) - Mozilla Thunderbird \\[thunderbird\\]": "󰺻  $1",
-      "^(.*) - Google Chrome \\[google-chrome\\]$": "  $1",
-      "^(.*) - Visual Studio Code \\[Code\\]$": "󰨞  $1",
-      "^(.*) - Visual Studio Code \\[code.*\\]$": "󰨞  $1",
-      "(.*neovide.*)": "  Neovide",
-      "^(.*) \\[nvim-qt\\]$": "  $1",
-      "^(.*) - Discord \\[discord\\]$": "󰙯  $1",
-      "^(.*) \\[(.*telegram.*)\\]": "  $1",
-      "^(.*) \\[(.*Spotify.*)\\]$": "  $1",
-      "^(.*) \\[jetbrains-studio\\]": "󰀲 $1",
-      "^(.*) VLC media player \\[vlc\\]$": "󰕼  $1",
-      "VLC media player \\[vlc\\]$": "󰕼  $1",
-      "^(.*) \\[.*\\]": "$1"
-    },
-    "max-length": 50
-  },
-  "sway/workspaces": {
-    "format": "{icon}",
-    "on-click": "activate",
-    "format-icons": {
-      "1": "",
-      "2": "",
-      "3": "",
-      "4": "",
-      "5": "",
-      "urgent": "",
-      "focused": "",
-      "default": "",
-      "high-priority-named": [
-        "1",
-        "2"
-      ]
-    }
-  },
-  "sway/language": {
-    "format": "{short} {variant}",
-    "on-click": "swaymsg input type:keyboard xkb_switch_layout next"
   },
   "custom/launcher": {
     "format": " {}",

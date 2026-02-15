@@ -90,9 +90,46 @@ def format_chances(hour):
     return ", ".join(conditions)
 
 
+def parse_ampm_time(value):
+    return datetime.strptime(value, "%I:%M %p").time()
+
+
+def classify_weather(code, is_day):
+    severe_codes = {"200", "386", "389", "392"}
+    cloudy_foggy_codes = {"116", "119", "122", "143", "248", "260"}
+    rainy_codes = {
+        "176", "179", "182", "185", "263", "266", "281", "284", "293", "296",
+        "299", "302", "305", "308", "311", "314", "317", "350", "353", "356",
+        "359", "362", "365", "374", "377",
+    }
+    snowy_icy_codes = {
+        "227", "230", "320", "323", "326", "329", "332", "335", "338", "368",
+        "371", "395",
+    }
+
+    if code in severe_codes:
+        return "severe"
+    if code == "113":
+        return "sunnyDay" if is_day else "clearNight"
+    if code in cloudy_foggy_codes:
+        return "cloudyFoggyDay" if is_day else "cloudyFoggyNight"
+    if code in rainy_codes:
+        return "rainyDay" if is_day else "rainyNight"
+    if code in snowy_icy_codes:
+        return "showyIcyDay" if is_day else "snowyIcyNight"
+    return "default"
+
+
+sunrise = parse_ampm_time(weather["weather"][0]["astronomy"][0]["sunrise"])
+sunset = parse_ampm_time(weather["weather"][0]["astronomy"][0]["sunset"])
+current_time = datetime.now().time()
+is_day = sunrise <= current_time <= sunset
+current_code = weather["current_condition"][0]["weatherCode"]
+
 data["text"] = (
     f"{WEATHER_CODES[weather['current_condition'][0]['weatherCode']]} {weather['current_condition'][0]['FeelsLikeC']}°"
 )
+data["class"] = classify_weather(current_code, is_day)
 
 data["tooltip"] = (
     f"<b>{weather['current_condition'][0]['weatherDesc'][0]['value']} {weather['current_condition'][0]['temp_C']}°</b>\n"
