@@ -159,6 +159,14 @@ _has ftb-tmux-popup && zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
 zstyle ':fzf-tab:*' popup-min-size 50 8
 zstyle ':fzf-tab:complete:diff:*' popup-min-size 80 12
 
+
+# -----------------
+# Environments
+# -----------------
+if _has coursier; then
+  export PATH="$PATH:$HOME/.local/share/coursier/bin"
+fi
+
 # -----------------
 # Aliases
 # -----------------

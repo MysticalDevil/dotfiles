@@ -29,4 +29,6 @@ export PATH="$HOME/.luarocks/bin:$PATH"
 
 # mise -- Front-end to the dev environment
 export PATH="$HOME/.local/share/mise/shims:$PATH"
+
+# cargo -- rust package manager
 . "$HOME/.cargo/env"
