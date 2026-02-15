@@ -1,0 +1,8 @@
+# Never apply repository-only ignore rules to target machine.
+.gitignore
+dot_config/mpd/.gitignore
+
+# Ignore common generated files in source state.
+**/__pycache__/
+*.pyc
+*.pyo

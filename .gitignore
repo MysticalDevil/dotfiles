@@ -1,0 +1,14 @@
+# Files
+*.gz
+*.tmproj
+*.7z
+
+# Folders
+.vscode/
+build/
+node_modules/
+
+# Python cache
+**/__pycache__/
+*.pyc
+*.pyo
