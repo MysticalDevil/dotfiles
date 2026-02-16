@@ -25,9 +25,11 @@ function notify_brightness {
     fi
 }
 
-
-brightness=$(brightnessctl g )
-full_brightness=255
+brightness=$(brightnessctl g)
+full_brightness=$(brightnessctl m)
+if [[ "$full_brightness" -le 0 ]]; then
+    full_brightness=1
+fi
 brightness_percentage=$(( (brightness * 100) / full_brightness ))
 killall dunst
 

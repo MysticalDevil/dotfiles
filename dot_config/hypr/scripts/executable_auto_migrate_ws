@@ -22,7 +22,7 @@ read_lid() {
 }
 
 dp_connected() {
-    hyprctl monitors -j | jq -e --arg n "$DP_NAME" '.[] | select(.name = $n)' >/dev/null 2>&1
+    hyprctl monitors -j | jq -e --arg n "$DP_NAME" '.[] | select(.name == $n)' >/dev/null 2>&1
 }
 
 ensure_edp_enabled_layout() {
