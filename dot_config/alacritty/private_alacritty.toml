@@ -45,5 +45,5 @@ import = [
   # "~/.config/alacritty/catppuccin-latte.toml"
   # "~/.config/alacritty/catppuccin-frappe.toml"
   # "~/.config/alacritty/catppuccin-macchiato.toml"
-  "~/.config/alacritty/themes/themes/one_dark.toml"
+  "~/.config/alacritty/themes/themes/tokyo_night.toml",
 ]

@@ -28,18 +28,18 @@ max-icon-size=48
 
 
 ############################
-# OneDark colors
+# TokyoNight colors
 ############################
 
-background-color=#282C34
-text-color=#ABB2BF
+background-color=#1A1B26
+text-color=#C0CAF5
 
 border-size=2
-border-color=#61AFEF
+border-color=#7AA2F7
 border-radius=15
 
 # Progress indicator color
-progress-color=over #61AFEF
+progress-color=over #7AA2F7
 
 
 ############################
@@ -66,4 +66,3 @@ invisible=1
 
 [mode=locked]
 layer=top
-
