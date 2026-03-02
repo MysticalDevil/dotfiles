@@ -42,3 +42,5 @@
     name = MysticalDevil
     email = jinpeng7981@outlook.com
 
+[push]
+	autoSetupRemote = true
