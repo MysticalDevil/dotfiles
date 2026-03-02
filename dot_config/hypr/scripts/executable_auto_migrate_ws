@@ -4,23 +4,6 @@ set -euo pipefail
 DP_NAME="DP-1"
 EDP_NAME="eDP-1"
 
-lid_state_file() {
-    local f
-    for f in /proc/acpi/button/lid/*/state; do
-        [[ -r "$f" ]] && { echo "$f"; return 0; }
-    done
-    return 1
-}
-
-read_lid() {
-    local f
-    if f="$(lid_state_file)"; then
-        awk '{print $2}' "$f" 2>/dev/null || echo "unknown"
-    else
-        echo "unknown"
-    fi
-}
-
 dp_connected() {
     hyprctl monitors -j | jq -e --arg n "$DP_NAME" '.[] | select(.name == $n)' >/dev/null 2>&1
 }
@@ -28,7 +11,7 @@ dp_connected() {
 ensure_edp_enabled_layout() {
     hyprctl keyword monitor "${EDP_NAME},1920x1080@144,0x0,1" >/dev/null
     if dp_connected; then
-        hyprctl keyword monitor "${DP_NAME},2560x1440@180,1920x0,1" >/dev/null
+        hyprctl keyword monitor "${DP_NAME},2560x1440@180,1920x0,auto" >/dev/null
     fi
 }
 
@@ -48,30 +31,22 @@ move_all_workspaces_to() {
 
 main_loop() {
     local last_dp="unknown"
-    local last_lid="unknown"
 
     while true; do
-        local lid
-        lid="$(read_lid)"
-
         local dp="no"
         if dp_connected; then dp="yes"; fi
 
-        if [[ "$dp" != "$last_dp" || "$lid" != "$last_lid" ]]; then
-            if [[ "$dp" == "yes" && "$lid" == "closed" ]]; then
+        if [[ "$dp" != "$last_dp" ]]; then
+            if [[ "$dp" == "yes" ]]; then
                 move_all_workspaces_to "$DP_NAME"
                 disable_edp
 
-            elif [[ "$dp" == "no" ]]; then
+            else
                 ensure_edp_enabled_layout
                 move_all_workspaces_to "$EDP_NAME"
-
-            elif [[ "$dp" == "yes" && "$lid" == "open" ]]; then
-                ensure_edp_enabled_layout
             fi
 
             last_dp="$dp"
-            last_lid="$lid"
         fi
 
         sleep 1

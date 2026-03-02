@@ -34,7 +34,7 @@ edp_disabled() {
 ensure_layout() {
     hyprctl keyword monitor "${EDP_NAME},1920x1080@144,0x0,1" >/dev/null
     if dp_connected; then
-        hyprctl keyword monitor "${DP_NAME},2560x1440@180,1920x0,1" >/dev/null
+        hyprctl keyword monitor "${DP_NAME},2560x1440@180,1920x0,auto" >/dev/null
     fi
 }
 
