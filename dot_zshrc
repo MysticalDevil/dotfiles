@@ -167,6 +167,13 @@ if _has coursier; then
   export PATH="$PATH:$HOME/.local/share/coursier/bin"
 fi
 
+if [[ -f /opt/emsdk/emsdk_env.sh ]]; then
+  # already loaded?
+  if [[ -z "${EMSDK:-}" && ":$PATH:" != *":/opt/emsdk/upstream/emscripten:"* ]]; then
+    EMSDK_QUIET=1 source /opt/emsdk/emsdk_env.sh >/dev/null 2>&1
+  fi
+fi
+
 # -----------------
 # Aliases
 # -----------------
