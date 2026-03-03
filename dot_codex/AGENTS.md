@@ -34,7 +34,7 @@
 ## Validation Before Finish
 - After code changes, run at least the smallest relevant verification command (build/test/lint subset).
 - If verification cannot run, explicitly report what was not verified and why.
-- Markdown changes should comply with `markdownlint` rules whenever feasible.
+- Markdown changes should comply with the DavidAnson Markdown rule set whenever feasible.
 - Shell scripts should comply with `shellcheck` guidance whenever feasible.
 
 ## Preflight Checks
@@ -95,4 +95,4 @@
 ## Minimal Acceptance Matrix
 - C/C++ changes: run `clang-format` on touched files, run `clang-tidy` on touched files, build affected targets, then run the smallest relevant test subset.
 - Script changes: run `shellcheck` when available and execute at least one smoke command.
-- Markdown changes: run `markdownlint` on touched files when available.
+- Markdown changes: keep touched files aligned with the DavidAnson Markdown rule set whenever feasible.
