@@ -1,14 +1,12 @@
 # Global Agent Rules
 
-## Instruction Precedence
+## Instruction Hierarchy
 - Apply instructions in this order unless the user explicitly overrides for the current task: global rules, repository rules, then temporary task-specific instructions.
 - If two instructions conflict, follow the higher-precedence source and state the conflict briefly.
-
-## Exception Clause
 - Unless the user explicitly requests otherwise, follow these defaults.
 - Tooling required by existing project dependencies is allowed even when a language/runtime is discouraged for new script authoring.
 
-## Priority Rules
+## Tooling Priorities
 - Prefer `bat` for file viewing.
 - Use `cat` only as a read-only fallback.
 - Do not use `cat` redirection to create, write, or overwrite files.
@@ -23,7 +21,7 @@
 - When supported, run a `--dry-run` first before destructive or bulk operations.
 - Do not modify unrelated files unless explicitly requested.
 
-## Edit Method
+## Editing Rules
 - Prefer `apply_patch` for single-file edits.
 - Do not write files using shell redirection (`>`, `>>`), heredoc, or `tee`; use patch-based edits/tools.
 - Keep edits minimal, scoped, and reversible.
@@ -36,12 +34,14 @@
 ## Validation Before Finish
 - After code changes, run at least the smallest relevant verification command (build/test/lint subset).
 - If verification cannot run, explicitly report what was not verified and why.
+- Markdown changes should comply with `markdownlint` rules whenever feasible.
+- Shell scripts should comply with `shellcheck` guidance whenever feasible.
 
 ## Preflight Checks
 - For C/C++ tasks, check local toolchain availability first: `clang --version`, `clang-format --version`, and `clang-tidy --version`.
 - For Zig tasks, check local Zig version and CLI usage first: `zig version` and `zig help`.
 
-## Large Script Policy
+## Script Guidelines
 - For scripts over roughly 80 lines, prefer storing them in a `scripts/` path instead of inline shell.
 - Add brief usage notes at the top of long scripts (purpose, inputs, and expected output).
 
@@ -50,7 +50,7 @@
 - After writing Zig code, compile it locally and resolve all errors before finalizing.
 - If compile/runtime errors occur, consult local Zig source code and local Zig documentation first, then revise code accordingly.
 
-## Language And Build Defaults
+## C/C++ and CMake Defaults
 - Unless platform constraints require otherwise, use `C23` for C code.
 - Unless platform constraints require otherwise, use `C++23` for C++ code.
 - Prefer the `clang` toolchain for C/C++ by default.
@@ -65,6 +65,20 @@
 - Prefer preset-driven commands when presets exist: `cmake --preset <cfg>`, `cmake --build --preset <build>`, `ctest --preset <test>`, `cpack --preset <pkg>`, and `cmake --workflow --preset <wf>`.
 - Use `inherits`, `include`, and hidden base presets to avoid duplicated preset definitions.
 - Use ad-hoc command-line `-D` and generator arguments only for temporary debugging or one-off local experiments.
+
+## Language Version Baselines
+- Rust: use the latest unstable toolchain by default.
+- Go: require `1.26+`.
+- Swift: require `6.x`.
+- Zig: use the latest stable release available locally; verify with `zig version`.
+- Node.js: use the latest LTS release.
+- Python: require `3.13+`.
+
+## Language Tooling Defaults
+- Go: use `gofumpt` as the default formatter.
+- Python: default to Astral tooling (`ruff`, `uv`, and `ty`) when applicable.
+- Node.js: prefer `pnpm` as the default package manager.
+- Time-sensitive baselines such as `latest unstable`, `latest LTS`, and `latest stable` must be verified at execution time.
 
 ## Language Policy
 - Keep C and C++ boundaries clear: use C APIs in C code and RAII/STL patterns in C++ code.
@@ -81,3 +95,4 @@
 ## Minimal Acceptance Matrix
 - C/C++ changes: run `clang-format` on touched files, run `clang-tidy` on touched files, build affected targets, then run the smallest relevant test subset.
 - Script changes: run `shellcheck` when available and execute at least one smoke command.
+- Markdown changes: run `markdownlint` on touched files when available.
