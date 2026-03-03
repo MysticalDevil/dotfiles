@@ -36,10 +36,11 @@
 - If verification cannot run, explicitly report what was not verified and why.
 - Markdown changes should comply with the DavidAnson Markdown rule set whenever feasible.
 - Shell scripts should comply with `shellcheck` guidance whenever feasible.
+- When a recommended check is skipped, explicitly report the reason and run the closest available fallback.
 
 ## Preflight Checks
 - For C/C++ tasks, check local toolchain availability first: `clang --version`, `clang-format --version`, and `clang-tidy --version`.
-- For Zig tasks, check local Zig version and CLI usage first: `zig version` and `zig help`.
+- For Zig tasks, follow the preflight checks defined in `Zig Workflow`.
 
 ## Script Guidelines
 - For scripts over roughly 80 lines, prefer storing them in a `scripts/` path instead of inline shell.
@@ -68,6 +69,7 @@
 
 ## Language Version Baselines
 - Rust: use the latest unstable toolchain by default.
+- Rust: when a repository includes `rust-toolchain.toml`, it is the source of truth and must be followed.
 - Go: require `1.26+`.
 - Swift: require `6.x`.
 - Zig: use the latest stable release available locally; verify with `zig version`.
@@ -79,6 +81,21 @@
 - Python: default to Astral tooling (`ruff`, `uv`, and `ty`) when applicable.
 - Node.js: prefer `pnpm` as the default package manager.
 - Time-sensitive baselines such as `latest unstable`, `latest LTS`, and `latest stable` must be verified at execution time.
+
+## Build Tool Defaults
+- C/C++: use `CMake` with the `Ninja` generator by default, and prefer preset-driven workflows.
+- Rust: use `cargo` as the default build/test/lint entrypoint.
+- Go: use native `go` commands as the default build/test entrypoint.
+- Python: use `uv` as the default environment and command runner.
+- Node.js: use `pnpm` with `corepack` for package manager version pinning.
+- Swift: use Swift Package Manager (`swift build`, `swift test`) by default.
+- Zig: use `zig build` as the default build entrypoint.
+
+## Unified Task Naming
+- Use consistent task names across languages where possible: `fmt`, `lint`, `typecheck`, `build`, `test`, and `check`.
+- `check` should represent the smallest full quality gate for a change (format, lint, type checks when applicable, build, and the smallest relevant test subset).
+- For projects with task runners, prefer exposing these names directly (for example in `justfile`, `Taskfile.yml`, `Makefile`, or package scripts).
+- Preferred task entrypoint order: `just`, then `task`, then `make`, then language-native commands.
 
 ## Language Policy
 - Keep C and C++ boundaries clear: use C APIs in C code and RAII/STL patterns in C++ code.
@@ -94,5 +111,11 @@
 
 ## Minimal Acceptance Matrix
 - C/C++ changes: run `clang-format` on touched files, run `clang-tidy` on touched files, build affected targets, then run the smallest relevant test subset.
+- Rust changes: run `cargo fmt`, `cargo clippy`, build affected targets, then run the smallest relevant test subset.
+- Go changes: run `gofumpt` on touched files, build affected packages, then run the smallest relevant test subset.
+- Python changes: run `ruff` checks, run `ty` when configured, and run the smallest relevant test subset.
+- Node.js changes: run the smallest relevant `pnpm` lint/typecheck/test subset, then build affected packages when applicable.
+- Swift changes: run `swift build` and the smallest relevant `swift test` subset.
+- Zig changes: run `zig fmt` on touched files when applicable, then run the smallest relevant `zig build` or `zig build test` target.
 - Script changes: run `shellcheck` when available and execute at least one smoke command.
 - Markdown changes: keep touched files aligned with the DavidAnson Markdown rule set whenever feasible.
