@@ -75,11 +75,15 @@
 - Zig: use the latest stable release available locally; verify with `zig version`.
 - Node.js: use the latest LTS release.
 - Python: require `3.13+`.
+- PHP: require `8.x`.
+- C#: follow the repository `TargetFramework`; for new projects, use the latest stable .NET release.
 
 ## Language Tooling Defaults
 - Go: use `gofumpt` as the default formatter.
 - Python: default to Astral tooling (`ruff`, `uv`, and `ty`) when applicable.
 - Node.js: prefer `pnpm` as the default package manager.
+- Lua: use `selene` as the default linter.
+- PHP: use the Mago toolchain by default (`mago fmt`, `mago lint`, and `mago analyze`).
 - Time-sensitive baselines such as `latest unstable`, `latest LTS`, and `latest stable` must be verified at execution time.
 
 ## Build Tool Defaults
@@ -90,6 +94,7 @@
 - Node.js: use `pnpm` with `corepack` for package manager version pinning.
 - Swift: use Swift Package Manager (`swift build`, `swift test`) by default.
 - Zig: use `zig build` as the default build entrypoint.
+- C#: use `dotnet` CLI as the default build/test/format entrypoint.
 
 ## Unified Task Naming
 - Use consistent task names across languages where possible: `fmt`, `lint`, `typecheck`, `build`, `test`, and `check`.
@@ -117,5 +122,8 @@
 - Node.js changes: run the smallest relevant `pnpm` lint/typecheck/test subset, then build affected packages when applicable.
 - Swift changes: run `swift build` and the smallest relevant `swift test` subset.
 - Zig changes: run `zig fmt` on touched files when applicable, then run the smallest relevant `zig build` or `zig build test` target.
+- Lua changes: run `selene` and the smallest relevant test or smoke subset.
+- PHP changes: run `mago fmt --check`, `mago lint`, `mago analyze`, then run the smallest relevant test subset.
+- C# changes: run `dotnet format --verify-no-changes`, build affected projects, then run the smallest relevant `dotnet test` subset.
 - Script changes: run `shellcheck` when available and execute at least one smoke command.
 - Markdown changes: keep touched files aligned with the DavidAnson Markdown rule set whenever feasible.
