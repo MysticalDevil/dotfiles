@@ -48,6 +48,8 @@
 
 ## Zig Workflow
 - When asked to write Zig code, first confirm the installed Zig version and current CLI usage via local `zig` commands.
+- Do not use removed or deprecated Zig APIs.
+- Do not rely on memory when writing Zig code; verify APIs against the local installed Zig version and local docs/source first.
 - After writing Zig code, compile it locally and resolve all errors before finalizing.
 - If compile/runtime errors occur, consult local Zig source code and local Zig documentation first, then revise code accordingly.
 
@@ -95,6 +97,16 @@
 - Swift: use Swift Package Manager (`swift build`, `swift test`) by default.
 - Zig: use `zig build` as the default build entrypoint.
 - C#: use `dotnet` CLI as the default build/test/format entrypoint.
+
+## Cross Compilation Policy
+- Prefer project-provided cross-compilation workflows first (for example documented scripts, presets, CI workflows, or toolchain files). If available, use them directly.
+- If no project-provided workflow exists, and the project includes a `build.zig` with target support, prefer Zig-based cross compilation.
+- If Zig-based cross compilation is not available, use the host-native cross toolchain approach:
+  - On Gentoo, prefer `crossdev`.
+  - On other systems, prefer the platform-native cross toolchains and package workflow.
+- If none of the above are available, use traditional manual cross compilation with explicit toolchain configuration.
+- Before cross-compiling, define and document the target triple, architecture, ABI, libc/runtime, and minimum OS/runtime version.
+- After cross-compiling, verify artifacts with binary inspection tools (for example `file`, `readelf`) and run the smallest feasible smoke test (use emulation such as `qemu` when needed).
 
 ## Unified Task Naming
 - Use consistent task names across languages where possible: `fmt`, `lint`, `typecheck`, `build`, `test`, and `check`.
