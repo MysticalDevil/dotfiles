@@ -16,6 +16,14 @@
 - Do not use Node.js to write or execute long scripts.
 - Prefer shell and Python for writing and executing long scripts.
 
+## Browser Automation
+- Use `agent-browser` for web automation. Run `agent-browser --help` for all commands.
+- Core workflow:
+  - `agent-browser open <url>` to navigate to a page.
+  - `agent-browser snapshot -i` to get interactive elements with refs (for example `@e1`, `@e2`).
+  - Use refs for interactions, such as `agent-browser click @e1` and `agent-browser fill @e2 "text"`.
+  - Re-run snapshot after page changes before continuing interactions.
+
 ## Execution Safety
 - Ask for confirmation before destructive operations such as `rm -rf`, `git reset --hard`, or `git checkout --`.
 - When supported, run a `--dry-run` first before destructive or bulk operations.
