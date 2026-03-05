@@ -91,6 +91,7 @@
 ## Language Tooling Defaults
 - Go: use `gofumpt` as the default formatter.
 - Python: default to Astral tooling (`ruff`, `uv`, and `ty`) when applicable.
+- Python package management: do not use `pip` directly; use `uv` by default, with `poetry` as the first fallback and traditional `venv` workflows as the second fallback.
 - Node.js: prefer `pnpm` as the default package manager.
 - Lua: use `selene` as the default linter.
 - PHP: use the Mago toolchain by default (`mago fmt`, `mago lint`, and `mago analyze`).
