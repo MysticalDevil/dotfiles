@@ -7,8 +7,11 @@
 - Tooling required by existing project dependencies is allowed even when a language/runtime is discouraged for new script authoring.
 
 ## Tooling Priorities
-- Prefer `bat` for file viewing.
-- Use `cat` only as a read-only fallback.
+- Prefer built-in tools for file reads and writes whenever available.
+- For file edits, prefer built-in edit tools (especially `apply_patch`) over shell-based edits.
+- For file reads, prefer built-in resource/read tools when available; otherwise use minimal shell read commands.
+- Avoid using `bat`/`cat` when a built-in tool can do the same job.
+- Use `bat`/`cat` only as read-only fallbacks when built-in tools are unavailable.
 - Do not use `cat` redirection to create, write, or overwrite files.
 - Prefer `ast-grep` (`sg`) for structural code search.
 - Prefer `rg` for text search and `rg --files` for file listing.
