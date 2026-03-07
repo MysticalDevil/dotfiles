@@ -1,0 +1,91 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+DP_NAME="DP-1"
+EDP_NAME="eDP-1"
+
+dp_connected() {
+    niri msg outputs 2>/dev/null | grep -Fq "$DP_NAME"
+}
+
+niri_try() {
+    niri msg "$@" >/dev/null 2>&1 || true
+}
+
+ensure_edp_enabled_layout() {
+    niri_try output "$EDP_NAME" on
+    niri_try output "$EDP_NAME" mode "1920x1080@144"
+    niri_try output "$EDP_NAME" position 0 0
+    if dp_connected; then
+        niri_try output "$DP_NAME" on
+        niri_try output "$DP_NAME" mode "2560x1440@180"
+        niri_try output "$DP_NAME" position 1920 0
+    fi
+}
+
+disable_edp() {
+    niri_try output "$EDP_NAME" off
+}
+
+workspace_refs() {
+    niri msg workspaces 2>/dev/null \
+        | awk '
+            {
+                while (match($0, /[0-9]+/)) {
+                    n = substr($0, RSTART, RLENGTH)
+                    if (n >= 1 && n <= 100) seen[n] = 1
+                    $0 = substr($0, RSTART + RLENGTH)
+                }
+            }
+            END {
+                for (k in seen) print k
+            }
+        ' \
+        | sort -n
+}
+
+move_all_workspaces_to() {
+    local target="$1"
+    local moved=false
+
+    while read -r ws; do
+        [[ -z "$ws" ]] && continue
+        niri_try action move-workspace-to-monitor "$target" --reference "$ws"
+        moved=true
+    done < <(workspace_refs)
+
+    if [[ "$moved" == false ]]; then
+        local ws
+        for ws in {1..10}; do
+            niri_try action move-workspace-to-monitor "$target" --reference "$ws"
+        done
+    fi
+
+    niri_try action focus-monitor "$target"
+}
+
+main_loop() {
+    local last_dp="unknown"
+
+    while true; do
+        local dp="no"
+        if dp_connected; then dp="yes"; fi
+
+        if [[ "$dp" != "$last_dp" ]]; then
+            if [[ "$dp" == "yes" ]]; then
+                move_all_workspaces_to "$DP_NAME"
+                disable_edp
+
+            else
+                ensure_edp_enabled_layout
+                move_all_workspaces_to "$EDP_NAME"
+            fi
+
+            last_dp="$dp"
+        fi
+
+        sleep 1
+    done
+}
+
+main_loop

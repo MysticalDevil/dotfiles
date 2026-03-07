@@ -163,6 +163,8 @@ zstyle ':fzf-tab:complete:diff:*' popup-min-size 80 12
 # -----------------
 # Environments
 # -----------------
+export GOEXPERIMENT=jsonv2
+
 if _has coursier; then
   export PATH="$PATH:$HOME/.local/share/coursier/bin"
 fi
