@@ -236,6 +236,10 @@ if _has starship && [[ "$TERM" != linux ]]; then
   eval "$(starship init zsh)"
 fi
 
+if _has mise; then
+  eval "$(mise activate zsh)"
+fi
+
 # -----------------
 # Transient prompt
 # -----------------
