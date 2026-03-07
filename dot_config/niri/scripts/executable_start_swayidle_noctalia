@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+if ! command -v swayidle >/dev/null 2>&1; then
+    exit 0
+fi
+
+LOCK_CMD='qs -c noctalia-shell ipc call lockScreen lock || loginctl lock-session'
+
+exec swayidle -w \
+    timeout 300 'brightnessctl -s set 20' \
+        resume 'brightnessctl -r' \
+    timeout 360 'brightnessctl -sd rgb:kbd_backlight set 0 || true' \
+        resume 'brightnessctl -rd rgb:kbd_backlight || true' \
+    timeout 900 "$LOCK_CMD" \
+    timeout 1020 'niri msg action power-off-monitors' \
+        resume 'niri msg action power-on-monitors' \
+    timeout 1800 'systemctl suspend' \
+    before-sleep "$LOCK_CMD"

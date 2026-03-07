@@ -272,6 +272,7 @@ spawn-at-startup "qs" "-c" "noctalia-shell"
 spawn-at-startup "fcitx5" "--replace" "-d"
 spawn-sh-at-startup "pgrep -af 'wl-paste --type text --watch cliphist store' >/dev/null || wl-paste --type text --watch cliphist store"
 spawn-sh-at-startup "pgrep -af 'wl-paste --type image --watch cliphist store' >/dev/null || wl-paste --type image --watch cliphist store"
+spawn-sh-at-startup "pgrep -x swayidle >/dev/null || ~/.config/niri/scripts/start_swayidle_noctalia"
 spawn-sh-at-startup "~/.config/niri/scripts/auto_migrate_ws"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
@@ -651,6 +652,7 @@ binds {
     Print { screenshot; }
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
+    Mod+Shift+S { spawn-sh "grim -g \"$(slurp)\" - | wl-copy"; }
 
     // Applications such as remote-desktop clients and software KVM switches may
     // request that niri stops processing the keyboard shortcuts defined here
