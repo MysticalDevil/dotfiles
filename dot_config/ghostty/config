@@ -1,0 +1,28 @@
+# Synced from ~/.config/alacritty/alacritty.toml
+
+theme = TokyoNight
+
+font-family = JetBrains Mono
+font-family-bold = JetBrains Mono
+font-family-italic = JetBrains Mono
+font-family-bold-italic = JetBrains Mono
+font-family = Symbols Nerd Font Mono
+font-family = Noto Sans Mono CJK SC
+font-family = Source Han Mono
+font-family = Noto Sans CJK SC
+font-size = 13
+font-thicken = false
+alpha-blending = native
+window-inherit-font-size = false
+
+window-padding-x = 5
+window-padding-y = 5
+background-opacity = 1
+
+scrollback-limit = 10000
+
+cursor-style = block
+cursor-style-blink = true
+
+shell-integration-features = no-cursor
+window-save-state = never
