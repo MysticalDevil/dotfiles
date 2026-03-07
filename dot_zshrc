@@ -6,23 +6,33 @@
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_IGNORE_SPACE
 setopt SHARE_HISTORY
-setopt INC_APPEND_HISTORY
+unsetopt INC_APPEND_HISTORY
 
-bindkey -e
+bindkey -v
 WORDCHARS=${WORDCHARS//[\/]}
 
 # -----------------
-# Helpers and OS detection
+# Helpers / OS detection
 # -----------------
 _has() { (( ${+commands[$1]} )); }
 
-IS_GENTOO=0
-if [[ -r /etc/os-release ]]; then
-  # shellcheck disable=SC1091
-  . /etc/os-release
-  [[ ${ID:-} == gentoo ]] && IS_GENTOO=1
-fi
-[[ -e /etc/gentoo-release ]] && IS_GENTOO=1
+_detect_gentoo() {
+  [[ -e /etc/gentoo-release ]] && { print 1; return; }
+
+  if [[ -r /etc/os-release ]]; then
+    local id
+    id="$(
+      . /etc/os-release
+      print "${ID:-}"
+    )"
+    [[ "$id" == gentoo ]] && print 1 || print 0
+    return
+  fi
+
+  print 0
+}
+
+readonly IS_GENTOO="$(_detect_gentoo)"
 
 # -----------------
 # Zim module config
@@ -31,58 +41,59 @@ ZSH_AUTOSUGGEST_MANUAL_REBIND=1
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 
 # -----------------
-# Pager and man
+# Pager / editor
 # -----------------
 export EDITOR=nvim
+export PAGER=less
 
 if _has bat; then
-  export PAGER=bat
   export MANPAGER='bat -l man -p --paging=always'
 else
-  export PAGER=less
   export MANPAGER='less -R'
 fi
+
 export MANROFFOPT='-c'
 
 # -----------------
 # Initialize Zim
 # -----------------
-ZIM_HOME=${ZDOTDIR:-$HOME}/.zim
-if [[ ! -e $ZIM_HOME/zimfw.zsh ]]; then
-  if _has curl; then
-    curl -fsSL --create-dirs -o $ZIM_HOME/zimfw.zsh \
-      https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh
-  else
-    mkdir -p $ZIM_HOME && wget -nv -O $ZIM_HOME/zimfw.zsh \
-      https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh
+ZIM_HOME="${ZDOTDIR:-$HOME}/.zim"
+
+if [[ -r "$ZIM_HOME/zimfw.zsh" ]]; then
+  if [[ ! -r "$ZIM_HOME/init.zsh" || ! "$ZIM_HOME/init.zsh" -nt "${ZIM_CONFIG_FILE:-${ZDOTDIR:-$HOME}/.zimrc}" ]]; then
+    source "$ZIM_HOME/zimfw.zsh" init
   fi
+
+  [[ -r "$ZIM_HOME/init.zsh" ]] && source "$ZIM_HOME/init.zsh"
 fi
-if [[ ! $ZIM_HOME/init.zsh -nt ${ZIM_CONFIG_FILE:-${ZDOTDIR:-$HOME}/.zimrc} ]]; then
-  source $ZIM_HOME/zimfw.zsh init
-fi
-source $ZIM_HOME/init.zsh
 
 # -----------------
 # Keybinds
 # -----------------
 zmodload -F zsh/terminfo +p:terminfo
-for key ('^[[A' '^P' ${terminfo[kcuu1]}) bindkey $key history-substring-search-up
-for key ('^[[B' '^N' ${terminfo[kcud1]}) bindkey $key history-substring-search-down
-for key ('k') bindkey -M vicmd $key history-substring-search-up
-for key ('j') bindkey -M vicmd $key history-substring-search-down
-unset key
 
-# Optional: Atuin search on Ctrl+R if the widget exists
-(( ${+widgets[atuin-search]} )) && bindkey '^R' atuin-search
+if (( ${+widgets[history-substring-search-up]} )) && (( ${+widgets[history-substring-search-down]} )); then
+  for key in '^[[A' '^P' "${terminfo[kcuu1]}"; do
+    [[ -n "$key" ]] && bindkey -M viins "$key" history-substring-search-up
+  done
+
+  for key in '^[[B' '^N' "${terminfo[kcud1]}"; do
+    [[ -n "$key" ]] && bindkey -M viins "$key" history-substring-search-down
+  done
+
+  bindkey -M vicmd k history-substring-search-up
+  bindkey -M vicmd j history-substring-search-down
+fi
 
 # -----------------
-# Completion and fzf-tab
+# Completion / fzf-tab
 # -----------------
 zstyle ':completion:*:descriptions' format '[%d]'
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*:git-checkout:*' sort false
 
-if (( IS_GENTOO )); then
+if [[ "$IS_GENTOO" == 1 ]]; then
+  [[ -d "$HOME/.cache/zsh" ]] || mkdir -p "$HOME/.cache/zsh"
   zstyle ':completion::complete:*' use-cache 1
   zstyle ':completion:*' cache-path "$HOME/.cache/zsh"
 fi
@@ -90,91 +101,117 @@ fi
 zstyle ':fzf-tab:*' switch-group ',' '.'
 zstyle ':fzf-tab:complete:*:*' fzf-flags --height=100% --preview-window=right:wrap
 
-# Directory preview for cd and zoxide
 if _has lsd; then
   zstyle ':fzf-tab:complete:cd:*' fzf-preview 'lsd --color=always -1 -- "$realpath"'
   zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'lsd --color=always -1 -- "$realpath"'
 fi
 
-# systemd unit status preview
-_has systemctl && zstyle ':fzf-tab:complete:systemctl-*:*' fzf-preview 'SYSTEMD_COLORS=1 systemctl status "$word"'
+if _has systemctl; then
+  zstyle ':fzf-tab:complete:systemctl-*:*' fzf-preview 'SYSTEMD_COLORS=1 systemctl status "$word"'
+fi
 
-# Process preview
 zstyle ':completion:*:*:*:*:processes' command "ps -u $USER -o pid,user,comm -w -w"
 zstyle ':fzf-tab:complete:(kill|ps):argument-rest' fzf-preview \
   '[[ $group == "[process ID]" ]] && ps --pid="$word" -o cmd --no-headers -w -w'
 zstyle ':fzf-tab:complete:(kill|ps):argument-rest' fzf-flags --preview-window=down:3:wrap
 
-# Environment variable preview
 zstyle ':fzf-tab:complete:(-command-|-parameter-|-brace-parameter-|export|unset|expand):*' \
   fzf-preview 'echo ${(P)word}'
 
+# -----------------
 # Git previews
+# -----------------
 if _has git; then
   if _has delta; then
-    zstyle ':fzf-tab:complete:git-(add|diff|restore):*' fzf-preview 'git diff "$word" | delta'
+    zstyle ':fzf-tab:complete:git-(add|diff|restore):*' \
+      fzf-preview 'git diff "$word" | delta'
+
+    zstyle ':fzf-tab:complete:git-show:*' \
+      fzf-preview 'case "$group" in
+        "commit tag") git show --color=always "$word" ;;
+        *) git show --color=always "$word" | delta ;;
+      esac'
+
+    zstyle ':fzf-tab:complete:git-checkout:*' \
+      fzf-preview 'case "$group" in
+        "modified file") git diff "$word" | delta ;;
+        "recent commit object name") git show --color=always "$word" | delta ;;
+        *) git log --color=always "$word" ;;
+      esac'
   else
-    zstyle ':fzf-tab:complete:git-(add|diff|restore):*' fzf-preview 'git diff "$word"'
+    zstyle ':fzf-tab:complete:git-(add|diff|restore):*' \
+      fzf-preview 'git diff "$word"'
+
+    zstyle ':fzf-tab:complete:git-show:*' \
+      fzf-preview 'case "$group" in
+        "commit tag") git show --color=always "$word" ;;
+        *) git show --color=always "$word" ;;
+      esac'
+
+    zstyle ':fzf-tab:complete:git-checkout:*' \
+      fzf-preview 'case "$group" in
+        "modified file") git diff "$word" ;;
+        "recent commit object name") git show --color=always "$word" ;;
+        *) git log --color=always "$word" ;;
+      esac'
   fi
-  zstyle ':fzf-tab:complete:git-log:*' fzf-preview 'git log --color=always "$word"'
 
   if _has bat; then
-    zstyle ':fzf-tab:complete:git-help:*' fzf-preview 'git help "$word" | bat -l man -p --color=always'
+    zstyle ':fzf-tab:complete:git-help:*' \
+      fzf-preview 'git help "$word" 2>/dev/null | bat -l man -p --color=always'
   else
-    zstyle ':fzf-tab:complete:git-help:*' fzf-preview 'git help "$word" | less -R'
+    zstyle ':fzf-tab:complete:git-help:*' \
+      fzf-preview 'MANWIDTH=$FZF_PREVIEW_COLUMNS git help "$word" 2>/dev/null | col -bx | sed -n "1,200p"'
   fi
 
-  zstyle ':fzf-tab:complete:git-show:*' fzf-preview \
-    'case "$group" in
-       "commit tag") git show --color=always "$word" ;;
-       *) git show --color=always "$word" '"$(_has delta && echo '| delta' || true)"' ;;
-     esac'
-
-  zstyle ':fzf-tab:complete:git-checkout:*' fzf-preview \
-    'case "$group" in
-       "modified file") git diff "$word" '"$(_has delta && echo '| delta' || true)"' ;;
-       "recent commit object name") git show --color=always "$word" '"$(_has delta && echo '| delta' || true)"' ;;
-       *) git log --color=always "$word" ;;
-     esac'
+  zstyle ':fzf-tab:complete:git-log:*' \
+    fzf-preview 'git log --color=always "$word"'
 fi
 
-# tldr preview
-_has tldr && zstyle ':fzf-tab:complete:tldr:argument-1' fzf-preview 'tldr --color always "$word"'
+# -----------------
+# Command / file previews
+# -----------------
+if _has tldr; then
+  zstyle ':fzf-tab:complete:tldr:argument-1' \
+    fzf-preview 'tldr --color always "$word"'
+fi
 
-# Command preview
 zstyle ':fzf-tab:complete:-command-:*' fzf-preview \
-  '(tldr --color always "$word" 2>/dev/null) || (MANWIDTH=$FZF_PREVIEW_COLUMNS man "$word" 2>/dev/null) || command -v "$word" || echo "${(P)word}"'
+  '(tldr --color always "$word" 2>/dev/null) || (MANWIDTH=$FZF_PREVIEW_COLUMNS man "$word" 2>/dev/null | col -bx | sed -n "1,200p") || command -v "$word" || echo "${(P)word}"'
 
-# File preview
 if _has bat; then
   zstyle ':fzf-tab:complete:*:*' fzf-preview \
-    'bat --style=plain --color=always --paging=never -- "${(Q)realpath}" 2>/dev/null || less -R -- "${(Q)realpath}" 2>/dev/null || file --brief --mime -- "${(Q)realpath}"'
+    'bat --style=plain --color=always --paging=never -- "${(Q)realpath}" 2>/dev/null || sed -n "1,200p" -- "${(Q)realpath}" 2>/dev/null || file --brief --mime -- "${(Q)realpath}"'
 else
   zstyle ':fzf-tab:complete:*:*' fzf-preview \
-    'less -R -- "${(Q)realpath}" 2>/dev/null || file --brief --mime -- "${(Q)realpath}"'
+    'sed -n "1,200p" -- "${(Q)realpath}" 2>/dev/null || file --brief --mime -- "${(Q)realpath}"'
 fi
 
-# tmux popup support if available
-_has ftb-tmux-popup && zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
+if _has ftb-tmux-popup; then
+  zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
+fi
+
 zstyle ':fzf-tab:*' popup-min-size 50 8
 zstyle ':fzf-tab:complete:diff:*' popup-min-size 80 12
 
-
 # -----------------
-# Environments
+# On-demand environments
 # -----------------
-export GOEXPERIMENT=jsonv2
+use-emsdk() {
+  local root="/opt/emsdk"
+  local envsh="$root/emsdk_env.sh"
 
-if _has coursier; then
-  export PATH="$PATH:$HOME/.local/share/coursier/bin"
-fi
+  [[ -r "$envsh" ]] || {
+    print -u2 "emsdk not found: $envsh"
+    return 1
+  }
 
-if [[ -f /opt/emsdk/emsdk_env.sh ]]; then
-  # already loaded?
-  if [[ -z "${EMSDK:-}" && ":$PATH:" != *":/opt/emsdk/upstream/emscripten:"* ]]; then
-    EMSDK_QUIET=1 source /opt/emsdk/emsdk_env.sh >/dev/null 2>&1
+  if [[ -n "${EMSDK:-}" || ":$PATH:" == *":$root/upstream/emscripten:"* ]]; then
+    return 0
   fi
-fi
+
+  EMSDK_QUIET=1 source "$envsh" >/dev/null 2>&1
+}
 
 # -----------------
 # Aliases
@@ -183,93 +220,54 @@ alias ls='command ls --color=auto'
 alias del='trash-put'
 alias rm='rm -I --preserve-root --'
 
-function _in_git_repo {
-  command git rev-parse --is-inside-work-tree >/dev/null 2>&1
-}
-
-function l {
-  if _has eza && _has git && _in_git_repo; then
-    command eza -lah --git --group-directories-first --icons=auto "$@"
-  elif _has lsd; then
-    command lsd -lah --group-dirs=first "$@"
-  else
-    command ls -lah --color=auto "$@"
-  fi
-}
-
-function ll {
-  if _has eza && _has git && _in_git_repo; then
-    command eza -lh --git --group-directories-first --icons=auto "$@"
-  elif _has lsd; then
-    command lsd -lh --group-dirs=first "$@"
-  else
-    command ls -lh --color=auto "$@"
-  fi
-}
-
-function lt {
-  if _has eza && _has git && _in_git_repo; then
-    command eza --tree --level=2 --git --group-directories-first --icons=auto "$@"
-  elif _has lsd; then
-    command lsd --tree --depth=2 "$@"
-  else
-    command tree -L 2 "$@"
-  fi
-}
-
-function la {
-  if _has eza && _has git && _in_git_repo; then
-    command eza -lah --git --all --group-directories-first --icons=auto "$@"
-  elif _has lsd; then
-    command lsd -lah -a --group-dirs=first "$@"
-  else
-    command ls -lahA --color=auto "$@"
-  fi
-}
-
-function tree {
-  if _has lsd; then
-    command lsd --tree --depth=2 "$@"
-  elif _has eza; then
-    command eza --tree --level=2 --icons=auto "$@"
-  elif _has tree; then
-    command tree -L 2 "$@"
-  else
-    printf '%s\n' "tree: no lsd/eza/tree found" >&2
-    return 127
-  fi
-}
-
 # -----------------
 # Third-party init
 # -----------------
-_has zoxide && eval "$(zoxide init zsh --cmd cd)"
-_has atuin && eval "$(atuin init zsh --disable-up-arrow)"
-_has starship && [[ $TERM != linux ]] && eval "$(starship init zsh)"
+if _has zoxide; then
+  eval "$(zoxide init zsh --cmd cd)"
+fi
+
+if _has atuin; then
+  eval "$(atuin init zsh --disable-up-arrow)"
+  (( ${+widgets[atuin-search]} )) && bindkey '^R' atuin-search
+fi
+
+if _has starship && [[ "$TERM" != linux ]]; then
+  eval "$(starship init zsh)"
+fi
 
 # -----------------
 # Transient prompt
 # -----------------
-function zle-line-init {
+zle-line-init() {
   emulate -L zsh
-  [[ $CONTEXT == start ]] || return 0
+  setopt localoptions no_aliases
+
+  [[ "$CONTEXT" == start ]] || return 0
 
   while true; do
     zle .recursive-edit
     local -i ret=$?
-    [[ $ret == 0 && $KEYS == $'\4' ]] || break
-    [[ -o ignore_eof ]] || exit 0
+
+    if (( ret == 0 )) && [[ "$KEYS" == $'\4' ]]; then
+      [[ -o ignore_eof ]] || exit 0
+      continue
+    fi
+
+    local saved_prompt="$PROMPT"
+    local saved_rprompt="$RPROMPT"
+
+    PROMPT='%F{green}❯ %f'
+    RPROMPT=''
+
+    zle .reset-prompt
+
+    PROMPT="$saved_prompt"
+    RPROMPT="$saved_rprompt"
+
+    (( ret )) && zle .send-break || zle .accept-line
+    return ret
   done
-
-  local saved_prompt=$PROMPT saved_rprompt=$RPROMPT
-  PROMPT='$fg[green]❯ '
-  RPROMPT=''
-  zle .reset-prompt
-  PROMPT=$saved_prompt
-  RPROMPT=$saved_rprompt
-
-  (( ret )) && zle .send-break || zle .accept-line
-  return ret
 }
-zle -N zle-line-init
 
+zle -N zle-line-init
