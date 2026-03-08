@@ -13,6 +13,7 @@
 - Prefer `ast-grep` (`sg`) for structural code search.
 - Prefer `rg` for text search and `rg --files` for file listing.
 - Prefer `fd` for fast path/file discovery when suitable.
+- **Tool Verification**: Always verify modern tool availability (e.g., `which fd`) before first use in a session. Fall back to standard POSIX tools (`cat`, `grep`, `find`) if preferred modern tools are missing.
 - Do not use Node.js to write or execute long scripts.
 - Prefer shell and Python for writing and executing long scripts.
 
@@ -20,6 +21,7 @@
 - Ask for confirmation before destructive operations such as `rm -rf`, `git reset --hard`, or `git checkout --`.
 - When supported, run a `--dry-run` first before destructive or bulk operations.
 - Do not modify unrelated files unless explicitly requested.
+- **Loop Breaking**: If a build/test error persists after 3 repair attempts, STOP. Summarize the failed approaches and ask the user for guidance to prevent context exhaustion.
 
 ## Editing Rules
 - Prefer Gemini file-editing tools (`edit`, `replace`, and `write_file`) for single-file edits.
@@ -34,6 +36,7 @@
 ## Validation Before Finish
 - After code changes, run at least the smallest relevant verification command (build/test/lint subset).
 - If verification cannot run, explicitly report what was not verified and why.
+- **Documentation Hygiene**: When modifying public APIs, changing CLI arguments, or adding new features, always ensure corresponding `README.md` or docstrings are updated.
 - Markdown changes should comply with the DavidAnson Markdown rule set whenever feasible.
 - Shell scripts should comply with `shellcheck` guidance whenever feasible.
 - When a recommended check is skipped, explicitly report the reason and run the closest available fallback.
@@ -41,6 +44,7 @@
 ## Preflight Checks
 - For C/C++ tasks, check local toolchain availability first: `clang --version`, `clang-format --version`, and `clang-tidy --version`.
 - For Zig tasks, follow the preflight checks defined in `Zig Workflow`.
+- For Kotlin/Compose tasks, check `gradle --version` and `java --version`.
 
 ## Script Guidelines
 - For scripts over roughly 80 lines, prefer storing them in a `scripts/` path instead of inline shell.
@@ -54,7 +58,7 @@
 ## C/C++ and CMake Defaults
 - Unless platform constraints require otherwise, use `C23` for C code.
 - Unless platform constraints require otherwise, use `C++23` for C++ code.
-- Prefer the `clang` toolchain for C/C++ by default.
+- Prefer the `clang" toolchain for C/C++ by default.
 - Use `clang-format` for C/C++ formatting.
 - Use `clang-tidy` for C/C++ static analysis.
 - Prefer modern C++ style and idioms whenever possible.
@@ -68,15 +72,17 @@
 - Use ad-hoc command-line `-D` and generator arguments only for temporary debugging or one-off local experiments.
 
 ## Language Version Baselines
-- Rust: use the latest unstable toolchain by default.
+- Rust: use the latest stable toolchain by default.
 - Rust: when a repository includes `rust-toolchain.toml`, it is the source of truth and must be followed.
-- Go: require `1.26+`.
+- Go: require `1.26+`, or match the `go.mod` version if it exists.
 - Swift: require `6.x`.
 - Zig: use the latest stable release available locally; verify with `zig version`.
 - Node.js: use the latest LTS release.
 - Python: require `3.13+`.
 - PHP: require `8.x`.
 - C#: follow the repository `TargetFramework`; for new projects, use the latest stable .NET release.
+- **Kotlin: require `2.0+`.**
+- **Java: require `21+`.**
 
 ## Language Tooling Defaults
 - Go: use `gofumpt` as the default formatter.
@@ -84,6 +90,7 @@
 - Node.js: prefer `pnpm` as the default package manager.
 - Lua: use `selene` as the default linter.
 - PHP: use the Mago toolchain by default (`mago fmt`, `mago lint`, and `mago analyze`).
+- **Kotlin: use `ktlint` or `spotless` for formatting.**
 - Time-sensitive baselines such as `latest unstable`, `latest LTS`, and `latest stable` must be verified at execution time.
 
 ## Build Tool Defaults
@@ -95,6 +102,7 @@
 - Swift: use Swift Package Manager (`swift build`, `swift test`) by default.
 - Zig: use `zig build` as the default build entrypoint.
 - C#: use `dotnet` CLI as the default build/test/format entrypoint.
+- **Kotlin/Android: use `Gradle` (prefer Kotlin DSL) or `Amper`.**
 
 ## Cross Compilation Policy
 - Prefer project-provided cross-compilation workflows first (for example documented scripts, presets, CI workflows, or toolchain files). If available, use them directly.
@@ -135,5 +143,6 @@
 - Lua changes: run `selene` and the smallest relevant test or smoke subset.
 - PHP changes: run `mago fmt --check`, `mago lint`, `mago analyze`, then run the smallest relevant test subset.
 - C# changes: run `dotnet format --verify-no-changes`, build affected projects, then run the smallest relevant `dotnet test` subset.
+- **Kotlin/Android changes: run `./gradlew lint test` (or equivalent Gradle tasks).**
 - Script changes: run `shellcheck` when available and execute at least one smoke command.
 - Markdown changes: keep touched files aligned with the DavidAnson Markdown rule set whenever feasible.

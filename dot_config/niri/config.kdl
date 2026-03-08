@@ -415,9 +415,13 @@ binds {
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+Return hotkey-overlay-title="Open a Terminal: alacritty" { spawn "alacritty"; }
     Mod+Shift+Return hotkey-overlay-title="Open a New Terminal Window: alacritty" { spawn-sh "alacritty msg create-window || alacritty"; }
+    Mod+E hotkey-overlay-title="Open File Manager: yazi" { spawn-sh "alacritty -e yazi"; }
     Mod+D hotkey-overlay-title="Run an Application: noctalia launcher" { spawn-sh "qs -c noctalia-shell ipc call launcher toggle"; }
+    Mod+G hotkey-overlay-title="Take Area Screenshot" { spawn-sh "grim -g \"$(slurp)\" \"$HOME/Pictures/ScreenShot/screen_shot_$(date +%Y-%m-%d_%H:%M:%S).png\""; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: noctalia" { spawn-sh "qs -c noctalia-shell ipc call lockScreen lock"; }
     Mod+V hotkey-overlay-title="Clipboard manager" { spawn-sh "qs -c noctalia-shell ipc call launcher clipboard"; }
+    Mod+M hotkey-overlay-title="Toggle Bar" { spawn-sh "qs -c noctalia-shell ipc call bar toggle"; }
+    Mod+N hotkey-overlay-title="Toggle Notification History" { spawn-sh "qs -c noctalia-shell ipc call notifications toggleHistory"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
@@ -449,7 +453,8 @@ binds {
     // Open/close the Overview: a zoomed-out view of workspaces and windows.
     // You can also move the mouse into the top-left hot corner,
     // or do a four-finger swipe up on a touchpad.
-    Mod+O repeat=false { toggle-overview; }
+    Mod+O repeat=false { spawn-sh "~/.config/niri/scripts/toggle_edp_when_dp"; }
+    Mod+Shift+O repeat=false { toggle-overview; }
 
     Mod+C repeat=false { close-window; }
 
@@ -487,10 +492,10 @@ binds {
     Mod+Shift+Down  { focus-monitor-down; }
     Mod+Shift+Up    { focus-monitor-up; }
     Mod+Shift+Right { focus-monitor-right; }
-    Mod+Shift+H     { focus-monitor-left; }
+    Mod+Shift+H     { move-column-left; }
     Mod+Shift+J     { focus-monitor-down; }
     Mod+Shift+K     { focus-monitor-up; }
-    Mod+Shift+L     { focus-monitor-right; }
+    Mod+Shift+L     { move-column-right; }
 
     Mod+Shift+Ctrl+Left  { move-column-to-monitor-left; }
     Mod+Shift+Ctrl+Down  { move-column-to-monitor-down; }
@@ -576,6 +581,7 @@ binds {
     Mod+7 { focus-workspace 7; }
     Mod+8 { focus-workspace 8; }
     Mod+9 { focus-workspace 9; }
+    Mod+0 { focus-workspace 10; }
     Mod+Ctrl+1 { move-column-to-workspace 1; }
     Mod+Ctrl+2 { move-column-to-workspace 2; }
     Mod+Ctrl+3 { move-column-to-workspace 3; }
@@ -585,6 +591,7 @@ binds {
     Mod+Ctrl+7 { move-column-to-workspace 7; }
     Mod+Ctrl+8 { move-column-to-workspace 8; }
     Mod+Ctrl+9 { move-column-to-workspace 9; }
+    Mod+Shift+0 { move-window-to-workspace 10; }
 
     // Alternatively, there are commands to move just a single window:
     // Mod+Ctrl+1 { move-window-to-workspace 1; }
