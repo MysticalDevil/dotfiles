@@ -1,6 +1,7 @@
 # ~/.zprofile
 
 # coursier
-if [[ -d "$HOME/.local/share/coursier/bin" ]]; then
-  export PATH="$PATH:$HOME/.local/share/coursier/bin"
+coursier_bin="$HOME/.local/share/coursier/bin"
+if [[ -d "$coursier_bin" ]] && [[ ":$PATH:" != *":$coursier_bin:"* ]]; then
+  export PATH="$PATH:$coursier_bin"
 fi

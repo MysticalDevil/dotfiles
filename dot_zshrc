@@ -88,6 +88,12 @@ fi
 # -----------------
 # Completion / fzf-tab
 # -----------------
+typeset -g TMPPREFIX="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/tmp"
+[[ -d "${TMPPREFIX:h}" ]] || mkdir -p "${TMPPREFIX:h}"
+
+typeset -g tmp_dir="${XDG_CACHE_HOME:-$HOME/.cache}/fzf-tab"
+[[ -d "$tmp_dir" ]] || mkdir -p "$tmp_dir"
+
 zstyle ':completion:*:descriptions' format '[%d]'
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*:git-checkout:*' sort false
@@ -101,14 +107,8 @@ fi
 zstyle ':fzf-tab:*' switch-group ',' '.'
 zstyle ':fzf-tab:complete:*:*' fzf-flags --height=100% --preview-window=right:wrap
 
-if _has lsd; then
-  zstyle ':fzf-tab:complete:cd:*' fzf-preview 'lsd --color=always -1 -- "$realpath"'
-  zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'lsd --color=always -1 -- "$realpath"'
-fi
-
-if _has systemctl; then
-  zstyle ':fzf-tab:complete:systemctl-*:*' fzf-preview 'SYSTEMD_COLORS=1 systemctl status "$word"'
-fi
+zstyle ':fzf-tab:complete:*:*' fzf-preview \
+  'cmd="${words[1]:-}"; target="${(Q)realpath}"; [[ -n "$target" ]] || target="${(Q)word}"; if [[ -n "$target" && -d "$target" ]]; then (( ${+commands[lsd]} )) && lsd --color=always -1 -- "$target" 2>/dev/null || command ls --color=always -1 -- "$target"; elif [[ -n "$target" && -f "$target" ]]; then (( ${+commands[bat]} )) && bat --style=plain --color=always --paging=never -- "$target" 2>/dev/null || sed -n "1,200p" -- "$target" 2>/dev/null || file --brief --mime -- "$target"; elif [[ -n "$cmd" && "$word" == -* && ${+commands[$cmd]} -eq 1 ]]; then help="$("$cmd" --help 2>/dev/null)"; [[ -n "$help" ]] || help="$("$cmd" -h 2>/dev/null)"; if [[ -n "$help" ]]; then (( ${+commands[rg]} )) && print -r -- "$help" | rg -n --fixed-strings -C 2 -- "$word" || print -r -- "$help" | sed -n "1,200p"; else command -v "$cmd"; fi; elif (( ${+commands[$word]} )); then (( ${+commands[tldr]} )) && tldr --color always "$word" 2>/dev/null || (MANWIDTH=$FZF_PREVIEW_COLUMNS man "$word" 2>/dev/null | col -bx | sed -n "1,200p") || command -v "$word"; else [[ -n "$target" ]] && file --brief --mime -- "$target" 2>/dev/null || print -r -- "$word"; fi'
 
 zstyle ':completion:*:*:*:*:processes' command "ps -u $USER -o pid,user,comm -w -w"
 zstyle ':fzf-tab:complete:(kill|ps):argument-rest' fzf-preview \
@@ -118,77 +118,12 @@ zstyle ':fzf-tab:complete:(kill|ps):argument-rest' fzf-flags --preview-window=do
 zstyle ':fzf-tab:complete:(-command-|-parameter-|-brace-parameter-|export|unset|expand):*' \
   fzf-preview 'echo ${(P)word}'
 
-# -----------------
-# Git previews
-# -----------------
-if _has git; then
-  if _has delta; then
-    zstyle ':fzf-tab:complete:git-(add|diff|restore):*' \
-      fzf-preview 'git diff "$word" | delta'
-
-    zstyle ':fzf-tab:complete:git-show:*' \
-      fzf-preview 'case "$group" in
-        "commit tag") git show --color=always "$word" ;;
-        *) git show --color=always "$word" | delta ;;
-      esac'
-
-    zstyle ':fzf-tab:complete:git-checkout:*' \
-      fzf-preview 'case "$group" in
-        "modified file") git diff "$word" | delta ;;
-        "recent commit object name") git show --color=always "$word" | delta ;;
-        *) git log --color=always "$word" ;;
-      esac'
+if _has fzf; then
+  if _has ftb-tmux-popup && [[ -n "${TMUX_PANE:-}" ]]; then
+    zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
   else
-    zstyle ':fzf-tab:complete:git-(add|diff|restore):*' \
-      fzf-preview 'git diff "$word"'
-
-    zstyle ':fzf-tab:complete:git-show:*' \
-      fzf-preview 'case "$group" in
-        "commit tag") git show --color=always "$word" ;;
-        *) git show --color=always "$word" ;;
-      esac'
-
-    zstyle ':fzf-tab:complete:git-checkout:*' \
-      fzf-preview 'case "$group" in
-        "modified file") git diff "$word" ;;
-        "recent commit object name") git show --color=always "$word" ;;
-        *) git log --color=always "$word" ;;
-      esac'
+    zstyle ':fzf-tab:*' fzf-command fzf
   fi
-
-  if _has bat; then
-    zstyle ':fzf-tab:complete:git-help:*' \
-      fzf-preview 'git help "$word" 2>/dev/null | bat -l man -p --color=always'
-  else
-    zstyle ':fzf-tab:complete:git-help:*' \
-      fzf-preview 'MANWIDTH=$FZF_PREVIEW_COLUMNS git help "$word" 2>/dev/null | col -bx | sed -n "1,200p"'
-  fi
-
-  zstyle ':fzf-tab:complete:git-log:*' \
-    fzf-preview 'git log --color=always "$word"'
-fi
-
-# -----------------
-# Command / file previews
-# -----------------
-if _has tldr; then
-  zstyle ':fzf-tab:complete:tldr:argument-1' \
-    fzf-preview 'tldr --color always "$word"'
-fi
-
-zstyle ':fzf-tab:complete:-command-:*' fzf-preview \
-  '(tldr --color always "$word" 2>/dev/null) || (MANWIDTH=$FZF_PREVIEW_COLUMNS man "$word" 2>/dev/null | col -bx | sed -n "1,200p") || command -v "$word" || echo "${(P)word}"'
-
-if _has bat; then
-  zstyle ':fzf-tab:complete:*:*' fzf-preview \
-    'bat --style=plain --color=always --paging=never -- "${(Q)realpath}" 2>/dev/null || sed -n "1,200p" -- "${(Q)realpath}" 2>/dev/null || file --brief --mime -- "${(Q)realpath}"'
-else
-  zstyle ':fzf-tab:complete:*:*' fzf-preview \
-    'sed -n "1,200p" -- "${(Q)realpath}" 2>/dev/null || file --brief --mime -- "${(Q)realpath}"'
-fi
-
-if _has ftb-tmux-popup; then
-  zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
 fi
 
 zstyle ':fzf-tab:*' popup-min-size 50 8
@@ -217,6 +152,43 @@ use-emsdk() {
 # Aliases
 # -----------------
 alias ls='command ls --color=auto'
+if _has lsd; then
+  tree() {
+    local -a base args
+    local has_depth=0
+    local has_ignore_glob=0
+    local target_path="."
+    local default_depth
+    args=("$@")
+
+    for arg in "${args[@]}"; do
+      if [[ "$arg" == --depth || "$arg" == --depth=* ]]; then
+        has_depth=1
+      fi
+      if [[ "$arg" == --ignore-glob || "$arg" == --ignore-glob=* ]]; then
+        has_ignore_glob=1
+      fi
+      if [[ "$arg" != -* && "$target_path" == "." ]]; then
+        target_path="$arg"
+      fi
+    done
+
+    base=(--tree --group-dirs=first --color=auto --icon=auto)
+
+    if [[ -n "${TREE_DEPTH:-}" ]]; then
+      default_depth="$TREE_DEPTH"
+    elif _has git && command git -C "$target_path" rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+      default_depth=2
+    else
+      default_depth=3
+    fi
+
+    (( has_depth )) || base+=(--depth "$default_depth")
+    (( has_ignore_glob )) || [[ -n "${TREE_SHOW_GIT:-}" ]] || base+=(--ignore-glob '.git')
+
+    command lsd "${base[@]}" "${args[@]}"
+  }
+fi
 alias del='trash-put'
 alias rm='rm -I --preserve-root --'
 

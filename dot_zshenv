@@ -14,7 +14,14 @@ export GOCACHE="$XDG_CACHE_HOME/go-build"
 export GOBIN="$HOME/.local/bin"
 
 # PATH
-export PATH="$GOBIN:$HOME/.luarocks/bin:$HOME/.local/share/mise/shims:$PATH"
+typeset -U path
+path=(
+  "$GOBIN"
+  "$HOME/.luarocks/bin"
+  "$HOME/.local/share/mise/shims"
+  $path
+)
+export PATH
 
 # NPM
 export npm_config_prefix="$HOME/.local"
