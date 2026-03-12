@@ -1,5 +1,3 @@
-# Synced from ~/.config/alacritty/alacritty.toml
-
 theme = TokyoNight
 
 font-family = JetBrains Mono
@@ -26,6 +24,3 @@ cursor-style-blink = true
 
 shell-integration-features = no-cursor
 window-save-state = never
-
-# Host-specific local override file (not managed by chezmoi).
-config-file = {{ joinPath .chezmoi.homeDir (printf ".config/ghostty/config.%s.local" .chezmoi.hostname) }}
