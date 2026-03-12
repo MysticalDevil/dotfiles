@@ -1,8 +1,9 @@
 Host github.com
-  HostName github.com
+  HostName ssh.github.com
+  Port 443
   AddKeysToAgent yes
   IdentityFile ~/.ssh/id_ed25519
-  User MysticalDevil
+  User git
 
 Host raspberrypi
   HostName 192.168.31.133
