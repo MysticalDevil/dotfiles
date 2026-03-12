@@ -1,0 +1,291 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+usage() {
+  cat <<'EOF'
+Usage:
+  cinit cexe <project_name|.> [--build-tool cmake|meson] [--template minimal|strict|testing|cli|pkg]
+  cinit clib <project_name|.> [--build-tool cmake|meson] [--template minimal|strict|testing|pkg]
+  cinit help
+  cinit doctor
+
+Defaults:
+  build-tool: cmake
+  template: minimal (alias of strict)
+  c standard: c23 (from template)
+  compile commands: enabled (from template)
+
+Template root:
+  ${XDG_DATA_HOME:-~/.local/share}/cinit/templates
+EOF
+}
+
+project_name() {
+  local name="$1"
+  if [[ "$name" == "." ]]; then
+    basename "$PWD"
+    return
+  fi
+  printf '%s\n' "$name"
+}
+
+build_tool="cmake"
+template_name="minimal"
+parsed_name=""
+template_root="${XDG_DATA_HOME:-$HOME/.local/share}/cinit/templates"
+
+parse_init_args() {
+  local name=""
+  while (($#)); do
+    case "$1" in
+      -b|--build-tool)
+        if (($# < 2)); then
+          printf 'Missing value for %s\n' "$1" >&2
+          return 2
+        fi
+        build_tool="$2"
+        shift 2
+        ;;
+      --build-tool=*)
+        build_tool="${1#*=}"
+        shift
+        ;;
+      -t|--template)
+        if (($# < 2)); then
+          printf 'Missing value for %s\n' "$1" >&2
+          return 2
+        fi
+        template_name="$2"
+        shift 2
+        ;;
+      --template=*)
+        template_name="${1#*=}"
+        shift
+        ;;
+      -h|--help)
+        usage
+        exit 0
+        ;;
+      *)
+        if [[ -z "$name" ]]; then
+          name="$1"
+          shift
+        else
+          printf 'Unexpected argument: %s\n' "$1" >&2
+          return 2
+        fi
+        ;;
+    esac
+  done
+
+  case "$build_tool" in
+    cmake|meson) ;;
+    *)
+      printf 'Unsupported build tool: %s (expected: cmake|meson)\n' "$build_tool" >&2
+      return 2
+      ;;
+  esac
+
+  case "$template_name" in
+    minimal|strict|testing|cli|pkg) ;;
+    *)
+      printf 'Unsupported template: %s (expected: minimal|strict|testing|cli|pkg)\n' "$template_name" >&2
+      return 2
+      ;;
+  esac
+
+  if [[ "$template_name" == "minimal" ]]; then
+    template_name="strict"
+  fi
+
+  if [[ -z "$name" ]]; then
+    printf 'Missing project name. Use <project_name> or "." for current directory name.\n' >&2
+    return 2
+  fi
+
+  parsed_name="$name"
+}
+
+validate_template_for_kind() {
+  local kind="$1"
+  case "$kind:$template_name" in
+    cexe:strict|cexe:testing|cexe:cli|cexe:pkg) ;;
+    clib:strict|clib:testing|clib:pkg) ;;
+    clib:cli)
+      printf 'Template cli is only supported for cexe\n' >&2
+      return 2
+      ;;
+    *)
+      printf 'Template %s is not supported for %s\n' "$template_name" "$kind" >&2
+      return 2
+      ;;
+  esac
+}
+
+render_file() {
+  local src="$1"
+  local dst="$2"
+  local name="$3"
+  sed "s/__PROJECT_NAME__/${name}/g" "$src" > "$dst"
+}
+
+copy_template_tree() {
+  local kind="$1"
+  local name="$2"
+  local src_dir="$template_root/$template_name/$kind"
+  local rel dst
+
+  if [[ ! -d "$src_dir" ]]; then
+    printf 'Template directory not found: %s\n' "$src_dir" >&2
+    return 2
+  fi
+
+  while IFS= read -r rel; do
+    case "$rel" in
+      CMakeLists.txt.tmpl)
+        [[ "$build_tool" == "cmake" ]] || continue
+        ;;
+      meson.build.tmpl)
+        [[ "$build_tool" == "meson" ]] || continue
+        ;;
+    esac
+
+    dst="${rel%.tmpl}"
+    mkdir -p "$(dirname "$dst")"
+    render_file "$src_dir/$rel" "$dst" "$name"
+  done < <(cd "$src_dir" && find . -type f | sed 's#^\./##' | sort)
+}
+
+init_cexe() {
+  local name
+  name="$(project_name "${1:-}")"
+  validate_template_for_kind "cexe"
+  copy_template_tree "cexe" "$name"
+  printf 'Initialized cexe project: %s (build-tool=%s, template=%s)\n' "$name" "$build_tool" "$template_name"
+}
+
+init_clib() {
+  local name
+  name="$(project_name "${1:-}")"
+  validate_template_for_kind "clib"
+  copy_template_tree "clib" "$name"
+  printf 'Initialized clib project: %s (build-tool=%s, template=%s)\n' "$name" "$build_tool" "$template_name"
+}
+
+doctor() {
+  local errors=0
+  local warnings=0
+
+  local color_ok="" color_warn="" color_err="" color_reset=""
+  if [[ -t 1 ]]; then
+    color_ok=$'\033[32m'
+    color_warn=$'\033[33m'
+    color_err=$'\033[31m'
+    color_reset=$'\033[0m'
+  fi
+
+  say_ok() { printf '%sok%s: %s\n' "$color_ok" "$color_reset" "$*"; }
+  say_warn() { printf '%swarn%s: %s\n' "$color_warn" "$color_reset" "$*"; }
+  say_err() { printf '%serror%s: %s\n' "$color_err" "$color_reset" "$*"; }
+
+  local has_cmake=0
+  local has_meson=0
+  if command -v cmake >/dev/null 2>&1; then
+    has_cmake=1
+    local cmake_version cmake_major
+    cmake_version="$(cmake --version | awk 'NR==1{print $3}')"
+    cmake_major="${cmake_version%%.*}"
+    if [[ "$cmake_major" -ge 4 ]]; then
+      say_ok "cmake $cmake_version"
+    else
+      say_warn "cmake $cmake_version found, 4.x recommended"
+      warnings=$((warnings + 1))
+    fi
+  fi
+  if command -v meson >/dev/null 2>&1; then
+    has_meson=1
+    say_ok "meson $(meson --version)"
+  fi
+
+  if (( has_cmake == 0 && has_meson == 0 )); then
+    say_err "neither cmake nor meson found"
+    errors=$((errors + 1))
+  elif (( has_cmake == 0 || has_meson == 0 )); then
+    if (( has_cmake == 0 )); then
+      say_warn "cmake not found (meson is available)"
+    else
+      say_warn "meson not found (cmake is available)"
+    fi
+    warnings=$((warnings + 1))
+  fi
+
+  if command -v gcc >/dev/null 2>&1 || command -v clang >/dev/null 2>&1; then
+    if command -v gcc >/dev/null 2>&1 && command -v clang >/dev/null 2>&1; then
+      say_ok "c compiler: gcc and clang"
+    elif command -v gcc >/dev/null 2>&1; then
+      say_ok "c compiler: gcc"
+    else
+      say_ok "c compiler: clang"
+    fi
+  else
+    say_err "no C compiler found (need gcc or clang)"
+    errors=$((errors + 1))
+  fi
+
+  local cmd
+  for cmd in ninja make pkg-config sed find git; do
+    if command -v "$cmd" >/dev/null 2>&1; then
+      say_ok "$cmd"
+    else
+      say_warn "$cmd not found (optional)"
+      warnings=$((warnings + 1))
+    fi
+  done
+
+  if [[ -d "$template_root" ]]; then
+    say_ok "template root $template_root"
+  else
+    say_err "template root not found: $template_root"
+    errors=$((errors + 1))
+  fi
+
+  if (( errors > 0 )); then
+    say_err "doctor failed (${errors} error(s), ${warnings} warning(s))"
+    return 1
+  fi
+  if (( warnings > 0 )); then
+    say_warn "doctor completed with ${warnings} warning(s)"
+  else
+    say_ok "doctor passed with no warnings"
+  fi
+  return 0
+}
+
+main() {
+  local cmd="${1:-help}"
+  case "$cmd" in
+    cexe)
+      shift
+      parse_init_args "$@"
+      init_cexe "$parsed_name"
+      ;;
+    clib)
+      shift
+      parse_init_args "$@"
+      init_clib "$parsed_name"
+      ;;
+    help|-h|--help)
+      usage
+      ;;
+    doctor)
+      doctor
+      ;;
+    *)
+      printf 'Unknown command: %s\n\n' "$cmd" >&2
+      usage >&2
+      return 2
+      ;;
+  esac
+}
+
+main "$@"

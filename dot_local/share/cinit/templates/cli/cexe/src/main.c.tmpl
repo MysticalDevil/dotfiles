@@ -1,0 +1,15 @@
+#include <stdio.h>
+#include <string.h>
+
+int main(int argc, char **argv) {
+  if (argc > 1 && (strcmp(argv[1], "--help") == 0 || strcmp(argv[1], "-h") == 0)) {
+    puts("Usage: __PROJECT_NAME__ [--help] [--version]");
+    return 0;
+  }
+  if (argc > 1 && strcmp(argv[1], "--version") == 0) {
+    puts("__PROJECT_NAME__ 0.1.0");
+    return 0;
+  }
+  puts("hello");
+  return 0;
+}
