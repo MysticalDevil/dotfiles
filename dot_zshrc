@@ -275,3 +275,19 @@ zle-line-init() {
 }
 
 zle -N zle-line-init
+
+# --- clashctl auto proxy (managed) ---
+if command -v clashctl >/dev/null 2>&1; then
+  eval "$(clashctl shellenv)"
+
+  proxy-on() {
+    clashctl start
+    eval "$(clashctl shellenv)"
+  }
+
+  proxy-off() {
+    clashctl stop
+    eval "$(clashctl shellenv)"
+  }
+fi
+# --- /clashctl auto proxy ---
