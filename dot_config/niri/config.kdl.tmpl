@@ -415,8 +415,13 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
+{{- if eq .chezmoi.hostname "fedora" }}
+    Mod+Return hotkey-overlay-title="Open a Terminal: ghostty" { spawn "ghostty"; }
+    Mod+Shift+Return hotkey-overlay-title="Open a New Terminal Window: ghostty" { spawn-sh "ghostty --new-window || ghostty"; }
+{{- else }}
     Mod+Return hotkey-overlay-title="Open a Terminal: alacritty" { spawn "alacritty"; }
     Mod+Shift+Return hotkey-overlay-title="Open a New Terminal Window: alacritty" { spawn-sh "alacritty msg create-window || alacritty"; }
+{{- end }}
     Mod+E hotkey-overlay-title="Open File Manager: yazi" { spawn-sh "alacritty -e yazi"; }
     Mod+D hotkey-overlay-title="Run an Application: noctalia launcher" { spawn-sh "qs -c noctalia-shell ipc call launcher toggle"; }
     Mod+G hotkey-overlay-title="Take Area Screenshot" { spawn-sh "grim -g \"$(slurp)\" \"$HOME/Pictures/ScreenShot/screen_shot_$(date +%Y-%m-%d_%H:%M:%S).png\""; }
