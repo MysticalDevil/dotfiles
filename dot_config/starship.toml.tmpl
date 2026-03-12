@@ -137,8 +137,16 @@ symbol = "󰍛 "
 
 [os]
 format = "[$symbol]($style) "
-style = "bold #DDDAEC"
 disabled = false
+{{- if eq .chezmoi.osRelease.id "fedora" }}
+style = "bold #3C6EB4"
+{{- else if eq .chezmoi.osRelease.id "debian" }}
+style = "bold #CE0058"
+{{- else if eq .chezmoi.osRelease.id "gentoo" }}
+style = "bold #DDDAEC"
+{{- else }}
+style = "bold #DDDAEC"
+{{- end }}
 
 [os.symbols]
 Alpine = " "
