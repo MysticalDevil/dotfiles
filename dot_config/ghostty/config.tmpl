@@ -27,5 +27,5 @@ cursor-style-blink = true
 shell-integration-features = no-cursor
 window-save-state = never
 
-# Keep per-machine overrides outside chezmoi management.
-config-file = {{ joinPath .chezmoi.homeDir ".config/ghostty/config.local" }}
+# Host-specific local override file (not managed by chezmoi).
+config-file = {{ joinPath .chezmoi.homeDir (printf ".config/ghostty/config.%s.local" .chezmoi.hostname) }}
