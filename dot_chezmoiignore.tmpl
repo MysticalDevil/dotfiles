@@ -1,0 +1,24 @@
+{{- if eq .chezmoi.hostname "fedora" }}
+*
+!.config/
+!.config/alacritty/
+!.config/alacritty/alacritty.toml
+!.config/ghostty/
+!.config/ghostty/config
+!.config/helix/
+!.config/helix/config.toml
+!.config/helix/languages.toml
+!.config/neovide/
+!.config/neovide/config.toml
+!.config/starship.toml
+!.config/topgrade.toml
+!.local/
+!.local/bin/
+!.local/bin/**
+!.local/share/
+!.local/share/**
+!.zimrc
+!.zprofile
+!.zshenv
+!.zshrc
+{{- end }}
