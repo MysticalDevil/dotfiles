@@ -1,0 +1,332 @@
+#!/usr/bin/env bash
+
+# Purpose: manage a local mihomo process without systemd.
+# Inputs: config path (auto-detected or CLASH_CONFIG) and clash binary (auto-detected or CLASH_BIN).
+# Output: process control, logs, and Web UI helpers.
+
+set -euo pipefail
+
+STATE_DIR="${XDG_STATE_HOME:-$HOME/.local/state}/clashctl"
+PID_FILE="${STATE_DIR}/clash.pid"
+LOG_FILE="${STATE_DIR}/clash.log"
+ENV_FILE="${STATE_DIR}/proxy.env"
+
+detect_config() {
+  if [[ -n "${CLASH_CONFIG:-}" ]]; then
+    printf '%s\n' "${CLASH_CONFIG}"
+    return 0
+  fi
+  if [[ -f "$HOME/.config/mihomo/config.yaml" ]]; then
+    printf '%s\n' "$HOME/.config/mihomo/config.yaml"
+    return 0
+  fi
+  if [[ -f "$HOME/.config/clash/config.yaml" ]]; then
+    printf '%s\n' "$HOME/.config/clash/config.yaml"
+    return 0
+  fi
+  return 1
+}
+
+detect_bin() {
+  if [[ -n "${CLASH_BIN:-}" ]]; then
+    printf '%s\n' "${CLASH_BIN}"
+    return 0
+  fi
+  command -v mihomo >/dev/null 2>&1 || return 1
+  command -v mihomo
+}
+
+fail() {
+  printf 'error: %s\n' "$*" >&2
+  exit 1
+}
+
+usage() {
+  cat <<'EOF'
+Usage: clashctl <status|start|stop|restart|logs|url|webui|doctor|help>
+
+Commands:
+  status   Show process/config/controller status
+  start    Start mihomo
+  stop     Stop clash
+  restart  Restart clash
+  logs     Show recent logs
+  url      Print Web UI URL (from external-controller)
+  webui    Open Web UI in default browser
+  doctor   Run quick health checks
+  shellenv Print shell exports for terminal proxy
+  help     Show this help
+
+Env:
+  CLASH_BIN     Override clash binary path
+  CLASH_CONFIG  Override config file path
+  CLASHCTL_SET_SYSTEM_PROXY=0  Disable GNOME system proxy auto toggle
+EOF
+}
+
+require_runtime() {
+  CLASH_CONFIG_PATH="$(detect_config || true)"
+  CLASH_BIN_PATH="$(detect_bin || true)"
+  [[ -n "${CLASH_CONFIG_PATH}" ]] || fail "no config found (~/.config/mihomo/config.yaml or ~/.config/clash/config.yaml)"
+  [[ -n "${CLASH_BIN_PATH}" ]] || fail "mihomo not found (install mihomo or set CLASH_BIN)"
+  [[ -f "${CLASH_CONFIG_PATH}" ]] || fail "missing config: ${CLASH_CONFIG_PATH}"
+  [[ -x "${CLASH_BIN_PATH}" ]] || fail "binary is not executable: ${CLASH_BIN_PATH}"
+}
+
+ensure_state_dir() {
+  mkdir -p "${STATE_DIR}"
+}
+
+read_controller() {
+  local raw
+  raw="$(rg -n '^\s*external-controller\s*:' "${CLASH_CONFIG_PATH}" 2>/dev/null | head -n1 | sed -E 's/^[0-9]+:\s*external-controller\s*:\s*//; s/^["'"'"']?//; s/["'"'"']?$//' | tr -d '[:space:]')"
+  if [[ -z "${raw}" ]]; then
+    printf '127.0.0.1:9090\n'
+    return 0
+  fi
+  printf '%s\n' "${raw}"
+}
+
+read_mixed_port() {
+  local p
+  p="$(rg -n '^\s*mixed-port\s*:' "${CLASH_CONFIG_PATH}" 2>/dev/null | head -n1 | sed -E 's/^[0-9]+:\s*mixed-port\s*:\s*//; s/\s+$//')"
+  if [[ -z "${p}" ]]; then
+    printf '7890\n'
+    return 0
+  fi
+  printf '%s\n' "${p}"
+}
+
+webui_url() {
+  local controller
+  controller="$(read_controller)"
+  printf 'http://%s/ui/\n' "${controller}"
+}
+
+is_running() {
+  [[ -f "${PID_FILE}" ]] || return 1
+  local pid
+  pid="$(cat "${PID_FILE}" 2>/dev/null || true)"
+  [[ -n "${pid}" ]] || return 1
+  kill -0 "${pid}" 2>/dev/null
+}
+
+write_env_file() {
+  local port
+  port="$(read_mixed_port)"
+  ensure_state_dir
+  cat > "${ENV_FILE}" <<EOF
+export http_proxy="http://127.0.0.1:${port}"
+export https_proxy="http://127.0.0.1:${port}"
+export HTTP_PROXY="http://127.0.0.1:${port}"
+export HTTPS_PROXY="http://127.0.0.1:${port}"
+export all_proxy="socks5://127.0.0.1:${port}"
+export ALL_PROXY="socks5://127.0.0.1:${port}"
+export no_proxy="localhost,127.0.0.1,::1"
+export NO_PROXY="localhost,127.0.0.1,::1"
+EOF
+}
+
+clear_env_file() {
+  ensure_state_dir
+  cat > "${ENV_FILE}" <<'EOF'
+unset http_proxy https_proxy HTTP_PROXY HTTPS_PROXY all_proxy ALL_PROXY no_proxy NO_PROXY
+EOF
+}
+
+set_system_proxy() {
+  [[ "${CLASHCTL_SET_SYSTEM_PROXY:-1}" = "0" ]] && return 0
+  command -v gsettings >/dev/null 2>&1 || return 0
+  local port
+  port="$(read_mixed_port)"
+  gsettings set org.gnome.system.proxy mode 'manual' >/dev/null 2>&1 || true
+  gsettings set org.gnome.system.proxy ignore-hosts "['localhost', '127.0.0.0/8', '::1']" >/dev/null 2>&1 || true
+  gsettings set org.gnome.system.proxy.http host '127.0.0.1' >/dev/null 2>&1 || true
+  gsettings set org.gnome.system.proxy.http port "${port}" >/dev/null 2>&1 || true
+  gsettings set org.gnome.system.proxy.https host '127.0.0.1' >/dev/null 2>&1 || true
+  gsettings set org.gnome.system.proxy.https port "${port}" >/dev/null 2>&1 || true
+  gsettings set org.gnome.system.proxy.socks host '127.0.0.1' >/dev/null 2>&1 || true
+  gsettings set org.gnome.system.proxy.socks port "${port}" >/dev/null 2>&1 || true
+}
+
+unset_system_proxy() {
+  [[ "${CLASHCTL_SET_SYSTEM_PROXY:-1}" = "0" ]] && return 0
+  command -v gsettings >/dev/null 2>&1 || return 0
+  gsettings set org.gnome.system.proxy mode 'none' >/dev/null 2>&1 || true
+}
+
+cmd_start() {
+  require_runtime
+  ensure_state_dir
+  if is_running; then
+    printf 'already running (pid=%s)\n' "$(cat "${PID_FILE}")"
+    return 0
+  fi
+
+  local cfg_dir
+  cfg_dir="$(dirname "${CLASH_CONFIG_PATH}")"
+  nohup "${CLASH_BIN_PATH}" -d "${cfg_dir}" -f "${CLASH_CONFIG_PATH}" >"${LOG_FILE}" 2>&1 &
+  local pid=$!
+  echo "${pid}" >"${PID_FILE}"
+
+  sleep 0.6
+  if kill -0 "${pid}" 2>/dev/null; then
+    write_env_file
+    set_system_proxy
+    printf 'started %s (pid=%s)\n' "${CLASH_BIN_PATH}" "${pid}"
+    printf 'terminal proxy: eval "$(%s shellenv)"\n' "$(basename "$0")"
+  else
+    rm -f "${PID_FILE}"
+    fail "start failed, check logs: ${LOG_FILE}"
+  fi
+}
+
+cmd_stop() {
+  if ! is_running; then
+    rm -f "${PID_FILE}"
+    unset_system_proxy
+    clear_env_file
+    printf 'already stopped\n'
+    printf 'terminal proxy off: eval "$(%s shellenv)"\n' "$(basename "$0")"
+    return 0
+  fi
+
+  local pid
+  pid="$(cat "${PID_FILE}")"
+  kill "${pid}" 2>/dev/null || true
+  for _ in 1 2 3 4 5; do
+    if ! kill -0 "${pid}" 2>/dev/null; then
+      rm -f "${PID_FILE}"
+      printf 'stopped (pid=%s)\n' "${pid}"
+      unset_system_proxy
+      clear_env_file
+      printf 'terminal proxy off: eval "$(%s shellenv)"\n' "$(basename "$0")"
+      return 0
+    fi
+    sleep 0.3
+  done
+  kill -9 "${pid}" 2>/dev/null || true
+  rm -f "${PID_FILE}"
+  unset_system_proxy
+  clear_env_file
+  printf 'stopped forcefully (pid=%s)\n' "${pid}"
+  printf 'terminal proxy off: eval "$(%s shellenv)"\n' "$(basename "$0")"
+}
+
+cmd_restart() {
+  cmd_stop
+  cmd_start
+}
+
+cmd_status() {
+  require_runtime
+  local controller running pid
+  controller="$(read_controller)"
+  if is_running; then
+    running=true
+    pid="$(cat "${PID_FILE}")"
+  else
+    running=false
+    pid=""
+  fi
+  printf '{\n'
+  printf '  "binary": "%s",\n' "${CLASH_BIN_PATH}"
+  printf '  "config": "%s",\n' "${CLASH_CONFIG_PATH}"
+  printf '  "controller": "%s",\n' "${controller}"
+  printf '  "webui": "%s",\n' "$(webui_url)"
+  printf '  "running": %s,\n' "${running}"
+  printf '  "pid": "%s",\n' "${pid}"
+  printf '  "log": "%s"\n' "${LOG_FILE}"
+  printf '}\n'
+}
+
+cmd_logs() {
+  ensure_state_dir
+  if [[ -f "${LOG_FILE}" ]]; then
+    tail -n 80 "${LOG_FILE}"
+  else
+    printf 'no logs yet: %s\n' "${LOG_FILE}"
+  fi
+}
+
+cmd_shellenv() {
+  require_runtime
+  if is_running; then
+    write_env_file
+    cat "${ENV_FILE}"
+  else
+    clear_env_file
+    cat "${ENV_FILE}"
+  fi
+}
+
+cmd_url() {
+  require_runtime
+  webui_url
+}
+
+cmd_webui() {
+  require_runtime
+  command -v xdg-open >/dev/null 2>&1 || fail "xdg-open not found"
+  xdg-open "$(webui_url)" >/dev/null 2>&1 &
+  disown || true
+  printf 'opened %s\n' "$(webui_url)"
+}
+
+cmd_doctor() {
+  require_runtime
+  local failed=0 controller host port api_ok port_ok curl_bin ss_bin
+  controller="$(read_controller)"
+  host="${controller%:*}"
+  port="${controller##*:}"
+  curl_bin="$(command -v curl || true)"
+  ss_bin="$(command -v ss || true)"
+
+  printf 'binary: %s\n' "${CLASH_BIN_PATH}"
+  printf 'config: %s\n' "${CLASH_CONFIG_PATH}"
+  printf 'running: %s\n' "$(is_running && echo yes || echo no)"
+  printf 'controller: %s\n' "${controller}"
+
+  port_ok=unknown
+  if [[ -n "${ss_bin}" ]]; then
+    if ss -lnt 2>/dev/null | rg -q "${host}:${port}"; then
+      port_ok=ok
+    else
+      port_ok=fail
+      failed=1
+    fi
+  fi
+  printf 'port: %s\n' "${port_ok}"
+
+  api_ok=unknown
+  if [[ -n "${curl_bin}" ]]; then
+    if curl --silent --fail --max-time 3 "http://${controller}/version" >/dev/null 2>&1; then
+      api_ok=ok
+    else
+      api_ok=fail
+      failed=1
+    fi
+  fi
+  printf 'api: %s\n' "${api_ok}"
+  printf 'webui: %s\n' "$(webui_url)"
+
+  return "${failed}"
+}
+
+main() {
+  case "${1:-help}" in
+    status) cmd_status ;;
+    start) cmd_start ;;
+    stop) cmd_stop ;;
+    restart) cmd_restart ;;
+    logs) cmd_logs ;;
+    url) cmd_url ;;
+    webui) cmd_webui ;;
+    doctor) cmd_doctor ;;
+    shellenv) cmd_shellenv ;;
+    help|-h|--help) usage ;;
+    *) usage >&2; exit 1 ;;
+  esac
+}
+
+main "$@"
