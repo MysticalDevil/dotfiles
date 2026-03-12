@@ -25,6 +25,8 @@ dot_config/mpd/.gitignore
 !.config/neovide/config.toml
 !.config/starship.toml
 !.config/topgrade.toml
+!.config/mihomo/
+!.config/mihomo/config.yaml
 !.local/
  .local/**
 !.local/bin/
@@ -39,3 +41,6 @@ dot_config/mpd/.gitignore
 !.zshenv
 !.zshrc
 {{- end }}
+
+# Keep __pycache__ ignored even under host-specific allowlists.
+**/__pycache__/**
