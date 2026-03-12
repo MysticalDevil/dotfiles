@@ -1,0 +1,272 @@
+{{- if (index . "lessfilter_enable") }}
+#!/usr/bin/env bash
+
+set -u
+
+LINE_LIMIT=200
+BAT_CMD=""
+
+if [[ -t 2 ]]; then
+    COLOR_WARN=$'\033[33m'
+    COLOR_ERR=$'\033[31m'
+    COLOR_RESET=$'\033[0m'
+else
+    COLOR_WARN=""
+    COLOR_ERR=""
+    COLOR_RESET=""
+fi
+
+has_cmd() {
+    command -v "$1" >/dev/null 2>&1
+}
+
+select_bat() {
+    if has_cmd bat; then
+        BAT_CMD="bat"
+    elif has_cmd batcat; then
+        BAT_CMD="batcat"
+    else
+        BAT_CMD=""
+    fi
+}
+
+log_warn() {
+    printf '%s[lessfilter] %s%s\n' "$COLOR_WARN" "$*" "$COLOR_RESET" >&2
+}
+
+log_err() {
+    printf '%s[lessfilter] %s%s\n' "$COLOR_ERR" "$*" "$COLOR_RESET" >&2
+}
+
+show_usage() {
+    echo "Usage: lessfilter <path>"
+}
+
+render_file() {
+    local path="$1"
+    if [[ -n "$BAT_CMD" ]]; then
+        "$BAT_CMD" --color=always --paging=never --line-range ":${LINE_LIMIT}" -- "$path"
+    else
+        sed -n "1,${LINE_LIMIT}p" -- "$path"
+    fi
+}
+
+render_stdin() {
+    local language="${1:-}"
+    if [[ -n "$BAT_CMD" ]]; then
+        if [[ -n "$language" ]]; then
+            sed -n "1,${LINE_LIMIT}p" | "$BAT_CMD" --color=always --paging=never --language="$language" -p
+        else
+            sed -n "1,${LINE_LIMIT}p" | "$BAT_CMD" --color=always --paging=never -p
+        fi
+    else
+        sed -n "1,${LINE_LIMIT}p"
+    fi
+}
+
+show_basic_file_info() {
+    local path="$1"
+    file --brief -- "$path"
+}
+
+preview_directory() {
+    local path="$1"
+    if has_cmd eza; then
+        eza --git -hl --color=always --icons -- "$path"
+    else
+        log_warn "missing command: eza; falling back to ls"
+        ls -lah -- "$path"
+    fi
+}
+
+preview_image_file() {
+    local path="$1"
+    local printed=0
+
+    if has_cmd chafa; then
+        chafa -- "$path"
+        printed=1
+    else
+        log_warn "missing command: chafa"
+    fi
+
+    if has_cmd exiftool; then
+        exiftool -- "$path"
+        printed=1
+    else
+        log_warn "missing command: exiftool"
+    fi
+
+    if [[ "$printed" -eq 0 ]]; then
+        show_basic_file_info "$path"
+    fi
+}
+
+preview_text_file() {
+    local path="$1"
+
+    if has_cmd pygmentize; then
+        pygmentize -O style=one-dark -f terminal256 -g -- "$path" | render_stdin ""
+    else
+        render_file "$path"
+    fi
+}
+
+preview_json_file() {
+    local path="$1"
+
+    if has_cmd jq; then
+        if jq . -- "$path" >/dev/null 2>&1; then
+            jq . -- "$path" | render_stdin "json"
+            return
+        fi
+        log_warn "invalid json; showing raw content"
+    else
+        log_warn "missing command: jq; showing raw content"
+    fi
+
+    render_file "$path"
+}
+
+preview_pdf_file() {
+    local path="$1"
+    if has_cmd pdftotext; then
+        pdftotext -nopgbrk -q -- "$path" - | render_stdin ""
+    else
+        log_warn "missing command: pdftotext"
+        show_basic_file_info "$path"
+    fi
+}
+
+preview_excel_file() {
+    local path="$1"
+    if has_cmd in2csv && has_cmd xsv; then
+        in2csv -- "$path" | xsv table | render_stdin "csv"
+    else
+        log_warn "missing command: in2csv or xsv; falling back to office parser"
+        preview_office_file "$path"
+    fi
+}
+
+preview_office_file() {
+    local path="$1"
+    if has_cmd wv && has_cmd pandoc; then
+        wv -p -c -nw -f text/html -- "$path" | pandoc -t plain | render_stdin ""
+    else
+        log_warn "missing command: wv or pandoc"
+        show_basic_file_info "$path"
+    fi
+}
+
+preview_video_file() {
+    local path="$1"
+    if has_cmd mediainfo; then
+        mediainfo -- "$path"
+    else
+        log_warn "missing command: mediainfo"
+        show_basic_file_info "$path"
+    fi
+}
+
+preview_other_file() {
+    local path="$1"
+    local mime_type
+    mime_type="$(file -bL --mime-type -- "$path" 2>/dev/null || true)"
+
+    if [[ "$mime_type" == text/* ]]; then
+        if has_cmd highlight; then
+            highlight -O ansi -- "$path" | render_stdin ""
+        else
+            render_file "$path"
+        fi
+    else
+        show_basic_file_info "$path"
+    fi
+}
+
+dispatch_preview() {
+    local path="$1"
+    local mime_type category kind
+
+    if [[ -d "$path" ]]; then
+        preview_directory "$path"
+        return
+    fi
+
+    mime_type="$(file -bL --mime-type -- "$path" 2>/dev/null || true)"
+    category="${mime_type%%/*}"
+    kind="${mime_type#*/}"
+
+    if [[ "$mime_type" == "inode/x-empty" ]]; then
+        case "$path" in
+            *.json)
+                preview_json_file "$path"
+                ;;
+            *)
+                preview_text_file "$path"
+                ;;
+        esac
+        return
+    fi
+
+    case "$category" in
+        image)
+            preview_image_file "$path"
+            ;;
+        text)
+            preview_text_file "$path"
+            ;;
+        application)
+            case "$kind" in
+                json)
+                    preview_json_file "$path"
+                    ;;
+                pdf)
+                    preview_pdf_file "$path"
+                    ;;
+                vnd.ms-excel|vnd.openxmlformats-officedocument.spreadsheetml.sheet)
+                    preview_excel_file "$path"
+                    ;;
+                vnd.ms-word|vnd.openxmlformats-officedocument.wordprocessingml.document|\
+                vnd.ms-powerpoint|vnd.openxmlformats-officedocument.presentationml.presentation)
+                    preview_office_file "$path"
+                    ;;
+                vnd.gentoo.ebuild)
+                    preview_text_file "$path"
+                    ;;
+                *)
+                    preview_other_file "$path"
+                    ;;
+            esac
+            ;;
+        video)
+            preview_video_file "$path"
+            ;;
+        inode)
+            preview_other_file "$path"
+            ;;
+        *)
+            preview_other_file "$path"
+            ;;
+    esac
+}
+
+main() {
+    local path="${1:-}"
+    select_bat
+
+    if [[ -z "$path" ]]; then
+        show_usage
+        exit 1
+    fi
+
+    if [[ ! -e "$path" ]]; then
+        log_err "path does not exist: $path"
+        exit 1
+    fi
+
+    dispatch_preview "$path"
+}
+
+main "$@"
+{{- end }}

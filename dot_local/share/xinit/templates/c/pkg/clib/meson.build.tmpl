@@ -1,0 +1,6 @@
+project('__PROJECT_NAME__', 'c', default_options : ['c_std=c23', 'warning_level=3', 'werror=true'])
+inc = include_directories('include')
+lib = static_library('__PROJECT_NAME__', 'src/lib.c', include_directories : inc, install : true)
+install_headers('include/lib.h')
+pkg = import('pkgconfig')
+pkg.generate(lib, name : '__PROJECT_NAME__', description : '__PROJECT_NAME__ C library')

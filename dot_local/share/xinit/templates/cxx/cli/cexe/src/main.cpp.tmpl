@@ -1,0 +1,18 @@
+#include <iostream>
+#include <string_view>
+
+auto main(int argc, char **argv) -> int {
+  if (argc > 1) {
+    std::string_view arg(argv[1]);
+    if (arg == "--help" || arg == "-h") {
+      std::cout << "Usage: __PROJECT_NAME__ [--help] [--version]\n";
+      return 0;
+    }
+    if (arg == "--version") {
+      std::cout << "__PROJECT_NAME__ 0.1.0\n";
+      return 0;
+    }
+  }
+  std::cout << "hello\n";
+  return 0;
+}

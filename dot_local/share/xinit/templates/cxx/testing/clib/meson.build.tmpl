@@ -1,0 +1,5 @@
+project('__PROJECT_NAME__', 'cpp', default_options : ['cpp_std=c++23', 'warning_level=3', 'werror=true'])
+inc = include_directories('include')
+lib = static_library('__PROJECT_NAME__', 'src/lib.cpp', include_directories : inc)
+test_exe = executable('__PROJECT_NAME___test', 'test/main.cpp', include_directories : inc, link_with : lib)
+test('basic', test_exe)
