@@ -76,7 +76,7 @@ input {
 // Find more information on the wiki:
 // https://yalter.github.io/niri/Configuration:-Outputs
 output "eDP-1" {
-    mode "1920x1080@144"
+    mode "2736x1824@60"
 {{- if ne .chezmoi.hostname "fedora" }}
     scale 1
 {{- end }}
@@ -275,7 +275,9 @@ spawn-at-startup "fcitx5" "--replace" "-d"
 spawn-sh-at-startup "pgrep -af 'wl-paste --type text --watch cliphist store' >/dev/null || wl-paste --type text --watch cliphist store"
 spawn-sh-at-startup "pgrep -af 'wl-paste --type image --watch cliphist store' >/dev/null || wl-paste --type image --watch cliphist store"
 spawn-sh-at-startup "pgrep -x swayidle >/dev/null || ~/.config/niri/scripts/start_swayidle_noctalia"
+{{- if ne .chezmoi.hostname "fedora" }}
 spawn-sh-at-startup "~/.config/niri/scripts/auto_migrate_ws"
+{{- end }}
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
