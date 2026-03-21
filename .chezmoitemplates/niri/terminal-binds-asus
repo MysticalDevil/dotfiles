@@ -1,0 +1,4 @@
+    Mod+Return hotkey-overlay-title="Open a Terminal: alacritty" { spawn "alacritty"; }
+    Mod+Shift+Return hotkey-overlay-title="Open a New Terminal Window: alacritty" { spawn-sh "alacritty msg create-window || alacritty"; }
+    Mod+E hotkey-overlay-title="Open File Manager: yazi" { spawn-sh "alacritty -e yazi"; }
+    Mod+O repeat=false { spawn-sh "~/.config/niri/scripts/toggle_edp_when_dp"; }

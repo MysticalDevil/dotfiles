@@ -1,0 +1,3 @@
+    Mod+Return hotkey-overlay-title="Open a Terminal: ghostty" { spawn "ghostty"; }
+    Mod+Shift+Return hotkey-overlay-title="Open a New Terminal Window: ghostty" { spawn-sh "ghostty --new-window || ghostty"; }
+    Mod+E hotkey-overlay-title="Open File Manager: yazi" { spawn-sh "ghostty -e yazi"; }
