@@ -187,9 +187,6 @@ spawn-at-startup "fcitx5" "--replace" "-d"
 spawn-sh-at-startup "pgrep -af 'wl-paste --type text --watch cliphist store' >/dev/null || wl-paste --type text --watch cliphist store"
 spawn-sh-at-startup "pgrep -af 'wl-paste --type image --watch cliphist store' >/dev/null || wl-paste --type image --watch cliphist store"
 spawn-sh-at-startup "pgrep -x swayidle >/dev/null || ~/.config/niri/scripts/start_swayidle_noctalia"
-{{- if ne .chezmoi.hostname "fedora" }}
-{{ template "niri/startup-asus" . }}
-{{- end }}
 
 hotkey-overlay {
     // skip-at-startup
@@ -255,7 +252,7 @@ window-rule {
     open-floating true
 }
 
-/window-rule {
+/-window-rule {
     match app-id=r#"^org\.keepassxc\.KeePassXC$"#
     match app-id=r#"^org\.gnome\.World\.Secrets$"#
 

@@ -1,25 +1,45 @@
+{{- if ne .chezmoi.hostname "fedora" }}
 #!/usr/bin/env bash
 set -euo pipefail
 
 DP_NAME="DP-1"
 EDP_NAME="eDP-1"
-
-dp_connected() {
-    niri msg outputs 2>/dev/null | grep -Fq "$DP_NAME"
-}
+EDP_MODE="1920x1080@144"
+DP_MODE="2560x1440@180"
+DP_POSITION_X=1920
 
 niri_try() {
     niri msg "$@" >/dev/null 2>&1 || true
 }
 
-ensure_edp_enabled_layout() {
+notify() {
+    local title="$1"
+    local body="$2"
+
+    if command -v notify-send >/dev/null 2>&1; then
+        notify-send -a "niri" -i "video-display" "$title" "$body" >/dev/null 2>&1 || true
+        return 0
+    fi
+
+    printf '%s: %s\n' "$title" "$body"
+}
+
+dp_connected() {
+    niri msg outputs 2>/dev/null | grep -Fq "$DP_NAME"
+}
+
+edp_present() {
+    niri msg outputs 2>/dev/null | grep -Fq "$EDP_NAME"
+}
+
+ensure_layout() {
     niri_try output "$EDP_NAME" on
-    niri_try output "$EDP_NAME" mode "1920x1080@144"
+    niri_try output "$EDP_NAME" mode "$EDP_MODE"
     niri_try output "$EDP_NAME" position 0 0
     if dp_connected; then
         niri_try output "$DP_NAME" on
-        niri_try output "$DP_NAME" mode "2560x1440@180"
-        niri_try output "$DP_NAME" position 1920 0
+        niri_try output "$DP_NAME" mode "$DP_MODE"
+        niri_try output "$DP_NAME" position "$DP_POSITION_X" 0
     fi
 }
 
@@ -64,28 +84,21 @@ move_all_workspaces_to() {
     niri_try action focus-monitor "$target"
 }
 
-main_loop() {
-    local last_dp="unknown"
-
-    while true; do
-        local dp="no"
-        if dp_connected; then dp="yes"; fi
-
-        if [[ "$dp" != "$last_dp" ]]; then
-            if [[ "$dp" == "yes" ]]; then
-                move_all_workspaces_to "$DP_NAME"
-                disable_edp
-
-            else
-                ensure_edp_enabled_layout
-                move_all_workspaces_to "$EDP_NAME"
-            fi
-
-            last_dp="$dp"
+main() {
+    if dp_connected; then
+        if edp_present; then
+            move_all_workspaces_to "$DP_NAME"
+            disable_edp
+            notify "Display toggled" "DP-1 connected. Disabled eDP-1."
+        else
+            ensure_layout
+            notify "Display toggled" "DP-1 connected. Enabled eDP-1."
         fi
-
-        sleep 1
-    done
+    else
+        ensure_layout
+        notify "Display toggled" "DP-1 not connected. Ensured eDP-1 is enabled."
+    fi
 }
 
-main_loop
+main
+{{- end }}

@@ -1,1 +1,0 @@
-spawn-sh-at-startup "~/.config/niri/scripts/auto_migrate_ws"
