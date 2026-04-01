@@ -36,6 +36,20 @@
   `tee`.
 - Do not use `cat` redirection to create, write, or overwrite files.
 
+## Sandbox, Cache, and Install Directories
+
+- Do not redirect caches, package stores, or tool installation homes
+  with environment variables in order to work around sandbox
+  restrictions.
+- Avoid ad-hoc overrides such as `XDG_CACHE_HOME`, `CARGO_HOME`,
+  `RUSTUP_HOME`, `npm_config_cache`, `PIP_CACHE_DIR`, `GOCACHE`,
+  `GOMODCACHE`, `GOPATH`, or similar unless the task explicitly
+  requires them.
+- Prefer each tool's normal default cache and install directories. If
+  the sandbox blocks the required path, request escalation instead of
+  rerouting the tool into workspace-local directories, `.cache`
+  subdirectories, `/tmp`, or other ad-hoc temporary locations.
+
 ## Verification Before Finish
 
 - After code changes, run at least the smallest relevant verification
@@ -88,15 +102,22 @@
 - Prefer `ast-grep` (`sg`) for structural code search.
 - Prefer `rg` for text search and `rg --files` for file listing.
 - Prefer `fd` for fast path/file discovery when suitable.
-- Use `agent-browser` for web automation. Run `agent-browser --help`
-  for full command reference.
+- Use `chrome-devtools` for direct web browsing and web automation when
+  available.
+- Use `agent-browser` as the fallback browser automation tool. Run
+  `agent-browser --help` for full command reference.
+- If neither external browser tool is available, use the built-in web
+  browsing/search tools.
 - Browser workflow default:
-  - `agent-browser open <url>`
-  - `agent-browser snapshot -i` for interactive refs (for example
-    `@e1`, `@e2`)
+  - Prefer `chrome-devtools` navigation, snapshot, click, fill, and
+    evaluate tools.
+  - If `chrome-devtools` is unavailable, use
+    `agent-browser open <url>`
+  - Then use `agent-browser snapshot -i` for interactive refs (for
+    example `@e1`, `@e2`)
   - Interact via refs (`agent-browser click @e1`,
     `agent-browser fill @e2 "text"`)
-  - Re-run snapshot after page changes.
+  - Re-run a snapshot after page changes.
 
 ## Script Authoring
 
