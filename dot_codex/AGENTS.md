@@ -143,7 +143,6 @@
   `rust-toolchain.toml` exists, it is source of truth.
 - Go: require `1.26+`.
 - Swift: require `6.x`.
-- Zig: use latest stable available locally; verify with `zig version`.
 - Node.js: use latest LTS.
 - Python: require `3.13+`.
 - PHP: require `8.x`.
@@ -162,6 +161,63 @@
 - PHP: use Mago toolchain by default (`mago fmt`, `mago lint`,
   `mago analyze`).
 
+## Type Safety and Return Values
+
+- Default rule: in Go, TypeScript, and other static languages with
+  `any`-like top types (`Any`, `Object`, `dynamic`, `mixed`), do not use
+  them unless no practical typed alternative exists.
+- TypeScript: prefer `unknown`, generics, discriminated unions, and
+  explicit interfaces/types instead of `any`.
+- Go: prefer concrete types, constrained interfaces, or type
+  parameters instead of `any`/`interface{}`.
+- Risk-tier policy for `any`-like types:
+  - Core domain and security/permission/state-critical code: prohibited.
+  - Application/service orchestration code: strongly discouraged; allow
+    only with documented justification.
+  - Boundary/adaptor code (deserialization, reflection, plugin/SDK
+    bridges, external schema ingress): allowed with strict guards.
+- Allowed boundary scenarios include:
+  - Parsing unknown external payloads before validation.
+  - Reflection/meta-programming surfaces required by framework/runtime.
+  - Legacy migration shims with a removal plan.
+- Required safeguards when `any`-like types are used:
+  - Keep scope minimal; do not propagate across module boundaries.
+  - Validate and narrow types immediately at the boundary.
+  - Document why it is needed and the condition for later removal.
+  - Do not introduce broad helper APIs that return/pass through raw
+    `any`-like values by default.
+- Enforcement strategy:
+  - No new unreviewed `any`-like usage in changed files.
+  - Prefer lint/typecheck rules that fail on new broad-type usage, with
+    explicit allowlists for boundary paths when needed.
+  - During refactors, prioritize "no new debt" first, then shrink
+    existing broad-type hotspots incrementally.
+
+## Zig Policy
+
+- Toolchain baseline: use latest stable available locally; verify with
+  `zig version`.
+- Default build entrypoint: `zig build`.
+- Zig workflow:
+  - Verify local Zig version and CLI usage before writing Zig code.
+  - Do not use removed or deprecated Zig APIs.
+  - Verify APIs against local Zig version/docs/source instead of memory.
+  - After writing Zig code, compile locally and resolve errors before
+    finalizing.
+  - If compile/runtime errors occur, consult local Zig source/docs
+    first, then revise.
+- Cross-compilation preference: if no project-provided workflow exists
+  and the project includes `build.zig` with target support, prefer
+  Zig-based cross compilation.
+- Acceptance for Zig changes: run `zig fmt` on touched files when
+  applicable, then run the smallest relevant `zig build` or
+  `zig build test` target.
+- Return-value policy:
+  - Do not ignore function or method return values.
+  - Prohibited pattern: `_ = a.b();`.
+  - Every return value must be handled explicitly (check, propagate,
+    transform, or assert).
+
 ## Build Tool Defaults
 
 - C/C++: use `CMake` with `Ninja` by default, and prefer preset-driven
@@ -173,10 +229,9 @@
   pinning.
 - Swift: use Swift Package Manager (`swift build`, `swift test`) by
   default.
-- Zig: use `zig build` as default build entrypoint.
 - C#: use `dotnet` CLI as default build/test/format entrypoint.
 
-## C/C++, CMake, and Zig Defaults
+## C/C++, CMake Defaults
 
 - C/C++ preflight checks: `clang --version`, `clang-format --version`,
   and `clang-tidy --version`.
@@ -202,14 +257,6 @@
   duplication.
 - Use ad-hoc `-D` and generator arguments only for temporary debugging
   or one-off local experiments.
-- Zig workflow:
-  - Verify local Zig version and CLI usage before writing Zig code.
-  - Do not use removed or deprecated Zig APIs.
-  - Verify APIs against local Zig version/docs/source instead of memory.
-  - After writing Zig code, compile locally and resolve errors before
-    finalizing.
-  - If compile/runtime errors occur, consult local Zig source/docs
-    first, then revise.
 
 ## Language Policy (C/C++ Focus)
 
@@ -238,9 +285,7 @@
 
 - Prefer project-provided cross-compilation workflows first (documented
   scripts, presets, CI workflows, or toolchain files).
-- If no project-provided workflow exists and the project includes a
-  `build.zig` with target support, prefer Zig-based cross compilation.
-- If Zig-based cross compilation is unavailable, use host-native cross
+- If project-provided workflows are unavailable, use host-native cross
   toolchain approach:
   - On Gentoo, prefer `crossdev`.
   - On other systems, prefer platform-native cross toolchains and
@@ -269,8 +314,6 @@
   applicable.
 - Swift changes: run `swift build` and the smallest relevant `swift
   test` subset.
-- Zig changes: run `zig fmt` on touched files when applicable, then run
-  the smallest relevant `zig build` or `zig build test` target.
 - Lua changes: run `selene` and the smallest relevant test or smoke
   subset.
 - PHP changes: run `mago fmt --check`, `mago lint`, `mago analyze`,
