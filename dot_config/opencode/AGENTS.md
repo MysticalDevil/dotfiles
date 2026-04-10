@@ -219,12 +219,22 @@
   - If compile/runtime errors occur, consult local Zig source/docs
     first, then revise.
 - Error/optional handling policy:
+  - `reader`/`writer` parameters must not use `anytype`.
+  - For `reader`/`writer` parameters, use the proper Zig std I/O
+    interface types for the active Zig version instead of generic
+    `anytype`.
   - In non-test code, forbid empty handling patterns:
     `expr catch {}` and `expr orelse {}`.
   - In non-test code, forbid `expr catch unreachable` and
     `expr orelse unreachable`.
   - Non-test code must handle errors/optionals explicitly (propagate,
     transform, return, or assert with rationale).
+  - In I/O code paths, do not silently swallow errors; every error must
+    be propagated, translated with rationale, or returned.
+  - Do not use `unreachable` as a substitute for recoverable I/O error
+    handling in non-test code.
+  - When translating I/O errors, document why the mapping is correct and
+    what semantics are preserved.
 - Ignore-value policy:
   - Do not ignore values just to silence compiler checks.
   - Prohibited examples include `_ = allocator;` and similar no-op
@@ -259,6 +269,8 @@
   - Rule relaxations are limited to handling and discard policies above:
     `catch/orelse unreachable` and `_ = ...` may be used only when
     justified.
+  - `reader`/`writer` parameter typing rules still apply in tests; do
+    not use `anytype` for them.
   - Every relaxation must include a short inline comment explaining why
     it is safe and test-scoped.
   - Source verification (`zig env` + local source check) and
