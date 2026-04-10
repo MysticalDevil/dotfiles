@@ -201,11 +201,48 @@
 - Zig workflow:
   - Verify local Zig version and CLI usage before writing Zig code.
   - Do not use removed or deprecated Zig APIs.
-  - Verify APIs against local Zig version/docs/source instead of memory.
+  - Official Zig documentation source:
+    `https://ziglang.org/documentation/` (prefer version-matched docs;
+    use `master` only when version-specific docs are unavailable).
+  - Official Zig source/proposal source:
+    `https://codeberg.org/ziglang/zig`.
+  - Do not use Context7 for Zig docs/reference lookup; Zig entries are
+    considered stale and unmaintained.
+  - For any `std.*` usage, run `zig env` first to locate local Zig
+    source, then verify symbol signatures/semantics in source before
+    coding.
+  - Do not implement `std` APIs from memory without source verification.
+  - Zig source/proposal lookup is limited to Zig official sources and
+    Codeberg; do not use GitHub as a Zig source/proposal reference.
   - After writing Zig code, compile locally and resolve errors before
     finalizing.
   - If compile/runtime errors occur, consult local Zig source/docs
     first, then revise.
+- Error/optional handling policy:
+  - In non-test code, forbid empty handling patterns:
+    `expr catch {}` and `expr orelse {}`.
+  - In non-test code, forbid `expr catch unreachable` and
+    `expr orelse unreachable`.
+  - Non-test code must handle errors/optionals explicitly (propagate,
+    transform, return, or assert with rationale).
+- Ignore-value policy:
+  - Do not ignore values just to silence compiler checks.
+  - Prohibited examples include `_ = allocator;` and similar no-op
+    discards used only to bypass diagnostics.
+- No reimplementation policy:
+  - If Zig `std` or Zig language syntax already provides the capability,
+    do not rewrite or duplicate it.
+  - Exceptions are allowed only with measured performance evidence or
+    hard platform/compat constraints, and must be documented.
+- Allocator policy:
+  - Follow Zig official "Choosing an Allocator" guidance as the default
+    decision process.
+  - Tests should use `std.testing.allocator`; use
+    `std.testing.FailingAllocator` when validating OOM handling.
+  - Debug general-purpose allocation may use `std.heap.DebugAllocator`.
+  - ReleaseFast general-purpose allocation should prefer
+    `std.heap.smp_allocator`; do not enforce `page_allocator` as a
+    universal release default.
 - Cross-compilation preference: if no project-provided workflow exists
   and the project includes `build.zig` with target support, prefer
   Zig-based cross compilation.
@@ -213,10 +250,19 @@
   applicable, then run the smallest relevant `zig build` or
   `zig build test` target.
 - Return-value policy:
-  - Do not ignore function or method return values.
-  - Prohibited pattern: `_ = a.b();`.
+  - Do not ignore function or method return values to bypass checks.
+  - Prohibited pattern: `_ = a.b();` (unless the discard is a documented
+    test-only exception below).
   - Every return value must be handled explicitly (check, propagate,
     transform, or assert).
+- Test-only relaxations (`test` blocks and `test` files/directories):
+  - Rule relaxations are limited to handling and discard policies above:
+    `catch/orelse unreachable` and `_ = ...` may be used only when
+    justified.
+  - Every relaxation must include a short inline comment explaining why
+    it is safe and test-scoped.
+  - Source verification (`zig env` + local source check) and
+    no-reimplementation policy remain mandatory in tests.
 
 ## Build Tool Defaults
 
