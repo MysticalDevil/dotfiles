@@ -5,3 +5,5 @@ coursier_bin="$HOME/.local/share/coursier/bin"
 if [[ -d "$coursier_bin" ]] && [[ ":$PATH:" != *":$coursier_bin:"* ]]; then
   export PATH="$PATH:$coursier_bin"
 fi
+
+export PATH="$HOME/.elan/bin:$PATH"

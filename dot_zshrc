@@ -55,6 +55,11 @@ fi
 export MANROFFOPT='-c'
 
 # -----------------
+# PATH
+# -----------------
+export PATH="$PATH:/opt/flutter/bin"
+
+# -----------------
 # Initialize Zim
 # -----------------
 ZIM_HOME="${ZDOTDIR:-$HOME}/.zim"
@@ -192,6 +197,11 @@ fi
 alias del='trash-put'
 alias rm='rm -I --preserve-root --'
 
+if _has sudo-rs; then
+  alias sudo='sudo-rs'
+  alias visudo='visudo-rs'
+fi
+
 # -----------------
 # Third-party init
 # -----------------
@@ -210,6 +220,10 @@ fi
 
 if _has mise; then
   eval "$(mise activate zsh)"
+fi
+
+if _has opam; then
+  eval "$(opam env)"
 fi
 
 # -----------------
