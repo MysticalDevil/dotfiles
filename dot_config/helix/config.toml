@@ -1,24 +1,30 @@
 theme = "tokyonight"
 
 [editor]
-line-number = "absolute"
-mouse = true
+# 用户自定义的滚动设置
 scrolloff = 8
 scroll-lines = 4
-shell = ["zsh"]
+
+# 注意：shell 必须包含 -c 参数才能正确执行命令
+shell = ["zsh", "-c"]
+
+# 界面显示
 cursorline = true
-cursorcolumn = false
+true-color = true
+bufferline = "multiple"
+idle-timeout = 500
+
+# 默认配置（显式声明以文档化）
+line-number = "absolute"
+mouse = true
 auto-completion = true
 auto-format = true
 auto-save = false
-idle-timeout = 500
 completion-trigger-len = 2
 completion-replace = false
 auto-info = true
-true-color = true
 undercurl = false
 rulers = []
-bufferline = "multiple"
 color-modes = false
 
 [editor.statusline]
@@ -92,7 +98,7 @@ tabpad = "·"
 
 [editor.indent-guides]
 render = true
-character = "▏" # Some characters that work well: "▏", "┆", "┊", "⸽"
+character = "▏"
 skip-levels = 1
 
 [editor.gutters]

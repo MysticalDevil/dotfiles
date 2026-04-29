@@ -1,95 +1,67 @@
-use-grammars = { only = ["carbon"] }
+# 只编译常用语言的 grammar，加快构建速度
+use-grammars = { only = [
+  "dockerfile", "yaml", "c", "cpp", "python",
+  "javascript", "typescript", "tsx", "rust",
+  "zig", "c-sharp", "toml", "json",
+] }
 
 [language-server]
-efm-langserver = { command = "efm-langserver" }
-phpactor = { command = "phpactor" }
-v-analyzer = { command = "v-analyzer", args = [""] }
+# Python: ty (静态类型检查器)
+ty = { command = "ty" }
+
+# JS/TS: tsgo (TypeScript Go 重写版，实验性 LSP)
+# 安装: npm install -g @typescript/native-preview
+# 注意：tsgo LSP 仍处于早期开发阶段，部分功能可能不完整
+tsgo = { command = "tsgo", args = ["--lsp", "--stdio"] }
 
 [[language]]
-name = "carbon"
-scope = "source.carbon"
-file-types = ["carbon"]
-comment-token = "//"
-indent = { tab-width = 2, unit = "  " }
-roots = [".git"]
+name = "dockerfile"
 
+[[language]]
+name = "docker-compose"
+
+[[language]]
+name = "c"
+
+[[language]]
+name = "cpp"
 
 [[language]]
 name = "python"
-scope = "source.python"
-injection-regex = "python"
-file-types = [
-  "py",
-  "pyi",
-  "py3",
-  "pyw",
-  "ptl",
-  ".pythonstartup",
-  ".pythonrc",
-  "SConstruct",
-  "rpy",
-  "cpy",
-  "ipy",
-  "pyt",
-  "SConscript",
-]
-shebangs = ["python"]
-roots = ["pyproject.toml", "setup.py", "poetry.lock", "pyrightconfig.json"]
-comment-token = "#"
-language-servers = ["pylyzer"]
-# TODO: pyls needs utf-8 offsets
-indent = { tab-width = 4, unit = "    " }
+language-servers = ["ty"]
 
 [[language]]
-name = "php"
-scope = "source.php"
-injection-regex = "php"
-file-types = ["php", "inc", "php4", "php5", "phtml", "ctp"]
-shebangs = ["php"]
-roots = ["composer.json", "index.php"]
-language-servers = ["phpactor"]
-indent = { tab-width = 4, unit = "    " }
+name = "javascript"
+language-servers = ["tsgo"]
 
 [[language]]
-name = "v"
-scope = "source.v"
-auto-format = true
-file-types = ["v", "vv", "vsh"]
-shebangs = ["v run"]
-roots = ["v.mod"]
-comment-token = "//"
-language-servers = ["v-analyzer"]
-indent = { tab-width = 4, unit = "\t" }
-
-[[grammar]]
-name = "v"
-source = { git = "https://github.com/v-analyzer/v-analyzer", subpath = "tree_sitter_v", rev = "e14fdf6e661b10edccc744102e4ccf0b187aa8ad" }
+name = "jsx"
+language-servers = ["tsgo"]
 
 [[language]]
-name = "html"
-scope = "text.html.basic"
-injection-regex = "html"
-file-types = [
-  "html",
-  "htm",
-  "shtml",
-  "xhtml",
-  "xht",
-  "jsp",
-  "asp",
-  "aspx",
-  "jshtm",
-  "volt",
-  "rhtml",
-]
-language-servers = ["vscode-html-language-server"]
-auto-format = true
-indent = { tab-width = 2, unit = "  " }
+name = "typescript"
+language-servers = ["tsgo"]
 
-[language.auto-pairs]
-'(' = ')'
-'{' = '}'
-'[' = ']'
-'"' = '"'
-'`' = '`'
-'<' = '>'
+[[language]]
+name = "tsx"
+language-servers = ["tsgo"]
+
+[[language]]
+name = "rust"
+
+[[language]]
+name = "zig"
+
+[[language]]
+name = "c-sharp"
+language-servers = ["roslyn-language-server"]
+
+[[language]]
+name = "toml"
+language-servers = ["taplo"]
+
+[[language]]
+name = "json"
+
+[[language]]
+name = "jsonc"
