@@ -22,7 +22,29 @@
 # sudo_command = "sudo"
 
 # Disable specific steps - same options as the command line flag
-disable = ["node", "pnpm", "yarn", "bun", "bun_packages", "cargo", "go", "pip3", "pip_review", "pip_review_local", "pipupgrade", "pipx", "pipxu", "uv", "poetry", "rye", "gem", "ruby_gems", "conda", "dotnet"]
+disable = [
+  "node",
+  "pnpm",
+  "yarn",
+  "bun",
+  "bun_packages",
+  "cargo",
+  "go",
+  "pip3",
+  "pip_review",
+  "pip_review_local",
+  "pipupgrade",
+  "pipx",
+  "pipxu",
+  "uv",
+  "poetry",
+  "rye",
+  "gem",
+  "ruby_gems",
+  "conda",
+  "dotnet",
+  "vite_plus",
+]
 
 # Ignore failures for these steps
 # ignore_failures = ["powershell"]
