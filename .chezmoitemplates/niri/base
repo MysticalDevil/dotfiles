@@ -194,6 +194,13 @@ hotkey-overlay {
 
 prefer-no-csd
 
+blur {
+    passes 3
+    offset 3
+    noise 0.02
+    saturation 1.5
+}
+
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 animations {
@@ -240,6 +247,7 @@ window-rule {
 window-rule {
     match app-id=r#"^(com\.mitchellh\.ghostty|org\.wezfurlong\.wezterm|foot|Alacritty|kitty)$"#
     default-column-width { proportion 0.666667; }
+    background-effect { blur true }
 }
 
 window-rule {
